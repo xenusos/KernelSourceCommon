@@ -1,29 +1,28 @@
 /*
-    Purpose: general purpose xenus kernel header (fundamental and important types)
+    Purpose: general purpose xenus kernel header
     Author: Reece W.
     License: All Rights Reserved J. Reece Wilson
 */
 #pragma once
 
-#ifdef __GNUC__
-#define XENUS_MS_ABI __attribute__((ms_abi))
-#define XENUS_SYSV_ABI __attribute__((sysv_abi ))
+#ifdef BOOTSTRAP
+	#define XENUS_MS_ABI __attribute__((ms_abi))
+	#define XENUS_SYSV_ABI __attribute__((sysv_abi))
+
 	#define XENUS_IMPORT XENUS_MS_ABI
 	#define XENUS_EXPORT XENUS_MS_ABI
-	#define XENUS_IMPORT_VAR 
-	#define XENUS_EXPORT_VAR 
+
+	#define XENUS_IMPORT_VAR   extern
+	#define XENUS_EXPORT_VAR   extern
 #elif defined(_MSC_VER) && defined (XENUS_BUILD)
 	#define XENUS_SYSV_ABI
 	#define XENUS_MS_ABI 
+
 	#define XENUS_IMPORT		XENUS_MS_ABI __declspec(dllimport)
 	#define XENUS_EXPORT		XENUS_MS_ABI __declspec(dllexport)
+
 	#define XENUS_IMPORT_VAR	extern __declspec(dllimport) 
 	#define XENUS_EXPORT_VAR	extern __declspec(dllexport) 
-#else
-	// VISUAL STUDIO BUG:
-	#define XENUS_IMPORT  XENUS_MS_ABI __declspec(dllimport)
-	#define XENUS_EXPORT  XENUS_MS_ABI __declspec(dllexport)
-	//#error Illegal build environment. Compiling user mode plugin with a kernel header?
 #endif	
 
 #ifdef KERNEL
@@ -42,31 +41,42 @@
 	#define XENUS_END_C
 #endif 
 
-#include <stdarg.h>							// i don't like doing this, but we have to. MSVC allows us to get away with this. we need _va tuff
-#include <_\_xenus_ints.h>					// similar to inttypes.h
-#include <_\_xenus_errors.h>					// error and status codes 
+XENUS_BEGIN_C
 
-#include <_\_xenus_types_threads.h>			// thread callback, etc
-#include <_\_xenus_types_modules.h>			// entrypoint type, options, etc
+#include <_/_generic_config.h>
 
-
-#ifdef __GNUC__
-	#include <_\_linux_linux_types_mapping.h>
-#else
-	#include <_\_xenus_linux_types_generic.h>
+#ifndef BOOTSTRAP
+	#include <stdarg.h>							// i don't like doing this, but we have to. MSVC allows us to get away with this. we need _va structs
+	#include <_/_xenus_ints.h>					// similar to inttypes.h
+	#include <_/_xenus_errors.h>				// error and status codes 
+	#include <_/_xenus_types_modules.h>			// entrypoint type, options, etc
+	#include <_/_xenus_hash_codes.h>
 #endif
-//#include "_xenus_linux_types_time.h"
-//#include "_xenus_linux_types_task.h"
-//#include "_xenus_linux_types_memory.h"
-//#include "_xenus_linux_types_usb.h"
-//#include "_xenus_linux_types_pci.h"
 
-#include <_\_xenus_linux_structs.h>
+#include <_/_generic_types_threads.h>		// thread callback, etc
 
-static void volatile hackerz()
-{
-    // volatile const char * a = "read me | xref me | Encryption http password https tor .onion file network microsoft linux hackers hack registry malloc alloc mem";
-    // volatile const char * b = "read me | xref me | encrypt libtomcrypt openssl ssl tls .com .org wddm ddm xdll dll dump win win32 windows";
-    // volatile const char * c = "read me | xref me | chrome pipe DMA pci sock sockets FILE";
-    // volatile const char * d = "now i've got your attention, xref this particular stub for intersting locations!";
-}
+
+#ifdef BOOTSTRAP
+	#include <_/_linux_linux_types_mapping.h>
+#else
+	#include <_/_xenus_linux_types_generic.h>
+	#include <_/_xenus_linux_types_cpu.h>
+	#include <_/_xenus_linux_types_fio.h>
+	#include <_/_xenus_linux_types_interrupts.h>
+	#include <_/_xenus_linux_types_io.h>
+	#include <_/_xenus_linux_types_memory.h>
+	#include <_/_xenus_linux_types_pci.h>
+	#include <_/_xenus_linux_types_task.h>
+	#include <_/_xenus_linux_types_time.h>
+	#include <_/_xenus_linux_types_usb.h>
+#endif
+XENUS_END_C
+
+#if !defined(PS_IMPORTING) && !defined(PS_EXPORTING)
+	#ifdef KERNEL
+		#define PS_IMPORTING
+	#else
+		#define PS_EXPORTING
+	#endif 
+#endif 
+#include <_/_generic_linux_structs.h>

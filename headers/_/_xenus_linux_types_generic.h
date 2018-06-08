@@ -5,174 +5,14 @@
 */
 #pragma once
 
-// these are structs !
-// these should not be treated like regular pointers !
-// to allocate on stack, use PS_ALLOC_STRUCT_ON_STACK
-
 
 //_k = unknown (K)ernel type
 // general
 typedef void *	unknown_k;
-typedef void *	kobject_k;
 
-typedef void *  resource_k;
-
-// processes
-typedef void * task_k;
-typedef void * thread_info_k;
-typedef void * thread_struct_k;
-typedef void * pid_k;
-typedef void * mutex_k;
-typedef void * pid_link_k;
-//TODO: more sched related types
-
-// file io
-typedef void * file_operations_k;
-typedef void * proc_dir_entry_k;
-typedef void * kstat_k;
-typedef void * file_k;
-typedef void * path_k;
-typedef void * inode_k;
-typedef void * iattr_k;
-typedef void * address_space_operations_k;
-typedef void * address_space_k;
-typedef void * block_device_k;
-typedef void * fown_struct_k;
-typedef void * file_ra_state_k;
-typedef void * file_lock_k;
-typedef void * file_lock_operations_k;
-typedef void * lock_manager_operations_k;
-typedef void * lock_manager_k;
-typedef void * fasync_struct_k;
-typedef void * sb_writers_k;
-typedef void * super_block_k;
-typedef void * dir_context_k;
-typedef void * inode_operations_k;
-typedef void * super_operations_k;
-typedef void * file_system_type_k;
-typedef void * filename_k;
-
-// memory
-typedef void * vm_area_struct_k;
-typedef void * mm_struct_k;
-typedef void * vm_region_k;
-typedef void * vm_operations_struct_k;
-typedef void * vm_fault;
-typedef void * page_k;
-typedef void * scatterlist_k;
-
-
-// some usb stuff
-typedef void * usb_interface_descriptor_k;
-typedef void * usb_host_endpoint_k;
-typedef void * usb_bus_k;
-typedef void * usb_interface_k;
-typedef void * usb_host_interface_k;
-typedef void * usb_device_k;
-typedef void * usb_driver_k;
-typedef void * usb_device_driver_k;
-typedef void * usb_anchor_k;
-typedef void * usb_iso_packet_descriptor_k;
-typedef void * usb_sg_request_k;
-typedef void * usb_interface_cache_k;
-typedef void * usb_host_config_k;
-typedef void * usb_host_bos_k;
-typedef void * urb_k;
-typedef void * usb_ss_ep_comp_descriptor_k;
-typedef void * usb_ssp_isoc_ep_comp_descriptor_k;
-typedef void * usb_interface_assoc_descriptor_k;
-typedef void * usb_endpoint_descriptor_k;
-typedef void * usb_config_descriptor_k;
-
-// notifier
-typedef void * notifier_block_k;
-typedef void * atomic_notifier_head_k;
-typedef void * blocking_notifier_head_k;
-typedef void * raw_notifier_head_k;
-typedef void * srcu_notifier_head_k;
-
-
-// pci
-typedef void * pci_driver_k;
-typedef void * pci_device_id_k;
-typedef void * pci_bus_k;
-typedef void * pci_slot_k;
-typedef void * pci_dev_k;
-typedef void * pci_error_handlers_k;
-typedef void * pci_dynids_k;
-typedef void * pci_bus_region_k;
-typedef void * pci_host_bridge_k;
-typedef void * pci_ops_k;
-typedef void * pci_saved_state_k;
-typedef void * pci_cap_saved_state_k;
-
-// devices
-typedef void * device_k;
-typedef void * device_type_k;
-typedef void * dev_links_info_k;
-typedef void * device_driver_k;
-typedef void * dev_ext_attribute_k;
-typedef void * device_node_k;
-typedef void * device_attribute_k;
-typedef void * device_link_k;
-
-typedef void * class_k;
-typedef void * class_dev_iter_k;
-typedef void * class_interface_k;
-typedef void * class_attribute_string_k;
-typedef void * class_attribute_k;
-typedef void * bus_type_k;
-typedef void * bus_attribute_k;
-
-typedef void * irq_domain_k;
-
-typedef void * attribute_group_k;
-typedef void * bin_attribute_k;
-typedef void * sysfs_ops_k;
-
-typedef void * cdev_k;
-
-typedef void * dev_pm_ops_k;
-typedef void * dev_pm_info_k;
-typedef void * dev_pm_domain_k;
-typedef void * pm_subsys_data_k;
-
-typedef void * lock_class_key_k;
-typedef void * lockdep_subclass_key_k;
-typedef void * lock_class_k;
-typedef void * lock_time_k;
-typedef void * lock_class_stats_k;
-typedef void * lockdep_map_k;
-typedef void * lock_list_k;
-typedef void * lock_chain_k;
-typedef void * held_lock_k;
-
-//
-typedef void * module_k;
-typedef void * module_attribute_k;
-typedef void * module_kobject_k;
-typedef void * module_version_attribute_k;
-typedef void * module_use_k;
-typedef void * mod_tree_node_k;
-typedef void * module_layout_k;
-typedef void * mod_kallsyms_k;
-
-
-typedef void * dma_map_ops_k;
-
-//seq files
-typedef void * seq_file_k;
-typedef void * seq_operations_k;
-
-//dcache
-typedef void * qstr_k;
-typedef void * dentry_stat_t_k; //wtf linux devs
-typedef void * dentry_k;
-typedef void * dentry_operations_k;
-
-typedef void * sched_attr_k;
-
-
+#define DEFINE_TYPE(x) typedef void * x ## _k
+#include "_unknown_types.macros"
+#undef DEFINE_TYPE
 
 struct llist_head {
 	struct llist_node *first;
@@ -310,15 +150,21 @@ typedef physical_address_t resource_size_t;
 typedef physical_address_t dma_addr_t;
 typedef physical_address_t pci_bus_addr_t;
 
-typedef unsigned long	pteval_t;
-typedef unsigned long	pmdval_t;
-typedef unsigned long	pudval_t;
-typedef unsigned long	p4dval_t;
-typedef unsigned long	pgdval_t;
-typedef unsigned long	pgprotval_t;
+typedef unsigned long pteval_t;
+typedef unsigned long pmdval_t;
+typedef unsigned long pudval_t;
+typedef unsigned long p4dval_t;
+typedef unsigned long pgdval_t;
+typedef unsigned long pgprotval_t;
 
-typedef struct { pteval_t pte; } pte_t;
-typedef struct pgprot { pgprotval_t pgprot; } pgprot_t;
+typedef struct
+{ 
+	pteval_t pte; 
+} pte_t;
+typedef struct pgprot 
+{
+	pgprotval_t pgprot_; 
+} pgprot_t;
 typedef struct { pgdval_t pgd; } pgd_t;
 
 

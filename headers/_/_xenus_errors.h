@@ -7,7 +7,7 @@
 
 #define STATUSES_NAME   xenus_errors
 #define STATUSES_HEADER <_\_xenus_error_codes.h>
-#include <lib_statuses.h>
+#include <deps/lib_statuses.h>
 
 #define STRICTLY_OKAY(x)		((x) == XENUS_OKAY)
 #define NO_ERROR(x)				((x) > 0)

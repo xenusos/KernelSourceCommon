@@ -75,6 +75,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);XENUS_BUILD</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -104,6 +105,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);XENUS_BUILD</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -123,26 +125,30 @@
     <ClInclude Include="headers\libx\xenus_strings.h" />
     <ClInclude Include="headers\libx\xenus_threads.h" />
     <ClInclude Include="headers\libx\xenus_win_support.h" />
-    <ClInclude Include="headers\lib_port_structs.h" />
-    <ClInclude Include="headers\lib_statuses.h" />
+    <ClInclude Include="headers\deps\lib_port_structs.h" />
+    <ClInclude Include="headers\deps\lib_statuses.h" />
+    <ClInclude Include="headers\peloader\pe_loader.h" />
+    <ClInclude Include="headers\sys\sys_dbg.h" />
     <ClInclude Include="headers\sys\sys_linux_caller.h" />
     <ClInclude Include="headers\sys\sys_mem.h" />
     <ClInclude Include="headers\sys\sys_mutex.h" />
     <ClInclude Include="headers\sys\sys_sched.h" />
     <ClInclude Include="headers\sys\sys_strings.h" />
     <ClInclude Include="headers\sys\sys_symbols.h" />
+    <ClInclude Include="headers\sys\sys_timer.h" />
     <ClInclude Include="headers\sys\xenus_sys.h" />
     <ClInclude Include="headers\sys\xenus_sys.hpp" />
     <ClInclude Include="headers\sys\___sys_strings.h" />
     <ClInclude Include="headers\xenus.h" />
     <ClInclude Include="headers\xenus_lazy.h" />
+    <ClInclude Include="headers\_\_generic_config.h" />
     <ClInclude Include="headers\_\_linux_linux_types_mapping.h" />
-    <ClInclude Include="headers\_\_xenus_bootstrap.h" />
+    <ClInclude Include="headers\_\_generic_bootstrap.h" />
     <ClInclude Include="headers\_\_xenus_errors.h" />
     <ClInclude Include="headers\_\_xenus_error_codes.h" />
     <ClInclude Include="headers\_\_xenus_hash_codes.h" />
     <ClInclude Include="headers\_\_xenus_ints.h" />
-    <ClInclude Include="headers\_\_xenus_linux_structs.h" />
+    <ClInclude Include="headers\_\_generic_linux_structs.h" />
     <ClInclude Include="headers\_\_xenus_linux_types_cpu.h" />
     <ClInclude Include="headers\_\_xenus_linux_types_fio.h" />
     <ClInclude Include="headers\_\_xenus_linux_types_generic.h" />
@@ -154,10 +160,13 @@
     <ClInclude Include="headers\_\_xenus_linux_types_time.h" />
     <ClInclude Include="headers\_\_xenus_linux_types_usb.h" />
     <ClInclude Include="headers\_\_xenus_types_modules.h" />
-    <ClInclude Include="headers\_\_xenus_types_threads.h" />
+    <ClInclude Include="headers\_\_generic_types_threads.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="headers\_\_xenus_linux_structs.macros" />
+    <ClCompile Include="headers\_\_portable_structs.macros" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="headers\_\_unknown_types.macros" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

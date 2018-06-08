@@ -8,9 +8,9 @@
 
 typedef struct 
 {
-    int     (XENUS_SYSV_ABI *print)(const char *fmt);
-	void(XENUS_SYSV_ABI *panic)(const char *fmt);
-	void(XENUS_SYSV_ABI * test_function)(int a_1, int a_2, int a_3, int a_4, int a_5, int a_6, int a_7, int a_8, int a_9, int a_10, int a_11, int a_12);
+	void (*test_function)(int a_1, int a_2, int a_3, int a_4, int a_5, int a_6, int a_7, int a_8, int a_9, int a_10, int a_11, int a_12);
+    int  (*print)(const char *fmt);
+	void (*panic)(const char *fmt);
 } bootstrap_dbg_t;
 
 typedef struct 
@@ -111,7 +111,8 @@ typedef struct
 
 typedef struct
 {
-	void *(* kallsyms_lookup_name)(const char *name);
+	void *(*kallsyms_lookup_name)(const char *name);
+	void *(*__symbol_get)(const char *name);
 } bootstrap_symbols_t;
 
 typedef struct 

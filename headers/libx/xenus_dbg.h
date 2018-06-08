@@ -1,7 +1,5 @@
 #pragma once
 
-//#include <sys/sys_dbg.h>
-
 static int printf(const char *fmt, ...)
 {
 	char msg[2049];

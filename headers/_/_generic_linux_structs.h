@@ -6,15 +6,7 @@
 */
 #pragma once
 
-#if !defined(PS_IMPORTING) && !defined(PS_EXPORTING)
-	#ifdef KERNEL
-		#define PS_IMPORTING
-	#else
-		#define PS_EXPORTING
-	#endif 
-#endif 
-
-#include <lib_port_structs.h>
+#include <deps/lib_port_structs.h>
 
 PS_HEADER_GLOBAL_START
 	//PS_HEADER_TYPE_START

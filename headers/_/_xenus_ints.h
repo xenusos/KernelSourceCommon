@@ -26,6 +26,7 @@ typedef int64_t		error_t;
 typedef void *		physical_address_t;
 typedef void *		system_v_function_t;
 
+
 #define 	INT8_MAX   0x7f
 #define 	INT8_MIN   (-INT8_MAX - 1)
 #define 	UINT8_MAX   (INT8_MAX * 2 + 1)

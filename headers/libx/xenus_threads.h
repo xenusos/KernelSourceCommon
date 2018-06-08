@@ -17,8 +17,6 @@ typedef struct thread_index_counter_s
 typedef void * thread_index_counter_p;
 #endif
 
-
-
 #ifdef KERNEL
 uint32_t    thread_geti();
 #endif
