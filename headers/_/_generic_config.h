@@ -1,5 +1,8 @@
 #pragma once
 
+#define KENREL_DYNAMIC_EXPORTS
+
+#define KERNEL_MODULE_IN_PE_LOADER 
 
 #define PE_MAX_MODULE_LENGTH 20
 #define PE_MAX_SYMBOL_LENGTH 100
