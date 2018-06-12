@@ -26,7 +26,7 @@ XENUS_IMPORT char *	strchr(const char *s, int c);
 XENUS_IMPORT char *	strnchr(const char *s, size_t count, int c);
 XENUS_IMPORT char *	skip_spaces(const char *str);
 XENUS_IMPORT char *	strim(char *s);
-XENUS_IMPORT int 	strlen(const char * source);
+XENUS_IMPORT size_t strlen(const char * source); //WDM hacks should ret int
 XENUS_IMPORT size_t strnlen(const char *s, size_t count);
 XENUS_IMPORT size_t	strspn(const char *s, const char *accept);
 XENUS_IMPORT size_t strcspn(const char *s, const char *reject);

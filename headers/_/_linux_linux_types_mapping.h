@@ -22,6 +22,7 @@
 #include <linux/mm_types.h>
 #include <linux/lockdep.h>
 #include <linux/notifier.h>
+#include <linux/of.h>
 
 
 typedef struct cpumask *							cpumask_k;

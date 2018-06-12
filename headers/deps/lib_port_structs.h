@@ -56,23 +56,23 @@ int ps_buffer_length(void);
 #define PS_HEADER_TYPE_END(type, type_name) } ps_type_ ## type_name;
 
 
-#define PS_HEADER_MEMBER(member) struct { uint16_t length; uint16_t offset; char name[TS_MAX_MEMBER_LENGTH];  } ps_member_ ## member;
+#define PS_HEADER_MEMBER(member, member_name) struct { uint16_t length; uint16_t offset; char name[TS_MAX_MEMBER_LENGTH];  } ps_member_ ## member_name;
 
 
 #define PS_SRC_FUNC_START ps_global_t ps_global = { 0 };  void ps_initialize(void) { memset(&ps_global, 0, sizeof(ps_global));
 #define PS_SRC_FUNC_END   }
 
 #define __PS_SRC_FUNC_ADD_TYPE(type, type_name) strncat(ps_global.ps_type_ ## type_name.name, #type_name, TS_MAX_STRUCT_NAME_LENGTH);  ps_global.ps_type_ ## type_name ## .length = sizeof(type);
-#define __PS_SRC_FUNC_ADD_TYPE_MEMBER(type, type_name, member)  strncat(ps_global.ps_type_ ## type_name ## .ps_member_ ## member ## .name , #member, TS_MAX_MEMBER_LENGTH); \
-                                                              ps_global.ps_type_ ## type_name ## .ps_member_ ## member ## .length = __PS_SIZEOF_MEM_OF(type, member); \
-                                                              ps_global.ps_type_ ## type_name ## .ps_member_ ## member ## .offset = __PS_OFFSET_OF(type, member);
+#define __PS_SRC_FUNC_ADD_TYPE_MEMBER(type, type_name, member, member_name)  strncat(ps_global.ps_type_ ## type_name ## .ps_member_ ## member_name ## .name , #member, TS_MAX_MEMBER_LENGTH); \
+                                                                                     ps_global.ps_type_ ## type_name ## .ps_member_ ## member_name ## .length = __PS_SIZEOF_MEM_OF(type, member); \
+                                                                                     ps_global.ps_type_ ## type_name ## .ps_member_ ## member_name ## .offset = __PS_OFFSET_OF(type, member);
 
 #ifdef PS_EXPORTING
 	#define PS_SRC_FUNC_ADD_TYPE               __PS_SRC_FUNC_ADD_TYPE     
 	#define PS_SRC_FUNC_ADD_TYPE_MEMBER        __PS_SRC_FUNC_ADD_TYPE_MEMBER       
 #elif defined PS_IMPORTING
 	#define PS_SRC_FUNC_ADD_TYPE(x, y)
-	#define PS_SRC_FUNC_ADD_TYPE_MEMBER(x, y)
+	#define PS_SRC_FUNC_ADD_TYPE_MEMBER(x, y, z, a)
 #endif
 
 #define PS_HEADER_INIT_TYPE(type_name)\
@@ -89,7 +89,7 @@ static inline uint64_t type_name ## _size()\
     return ps_global.ps_type_ ## type_name ## .length;\
 }
 
-#define PS_HEADER_INIT_MEMBER(type, type_name, member)\
+#define PS_HEADER_INIT_MEMBER(type, type_name, member/*_name*/)\
 static inline size_t type_name ## _sizeof_ ## member()\
 {\
     return ps_global.ps_type_ ## type_name ## .ps_member_ ## member ## .length;\

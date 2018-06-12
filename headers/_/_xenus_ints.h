@@ -16,6 +16,7 @@ typedef unsigned long long int  uint64_t;
 
 typedef int64_t 	intptr_t;
 typedef uint64_t 	uintptr_t;
+typedef int64_t     ptrdiff_t;
 
 typedef int64_t		int_t;
 typedef uint64_t 	uint_t;
@@ -53,7 +54,7 @@ typedef void *		system_v_function_t;
 #define 	INT_LEAST64_MIN   INT64_MIN
 #define 	UINT_LEAST64_MAX   UINT64_MAX
 
-#ifndef CPLUSPLUS
+#ifndef __cplusplus
 #define bool int
 #define true 1
 #define false 0

@@ -237,6 +237,8 @@ DEFINE_TYPE(dentry);
 DEFINE_TYPE(dentry_operations);
 DEFINE_TYPE(dentry_stat_t);
 
+DEFINE_TYPE(wait_queue_entry_t);
+
 
 /*
 	maybe later:

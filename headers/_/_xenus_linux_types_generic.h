@@ -130,7 +130,9 @@ typedef __kernel_loff_t				loff_t;
 typedef __kernel_off_t				off_t;
 typedef __kernel_loff_t				loff_t;
 typedef __kernel_time_t				time_t;
+#ifndef __clock_t
 typedef __kernel_clock_t			clock_t;
+#endif
 typedef __kernel_timer_t			timer_t;
 typedef __kernel_clockid_t			clockid_t;
 typedef __kernel_caddr_t			caddr_t;

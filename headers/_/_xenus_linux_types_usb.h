@@ -804,7 +804,7 @@ struct usb_key_descriptor {
 
 	uint8_t  tTKID[3];
 	uint8_t  bReserved;
-	uint8_t  bKeyData[0];
+	//uint8_t  bKeyData[1];
 };
 
 /*-------------------------------------------------------------------------*/
@@ -1053,7 +1053,7 @@ struct usb_pd_cap_provider_port_descriptor {
 #define USB_PD_CAP_PROVIDER_TYPE_C	(1 << 2) /* USB Type-C Current */
 	uint8_t bNumOfPDObjects;
 	uint8_t bReserved2;
-	uint32_t wPowerDataObject[];
+	//uint32_t wPowerDataObject[];
 };
 
 /*

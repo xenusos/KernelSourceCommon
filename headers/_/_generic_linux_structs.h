@@ -9,17 +9,17 @@
 #include <deps/lib_port_structs.h>
 
 PS_HEADER_GLOBAL_START
-	//PS_HEADER_TYPE_START
-	//	PS_HEADER_MEMBER(x)
-	//	PS_HEADER_MEMBER(y)
-	//	PS_HEADER_MEMBER(z)
-	//PS_HEADER_TYPE_END(struct lengthy_struct, lengthy_struct)
-	//PS_HEADER_TYPE_START
-	//	PS_HEADER_MEMBER(x)
-	//	PS_HEADER_MEMBER(y)
-	//	PS_HEADER_MEMBER(z)
-	//PS_HEADER_TYPE_END(struct lengthy_struct, lengthy_struct)
-	int x;
+//PS_HEADER_TYPE_START
+//	PS_HEADER_MEMBER(x)
+//	PS_HEADER_MEMBER(y)
+//	PS_HEADER_MEMBER(z)
+//PS_HEADER_TYPE_END(struct lengthy_struct, lengthy_struct)
+//PS_HEADER_TYPE_START
+//	PS_HEADER_MEMBER(x)
+//	PS_HEADER_MEMBER(y)
+//	PS_HEADER_MEMBER(z)
+//PS_HEADER_TYPE_END(struct lengthy_struct, lengthy_struct)
+int x;
 PS_HEADER_GLOBAL_END
 
 //PS_HEADER_INIT_TYPE(lengthy_struct)

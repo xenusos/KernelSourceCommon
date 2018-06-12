@@ -166,3 +166,6 @@ blocking */
 #define LOCK_RW		192	/* which allows concurrent read & write ops */
 
 #define F_LINUX_SPECIFIC_BASE	1024
+
+
+#define _INC_FCNTL

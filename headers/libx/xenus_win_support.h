@@ -1,6 +1,6 @@
 #pragma once
 
-extern int _fltused = 0x9875; 
+XENUS_SYM int _fltused; 
 
 // All Xenus threads allow FPU usage!!!
 
