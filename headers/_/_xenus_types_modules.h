@@ -28,13 +28,21 @@ typedef struct
 
 typedef struct
 {
+	bool has_started;                                                      // OUT: KERN -> MOD, KERN -> KERN
+	bool has_init;                                                         // OUT: KERN -> MOD, KERN -> KERN
+	int status_code;													   // OUT: KERN -> MOD, KERN -> KERN, = xenus_entrypoint_ctx_t##init()
+} *mod_global_data_p, mod_global_data_t;
+
+typedef struct
+{
 	size_t size;	
-	void (*init)(mod_dependency_list_p deps);								// IN: KERN <- MOD
-	void (*start)(void);													// IN: KERN <- MOD
+	bool (*init)(mod_dependency_list_p deps);								// IN: KERN <- MOD	| return false on error
+	int (*start)(void);												    	// IN: KERN <- MOD	| return status code
 	void (*shutdown)(void);													// IN: KERN <- MOD
 	char * description;														// IN: KERN <- MOD
 	char * copyright;														// IN: KERN <- MOD
 	mod_dependency_list_t dependencies;										// IN: KERN <- MOD
+	mod_global_data_p static_data;                                          // IN: KERN <- MOD (this is just a pointer to a struct within some section of your modules pe)
 } *xenus_entrypoint_ctx_p, xenus_entrypoint_ctx_t;
 
 typedef void(*entrypoint_t)(xenus_entrypoint_ctx_p context);
