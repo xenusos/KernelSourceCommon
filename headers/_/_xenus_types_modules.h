@@ -28,8 +28,7 @@ typedef struct
 
 typedef struct
 {
-	//char * name;															// OUT:KERN -> MOD
-	//char * module;															// OUT:KERN -> MOD
+	size_t size;	
 	void (*init)(mod_dependency_list_p deps);								// IN: KERN <- MOD
 	void (*start)(void);													// IN: KERN <- MOD
 	void (*shutdown)(void);													// IN: KERN <- MOD
