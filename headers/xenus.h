@@ -34,14 +34,14 @@
 #endif 
 
 #ifdef __cplusplus
-	#define XENUS_BEGIN_C extern "C" {
+	#define XENUX_BEGIN_C extern "C" {
 	#define XENUS_END_C  }
 #else
-	#define XENUS_BEGIN_C
+	#define XENUX_BEGIN_C
 	#define XENUS_END_C
 #endif 
 
-XENUS_BEGIN_C
+XENUX_BEGIN_C
 
 #include <_/_generic_config.h>
 
@@ -57,6 +57,7 @@ XENUS_BEGIN_C
 
 
 #ifdef BOOTSTRAP
+    #include <_/_linux_all_headers.h>
 	#include <_/_linux_linux_types_mapping.h>
 #else
 	#include <_/_xenus_linux_types_generic.h>
@@ -70,13 +71,9 @@ XENUS_BEGIN_C
 	#include <_/_xenus_linux_types_time.h>
 	#include <_/_xenus_linux_types_usb.h>
 #endif
+
+#define XENUS_LIBLINUX_SYM extern
+#define XENUS_LIBLINUX_SYM_VAR extern
+
 XENUS_END_C
 
-#if !defined(PS_IMPORTING) && !defined(PS_EXPORTING)
-	#ifdef KERNEL
-		#define PS_IMPORTING
-	#else
-		#define PS_EXPORTING
-	#endif 
-#endif 
-#include <_/_generic_linux_structs.h>

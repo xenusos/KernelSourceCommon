@@ -10,7 +10,8 @@
 // general
 typedef void *	unknown_k;
 
-#define DEFINE_TYPE(x) typedef void * x ## _k
+
+#define DEFINE_TYPE(fuckoff, x) typedef void * x ## _k
 #include "_unknown_types.macros"
 #undef DEFINE_TYPE
 
@@ -90,10 +91,7 @@ struct hlist_node {
 	struct hlist_node *next, **pprev;
 };
 
-typedef struct {
-	int counter;
-} atomic_t;
-
+typedef int32_t atomic_t;
 
 
 typedef int					pci_power_t;

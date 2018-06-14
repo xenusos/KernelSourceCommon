@@ -12,3 +12,6 @@
 // warning: increasing the following will result in significantly higher memory usage
 #define TS_MAX_STRUCT_NAME_LENGTH	20
 #define TS_MAX_MEMBER_LENGTH		20
+
+
+#define DYNAMIC_TYPES_CHECK_LENGTH 1

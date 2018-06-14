@@ -27,29 +27,74 @@ typedef int64_t		error_t;
 typedef void *		physical_address_t;
 typedef void *		system_v_function_t;
 
+typedef uint64_t    atomic64_t;
 
-#define 	INT8_MAX   0x7f
-#define 	INT8_MIN   (-INT8_MAX - 1)
-#define 	UINT8_MAX   (INT8_MAX * 2 + 1)
-#define 	INT16_MAX   0x7fff
-#define 	INT16_MIN   (-INT16_MAX - 1)
-#define 	INT32_MAX   0x7fffffffL
-#define 	INT32_MIN   (-INT32_MAX - 1L)
-#define 	INT64_MAX   0x7fffffffffffffffLL
-#define 	INT64_MIN   (-INT64_MAX - 1LL)
 
-#define 	INT_LEAST8_MAX   INT8_MAX
-#define 	INT_LEAST8_MIN   INT8_MIN
-#define 	UINT_LEAST8_MAX   UINT8_MAX
-#define 	INT_LEAST16_MAX   INT16_MAX
-#define 	INT_LEAST16_MIN   INT16_MIN
-#define 	UINT_LEAST16_MAX   UINT16_MAX
-#define 	INT_LEAST32_MAX   INT32_MAX
-#define 	INT_LEAST32_MIN   INT32_MIN
-#define 	UINT_LEAST32_MAX   UINT32_MAX
-#define 	INT_LEAST64_MAX   INT64_MAX
-#define 	INT_LEAST64_MIN   INT64_MIN
-#define 	UINT_LEAST64_MAX   UINT64_MAX
+
+#ifndef INT8_MAX
+#define INT8_MAX 127
+#endif
+
+#ifndef INT8_MIN
+#define INT8_MIN (-128)
+#endif
+
+#ifndef UINT8_MAX
+#define UINT8_MAX 0xFFU
+#endif
+
+#ifndef UINT8_MIN
+#define UINT8_MIN 0x00U
+#endif
+
+#ifndef INT16_MAX
+#define INT16_MAX 32767
+#endif
+
+#ifndef INT16_MIN
+#define INT16_MIN (-32768)
+#endif
+
+#ifndef UINT16_MAX
+#define UINT16_MAX 0xFFFFU
+#endif
+
+#ifndef UINT16_MIN
+#define UINT16_MIN 0x0000U
+#endif
+
+#ifndef INT32_MAX
+#define INT32_MAX 0x7FFFFFFF
+#endif
+
+#ifndef INT32_MIN
+#define INT32_MIN (-INT32_MAX - 1)
+#endif
+
+#ifndef UINT32_MAX
+#define UINT32_MAX 0xFFFFFFFFU
+#endif
+
+#ifndef UINT32_MIN
+#define UINT32_MIN 0x00000000U
+#endif
+
+#ifndef INT64_MAX
+#define INT64_MAX 0x7FFFFFFFFFFFFFFF
+#endif
+
+#ifndef INT64_MIN
+#define INT64_MIN (-INT64_MAX - 1)
+#endif
+
+#ifndef UINT64_MAX
+#define UINT64_MAX 0xFFFFFFFFFFFFFFFFU
+#endif
+
+#ifndef UINT64_MIN
+#define UINT64_MIN 0x0000000000000000U
+#endif
+
 
 #ifndef __cplusplus
 #define bool int

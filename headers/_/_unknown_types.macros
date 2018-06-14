@@ -1,260 +1,157 @@
-DEFINE_TYPE(refcount_struct);
-
-DEFINE_TYPE(kref);
-DEFINE_TYPE(kobject);
-
-DEFINE_TYPE(resource);
-
-DEFINE_TYPE(vtime);
-DEFINE_TYPE(prev_cputime);
-DEFINE_TYPE(load_weight);
-
-DEFINE_TYPE(rt_rq);
-DEFINE_TYPE(rt_prio_array);
-
-DEFINE_TYPE(sched_avg);
-DEFINE_TYPE(sched_statistics);
-DEFINE_TYPE(sched_entity);
-DEFINE_TYPE(sched_rt_entity);
-DEFINE_TYPE(sched_dl_entity);
-DEFINE_TYPE(sched_class);
-DEFINE_TYPE(sched_group);
-DEFINE_TYPE(sched_attr);
-DEFINE_TYPE(sched_param);
-DEFINE_TYPE(sched_info);
-
-DEFINE_TYPE(sd_data);
-DEFINE_TYPE(sched_domain);
-DEFINE_TYPE(sched_domain_topology_level);
-DEFINE_TYPE(sched_domain_shared);
-
-DEFINE_TYPE(task_delay_info);
-DEFINE_TYPE(task_group);
-DEFINE_TYPE(task);
-
-DEFINE_TYPE(wake_q_node);
-
-DEFINE_TYPE(sighand_struct);
-DEFINE_TYPE(pacct_struct);
-DEFINE_TYPE(cpu_itimer);
-DEFINE_TYPE(task_cputime_atomic);
-DEFINE_TYPE(thread_group_cputimer);
-DEFINE_TYPE(signal_struct);
-
-DEFINE_TYPE(cfs_bandwidth);
-DEFINE_TYPE(cfs_rq);
-
-DEFINE_TYPE(autogroup);
-
-DEFINE_TYPE(rw_semaphore);
-
-DEFINE_TYPE(spinlock_t);
-
-DEFINE_TYPE(group_info);
-DEFINE_TYPE(cred);
-
-DEFINE_TYPE(user_struct);
-
-DEFINE_TYPE(key);
-DEFINE_TYPE(key_type);
-DEFINE_TYPE(key_construction);
-DEFINE_TYPE(key_preparsed_payload);
-DEFINE_TYPE(key_match_data);
-
-DEFINE_TYPE(keyring_index_key);
-DEFINE_TYPE(keyring_name);
-DEFINE_TYPE(keyring_list);
-
-DEFINE_TYPE(work_struct);
-DEFINE_TYPE(fwnode_handle);
-
-DEFINE_TYPE(thread_info);
-DEFINE_TYPE(thread_struct);
-
-DEFINE_TYPE(upid);
-DEFINE_TYPE(pid);
-DEFINE_TYPE(pid_link);
-
-DEFINE_TYPE(pid_namespace);
-DEFINE_TYPE(pidmap);
-DEFINE_TYPE(mutex);
-DEFINE_TYPE(mutex_waiter); //worker?
-
-DEFINE_TYPE(proc_dir_entry);
-DEFINE_TYPE(kstat);
-DEFINE_TYPE(kstatfs);
-DEFINE_TYPE(filename);
-DEFINE_TYPE(file);
-DEFINE_TYPE(path);
-DEFINE_TYPE(inode);
-DEFINE_TYPE(iattr);
-DEFINE_TYPE(block_device);
-DEFINE_TYPE(fown_struct);
-DEFINE_TYPE(fasync_struct);
-DEFINE_TYPE(sb_writers);
-DEFINE_TYPE(super_block);
-DEFINE_TYPE(dir_context);
-DEFINE_TYPE(file_system_type);
-DEFINE_TYPE(vfsmount);
-
-DEFINE_TYPE(fs_struct);
-
-DEFINE_TYPE(file_ra_state);
-DEFINE_TYPE(file_lock);
-DEFINE_TYPE(file_lock_operations);
-
-DEFINE_TYPE(lock_manager);
-DEFINE_TYPE(lock_manager_operations);
-
-DEFINE_TYPE(file_operations);
-DEFINE_TYPE(inode_operations);
-DEFINE_TYPE(super_operations);
-
-DEFINE_TYPE(address_space_operations);
-DEFINE_TYPE(address_space);
-
-DEFINE_TYPE(seq_file);
-DEFINE_TYPE(seq_operations);
-
-
-DEFINE_TYPE(rcu_node);
-DEFINE_TYPE(rcu_noqs);
-DEFINE_TYPE(rcu_data);
-
-DEFINE_TYPE(core_state);
-DEFINE_TYPE(core_thread);
-
-DEFINE_TYPE(mm_struct);
-
-DEFINE_TYPE(vm_area_struct);
-DEFINE_TYPE(vm_region);
-DEFINE_TYPE(vm_fault);
-DEFINE_TYPE(vm_operations_struct);
-DEFINE_TYPE(vm_special_mapping);
-
-DEFINE_TYPE(page);
-DEFINE_TYPE(scatterlist);
-
-DEFINE_TYPE(usb_interface_descriptor);
-DEFINE_TYPE(usb_host_endpoint);
-DEFINE_TYPE(usb_bus);
-DEFINE_TYPE(usb_interface);
-DEFINE_TYPE(usb_host_interface);
-DEFINE_TYPE(usb_device);
-DEFINE_TYPE(usb_driver);
-DEFINE_TYPE(usb_device_driver);
-DEFINE_TYPE(usb_anchor);
-DEFINE_TYPE(usb_iso_packet_descriptor);
-DEFINE_TYPE(usb_sg_request);
-DEFINE_TYPE(usb_interface_cache);
-DEFINE_TYPE(usb_host_config);
-DEFINE_TYPE(usb_host_bos);
-DEFINE_TYPE(urb);
-DEFINE_TYPE(usb_ss_ep_comp_descriptor);
-DEFINE_TYPE(usb_ssp_isoc_ep_comp_descriptor);
-DEFINE_TYPE(usb_interface_assoc_descriptor);
-DEFINE_TYPE(usb_endpoint_descriptor);
-DEFINE_TYPE(usb_config_descriptor);
-
-DEFINE_TYPE(notifier_block);
-DEFINE_TYPE(atomic_notifier_head);
-DEFINE_TYPE(blocking_notifier_head);
-DEFINE_TYPE(raw_notifier_head);
-DEFINE_TYPE(srcu_notifier_head);
-
-DEFINE_TYPE(pci_driver);
-DEFINE_TYPE(pci_device_id);
-DEFINE_TYPE(pci_bus);
-DEFINE_TYPE(pci_slot);
-DEFINE_TYPE(pci_dev);
-DEFINE_TYPE(pci_error_handlers);
-DEFINE_TYPE(pci_dynids);
-DEFINE_TYPE(pci_bus_region);
-DEFINE_TYPE(pci_host_bridge);
-DEFINE_TYPE(pci_ops);
-DEFINE_TYPE(pci_saved_state);
-DEFINE_TYPE(pci_cap_saved_state);
-
-DEFINE_TYPE(device);
-DEFINE_TYPE(device_type);
-DEFINE_TYPE(device_node);
-DEFINE_TYPE(device_attribute);
-DEFINE_TYPE(device_driver);
-DEFINE_TYPE(device_link);
-
-DEFINE_TYPE(dev_links_info);
-DEFINE_TYPE(dev_ext_attribute);
-
-DEFINE_TYPE(class);
-DEFINE_TYPE(class_dev_iter);
-DEFINE_TYPE(class_interface);
-DEFINE_TYPE(class_attribute_string);
-DEFINE_TYPE(class_attribute);
-
-DEFINE_TYPE(bus_type);
-DEFINE_TYPE(bus_attribute);
-
-DEFINE_TYPE(irq_domain);
-
-DEFINE_TYPE(attribute_group);
-DEFINE_TYPE(bin_attribute);
-DEFINE_TYPE(sysfs_ops);
-
-DEFINE_TYPE(cdev);
-
-DEFINE_TYPE(dev_pm_ops);
-DEFINE_TYPE(dev_pm_info);
-DEFINE_TYPE(dev_pm_domain);
-DEFINE_TYPE(pm_subsys_data);
-
-DEFINE_TYPE(lock_class_key);
-DEFINE_TYPE(lock_class);
-DEFINE_TYPE(lock_time);
-DEFINE_TYPE(lock_class_stats);
-DEFINE_TYPE(lock_list);
-DEFINE_TYPE(lock_chain);
-
-DEFINE_TYPE(lockdep_subclass_key);
-DEFINE_TYPE(lockdep_map);
-DEFINE_TYPE(lockdep_map_cross);
-
-DEFINE_TYPE(held_lock);
-
-DEFINE_TYPE(module);
-DEFINE_TYPE(module_attribute);
-DEFINE_TYPE(module_kobject);
-DEFINE_TYPE(module_version_attribute);
-DEFINE_TYPE(module_use);
-DEFINE_TYPE(module_layout);
-DEFINE_TYPE(mod_tree_node);
-DEFINE_TYPE(mod_kallsyms);
-
-
-DEFINE_TYPE(dma_map_ops);
-
-DEFINE_TYPE(qstr);
-DEFINE_TYPE(dentry);
-DEFINE_TYPE(dentry_operations);
-DEFINE_TYPE(dentry_stat_t);
-
-DEFINE_TYPE(wait_queue_entry_t);
-
-
-/*
-	maybe later:
-	
-	struct audit_context;
-	struct backing_dev_info;
-	struct bio_list;
-	struct blk_plug;
-	struct fs_struct;
-	struct futex_pi_state;
-	struct io_context;
-	struct mempolicy;
-	struct nameidata;
-	struct nsproxy;
-	struct perf_event_context;
-	struct pipe_inode_info;
-	struct reclaim_state;
-	struct robust_list_head;
-*/
+DEFINE_TYPE(struct refcount_struct, refcount_struct);
+DEFINE_TYPE(struct kref, kref);
+DEFINE_TYPE(struct kobject, kobject);
+DEFINE_TYPE(struct resource, resource);
+DEFINE_TYPE(struct vtime, vtime);
+DEFINE_TYPE(struct prev_cputime, prev_cputime);
+DEFINE_TYPE(struct load_weight, load_weight);
+DEFINE_TYPE(struct sched_avg, sched_avg);
+DEFINE_TYPE(struct sched_statistics, sched_statistics);
+DEFINE_TYPE(struct sched_entity, sched_entity);
+DEFINE_TYPE(struct sched_rt_entity, sched_rt_entity);
+DEFINE_TYPE(struct sched_dl_entity, sched_dl_entity);
+DEFINE_TYPE(struct sd_data, sd_data);
+DEFINE_TYPE(struct sched_domain, sched_domain);
+DEFINE_TYPE(struct sched_domain_topology_level, sched_domain_topology_level);
+DEFINE_TYPE(struct sched_domain_shared, sched_domain_shared);
+DEFINE_TYPE(struct task_delay_info, task_delay_info);
+DEFINE_TYPE(struct wake_q_node, wake_q_node);
+DEFINE_TYPE(struct sighand_struct, sighand_struct);
+DEFINE_TYPE(struct pacct_struct, pacct_struct);
+DEFINE_TYPE(struct cpu_itimer, cpu_itimer);
+DEFINE_TYPE(struct task_cputime_atomic, task_cputime_atomic);
+DEFINE_TYPE(struct thread_group_cputimer, thread_group_cputimer);
+DEFINE_TYPE(struct signal_struct, signal_struct);
+DEFINE_TYPE(struct rw_semaphore, rw_semaphore);
+DEFINE_TYPE(struct spinlock, spinlock_t);
+DEFINE_TYPE(struct group_info, group_info);
+DEFINE_TYPE(struct cred, cred);
+DEFINE_TYPE(struct user_struct, user_struct);
+DEFINE_TYPE(struct key, key);
+DEFINE_TYPE(struct key_type, key_type);
+DEFINE_TYPE(struct key_construction, key_construction);
+DEFINE_TYPE(struct key_preparsed_payload, key_preparsed_payload);
+DEFINE_TYPE(struct key_match_data, key_match_data);
+DEFINE_TYPE(struct keyring_index_key, keyring_index_key);
+DEFINE_TYPE(struct task_struct, task);
+DEFINE_TYPE(struct fwnode_handle, fwnode_handle);
+DEFINE_TYPE(struct thread_info, thread_info);
+DEFINE_TYPE(struct thread_struct, thread_struct);
+DEFINE_TYPE(struct upid, upid);
+DEFINE_TYPE(struct pid, pid);
+DEFINE_TYPE(struct pid_link, pid_link);
+DEFINE_TYPE(struct pid_namespace, pid_namespace);
+DEFINE_TYPE(struct pidmap, pidmap);
+DEFINE_TYPE(struct mutex, mutex);
+DEFINE_TYPE(struct mutex_waiter, mutex_waiter);
+DEFINE_TYPE(struct kstat, kstat);
+DEFINE_TYPE(struct kstatfs, kstatfs);
+DEFINE_TYPE(struct filename, filename);
+DEFINE_TYPE(struct file, file);
+DEFINE_TYPE(struct path, path);
+DEFINE_TYPE(struct inode, inode);
+DEFINE_TYPE(struct iattr, iattr);
+DEFINE_TYPE(struct block_device, block_device);
+DEFINE_TYPE(struct fown_struct, fown_struct);
+DEFINE_TYPE(struct fasync_struct, fasync_struct );
+DEFINE_TYPE(struct sb_writers, sb_writers);
+DEFINE_TYPE(struct super_block, super_block);
+DEFINE_TYPE(struct dir_context, dir_context);
+DEFINE_TYPE(struct file_system_type, file_system_type);
+DEFINE_TYPE(struct vfsmount, vfsmount);
+DEFINE_TYPE(struct fs_struct, fs_struct);
+DEFINE_TYPE(struct file_ra_state, file_ra_state);
+DEFINE_TYPE(struct file_lock, file_lock);
+DEFINE_TYPE(struct file_lock_operations, file_lock_operations);
+DEFINE_TYPE(struct lock_manager, lock_manager);
+DEFINE_TYPE(struct lock_manager_operations, lock_manager_operations);
+DEFINE_TYPE(struct file_operations, file_operations);
+DEFINE_TYPE(struct inode_operations, inode_operations);
+DEFINE_TYPE(struct super_operations, super_operations);
+DEFINE_TYPE(struct address_space, address_space);
+DEFINE_TYPE(struct address_space_operations, address_space_operations);
+DEFINE_TYPE(struct seq_file, seq_file);
+DEFINE_TYPE(struct seq_operations, seq_operations);
+DEFINE_TYPE(struct core_state, core_state);
+DEFINE_TYPE(struct core_thread, core_thread);
+DEFINE_TYPE(struct mm_struct, mm_struct);
+DEFINE_TYPE(struct vm_area_struct, vm_area_struct);
+DEFINE_TYPE(struct vm_region, vm_region);
+DEFINE_TYPE(struct vm_fault, vm_fault);
+DEFINE_TYPE(struct vm_operations_struct, vm_operations_struct);
+DEFINE_TYPE(struct vm_special_mapping, vm_special_mapping);
+DEFINE_TYPE(struct page, page);
+DEFINE_TYPE(struct scatterlist, scatterlist);
+DEFINE_TYPE(struct usb_interface_descriptor, usb_interface_descriptor);
+DEFINE_TYPE(struct usb_host_endpoint, usb_host_endpoint);
+DEFINE_TYPE(struct usb_bus, usb_bus);
+DEFINE_TYPE(struct usb_interface, usb_interface);
+DEFINE_TYPE(struct usb_host_interface, usb_host_interface);
+DEFINE_TYPE(struct usb_device, usb_device);
+DEFINE_TYPE(struct usb_driver, usb_driver);
+DEFINE_TYPE(struct usb_device_driver, usb_device_driver);
+DEFINE_TYPE(struct usb_anchor, usb_anchor);
+DEFINE_TYPE(struct usb_iso_packet_descriptor, usb_iso_packet_descriptor);
+DEFINE_TYPE(struct usb_sg_request, usb_sg_request);
+DEFINE_TYPE(struct usb_interface_cache, usb_interface_cache);
+DEFINE_TYPE(struct usb_host_config, usb_host_config);
+DEFINE_TYPE(struct usb_host_bos, usb_host_bos);
+DEFINE_TYPE(struct urb, urb);
+DEFINE_TYPE(struct usb_ss_ep_comp_descriptor, usb_ss_ep_comp_descriptor);
+DEFINE_TYPE(struct usb_ssp_isoc_ep_comp_descriptor, usb_ssp_isoc_ep_comp_descriptor);
+DEFINE_TYPE(struct usb_interface_assoc_descriptor, usb_interface_assoc_descriptor);
+DEFINE_TYPE(struct usb_endpoint_descriptor, usb_endpoint_descriptor);
+DEFINE_TYPE(struct usb_config_descriptor, usb_config_descriptor);
+DEFINE_TYPE(struct notifier_block, notifier_block);
+DEFINE_TYPE(struct atomic_notifier_head, atomic_notifier_head);
+DEFINE_TYPE(struct blocking_notifier_head, blocking_notifier_head);
+DEFINE_TYPE(struct raw_notifier_head, raw_notifier_head);
+DEFINE_TYPE(struct srcu_notifier_head, srcu_notifier_head);
+DEFINE_TYPE(struct pci_driver, pci_driver);
+DEFINE_TYPE(struct pci_device_id, pci_device_id);
+DEFINE_TYPE(struct pci_bus, pci_bus);
+DEFINE_TYPE(struct pci_slot, pci_slot);
+DEFINE_TYPE(struct pci_dev, pci_dev);
+DEFINE_TYPE(struct pci_error_handlers, pci_error_handlers);
+DEFINE_TYPE(struct pci_dynids, pci_dynids);
+DEFINE_TYPE(struct pci_bus_region, pci_bus_region);
+DEFINE_TYPE(struct pci_host_bridge, pci_host_bridge);
+DEFINE_TYPE(struct pci_ops, pci_ops);
+DEFINE_TYPE(struct pci_cap_saved_state, pci_cap_saved_state);
+DEFINE_TYPE(struct device, device);
+DEFINE_TYPE(struct device_type, device_type);
+DEFINE_TYPE(struct device_node, device_node);
+DEFINE_TYPE(struct device_attribute, device_attribute);
+DEFINE_TYPE(struct device_driver, device_driver);
+DEFINE_TYPE(struct device_link, device_link);
+DEFINE_TYPE(struct dev_links_info, dev_links_info);
+DEFINE_TYPE(struct dev_ext_attribute, dev_ext_attribute);
+DEFINE_TYPE(struct class, class);
+DEFINE_TYPE(struct class_dev_iter, class_dev_iter);
+DEFINE_TYPE(struct class_interface, class_interface);
+DEFINE_TYPE(struct class_attribute_string, class_attribute_string);
+DEFINE_TYPE(struct class_attribute, class_attribute);
+DEFINE_TYPE(struct bus_type, bus_type);
+DEFINE_TYPE(struct bus_attribute, bus_attribute);
+DEFINE_TYPE(struct irq_domain, irq_domain);
+DEFINE_TYPE(struct attribute_group, attribute_group);
+DEFINE_TYPE(struct bin_attribute, bin_attribute);
+DEFINE_TYPE(struct sysfs_ops, sysfs_ops);
+DEFINE_TYPE(struct cdev, cdev);
+DEFINE_TYPE(struct dev_pm_ops, dev_pm_ops);
+DEFINE_TYPE(struct dev_pm_domain, dev_pm_domain);
+DEFINE_TYPE(struct pm_subsys_data, pm_subsys_data);
+DEFINE_TYPE(struct module, module);
+DEFINE_TYPE(struct module_attribute, module_attribute);
+DEFINE_TYPE(struct module_kobject, module_kobject);
+DEFINE_TYPE(struct module_version_attribute, module_version_attribute);
+DEFINE_TYPE(struct module_use, module_use);
+DEFINE_TYPE(struct module_layout, module_layout);
+DEFINE_TYPE(struct mod_tree_node, mod_tree_node);
+DEFINE_TYPE(struct mod_kallsyms, mod_kallsyms);
+DEFINE_TYPE(struct dma_map_ops, dma_map_ops);
+DEFINE_TYPE(struct qstr, qstr);
+DEFINE_TYPE(struct dentry, dentry);
+DEFINE_TYPE(struct dentry_operations, dentry_operations);
+DEFINE_TYPE(struct dentry_stat_t, dentry_stat);
+DEFINE_TYPE(struct wait_queue_entry, wait_queue_entry);

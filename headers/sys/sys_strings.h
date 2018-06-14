@@ -6,6 +6,7 @@
 */
 #pragma once
 
+XENUX_BEGIN_C
 
 // String formatting:
 XENUS_IMPORT size_t vsnprintf(char *buf, size_t size, const char *fmt, va_list ap);
@@ -63,3 +64,4 @@ static size_t sprintf(char *buf, const char *fmt, ...)
     return retval;
 }
 
+XENUS_END_C

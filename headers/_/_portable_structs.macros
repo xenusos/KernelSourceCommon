@@ -1,1 +1,1356 @@
+PS_SRC_FUNC_ADD_TYPE(struct refcount_struct, refcount_struct)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct refcount_struct, refcount_struct, refs, refs);
+
+PS_SRC_FUNC_ADD_TYPE(struct kref, kref)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kref, kref, refcount, refcount);
+
+PS_SRC_FUNC_ADD_TYPE(struct kobject, kobject)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kobject, kobject, name, name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kobject, kobject, entry, entry);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kobject, kobject, parent, parent);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kobject, kobject, kset, kset);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kobject, kobject, ktype, ktype);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kobject, kobject, sd, sd);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kobject, kobject, kref, kref);
+
+PS_SRC_FUNC_ADD_TYPE(struct resource, resource)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct resource, resource, start, start);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct resource, resource, end, end);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct resource, resource, name, name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct resource, resource, flags, flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct resource, resource, desc, desc);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct resource, resource, sibling, siblings);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct resource, resource, child, child);
+
+PS_SRC_FUNC_ADD_TYPE(struct vtime, vtime)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vtime, vtime, seqcount, seqcount);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vtime, vtime, starttime, starttime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vtime, vtime, state, state);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vtime, vtime, utime, utime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vtime, vtime, stime, stime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vtime, vtime, gtime, gtime);
+
+PS_SRC_FUNC_ADD_TYPE(struct prev_cputime, prev_cputime)
+
+PS_SRC_FUNC_ADD_TYPE(struct load_weight, load_weight)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct load_weight, load_weight, weight, weight);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct load_weight, load_weight, inv_weight, inv_weight);
+
+PS_SRC_FUNC_ADD_TYPE(struct sched_avg, sched_avg)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_avg, sched_avg, last_update_time, last_update_time);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_avg, sched_avg, load_sum, load_sum);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_avg, sched_avg, util_sum, util_sum);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_avg, sched_avg, period_contrib, period_contrib);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_avg, sched_avg, load_avg, load_avg);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_avg, sched_avg, util_avg, util_avg);
+
+PS_SRC_FUNC_ADD_TYPE(struct sched_statistics, sched_statistics)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, wait_start, wait_start);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, wait_max, wait_max);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, wait_count, wait_count);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, wait_sum, wait_sum);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, iowait_count, iowait_count);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, iowait_sum, iowait_sum);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, sleep_start, sleep_start);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, sleep_max, sleep_max);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, sum_sleep_runtime, sum_sleep_runtime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, block_start, block_start);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, block_max, block_max);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, exec_max, exec_max);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, slice_max, slice_max);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, nr_migrations_cold, nr_migrations_cold);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, nr_failed_migrations_affine, nr_failed_migrations_affine);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, nr_failed_migrations_running, nr_failed_migrations_running);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, nr_failed_migrations_hot, nr_failed_migrations_hot);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, nr_forced_migrations, nr_forced_migrations);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, nr_wakeups, nr_wakeups);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, nr_wakeups_sync, nr_wakeups_sync);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, nr_wakeups_migrate, nr_wakeups_migrate);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, nr_wakeups_local, nr_wakeups_local);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, nr_wakeups_remote, nr_wakeups_remote);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, nr_wakeups_affine, nr_wakeups_affine);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, nr_wakeups_affine_attempts, nr_wakeups_affine_attempts);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, nr_wakeups_passive, nr_wakeups_passive);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_statistics, sched_statistics, nr_wakeups_idle, nr_wakeups_idle);
+
+PS_SRC_FUNC_ADD_TYPE(struct sched_entity, sched_entity)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_entity, sched_entity, load, load);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_entity, sched_entity, run_node, run_node);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_entity, sched_entity, group_node, group_node);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_entity, sched_entity, on_rq, on_rq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_entity, sched_entity, exec_start, exec_start);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_entity, sched_entity, sum_exec_runtime, sum_exec_runtime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_entity, sched_entity, vruntime, vruntime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_entity, sched_entity, prev_sum_exec_runtime, prev_sum_exec_runtime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_entity, sched_entity, nr_migrations, nr_migrations);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_entity, sched_entity, statistics, statistics);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_entity, sched_entity, depth, depth);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_entity, sched_entity, parent, parent);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_entity, sched_entity, cfs_rq, cfs_rq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_entity, sched_entity, my_q, my_q);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_entity, sched_entity, avg, avg);
+
+PS_SRC_FUNC_ADD_TYPE(struct sched_rt_entity, sched_rt_entity)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_rt_entity, sched_rt_entity, run_list, run_list);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_rt_entity, sched_rt_entity, timeout, timeout);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_rt_entity, sched_rt_entity, watchdog_stamp, watchdog_stamp);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_rt_entity, sched_rt_entity, time_slice, time_slice);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_rt_entity, sched_rt_entity, on_rq, on_rq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_rt_entity, sched_rt_entity, on_list, on_list);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_rt_entity, sched_rt_entity, back, back);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_rt_entity, sched_rt_entity, parent, parent);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_rt_entity, sched_rt_entity, rt_rq, rt_rq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_rt_entity, sched_rt_entity, my_q, my_q);
+
+PS_SRC_FUNC_ADD_TYPE(struct sched_dl_entity, sched_dl_entity)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_dl_entity, sched_dl_entity, rb_node, rb_node);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_dl_entity, sched_dl_entity, dl_runtime, dl_runtime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_dl_entity, sched_dl_entity, dl_deadline, dl_deadline);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_dl_entity, sched_dl_entity, dl_period, dl_period);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_dl_entity, sched_dl_entity, dl_bw, dl_bw);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_dl_entity, sched_dl_entity, dl_density, dl_density);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_dl_entity, sched_dl_entity, runtime, runtime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_dl_entity, sched_dl_entity, deadline, deadline);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_dl_entity, sched_dl_entity, flags, flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_dl_entity, sched_dl_entity, dl_throttled, dl_throttled);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_dl_entity, sched_dl_entity, dl_boosted, dl_boosted);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_dl_entity, sched_dl_entity, dl_yielded, dl_yielded);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_dl_entity, sched_dl_entity, dl_non_contending, dl_non_contending);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_dl_entity, sched_dl_entity, dl_timer, dl_timer);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_dl_entity, sched_dl_entity, inactive_timer, inactive_timer);
+
+PS_SRC_FUNC_ADD_TYPE(struct sd_data, sd_data)
+
+PS_SRC_FUNC_ADD_TYPE(struct sched_domain, sched_domain)
+
+PS_SRC_FUNC_ADD_TYPE(struct sched_domain_topology_level, sched_domain_topology_level)
+
+PS_SRC_FUNC_ADD_TYPE(struct sched_domain_shared, sched_domain_shared)
+
+PS_SRC_FUNC_ADD_TYPE(struct task_delay_info, task_delay_info)
+
+PS_SRC_FUNC_ADD_TYPE(struct wake_q_node, wake_q_node)
+
+PS_SRC_FUNC_ADD_TYPE(struct sighand_struct, sighand_struct)
+
+PS_SRC_FUNC_ADD_TYPE(struct pacct_struct, pacct_struct)
+
+PS_SRC_FUNC_ADD_TYPE(struct cpu_itimer, cpu_itimer)
+
+PS_SRC_FUNC_ADD_TYPE(struct task_cputime_atomic, task_cputime_atomic)
+
+PS_SRC_FUNC_ADD_TYPE(struct thread_group_cputimer, thread_group_cputimer)
+
+PS_SRC_FUNC_ADD_TYPE(struct signal_struct, signal_struct)
+
+PS_SRC_FUNC_ADD_TYPE(struct rw_semaphore, rw_semaphore)
+
+PS_SRC_FUNC_ADD_TYPE(struct spinlock, spinlock_t)
+
+PS_SRC_FUNC_ADD_TYPE(struct group_info, group_info)
+
+PS_SRC_FUNC_ADD_TYPE(struct cred, cred)
+
+PS_SRC_FUNC_ADD_TYPE(struct user_struct, user_struct)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct user_struct, user_struct, __count, __count);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct user_struct, user_struct, processes, processes);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct user_struct, user_struct, sigpending, sigpending);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct user_struct, user_struct, locked_shm, locked_shm);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct user_struct, user_struct, unix_inflight, unix_inflight);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct user_struct, user_struct, pipe_bufs, pipe_bufs);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct user_struct, user_struct, uid_keyring, uid_keyring);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct user_struct, user_struct, session_keyring, session_keyring);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct user_struct, user_struct, uidhash_node, uidhash_node);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct user_struct, user_struct, uid, uid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct user_struct, user_struct, locked_vm, locked_vm);
+
+PS_SRC_FUNC_ADD_TYPE(struct key, key)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct key, key, usage, usage);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct key, key, serial, serial);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct key, key, serial_node, serial_node);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct key, key, sem, sem);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct key, key, user, user);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct key, key, security, security);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct key, key, expiry, expiry);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct key, key, revoked_at, revoked_at);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct key, key, last_used_at, last_used_at);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct key, key, uid, uid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct key, key, gid, gid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct key, key, perm, perm);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct key, key, quotalen, quotalen);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct key, key, datalen, datalen);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct key, key, state, state);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct key, key, flags, flags);
+
+PS_SRC_FUNC_ADD_TYPE(struct key_type, key_type)
+
+PS_SRC_FUNC_ADD_TYPE(struct key_construction, key_construction)
+
+PS_SRC_FUNC_ADD_TYPE(struct key_preparsed_payload, key_preparsed_payload)
+
+PS_SRC_FUNC_ADD_TYPE(struct key_match_data, key_match_data)
+
+PS_SRC_FUNC_ADD_TYPE(struct keyring_index_key, keyring_index_key)
+
+PS_SRC_FUNC_ADD_TYPE(struct task_struct, task)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, thread_info, thread_info);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, state, state);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, stack, stack);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, usage, usage);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, flags, flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, ptrace, ptrace);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, wake_entry, wake_entry);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, on_cpu, on_cpu);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, cpu, cpu);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, wakee_flips, wakee_flips);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, wakee_flip_decay_ts, wakee_flip_decay_ts);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, last_wakee, last_wakee);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, wake_cpu, wake_cpu);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, on_rq, on_rq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, prio, prio);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, static_prio, static_prio);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, normal_prio, normal_prio);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, rt_priority, rt_priority);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, sched_class, sched_class);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, se, se);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, rt, rt);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, sched_task_group, sched_task_group);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, dl, dl);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, preempt_notifiers, preempt_notifiers);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, btrace_seq, btrace_seq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, policy, policy);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, nr_cpus_allowed, nr_cpus_allowed);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, cpus_allowed, cpus_allowed);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, sched_info, sched_info);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, tasks, tasks);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, pushable_tasks, pushable_tasks);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, pushable_dl_tasks, pushable_dl_tasks);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, mm, mm);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, active_mm, active_mm);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, vmacache, vmacache);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, rss_stat, rss_stat);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, exit_state, exit_state);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, exit_code, exit_code);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, exit_signal, exit_signal);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, pdeath_signal, pdeath_signal);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, jobctl, jobctl);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, personality, personality);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, atomic_flags, atomic_flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, restart_block, restart_block);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, pid, pid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, tgid, tgid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, real_parent, real_parent);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, parent, parent);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, children, children);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, sibling, sibling);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, group_leader, group_leader);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, ptraced, ptraced);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, ptrace_entry, ptrace_entry);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, pids, pids);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, thread_group, thread_group);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, thread_node, thread_node);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, vfork_done, vfork_done);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, set_child_tid, set_child_tid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, clear_child_tid, clear_child_tid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, utime, utime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, stime, stime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, gtime, gtime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, prev_cputime, prev_cputime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, vtime, vtime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, tick_dep_mask, tick_dep_mask);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, nvcsw, nvcsw);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, nivcsw, nivcsw);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, start_time, start_time);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, real_start_time, real_start_time);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, min_flt, min_flt);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, maj_flt, maj_flt);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, cputime_expires, cputime_expires);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, cpu_timers, cpu_timers);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, ptracer_cred, ptracer_cred);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, real_cred, real_cred);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, cred, cred);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, comm, comm);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, nameidata, nameidata);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, sysvsem, sysvsem);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, sysvshm, sysvshm);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, last_switch_count, last_switch_count);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, fs, fs);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, files, files);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, nsproxy, nsproxy);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, signal, signal);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, sighand, sighand);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, blocked, blocked);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, real_blocked, real_blocked);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, saved_sigmask, saved_sigmask);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, pending, pending);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, sas_ss_sp, sas_ss_sp);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, sas_ss_size, sas_ss_size);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, sas_ss_flags, sas_ss_flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, thread, thread);
+
+PS_SRC_FUNC_ADD_TYPE(struct fwnode_handle, fwnode_handle)
+
+PS_SRC_FUNC_ADD_TYPE(struct thread_info, thread_info)
+
+PS_SRC_FUNC_ADD_TYPE(struct thread_struct, thread_struct)
+
+PS_SRC_FUNC_ADD_TYPE(struct upid, upid)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct upid, upid, nr, nr);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct upid, upid, ns, ns);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct upid, upid, pid_chain, pid_chain);
+
+PS_SRC_FUNC_ADD_TYPE(struct pid, pid)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pid, pid, count, count);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pid, pid, level, level);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pid, pid, tasks, tasks);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pid, pid, rcu, rcu);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pid, pid, numbers, numbers);
+
+PS_SRC_FUNC_ADD_TYPE(struct pid_link, pid_link)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pid_link, pid_link, node, node);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pid_link, pid_link, pid, pid);
+
+PS_SRC_FUNC_ADD_TYPE(struct pid_namespace, pid_namespace)
+
+PS_SRC_FUNC_ADD_TYPE(struct pidmap, pidmap)
+
+PS_SRC_FUNC_ADD_TYPE(struct mutex, mutex)
+
+PS_SRC_FUNC_ADD_TYPE(struct mutex_waiter, mutex_waiter)
+
+PS_SRC_FUNC_ADD_TYPE(struct kstat, kstat)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstat, kstat, result_mask, result_mask);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstat, kstat, mode, mode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstat, kstat, nlink, nlink);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstat, kstat, blksize, blksize);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstat, kstat, attributes, attributes);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstat, kstat, attributes_mask, attributes_mask);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstat, kstat, ino, ino);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstat, kstat, dev, dev);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstat, kstat, rdev, rdev);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstat, kstat, uid, uid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstat, kstat, gid, gid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstat, kstat, size, size);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstat, kstat, atime, atime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstat, kstat, mtime, mtime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstat, kstat, ctime, ctime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstat, kstat, btime, btime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstat, kstat, blocks, blocks);
+
+PS_SRC_FUNC_ADD_TYPE(struct kstatfs, kstatfs)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstatfs, kstatfs, f_type, f_type);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstatfs, kstatfs, f_bsize, f_bsize);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstatfs, kstatfs, f_blocks, f_blocks);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstatfs, kstatfs, f_bfree, f_bfree);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstatfs, kstatfs, f_bavail, f_bavail);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstatfs, kstatfs, f_files, f_files);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstatfs, kstatfs, f_ffree, f_ffree);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstatfs, kstatfs, f_fsid, f_fsid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstatfs, kstatfs, f_namelen, f_namelen);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstatfs, kstatfs, f_frsize, f_frsize);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstatfs, kstatfs, f_flags, f_flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct kstatfs, kstatfs, f_spare, f_spare);
+
+PS_SRC_FUNC_ADD_TYPE(struct filename, filename)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct filename, filename, name, name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct filename, filename, uptr, uptr);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct filename, filename, aname, aname);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct filename, filename, refcnt, refcnt);
+
+PS_SRC_FUNC_ADD_TYPE(struct file, file)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_u.fu_llist, f_u_fu_llist);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_u.fu_rcuhead, f_u_fu_rcuhead);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_path, f_path);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_inode, f_inode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_op, f_op);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_lock, f_lock);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_write_hint, f_write_hint);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_count, f_count);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_flags, f_flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_mode, f_mode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_pos_lock, f_pos_lock);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_pos, f_pos);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_owner, f_owner);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_cred, f_cred);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_ra, f_ra);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_version, f_version);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_security, f_security);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, private_data, private_data);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_mapping, f_mapping);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file, file, f_wb_err, f_wb_err);
+
+PS_SRC_FUNC_ADD_TYPE(struct path, path)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct path, path, mnt, mnt);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct path, path, dentry, dentry);
+
+PS_SRC_FUNC_ADD_TYPE(struct inode, inode)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_mode, i_mode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_opflags, i_opflags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_uid, i_uid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_gid, i_gid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_flags, i_flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_op, i_op);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_sb, i_sb);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_mapping, i_mapping);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_ino, i_ino);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_nlink, i_nlink);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_rdev, i_rdev);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_size, i_size);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_atime, i_atime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_mtime, i_mtime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_ctime, i_ctime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_lock, i_lock);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_bytes, i_bytes);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_blkbits, i_blkbits);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_write_hint, i_write_hint);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_blocks, i_blocks);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_state, i_state);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_rwsem, i_rwsem);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, dirtied_when, dirtied_when);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, dirtied_time_when, dirtied_time_when);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_hash, i_hash);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_io_list, i_io_list);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_lru, i_lru);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_sb_list, i_sb_list);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_wb_list, i_wb_list);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_dentry, i_dentry);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_rcu, i_rcu);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_version, i_version);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_count, i_count);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_dio_count, i_dio_count);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_writecount, i_writecount);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_fop, i_fop);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_flctx, i_flctx);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_data, i_data);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_devices, i_devices);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_pipe, i_pipe);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_bdev, i_bdev);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_cdev, i_cdev);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_link, i_link);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_dir_seq, i_dir_seq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_generation, i_generation);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode, inode, i_private, i_private);
+
+PS_SRC_FUNC_ADD_TYPE(struct iattr, iattr)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct iattr, iattr, ia_valid, ia_valid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct iattr, iattr, ia_mode, ia_mode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct iattr, iattr, ia_uid, ia_uid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct iattr, iattr, ia_gid, ia_gid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct iattr, iattr, ia_size, ia_size);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct iattr, iattr, ia_atime, ia_atime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct iattr, iattr, ia_mtime, ia_mtime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct iattr, iattr, ia_ctime, ia_ctime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct iattr, iattr, ia_file, ia_file);
+
+PS_SRC_FUNC_ADD_TYPE(struct block_device, block_device)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_dev, bd_dev);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_openers, bd_openers);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_inode, bd_inode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_super, bd_super);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_mutex, bd_mutex);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_claiming, bd_claiming);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_holder, bd_holder);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_holders, bd_holders);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_write_holder, bd_write_holder);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_holder_disks, bd_holder_disks);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_contains, bd_contains);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_block_size, bd_block_size);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_partno, bd_partno);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_part, bd_part);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_part_count, bd_part_count);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_invalidated, bd_invalidated);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_disk, bd_disk);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_queue, bd_queue);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_bdi, bd_bdi);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_list, bd_list);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_private, bd_private);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_fsfreeze_count, bd_fsfreeze_count);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct block_device, block_device, bd_fsfreeze_mutex, bd_fsfreeze_mutex);
+
+PS_SRC_FUNC_ADD_TYPE(struct fown_struct, fown_struct)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct fown_struct, fown_struct, lock, lock);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct fown_struct, fown_struct, pid, pid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct fown_struct, fown_struct, pid_type, pid_type);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct fown_struct, fown_struct, uid, uid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct fown_struct, fown_struct, euid, euid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct fown_struct, fown_struct, signum, signum);
+
+PS_SRC_FUNC_ADD_TYPE(struct fasync_struct, fasync_struct )
+
+PS_SRC_FUNC_ADD_TYPE(struct sb_writers, sb_writers)
+
+PS_SRC_FUNC_ADD_TYPE(struct super_block, super_block)
+
+PS_SRC_FUNC_ADD_TYPE(struct dir_context, dir_context)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dir_context, dir_context, actor, actor);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dir_context, dir_context, pos, pos);
+
+PS_SRC_FUNC_ADD_TYPE(struct file_system_type, file_system_type)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_system_type, file_system_type, name, name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_system_type, file_system_type, mount, mount);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_system_type, file_system_type, fs_flags, fs_flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_system_type, file_system_type, kill_sb, kill_sb);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_system_type, file_system_type, owner, owner);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_system_type, file_system_type, next, next);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_system_type, file_system_type, fs_supers, fs_supers);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_system_type, file_system_type, s_lock_key, s_lock_key);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_system_type, file_system_type, s_umount_key, s_umount_key);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_system_type, file_system_type, s_vfs_rename_key, s_vfs_rename_key);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_system_type, file_system_type, s_writers_key, s_writers_key);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_system_type, file_system_type, i_lock_key, i_lock_key);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_system_type, file_system_type, i_mutex_key, i_mutex_key);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_system_type, file_system_type, i_mutex_dir_key, i_mutex_dir_key);
+
+PS_SRC_FUNC_ADD_TYPE(struct vfsmount, vfsmount)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vfsmount, vfsmount, mnt_root, mnt_root);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vfsmount, vfsmount, mnt_sb, mnt_sb);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vfsmount, vfsmount, mnt_flags, mnt_flags);
+
+PS_SRC_FUNC_ADD_TYPE(struct fs_struct, fs_struct)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct fs_struct, fs_struct, users, users);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct fs_struct, fs_struct, lock, lock);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct fs_struct, fs_struct, seq, seq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct fs_struct, fs_struct, umask, umask);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct fs_struct, fs_struct, in_exec, in_exec);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct fs_struct, fs_struct, root, root);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct fs_struct, fs_struct, pwd, pwd);
+
+PS_SRC_FUNC_ADD_TYPE(struct file_ra_state, file_ra_state)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_ra_state, file_ra_state, start, start);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_ra_state, file_ra_state, size, size);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_ra_state, file_ra_state, async_size, async_size);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_ra_state, file_ra_state, ra_pages, ra_pages);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_ra_state, file_ra_state, mmap_miss, mmap_miss);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_ra_state, file_ra_state, prev_pos, prev_pos);
+
+PS_SRC_FUNC_ADD_TYPE(struct file_lock, file_lock)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_next, fl_next);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_list, fl_list);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_link, fl_link);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_block, fl_block);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_owner, fl_owner);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_flags, fl_flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_type, fl_type);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_pid, fl_pid);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_link_cpu, fl_link_cpu);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_wait, fl_wait);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_file, fl_file);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_start, fl_start);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_end, fl_end);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_fasync, fl_fasync);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_break_time, fl_break_time);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_downgrade_time, fl_downgrade_time);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_ops, fl_ops);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock, file_lock, fl_lmops, fl_lmops);
+
+PS_SRC_FUNC_ADD_TYPE(struct file_lock_operations, file_lock_operations)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_lock_operations, file_lock_operations, fl_release_private, fl_release_private);
+
+PS_SRC_FUNC_ADD_TYPE(struct lock_manager, lock_manager)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct lock_manager, lock_manager, list, list);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct lock_manager, lock_manager, block_opens, block_opens);
+
+PS_SRC_FUNC_ADD_TYPE(struct lock_manager_operations, lock_manager_operations)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct lock_manager_operations, lock_manager_operations, lm_compare_owner, lm_compare_owner);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct lock_manager_operations, lock_manager_operations, lm_owner_key, lm_owner_key);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct lock_manager_operations, lock_manager_operations, lm_get_owner, lm_get_owner);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct lock_manager_operations, lock_manager_operations, lm_put_owner, lm_put_owner);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct lock_manager_operations, lock_manager_operations, lm_notify, lm_notify);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct lock_manager_operations, lock_manager_operations, lm_grant, lm_grant);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct lock_manager_operations, lock_manager_operations, lm_break, lm_break);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct lock_manager_operations, lock_manager_operations, lm_change, lm_change);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct lock_manager_operations, lock_manager_operations, lm_setup, lm_setup);
+
+PS_SRC_FUNC_ADD_TYPE(struct file_operations, file_operations)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, owner, owner);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, llseek, llseek);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, read, read);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, write, write);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, read_iter, read_iter);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, write_iter, write_iter);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, iterate, iterate);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, iterate_shared, iterate_shared);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, poll, poll);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, unlocked_ioctl, unlocked_ioctl);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, compat_ioctl, compat_ioctl);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, mmap, mmap);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, open, open);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, flush, flush);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, release, release);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, fsync, fsync);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, fasync, fasync);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, lock, lock);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, sendpage, sendpage);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, get_unmapped_area, get_unmapped_area);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, check_flags, check_flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, flock, flock);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, splice_write, splice_write);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, splice_read, splice_read);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, setlease, setlease);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, fallocate, fallocate);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, show_fdinfo, show_fdinfo);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, copy_file_range, copy_file_range);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, clone_file_range, clone_file_range);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct file_operations, file_operations, dedupe_file_range, dedupe_file_range);
+
+PS_SRC_FUNC_ADD_TYPE(struct inode_operations, inode_operations)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, lookup, lookup);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, get_link, get_link);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, permission, permission);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, get_acl, get_acl);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, readlink, readlink);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, create, create);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, link, link);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, unlink, unlink);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, symlink, symlink);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, mkdir, mkdir);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, rmdir, rmdir);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, mknod, mknod);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, rename, rename);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, setattr, setattr);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, getattr, getattr);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, listxattr, listxattr);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, fiemap, fiemap);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, update_time, update_time);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, atomic_open, atomic_open);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, tmpfile, tmpfile);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct inode_operations, inode_operations, set_acl, set_acl);
+
+PS_SRC_FUNC_ADD_TYPE(struct super_operations, super_operations)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, alloc_inode, alloc_inode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, destroy_inode, destroy_inode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, dirty_inode, dirty_inode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, write_inode, write_inode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, drop_inode, drop_inode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, evict_inode, evict_inode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, put_super, put_super);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, sync_fs, sync_fs);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, freeze_super, freeze_super);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, freeze_fs, freeze_fs);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, thaw_super, thaw_super);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, unfreeze_fs, unfreeze_fs);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, statfs, statfs);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, remount_fs, remount_fs);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, umount_begin, umount_begin);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, show_options, show_options);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, show_devname, show_devname);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, show_path, show_path);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, show_stats, show_stats);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, nr_cached_objects, nr_cached_objects);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct super_operations, super_operations, free_cached_objects, free_cached_objects);
+
+PS_SRC_FUNC_ADD_TYPE(struct address_space, address_space)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space, address_space, host, host);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space, address_space, page_tree, page_tree);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space, address_space, tree_lock, tree_lock);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space, address_space, i_mmap_writable, i_mmap_writable);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space, address_space, i_mmap, i_mmap);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space, address_space, i_mmap_rwsem, i_mmap_rwsem);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space, address_space, nrpages, nrpages);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space, address_space, nrexceptional, nrexceptional);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space, address_space, a_ops, a_ops);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space, address_space, flags, flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space, address_space, private_lock, private_lock);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space, address_space, gfp_mask, gfp_mask);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space, address_space, private_list, private_list);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space, address_space, private_data, private_data);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space, address_space, wb_err, wb_err);
+
+PS_SRC_FUNC_ADD_TYPE(struct address_space_operations, address_space_operations)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, writepage, writepage);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, readpage, readpage);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, writepages, writepages);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, set_page_dirty, set_page_dirty);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, readpages, readpages);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, write_begin, write_begin);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, write_end, write_end);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, bmap, bmap);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, invalidatepage, invalidatepage);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, releasepage, releasepage);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, freepage, freepage);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, direct_IO, direct_IO);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, migratepage, migratepage);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, isolate_page, isolate_page);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, putback_page, putback_page);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, launder_page, launder_page);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, is_partially_uptodate, is_partially_uptodate);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, is_dirty_writeback, is_dirty_writeback);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, error_remove_page, error_remove_page);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, swap_activate, swap_activate);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct address_space_operations, address_space_operations, swap_deactivate, swap_deactivate);
+
+PS_SRC_FUNC_ADD_TYPE(struct seq_file, seq_file)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct seq_file, seq_file, buf, buf);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct seq_file, seq_file, size, size);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct seq_file, seq_file, from, from);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct seq_file, seq_file, count, count);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct seq_file, seq_file, pad_until, pad_until);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct seq_file, seq_file, index, index);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct seq_file, seq_file, read_pos, read_pos);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct seq_file, seq_file, version, version);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct seq_file, seq_file, lock, lock);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct seq_file, seq_file, op, op);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct seq_file, seq_file, poll_event, poll_event);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct seq_file, seq_file, file, file);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct seq_file, seq_file, private, private);
+
+PS_SRC_FUNC_ADD_TYPE(struct seq_operations, seq_operations)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct seq_operations, seq_operations, start, start);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct seq_operations, seq_operations, stop, stop);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct seq_operations, seq_operations, next, next);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct seq_operations, seq_operations, show, show);
+
+PS_SRC_FUNC_ADD_TYPE(struct core_state, core_state)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct core_state, core_state, dumper, dumper);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct core_state, core_state, nr_threads, nr_threads);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct core_state, core_state, startup, startup);
+
+PS_SRC_FUNC_ADD_TYPE(struct core_thread, core_thread)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct core_thread, core_thread, task, task);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct core_thread, core_thread, next, next);
+
+PS_SRC_FUNC_ADD_TYPE(struct mm_struct, mm_struct)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, mmap, mmap);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, mm_rb, mm_rb);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, vmacache_seqnum, vmacache_seqnum);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, get_unmapped_area, get_unmapped_area);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, mmap_base, mmap_base);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, mmap_legacy_base, mmap_legacy_base);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, task_size, task_size);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, highest_vm_end, highest_vm_end);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, pgd, pgd);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, mm_users, mm_users);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, mm_count, mm_count);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, map_count, map_count);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, page_table_lock, page_table_lock);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, mmap_sem, mmap_sem);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, mmlist, mmlist);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, hiwater_rss, hiwater_rss);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, hiwater_vm, hiwater_vm);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, total_vm, total_vm);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, locked_vm, locked_vm);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, pinned_vm, pinned_vm);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, data_vm, data_vm);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, exec_vm, exec_vm);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, stack_vm, stack_vm);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, def_flags, def_flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, start_code, start_code);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, end_code, end_code);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, start_data, start_data);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, end_data, end_data);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, start_brk, start_brk);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, brk, brk);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, start_stack, start_stack);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, arg_start, arg_start);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, arg_end, arg_end);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, env_start, env_start);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, env_end, env_end);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, saved_auxv, saved_auxv);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, rss_stat, rss_stat);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, binfmt, binfmt);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, cpu_vm_mask_var, cpu_vm_mask_var);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, context, context);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, flags, flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, core_state, core_state);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, user_ns, user_ns);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, exe_file, exe_file);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, tlb_flush_pending, tlb_flush_pending);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, uprobes_state, uprobes_state);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct mm_struct, mm_struct, async_put_work, async_put_work);
+
+PS_SRC_FUNC_ADD_TYPE(struct vm_area_struct, vm_area_struct)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, vm_start, vm_start);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, vm_end, vm_end);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, vm_next, vm_next);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, vm_prev, vm_prev);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, vm_rb, vm_rb);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, rb_subtree_gap, rb_subtree_gap);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, vm_mm, vm_mm);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, vm_page_prot, vm_page_prot);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, vm_flags, vm_flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, shared.rb, shared_rb);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, shared.rb_subtree_last, shared_rb_subtree_last);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, anon_vma_chain, anon_vma_chain);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, anon_vma, anon_vma);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, vm_ops, vm_ops);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, vm_pgoff, vm_pgoff);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, vm_file, vm_file);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, vm_private_data, vm_private_data);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, swap_readahead_info, swap_readahead_info);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_area_struct, vm_area_struct, vm_userfaultfd_ctx, vm_userfaultfd_ctx);
+
+PS_SRC_FUNC_ADD_TYPE(struct vm_region, vm_region)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_region, vm_region, vm_rb, vm_rb);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_region, vm_region, vm_flags, vm_flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_region, vm_region, vm_start, vm_start);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_region, vm_region, vm_end, vm_end);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_region, vm_region, vm_top, vm_top);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_region, vm_region, vm_pgoff, vm_pgoff);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_region, vm_region, vm_file, vm_file);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_region, vm_region, vm_usage, vm_usage);
+
+PS_SRC_FUNC_ADD_TYPE(struct vm_fault, vm_fault)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_fault, vm_fault, vma, vma);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_fault, vm_fault, flags, flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_fault, vm_fault, gfp_mask, gfp_mask);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_fault, vm_fault, pgoff, pgoff);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_fault, vm_fault, address, address);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_fault, vm_fault, pmd, pmd);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_fault, vm_fault, pud, pud);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_fault, vm_fault, orig_pte, orig_pte);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_fault, vm_fault, cow_page, cow_page);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_fault, vm_fault, memcg, memcg);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_fault, vm_fault, page, page);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_fault, vm_fault, pte, pte);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_fault, vm_fault, ptl, ptl);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_fault, vm_fault, prealloc_pte, prealloc_pte);
+
+PS_SRC_FUNC_ADD_TYPE(struct vm_operations_struct, vm_operations_struct)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_operations_struct, vm_operations_struct, open, open);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_operations_struct, vm_operations_struct, close, close);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_operations_struct, vm_operations_struct, split, split);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_operations_struct, vm_operations_struct, mremap, mremap);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_operations_struct, vm_operations_struct, fault, fault);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_operations_struct, vm_operations_struct, huge_fault, huge_fault);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_operations_struct, vm_operations_struct, map_pages, map_pages);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_operations_struct, vm_operations_struct, page_mkwrite, page_mkwrite);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_operations_struct, vm_operations_struct, pfn_mkwrite, pfn_mkwrite);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_operations_struct, vm_operations_struct, access, access);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_operations_struct, vm_operations_struct, name, name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct vm_operations_struct, vm_operations_struct, find_special_page, find_special_page);
+
+PS_SRC_FUNC_ADD_TYPE(struct vm_special_mapping, vm_special_mapping)
+
+PS_SRC_FUNC_ADD_TYPE(struct page, page)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct page, page, flags, flags);
+
+PS_SRC_FUNC_ADD_TYPE(struct scatterlist, scatterlist)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct scatterlist, scatterlist, page_link, page_link);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct scatterlist, scatterlist, offset, offset);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct scatterlist, scatterlist, length, length);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct scatterlist, scatterlist, dma_address, dma_address);
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_interface_descriptor, usb_interface_descriptor)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_host_endpoint, usb_host_endpoint)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_bus, usb_bus)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_interface, usb_interface)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_host_interface, usb_host_interface)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_device, usb_device)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_driver, usb_driver)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_device_driver, usb_device_driver)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_anchor, usb_anchor)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_iso_packet_descriptor, usb_iso_packet_descriptor)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_sg_request, usb_sg_request)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_interface_cache, usb_interface_cache)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_host_config, usb_host_config)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_host_bos, usb_host_bos)
+
+PS_SRC_FUNC_ADD_TYPE(struct urb, urb)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_ss_ep_comp_descriptor, usb_ss_ep_comp_descriptor)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_ssp_isoc_ep_comp_descriptor, usb_ssp_isoc_ep_comp_descriptor)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_interface_assoc_descriptor, usb_interface_assoc_descriptor)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_endpoint_descriptor, usb_endpoint_descriptor)
+
+PS_SRC_FUNC_ADD_TYPE(struct usb_config_descriptor, usb_config_descriptor)
+
+PS_SRC_FUNC_ADD_TYPE(struct notifier_block, notifier_block)
+
+PS_SRC_FUNC_ADD_TYPE(struct atomic_notifier_head, atomic_notifier_head)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct atomic_notifier_head, atomic_notifier_head, head, head);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct atomic_notifier_head, atomic_notifier_head, lock, lock);
+
+PS_SRC_FUNC_ADD_TYPE(struct blocking_notifier_head, blocking_notifier_head)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct blocking_notifier_head, blocking_notifier_head, rwsem, rwsem);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct blocking_notifier_head, blocking_notifier_head, head, head);
+
+PS_SRC_FUNC_ADD_TYPE(struct raw_notifier_head, raw_notifier_head)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct raw_notifier_head, raw_notifier_head, head, head);
+
+PS_SRC_FUNC_ADD_TYPE(struct srcu_notifier_head, srcu_notifier_head)
+
+PS_SRC_FUNC_ADD_TYPE(struct pci_driver, pci_driver)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_driver, pci_driver, node, node);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_driver, pci_driver, name, name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_driver, pci_driver, id_table, id_table);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_driver, pci_driver, probe, probe);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_driver, pci_driver, remove, remove);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_driver, pci_driver, suspend, suspend);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_driver, pci_driver, suspend_late, suspend_late);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_driver, pci_driver, resume_early, resume_early);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_driver, pci_driver, resume, resume);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_driver, pci_driver, shutdown, shutdown);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_driver, pci_driver, sriov_configure, sriov_configure);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_driver, pci_driver, err_handler, err_handler);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_driver, pci_driver, groups, groups);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_driver, pci_driver, driver, driver);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_driver, pci_driver, dynids, dynids);
+
+PS_SRC_FUNC_ADD_TYPE(struct pci_device_id, pci_device_id)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_device_id, pci_device_id, vendor, vendor);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_device_id, pci_device_id, device, device);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_device_id, pci_device_id, subvendor, subvendor);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_device_id, pci_device_id, subdevice, subdevice);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_device_id, pci_device_id, class, class);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_device_id, pci_device_id, class_mask, class_mask);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_device_id, pci_device_id, driver_data, driver_data);
+
+PS_SRC_FUNC_ADD_TYPE(struct pci_bus, pci_bus)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, node, node);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, parent, parent);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, children, children);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, devices, devices);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, self, self);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, slots, slots);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, resource, resource);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, resources, resources);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, busn_res, busn_res);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, ops, ops);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, msi, msi);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, sysdata, sysdata);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, procdir, procdir);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, number, number);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, primary, primary);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, max_bus_speed, max_bus_speed);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, cur_bus_speed, cur_bus_speed);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, name, name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, bridge_ctl, bridge_ctl);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, bus_flags, bus_flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, bridge, bridge);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, dev, dev);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, legacy_io, legacy_io);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus, pci_bus, legacy_mem, legacy_mem);
+
+PS_SRC_FUNC_ADD_TYPE(struct pci_slot, pci_slot)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_slot, pci_slot, bus, bus);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_slot, pci_slot, list, list);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_slot, pci_slot, hotplug, hotplug);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_slot, pci_slot, number, number);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_slot, pci_slot, kobj, kobj);
+
+PS_SRC_FUNC_ADD_TYPE(struct pci_dev, pci_dev)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, bus_list, bus_list);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, bus, bus);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, subordinate, subordinate);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, sysdata, sysdata);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, procent, procent);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, slot, slot);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, devfn, devfn);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, vendor, vendor);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, device, device);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, subsystem_vendor, subsystem_vendor);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, subsystem_device, subsystem_device);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, class, class);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, revision, revision);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, hdr_type, hdr_type);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, aer_cap, aer_cap);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, pcie_cap, pcie_cap);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, msi_cap, msi_cap);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, msix_cap, msix_cap);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, rom_base_reg, rom_base_reg);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, pin, pin);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, pcie_flags_reg, pcie_flags_reg);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, dma_alias_mask, dma_alias_mask);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, driver, driver);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, dma_mask, dma_mask);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, dma_parms, dma_parms);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, current_state, current_state);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, pm_cap, pm_cap);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, d3_delay, d3_delay);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, d3cold_delay, d3cold_delay);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, link_state, link_state);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, error_state, error_state);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, dev, dev);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, cfg_size, cfg_size);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, irq, irq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, resource, resource);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, match_driver, match_driver);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, dev_flags, dev_flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, enable_cnt, enable_cnt);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, saved_config_space, saved_config_space);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, saved_cap_space, saved_cap_space);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, rom_attr, rom_attr);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, rom_attr_enabled, rom_attr_enabled);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, res_attr, res_attr);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, res_attr_wc, res_attr_wc);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, msi_irq_groups, msi_irq_groups);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, vpd, vpd);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, ats_cap, ats_cap);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, ats_stu, ats_stu);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, ats_ref_cnt, ats_ref_cnt);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, pri_reqs_alloc, pri_reqs_alloc);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, pasid_features, pasid_features);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, rom, rom);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, romlen, romlen);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, driver_override, driver_override);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dev, pci_dev, priv_flags, priv_flags);
+
+PS_SRC_FUNC_ADD_TYPE(struct pci_error_handlers, pci_error_handlers)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_error_handlers, pci_error_handlers, error_detected, error_detected);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_error_handlers, pci_error_handlers, mmio_enabled, mmio_enabled);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_error_handlers, pci_error_handlers, slot_reset, slot_reset);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_error_handlers, pci_error_handlers, reset_prepare, reset_prepare);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_error_handlers, pci_error_handlers, reset_done, reset_done);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_error_handlers, pci_error_handlers, resume, resume);
+
+PS_SRC_FUNC_ADD_TYPE(struct pci_dynids, pci_dynids)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dynids, pci_dynids, lock, lock);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_dynids, pci_dynids, list, list);
+
+PS_SRC_FUNC_ADD_TYPE(struct pci_bus_region, pci_bus_region)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus_region, pci_bus_region, start, start);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_bus_region, pci_bus_region, end, end);
+
+PS_SRC_FUNC_ADD_TYPE(struct pci_host_bridge, pci_host_bridge)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_host_bridge, pci_host_bridge, dev, dev);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_host_bridge, pci_host_bridge, bus, bus);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_host_bridge, pci_host_bridge, ops, ops);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_host_bridge, pci_host_bridge, sysdata, sysdata);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_host_bridge, pci_host_bridge, busnr, busnr);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_host_bridge, pci_host_bridge, windows, windows);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_host_bridge, pci_host_bridge, swizzle_irq, swizzle_irq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_host_bridge, pci_host_bridge, map_irq, map_irq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_host_bridge, pci_host_bridge, release_fn, release_fn);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_host_bridge, pci_host_bridge, release_data, release_data);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_host_bridge, pci_host_bridge, msi, msi);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_host_bridge, pci_host_bridge, align_resource, align_resource);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_host_bridge, pci_host_bridge, private, private);
+
+PS_SRC_FUNC_ADD_TYPE(struct pci_ops, pci_ops)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_ops, pci_ops, add_bus, add_bus);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_ops, pci_ops, remove_bus, remove_bus);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_ops, pci_ops, map_bus, map_bus);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_ops, pci_ops, read, read);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pci_ops, pci_ops, write, write);
+
+PS_SRC_FUNC_ADD_TYPE(struct pci_cap_saved_state, pci_cap_saved_state)
+
+PS_SRC_FUNC_ADD_TYPE(struct device, device)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, parent, parent);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, p, p);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, kobj, kobj);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, init_name, init_name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, type, type);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, mutex, mutex);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, bus, bus);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, driver, driver);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, platform_data, platform_data);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, driver_data, driver_data);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, links, links);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, power, power);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, pm_domain, pm_domain);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, msi_domain, msi_domain);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, msi_list, msi_list);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, numa_node, numa_node);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, dma_ops, dma_ops);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, dma_mask, dma_mask);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, coherent_dma_mask, coherent_dma_mask);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, dma_pfn_offset, dma_pfn_offset);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, dma_parms, dma_parms);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, dma_pools, dma_pools);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, dma_mem, dma_mem);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, archdata, archdata);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, of_node, of_node);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, fwnode, fwnode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, devt, devt);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, id, id);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, devres_lock, devres_lock);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, devres_head, devres_head);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, knode_class, knode_class);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, class, class);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, groups, groups);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, release, release);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, iommu_group, iommu_group);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device, device, iommu_fwspec, iommu_fwspec);
+
+PS_SRC_FUNC_ADD_TYPE(struct device_type, device_type)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_type, device_type, name, name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_type, device_type, groups, groups);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_type, device_type, uevent, uevent);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_type, device_type, devnode, devnode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_type, device_type, release, release);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_type, device_type, pm, pm);
+
+PS_SRC_FUNC_ADD_TYPE(struct device_node, device_node)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_node, device_node, name, name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_node, device_node, type, type);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_node, device_node, phandle, phandle);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_node, device_node, full_name, full_name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_node, device_node, fwnode, fwnode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_node, device_node, properties, properties);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_node, device_node, deadprops, deadprops);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_node, device_node, parent, parent);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_node, device_node, child, child);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_node, device_node, sibling, sibling);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_node, device_node, _flags, _flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_node, device_node, data, data);
+
+PS_SRC_FUNC_ADD_TYPE(struct device_attribute, device_attribute)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_attribute, device_attribute, attr, attr);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_attribute, device_attribute, store, store);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_attribute, device_attribute, show, show);
+
+PS_SRC_FUNC_ADD_TYPE(struct device_driver, device_driver)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_driver, device_driver, name, name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_driver, device_driver, bus, bus);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_driver, device_driver, owner, owner);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_driver, device_driver, mod_name, mod_name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_driver, device_driver, suppress_bind_attrs, suppress_bind_attrs);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_driver, device_driver, probe_type, probe_type);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_driver, device_driver, of_match_table, of_match_table);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_driver, device_driver, acpi_match_table, acpi_match_table);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_driver, device_driver, probe, probe);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_driver, device_driver, remove, remove);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_driver, device_driver, shutdown, shutdown);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_driver, device_driver, suspend, suspend);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_driver, device_driver, resume, resume);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_driver, device_driver, groups, groups);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_driver, device_driver, pm, pm);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_driver, device_driver, p, p);
+
+PS_SRC_FUNC_ADD_TYPE(struct device_link, device_link)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_link, device_link, supplier, supplier);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_link, device_link, s_node, s_node);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_link, device_link, consumer, consumer);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_link, device_link, c_node, c_node);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_link, device_link, status, status);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_link, device_link, flags, flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct device_link, device_link, rpm_active, rpm_active);
+
+PS_SRC_FUNC_ADD_TYPE(struct dev_links_info, dev_links_info)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_links_info, dev_links_info, suppliers, suppliers);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_links_info, dev_links_info, consumers, consumers);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_links_info, dev_links_info, status, status);
+
+PS_SRC_FUNC_ADD_TYPE(struct dev_ext_attribute, dev_ext_attribute)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_ext_attribute, dev_ext_attribute, attr, attr);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_ext_attribute, dev_ext_attribute, var, var);
+
+PS_SRC_FUNC_ADD_TYPE(struct class, class)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class, class, name, name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class, class, owner, owner);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class, class, class_groups, class_groups);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class, class, dev_groups, dev_groups);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class, class, dev_kobj, dev_kobj);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class, class, dev_uevent, dev_uevent);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class, class, devnode, devnode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class, class, class_release, class_release);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class, class, dev_release, dev_release);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class, class, shutdown_pre, shutdown_pre);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class, class, ns_type, ns_type);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class, class, namespace, namespace);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class, class, pm, pm);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class, class, p, p);
+
+PS_SRC_FUNC_ADD_TYPE(struct class_dev_iter, class_dev_iter)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class_dev_iter, class_dev_iter, ki, ki);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class_dev_iter, class_dev_iter, type, type);
+
+PS_SRC_FUNC_ADD_TYPE(struct class_interface, class_interface)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class_interface, class_interface, node, node);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class_interface, class_interface, class, class);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class_interface, class_interface, add_dev, add_dev);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class_interface, class_interface, remove_dev, remove_dev);
+
+PS_SRC_FUNC_ADD_TYPE(struct class_attribute_string, class_attribute_string)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class_attribute_string, class_attribute_string, attr, attr);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class_attribute_string, class_attribute_string, str, str);
+
+PS_SRC_FUNC_ADD_TYPE(struct class_attribute, class_attribute)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class_attribute, class_attribute, attr, attr);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class_attribute, class_attribute, show, show);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct class_attribute, class_attribute, store, store);
+
+PS_SRC_FUNC_ADD_TYPE(struct bus_type, bus_type)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, name, name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, dev_name, dev_name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, dev_root, dev_root);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, bus_groups, bus_groups);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, dev_groups, dev_groups);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, drv_groups, drv_groups);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, match, match);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, uevent, uevent);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, probe, probe);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, remove, remove);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, shutdown, shutdown);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, online, online);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, offline, offline);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, suspend, suspend);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, resume, resume);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, num_vf, num_vf);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, pm, pm);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, iommu_ops, iommu_ops);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, p, p);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_type, bus_type, lock_key, lock_key);
+
+PS_SRC_FUNC_ADD_TYPE(struct bus_attribute, bus_attribute)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_attribute, bus_attribute, attr, attr);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_attribute, bus_attribute, show, show);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bus_attribute, bus_attribute, store, store);
+
+PS_SRC_FUNC_ADD_TYPE(struct irq_domain, irq_domain)
+
+PS_SRC_FUNC_ADD_TYPE(struct attribute_group, attribute_group)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct attribute_group, attribute_group, name, name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct attribute_group, attribute_group, is_visible, is_visible);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct attribute_group, attribute_group, is_bin_visible, is_bin_visible);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct attribute_group, attribute_group, attrs, attrs);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct attribute_group, attribute_group, bin_attrs, bin_attrs);
+
+PS_SRC_FUNC_ADD_TYPE(struct bin_attribute, bin_attribute)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bin_attribute, bin_attribute, attr, attr);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bin_attribute, bin_attribute, size, size);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bin_attribute, bin_attribute, private, private);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bin_attribute, bin_attribute, read, read);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct bin_attribute, bin_attribute, mmap, mmap);
+
+PS_SRC_FUNC_ADD_TYPE(struct sysfs_ops, sysfs_ops)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sysfs_ops, sysfs_ops, show, show);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sysfs_ops, sysfs_ops, store, store);
+
+PS_SRC_FUNC_ADD_TYPE(struct cdev, cdev)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct cdev, cdev, kobj, kobj);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct cdev, cdev, owner, opsj);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct cdev, cdev, list, list);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct cdev, cdev, dev, dev);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct cdev, cdev, count, count);
+
+PS_SRC_FUNC_ADD_TYPE(struct dev_pm_ops, dev_pm_ops)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, prepare, prepare);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, complete, complete);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, suspend, suspend);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, resume, resume);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, freeze, freeze);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, thaw, thaw);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, poweroff, poweroff);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, restore, restore);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, suspend_late, suspend_late);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, resume_early, resume_early);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, freeze_late, freeze_late);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, thaw_early, thaw_early);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, poweroff_late, poweroff_late);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, restore_early, restore_early);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, suspend_noirq, suspend_noirq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, resume_noirq, resume_noirq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, freeze_noirq, freeze_noirq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, thaw_noirq, thaw_noirq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, poweroff_noirq, poweroff_noirq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, restore_noirq, restore_noirq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, runtime_suspend, runtime_suspend);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, runtime_resume, runtime_resume);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_ops, dev_pm_ops, runtime_idle, runtime_idle);
+
+PS_SRC_FUNC_ADD_TYPE(struct dev_pm_domain, dev_pm_domain)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_domain, dev_pm_domain, ops, ops);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_domain, dev_pm_domain, detach, detach);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_domain, dev_pm_domain, activate, activate);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_domain, dev_pm_domain, sync, sync);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dev_pm_domain, dev_pm_domain, dismiss, dismiss);
+
+PS_SRC_FUNC_ADD_TYPE(struct pm_subsys_data, pm_subsys_data)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pm_subsys_data, pm_subsys_data, lock, lock);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct pm_subsys_data, pm_subsys_data, refcount, refcount);
+
+PS_SRC_FUNC_ADD_TYPE(struct module, module)
+
+PS_SRC_FUNC_ADD_TYPE(struct module_attribute, module_attribute)
+
+PS_SRC_FUNC_ADD_TYPE(struct module_kobject, module_kobject)
+
+PS_SRC_FUNC_ADD_TYPE(struct module_version_attribute, module_version_attribute)
+
+PS_SRC_FUNC_ADD_TYPE(struct module_use, module_use)
+
+PS_SRC_FUNC_ADD_TYPE(struct module_layout, module_layout)
+
+PS_SRC_FUNC_ADD_TYPE(struct mod_tree_node, mod_tree_node)
+
+PS_SRC_FUNC_ADD_TYPE(struct mod_kallsyms, mod_kallsyms)
+
+PS_SRC_FUNC_ADD_TYPE(struct dma_map_ops, dma_map_ops)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dma_map_ops, dma_map_ops, alloc, alloc);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dma_map_ops, dma_map_ops, free, free);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dma_map_ops, dma_map_ops, mmap, mmap);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dma_map_ops, dma_map_ops, get_sgtable, get_sgtable);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dma_map_ops, dma_map_ops, map_page, map_page);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dma_map_ops, dma_map_ops, unmap_page, unmap_page);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dma_map_ops, dma_map_ops, map_sg, map_sg);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dma_map_ops, dma_map_ops, unmap_sg, unmap_sg);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dma_map_ops, dma_map_ops, map_resource, map_resource);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dma_map_ops, dma_map_ops, unmap_resource, unmap_resource);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dma_map_ops, dma_map_ops, sync_single_for_cpu, sync_single_for_cpu);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dma_map_ops, dma_map_ops, sync_single_for_device, sync_single_for_device);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dma_map_ops, dma_map_ops, sync_sg_for_cpu, sync_sg_for_cpu);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dma_map_ops, dma_map_ops, sync_sg_for_device, sync_sg_for_device);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dma_map_ops, dma_map_ops, mapping_error, mapping_error);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dma_map_ops, dma_map_ops, dma_supported, dma_supported);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dma_map_ops, dma_map_ops, is_phys, is_phys);
+
+PS_SRC_FUNC_ADD_TYPE(struct qstr, qstr)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct qstr, qstr, hash_len, hash_len);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct qstr, qstr, name, name);
+
+PS_SRC_FUNC_ADD_TYPE(struct dentry, dentry)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_flags, d_flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_seq, d_seq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_hash, d_hash);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_parent, d_parent);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_name, d_name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_inode, d_inode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_iname, d_iname);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_lockref, d_lockref);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_op, d_op);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_sb, d_sb);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_time, d_time);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_fsdata, d_fsdata);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_lru, d_lru);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_wait, d_wait);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_child, d_child);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_subdirs, d_subdirs);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_u.d_alias, d_u_d_alias);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_u.d_alias, d_u_generic);
+
+PS_SRC_FUNC_ADD_TYPE(struct dentry_operations, dentry_operations)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_revalidate, d_revalidate);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_weak_revalidate, d_weak_revalidate);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_hash, d_hash);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_compare, d_compare);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_delete, d_delete);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_init, d_init);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_release, d_release);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_prune, d_prune);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_iput, d_iput);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_dname, d_dname);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_automount, d_automount);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_manage, d_manage);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_real, d_real);
+
+PS_SRC_FUNC_ADD_TYPE(struct dentry_stat_t, dentry_stat)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_stat_t, dentry_stat, nr_dentry, nr_dentry);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_stat_t, dentry_stat, nr_unused, nr_unused);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_stat_t, dentry_stat, age_limit, age_limit);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_stat_t, dentry_stat, want_pages, want_pages);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_stat_t, dentry_stat, dummy, dummy);
+
+PS_SRC_FUNC_ADD_TYPE(struct wait_queue_entry, wait_queue_entry)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct wait_queue_entry, wait_queue_entry, flags, flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct wait_queue_entry, wait_queue_entry, private, private);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct wait_queue_entry, wait_queue_entry, entry, entry);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct wait_queue_entry, wait_queue_entry, func, func);
 

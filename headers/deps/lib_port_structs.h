@@ -13,10 +13,10 @@
 #ifndef XENUS_BUILD
 	// Fill out compiler specific stuff here. this is just xenuses config for x64 msvc
 	#ifdef __cplusplus
-		#define XENUS_BEGIN_C extern "C" {
+		#define XENUX_BEGIN_C extern "C" {
 		#define XENUS_END_C  }
 	#else
-		#define XENUS_BEGIN_C
+		#define XENUX_BEGIN_C
 		#define XENUS_END_C
 	#endif 
 	#if 0
@@ -35,7 +35,9 @@
 	void * _alloca(size_t len);
 	#define alloca _alloca 
 	#define _INC_MALLOC 1
-#endif
+ #endif
+
+
 
 #ifdef PS_EXPORTING
 	int ps_buffer_dump(void * buffer, uint64_t size);
@@ -50,7 +52,7 @@ int ps_buffer_length(void);
 #define __PS_SIZEOF_MEM_OF(type, name)		        	    (size_t) sizeof(((type *)(NULL))->name)
 
 #define PS_HEADER_GLOBAL_START typedef struct {
-#define PS_HEADER_GLOBAL_END } ps_global_t; XENUS_BEGIN_C XENUS_SYM_VAR ps_global_t ps_global; XENUS_END_C
+#define PS_HEADER_GLOBAL_END } ps_global_t; XENUX_BEGIN_C XENUS_SYM_VAR ps_global_t ps_global; XENUS_END_C
 
 #define PS_HEADER_TYPE_START struct { uint16_t length; char name[TS_MAX_STRUCT_NAME_LENGTH];
 #define PS_HEADER_TYPE_END(type, type_name) } ps_type_ ## type_name;
@@ -62,10 +64,10 @@ int ps_buffer_length(void);
 #define PS_SRC_FUNC_START ps_global_t ps_global = { 0 };  void ps_initialize(void) { memset(&ps_global, 0, sizeof(ps_global));
 #define PS_SRC_FUNC_END   }
 
-#define __PS_SRC_FUNC_ADD_TYPE(type, type_name) strncat(ps_global.ps_type_ ## type_name.name, #type_name, TS_MAX_STRUCT_NAME_LENGTH);  ps_global.ps_type_ ## type_name ## .length = sizeof(type);
-#define __PS_SRC_FUNC_ADD_TYPE_MEMBER(type, type_name, member, member_name)  strncat(ps_global.ps_type_ ## type_name ## .ps_member_ ## member_name ## .name , #member, TS_MAX_MEMBER_LENGTH); \
-                                                                                     ps_global.ps_type_ ## type_name ## .ps_member_ ## member_name ## .length = __PS_SIZEOF_MEM_OF(type, member); \
-                                                                                     ps_global.ps_type_ ## type_name ## .ps_member_ ## member_name ## .offset = __PS_OFFSET_OF(type, member);
+#define __PS_SRC_FUNC_ADD_TYPE(type, type_name) strncat(ps_global.ps_type_ ## type_name.name, #type_name, TS_MAX_STRUCT_NAME_LENGTH);  ps_global.ps_type_ ## type_name.length = sizeof(type);
+#define __PS_SRC_FUNC_ADD_TYPE_MEMBER(type, type_name, member, member_name)  strncat(ps_global.ps_type_ ## type_name.ps_member_ ## member_name.name , #member, TS_MAX_MEMBER_LENGTH); \
+                                                                                     ps_global.ps_type_ ## type_name.ps_member_ ## member_name.length = __PS_SIZEOF_MEM_OF(type, member); \
+                                                                                     ps_global.ps_type_ ## type_name.ps_member_ ## member_name.offset = __PS_OFFSET_OF(type, member);
 
 #ifdef PS_EXPORTING
 	#define PS_SRC_FUNC_ADD_TYPE               __PS_SRC_FUNC_ADD_TYPE     
@@ -78,7 +80,7 @@ int ps_buffer_length(void);
 #define PS_HEADER_INIT_TYPE(type_name)\
 static inline void * type_name ## _allocate()\
 {\
-    return malloc(ps_global.ps_type_ ## type_name ## .length);\
+    return malloc(ps_global.ps_type_ ## type_name .length);\
 }\
 static inline void type_name ## _free(void * ptr)\
 {\
@@ -86,21 +88,21 @@ static inline void type_name ## _free(void * ptr)\
 }\
 static inline uint64_t type_name ## _size()\
 {\
-    return ps_global.ps_type_ ## type_name ## .length;\
+    return ps_global.ps_type_ ## type_name .length;\
 }
 
-#define PS_HEADER_INIT_MEMBER(type, type_name, member/*_name*/)\
+#define PS_HEADER_INIT_MEMBER(type_name, member/*_name*/)\
 static inline size_t type_name ## _sizeof_ ## member()\
 {\
-    return ps_global.ps_type_ ## type_name ## .ps_member_ ## member ## .length;\
+    return ps_global.ps_type_ ## type_name .ps_member_ ## member .length;\
 }\
 static inline void * type_name ## _get_ ## member (void * ptr) \
 {\
-    return (void *)((uint8_t *)ptr + (ps_global.ps_type_ ## type_name ## .ps_member_ ## member ## .offset));\
+    return (void *)((uint8_t *)ptr + (ps_global.ps_type_ ## type_name .ps_member_ ## member .offset));\
 }\
 static inline void type_name ## _set_ ## member(void * ptr, void * src)\
 {\
-    memcpy(type_name ## _get_ ## member(ptr), src, ps_global.ps_type_ ## type_name ## .ps_member_ ## member ## .offset);\
+    memcpy(type_name ## _get_ ## member(ptr), src, ps_global.ps_type_ ## type_name .ps_member_ ## member .offset);\
 }\
 static inline void type_name ## _set_ ## member ## _int64(void * ptr, int64_t set)\
 {\
