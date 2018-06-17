@@ -19,7 +19,7 @@ typedef void(*_pre_chain_dealloc)(void * buffer);
     etc etc 
 */
 
-XENUS_SYM error_t chain_allocate(void * bk, uint64_t hash, uint32_t length, void ** bkout, void ** out);
+XENUS_SYM error_t chain_allocate(void * bk, uint64_t hash, size_t length, void ** bkout, void ** out);
 XENUS_SYM error_t chain_deallocate_ex(void * bk, uint64_t hash, _pre_chain_dealloc cb);
 XENUS_SYM error_t chain_deallocate(void * bk, uint64_t hash);
 XENUS_SYM error_t chain_get(void * bk, uint64_t hash, void ** bnext, void ** out);

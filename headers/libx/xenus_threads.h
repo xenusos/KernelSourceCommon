@@ -12,6 +12,7 @@ typedef struct thread_index_counter_s
 	void * list;
 	uint32_t max_threads;
 	uint32_t counter;
+	mutex_k mutex;
 } *thread_index_counter_p, thread_index_counter_t;
 #else
 typedef void * thread_index_counter_p;
@@ -21,12 +22,33 @@ typedef void * thread_index_counter_p;
 uint32_t    thread_geti();
 #endif
 
+
+static uint64_t TLS_TYPE_GENERIC = 0;
+static uint64_t TLS_TYPE_GENERIC_2 = 1;
+static uint64_t TLS_TYPE_GENERIC_3 = 2;
+static uint64_t TLS_TYPE_XIP = 3;        // INTERNAL LIB LINUX THING - DO NOT USE THIS!
+static uint64_t TLS_TYPE_XGLOBAL = 4;        // INTERNAL LIB LINUX THING - DO NOT USE THIS!
+
 XENUS_SYM void        thread_pause();
 
-// slow 
-XENUS_SYM error_t     thread_tls_allocate(uint32_t hash, uint32_t length, void **out);
-XENUS_SYM error_t     thread_tls_deallocate(uint32_t hash);
-XENUS_SYM error_t     thread_tls_get(uint32_t hash, void ** out);
+XENUS_SYM error_t     _thread_tls_allocate(uint64_t type, uint64_t hash, size_t length, void **out);
+XENUS_SYM error_t     _thread_tls_deallocate(uint64_t type, uint64_t hash);
+XENUS_SYM error_t     _thread_tls_get(uint64_t type, uint64_t hash, void ** out);
+
+error_t inline thread_tls_allocate(uint64_t hash, size_t length, void **out)
+{
+	return _thread_tls_allocate(TLS_TYPE_GENERIC, hash, length, out);
+}
+
+error_t inline thread_tls_deallocate(uint64_t hash)
+{
+	return _thread_tls_deallocate(TLS_TYPE_GENERIC, hash);
+}
+
+error_t inline thread_tls_get(uint64_t hash, void ** out)
+{
+	return _thread_tls_get(TLS_TYPE_GENERIC, hash, out);
+}
 
 
 //fast				  

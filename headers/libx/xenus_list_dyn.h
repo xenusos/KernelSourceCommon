@@ -6,9 +6,6 @@
 */
 #pragma once
 
-#ifndef LISTS_MIN_APPEND_SIZE
-#define LISTS_MIN_APPEND_SIZE 10
-#endif
 
 #ifndef DYN_LIST_CONVERT
 #define DYN_LIST_CONVERT(type, name)\
