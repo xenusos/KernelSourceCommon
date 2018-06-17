@@ -69,7 +69,8 @@ XENUX_BEGIN_C
 	#include <_/_xenus_linux_types_pci.h>
 	#include <_/_xenus_linux_types_task.h>
 	#include <_/_xenus_linux_types_time.h>
-	#include <_/_xenus_linux_types_usb.h>
+	#include <_/_xenus_linux_types_usb.h>	
+	#include <_/_xenus_linux_types_fcntl.h>
 #endif
 
 #define XENUS_LIBLINUX_SYM extern

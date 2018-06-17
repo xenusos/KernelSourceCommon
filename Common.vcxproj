@@ -145,6 +145,7 @@
     <ClInclude Include="headers\xenus.h" />
     <ClInclude Include="headers\xenus_lazy.h" />
     <ClInclude Include="headers\x_linux.h" />
+    <ClInclude Include="headers\_\_xenus_linux_types_fcntl.h" />
     <ClInclude Include="headers\_\_generic_config.h" />
     <ClInclude Include="headers\_\_linux_all_headers.h" />
     <ClInclude Include="headers\_\_linux_linux_types_mapping.h" />

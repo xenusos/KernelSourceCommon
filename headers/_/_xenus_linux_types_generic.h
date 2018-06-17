@@ -10,10 +10,11 @@
 // general
 typedef void *	unknown_k;
 
-
 #define DEFINE_TYPE(fuckoff, x) typedef void * x ## _k
 #include "_unknown_types.macros"
 #undef DEFINE_TYPE
+
+typedef void * delayed_call_k;
 
 struct llist_head {
 	struct llist_node *first;
@@ -94,10 +95,87 @@ struct hlist_node {
 typedef int32_t atomic_t;
 
 
+#define __user
+
 typedef int					pci_power_t;
 
-
-typedef uint64_t			cpumask; //TODO: int 128
+typedef struct
+{
+	union
+	{
+		uint64_t cpu_mask;
+#ifndef PRODUCTION
+		struct
+		{
+			//bitwise macros? nah. i hate myself
+			uint64_t core_0 : 1;
+			uint64_t core_1 : 1;
+			uint64_t core_2 : 1;
+			uint64_t core_3 : 1;
+			uint64_t core_4 : 1;
+			uint64_t core_5 : 1;
+			uint64_t core_6 : 1;
+			uint64_t core_7 : 1;
+			uint64_t core_8 : 1;
+			uint64_t core_9 : 1;
+			uint64_t core_10 : 1;
+			uint64_t core_11 : 1;
+			uint64_t core_12 : 1;
+			uint64_t core_13 : 1;
+			uint64_t core_14 : 1;
+			uint64_t core_15 : 1;
+			uint64_t core_16 : 1;
+			uint64_t core_17 : 1;
+			uint64_t core_18 : 1;
+			uint64_t core_19 : 1;
+			uint64_t core_20 : 1;
+			uint64_t core_21 : 1;
+			uint64_t core_22 : 1;
+			uint64_t core_23 : 1;
+			uint64_t core_24 : 1;
+			uint64_t core_25 : 1;
+			uint64_t core_26 : 1;
+			uint64_t core_27 : 1;
+			uint64_t core_28 : 1;
+			uint64_t core_29 : 1;
+			uint64_t core_30 : 1;
+			uint64_t core_31 : 1;
+			uint64_t core_32 : 1;
+			uint64_t core_33 : 1;
+			uint64_t core_34 : 1;
+			uint64_t core_35 : 1;
+			uint64_t core_36 : 1;
+			uint64_t core_37 : 1;
+			uint64_t core_38 : 1;
+			uint64_t core_39 : 1;
+			uint64_t core_40 : 1;
+			uint64_t core_41 : 1;
+			uint64_t core_42 : 1;
+			uint64_t core_43 : 1;
+			uint64_t core_44 : 1;
+			uint64_t core_45 : 1;
+			uint64_t core_46 : 1;
+			uint64_t core_47 : 1;
+			uint64_t core_48 : 1;
+			uint64_t core_49 : 1;
+			uint64_t core_50 : 1;
+			uint64_t core_51 : 1;
+			uint64_t core_52 : 1;
+			uint64_t core_53 : 1;
+			uint64_t core_54 : 1;
+			uint64_t core_55 : 1;
+			uint64_t core_56 : 1;
+			uint64_t core_57 : 1;
+			uint64_t core_58 : 1;
+			uint64_t core_59 : 1;
+			uint64_t core_60 : 1;
+			uint64_t core_61 : 1;
+			uint64_t core_62 : 1;
+			uint64_t core_63 : 1;
+		};
+#endif
+	};
+} cpumask; 
 typedef cpumask *			cpumask_k;
 
 

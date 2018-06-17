@@ -12,3 +12,5 @@
 #define STRICTLY_OKAY(x)		((x) == XENUS_OKAY)
 #define NO_ERROR(x)				((x) > 0)
 #define ERROR(x)				((x) < 0)
+
+#define LINUX_ERROR(x) ((unsigned long)(void *)(x) >= (unsigned long)-4095)

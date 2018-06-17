@@ -37,7 +37,7 @@
 
 #ifdef __cplusplus 
     #define STATUSES_START \
-        enum : int64_t \
+        enum  : long long  \
         { \
             __LSTATUSES_C_HACK_C = 0,
 #else 
