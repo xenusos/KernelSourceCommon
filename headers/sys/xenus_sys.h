@@ -8,9 +8,6 @@ XENUX_BEGIN_C
 #include "sys_dbg.h"
 #include "sys_mutex.h"
 
-// util, but not libx 
-#include "sys_linux_caller.h"
-
 // generated functions
 #include "sys_timer.h"
 #include "sys_symbols.h"

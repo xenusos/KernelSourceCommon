@@ -29,7 +29,7 @@ typedef struct linked_list_entry_s
     union
     {
         void * end_of_struct;
-        void * data;
+        void * future_proofing;
     };
     struct linked_list_entry_s * before;
     struct linked_list_entry_s * next;
