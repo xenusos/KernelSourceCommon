@@ -19,6 +19,8 @@
 
 #ifndef LISTS_MIN_APPEND_SIZE
 #define LISTS_MIN_APPEND_SIZE 10
+// [] = reserved block, [x] allocated block 
+//
 // []  []  []  []  []  []  []  []  []  [] = 10
 // [X] []  []  []  []  []  []  []  []  [] 
 // [X] [X] []  []  []  []  []  []  []  [] 
