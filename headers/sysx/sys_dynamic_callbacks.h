@@ -19,8 +19,8 @@
 // DEFINE_SYSV_FUNCTON_END
 
 
-XENUS_SYM size_t dyncb_calc_size(size_t parameters);
-XENUS_SYM error_t dyncb_allocate_stub(void * msft, size_t parameters, void * data, void ** sysv);
+XENUS_SYM size_t  dyncb_calc_size		(size_t parameters);
+XENUS_SYM error_t dyncb_allocate_stub	(void * msft, size_t parameters, void * data, void ** sysv); // i hate allocating memory in functions. free sysv w/ execfree 
 
 
 
