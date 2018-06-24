@@ -95,9 +95,8 @@ typedef struct
 	void *(*file_open_readwrite)(const char *path);
 	void *(*file_open_append)(const char *path);
 
-	long long (*file_read)(void *file, unsigned long long offset, unsigned char *data, size_t size);
-	long long(*file_write)(void *file, unsigned long long offset, unsigned char *data, size_t size);
-
+	int (*file_read)(void *file, unsigned long long offset, unsigned char *data, size_t size);
+	int (*file_write)(void *file, unsigned long long offset, unsigned char *data, size_t size);
 	long (*file_mode)(const char * file);
 	long (*file_length)(const char * file);
 

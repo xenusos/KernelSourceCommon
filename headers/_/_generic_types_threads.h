@@ -19,8 +19,8 @@ typedef struct
 	};													   
 	pre_context_switch_callback_t usr_switch_pre_cb;    // (LINUX KERNEL - do not fucking touch... XENUS KERNEL ONLY)
 	post_context_switch_callback_t usr_switch_post_cb;  // (LINUX KERNEL - do not fucking touch... XENUS KERNEL ONLY)
-	pre_context_switch_callback_t kern_switch_pre_cb;   // OPTIONAL: to be called pre-preemption
-	post_context_switch_callback_t kern_switch_post_cb; // OPTIONAL: to be called post-preemption
+	pre_context_switch_callback_t kern_switch_pre_cb;   // OPTIONAL: to be called pre-preemption  (a/k/a out)
+	post_context_switch_callback_t kern_switch_post_cb; // OPTIONAL: to be called post-preemption (a/k/a in )
 	uint32_t fpu_enabled_via_hook; 						// (LINUX KERNEL - do not fucking touch... XENUS KERNEL ONLY)
 	uint32_t fpu_enabled_internal;            // +  7	// OPT IMPL: to be used within the linux kernel for debugging begin/end fpu calls (are they nested? are push or pops non-complementory?) - this isn't that important
 	union
