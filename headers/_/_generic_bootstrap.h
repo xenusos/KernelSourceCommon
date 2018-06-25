@@ -72,6 +72,8 @@ typedef struct
 {
 	void	(* kernel_fpu_begin)							(void); 
 	void	(* kernel_fpu_end)								(void);
+	void	(* __kernel_fpu_begin)							(void); 
+	void	(* __kernel_fpu_end)							(void);
 
 	task_k	(* create_thread_unsafe)						(thread_callback_t callback, void * data, char * name);
 
