@@ -7,6 +7,7 @@ XENUX_BEGIN_C
 #include "sys_mem.h"
 #include "sys_dbg.h"
 #include "sys_mutex.h"
+#include "sys_timekeeper.h"
 
 // generated functions
 #include "sys_timer.h"

@@ -124,9 +124,12 @@ struct pci_bus_resource {
 		struct _resource *res;
 		resource_k		 res_ptr;
 	};
-	unsigned int		flags;
+	l_uint		flags;
 };
 
 typedef struct pm_message {
-	int event;
+	l_int event;
 } pm_message_t;
+
+
+typedef l_int	pci_power_t;

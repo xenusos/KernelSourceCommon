@@ -20,13 +20,6 @@ typedef d_entry_stat_k dentry_stat_k;
 
 typedef void * delayed_call_k;
 
-struct llist_head {
-	struct llist_node *first;
-};
-
-struct llist_node {
-	struct llist_node *next;
-};
 
 struct callback_head {
 	struct callback_head *next;
@@ -34,42 +27,6 @@ struct callback_head {
 }/*__attribute__((aligned(sizeof(void *))));*/;
 
 
-enum pid_type
-{
-	PIDTYPE_PID,
-	PIDTYPE_PGID,
-	PIDTYPE_SID,
-	PIDTYPE_MAX,
-	/* only valid to __task_pid_nr_ns() */
-	__PIDTYPE_TGID
-};
-
-
-
-struct rb_node {
-	unsigned long  __rb_parent_color;
-	struct rb_node *rb_right;
-	struct rb_node *rb_left;
-};
-
-struct rb_root {
-	struct rb_node *rb_node;
-};
-
-/*
-* Leftmost-cached rbtrees.
-*
-* We do not cache the rightmost node based on footprint
-* size vs number of potential users that could benefit
-* from O(1) rb_last(). Just not worth it, users that want
-* this feature can always implement the logic explicitly.
-* Furthermore, users that want to cache both pointers may
-* find it a bit asymmetric, but that's ok.
-*/
-struct rb_root_cached {
-	struct rb_root rb_root;
-	struct rb_node *rb_leftmost;
-};
 
 enum vtime_state {
 	/* Task is sleeping or running in a CPU with VTIME inactive: */
@@ -84,24 +41,7 @@ typedef struct {
 	uint64_t val;
 } pfn_t;
 
-struct list_head {
-	struct list_head *next, *prev;
-};
 
-struct hlist_head {
-	struct hlist_node *first;
-};
-
-struct hlist_node {
-	struct hlist_node *next, **pprev;
-};
-
-typedef int32_t atomic_t;
-
-
-#define __user
-
-typedef int					pci_power_t;
 
 typedef struct
 {
@@ -228,9 +168,6 @@ typedef __kernel_mode_t				mode_t;
 typedef __kernel_gid_t				gid_t;
 typedef size_t						dev_t;
 
-typedef physical_address_t resource_size_t;
-typedef physical_address_t dma_addr_t;
-typedef physical_address_t pci_bus_addr_t;
 
 typedef unsigned long pteval_t;
 typedef unsigned long pmdval_t;
@@ -261,7 +198,7 @@ typedef struct { pgdval_t pgd; } pgd_t;
 #define PFN_ALIGN(x)		(((unsigned long)(x) + (PAGE_SIZE - 1)) & PAGE_MASK)
 #define PFN_UP(x)			(((x) + PAGE_SIZE-1) >> PAGE_SHIFT)
 #define PFN_DOWN(x)			((x) >> PAGE_SHIFT)
-#define PFN_PHYS(x)			((physical_address_t)(x) << PAGE_SHIFT)
+#define PFN_PHYS(x)			((phys_addr_t)(x) << PAGE_SHIFT)
 #define PHYS_PFN(x)			((unsigned long)((x) >> PAGE_SHIFT))
 
 

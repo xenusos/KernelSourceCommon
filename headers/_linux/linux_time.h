@@ -2,7 +2,7 @@
 
 struct timespec {
 	__kernel_time_t	tv_sec;			/* seconds */
-	long			tv_nsec;		/* nanoseconds */
+	l_long			tv_nsec;		/* nanoseconds */
 };
 
 struct timeval {
@@ -11,8 +11,8 @@ struct timeval {
 };
 
 struct timezone {
-	int	tz_minuteswest;	/* minutes west of Greenwich */
-	int	tz_dsttime;	/* type of dst correction */
+	l_int	tz_minuteswest;	/* minutes west of Greenwich */
+	l_int	tz_dsttime;  	/* type of dst correction */
 };
 
 

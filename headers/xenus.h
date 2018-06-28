@@ -60,17 +60,7 @@ XENUX_BEGIN_C
     #include <_/_linux_all_headers.h>
 	#include <_/_linux_linux_types_mapping.h>
 #else
-	#include <_/_xenus_linux_types_generic.h>
-	#include <_/_xenus_linux_types_cpu.h>
-	#include <_/_xenus_linux_types_fio.h>
-	#include <_/_xenus_linux_types_interrupts.h>
-	#include <_/_xenus_linux_types_io.h>
-	#include <_/_xenus_linux_types_memory.h>
-	#include <_/_xenus_linux_types_pci.h>
-	#include <_/_xenus_linux_types_task.h>
-	#include <_/_xenus_linux_types_time.h>
-	#include <_/_xenus_linux_types_usb.h>	
-	#include <_/_xenus_linux_types_fcntl.h>
+	#include <_linux/linux_inc.h>
 #endif
 
 #define XENUS_LIBLINUX_SYM extern

@@ -3,7 +3,7 @@
 XENUX_BEGIN_C
 
 // bootstrap
-#include "sys_linux_caller.h"
-#include "sys_dynamic_callbacks.h"
+#include "sysx_linux_caller.h"
+#include "sysx_dynamic_callbacks.h"
 
 XENUS_END_C

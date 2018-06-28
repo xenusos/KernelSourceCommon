@@ -8,9 +8,6 @@
 
 XENUX_BEGIN_C
 
-// String formatting:
-XENUS_IMPORT size_t vsnprintf(char *buf, size_t size, const char *fmt, va_list ap);
-XENUS_IMPORT size_t vsprintf(char *buf, const char *fmt, va_list ap);
 
 // String utils:
 XENUS_IMPORT char * strcat(char * x, const char * y);
@@ -38,30 +35,5 @@ XENUS_IMPORT int 	strtobool(const char *s, bool *res);
 XENUS_IMPORT char *	strstr(const char *s1, const char *s2);
 XENUS_IMPORT char *	strnstr(const char *s1, const char *s2, size_t len);
 XENUS_IMPORT char * strcpy(char * destination, const char * source);
-
-#include "___sys_strings.h"
-
-
-static inline size_t snprintf(char *buf, size_t size, const char *fmt, ...)
-{
-    va_list ap;
-    size_t retval;
-    
-    va_start(ap, fmt);
-    retval = vsnprintf(buf, size, fmt, ap);
-    va_end(ap);
-    return retval;
-}
-
-static size_t sprintf(char *buf, const char *fmt, ...)
-{
-    va_list ap;
-    size_t retval;
-    
-    va_start(ap, fmt);
-    retval = vsprintf(buf, fmt, ap);
-    va_end(ap);
-    return retval;
-}
 
 XENUS_END_C

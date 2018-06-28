@@ -131,9 +131,9 @@
     <ClInclude Include="headers\plugins\plugins.h" />
     <ClInclude Include="headers\sysx\xenus_sysx.h" />
     <ClInclude Include="headers\sys\sys_dbg.h" />
-    <ClInclude Include="headers\sysx\sys_dynamic_callbacks.h" />
+    <ClInclude Include="headers\sysx\sysx_dynamic_callbacks.h" />
     <ClInclude Include="headers\sys\sys_fs.h" />
-    <ClInclude Include="headers\sysx\sys_linux_caller.h" />
+    <ClInclude Include="headers\sysx\sysx_linux_caller.h" />
     <ClInclude Include="headers\sys\sys_mem.h" />
     <ClInclude Include="headers\sys\sys_mutex.h" />
     <ClInclude Include="headers\sys\sys_sched.h" />
@@ -143,12 +143,25 @@
     <ClInclude Include="headers\sys\sys_timer.h" />
     <ClInclude Include="headers\sys\xenus_sys.h" />
     <ClInclude Include="headers\sys\xenus_sys.hpp" />
-    <ClInclude Include="headers\sysx\___sys_dynamic_callbacks.h" />
-    <ClInclude Include="headers\sys\___sys_strings.h" />
     <ClInclude Include="headers\xenus.h" />
     <ClInclude Include="headers\xenus_lazy.h" />
     <ClInclude Include="headers\x_linux.h" />
-    <ClInclude Include="headers\_\_xenus_linux_types_fcntl.h" />
+    <ClInclude Include="headers\_linux\linux_cpu.h" />
+    <ClInclude Include="headers\_linux\linux_fcntl.h" />
+    <ClInclude Include="headers\_linux\linux_fio.h" />
+    <ClInclude Include="headers\_linux\linux_generic_ints.h" />
+    <ClInclude Include="headers\_linux\linux_generic_others.h" />
+    <ClInclude Include="headers\_linux\linux_inc.h" />
+    <ClInclude Include="headers\_linux\linux_interrupts.h" />
+    <ClInclude Include="headers\_linux\linux_io.h" />
+    <ClInclude Include="headers\_linux\linux_lists.h" />
+    <ClInclude Include="headers\_linux\linux_memory.h" />
+    <ClInclude Include="headers\_linux\linux_pci.h" />
+    <ClInclude Include="headers\_linux\linux_pids.h" />
+    <ClInclude Include="headers\_linux\linux_task.h" />
+    <ClInclude Include="headers\_linux\linux_time.h" />
+    <ClInclude Include="headers\_linux\linux_tree.h" />
+    <ClInclude Include="headers\_linux\linux_usb.h" />
     <ClInclude Include="headers\_\_generic_config.h" />
     <ClInclude Include="headers\_\_linux_all_headers.h" />
     <ClInclude Include="headers\_\_linux_linux_types_mapping.h" />
@@ -158,16 +171,6 @@
     <ClInclude Include="headers\_\_xenus_hash_codes.h" />
     <ClInclude Include="headers\_\_xenus_ints.h" />
     <ClInclude Include="headers\_\_generic_linux_structs.h" />
-    <ClInclude Include="headers\_\_xenus_linux_types_cpu.h" />
-    <ClInclude Include="headers\_\_xenus_linux_types_fio.h" />
-    <ClInclude Include="headers\_\_xenus_linux_types_generic.h" />
-    <ClInclude Include="headers\_\_xenus_linux_types_interrupts.h" />
-    <ClInclude Include="headers\_\_xenus_linux_types_io.h" />
-    <ClInclude Include="headers\_\_xenus_linux_types_memory.h" />
-    <ClInclude Include="headers\_\_xenus_linux_types_pci.h" />
-    <ClInclude Include="headers\_\_xenus_linux_types_task.h" />
-    <ClInclude Include="headers\_\_xenus_linux_types_time.h" />
-    <ClInclude Include="headers\_\_xenus_linux_types_usb.h" />
     <ClInclude Include="headers\_\_xenus_types_modules.h" />
     <ClInclude Include="headers\_\_generic_types_threads.h" />
   </ItemGroup>
@@ -175,7 +178,7 @@
     <ClCompile Include="headers\_\_portable_structs.macros" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="headers\_\_unknown_types.macros" />
+    <None Include="headers\_linux\_unknown_types.macros" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

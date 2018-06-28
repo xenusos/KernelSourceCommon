@@ -8,7 +8,7 @@
 
 typedef struct 
 {
-	void (*test_function)(int a_1, int a_2, int a_3, int a_4, int a_5, int a_6, int a_7, int a_8, int a_9, int a_10, int a_11, int a_12);
+	void (*test_function)(size_t a_1, size_t a_2, size_t a_3, size_t a_4, size_t a_5, size_t a_6, size_t a_7, size_t a_8, size_t a_9, size_t a_10, size_t a_11, size_t a_12);
     int  (*print)(const char *fmt);
 	void (*panic)(const char *fmt);
 } bootstrap_dbg_t;

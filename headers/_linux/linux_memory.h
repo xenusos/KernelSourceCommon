@@ -432,3 +432,14 @@ enum tlb_flush_reason {
 #define MNT_MARKED		0x4000000
 #define MNT_UMOUNT		0x8000000
 
+
+
+//static unsigned long page_offset_base = -1;
+//
+//static inline void *phys_to_virt(void *  address)
+//{
+//	if (page_offset_base == -1)
+//		page_offset_base = *(unsigned long **)kallsyms_lookup_name("page_offset_base");
+//	return ((void *)((unsigned long)(address) + page_offset_base));
+//}
+//
