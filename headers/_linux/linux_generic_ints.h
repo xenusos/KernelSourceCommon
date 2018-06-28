@@ -19,9 +19,9 @@ typedef __declspec(align(4)) struct // force struct alignment, if retardly place
 } atomic32_t, atomic_t;
 
 //typedef int32_t atomic_t;
-typedef uint32_t atomic_int_t ;
-typedef uint32_t atomic32_int_t ;
-typedef uint64_t atomic64_int_;
+typedef uint32_t atomic_int_t;
+typedef uint32_t atomic32_int_t;
+typedef uint64_t atomic64_int_t;
 
 
 // Linux size specific types
