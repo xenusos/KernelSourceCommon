@@ -13,4 +13,4 @@
 #define NO_ERROR(x)				((x) > 0)
 #define ERROR(x)				((x) < 0)
 
-#define LINUX_ERROR(x) ((unsigned long)(void *)(x) >= (unsigned long)-4095)
+#define LINUX_ERROR(x) ((l_ulong)(void *)(x) >= (l_ulong)-4095)

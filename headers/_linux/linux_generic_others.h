@@ -14,10 +14,6 @@ typedef void *	unknown_k;
 #include "_unknown_types.macros"
 #undef DEFINE_TYPE
 
-typedef d_entry_k dentry_k;
-typedef d_entry_operations_k dentry_operations_k;
-typedef d_entry_stat_k dentry_stat_k;
-
 typedef void * delayed_call_k;
 
 
