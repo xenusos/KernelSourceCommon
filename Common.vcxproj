@@ -52,6 +52,7 @@
     <ClInclude Include="headers\libx\xenus_win_support.h" />
     <ClInclude Include="headers\deps\lib_port_structs.h" />
     <ClInclude Include="headers\deps\lib_statuses.h" />
+    <ClInclude Include="headers\peloader\pe_fmt.h" />
     <ClInclude Include="headers\peloader\pe_loader.h" />
     <ClInclude Include="headers\plugins\plugins.h" />
     <ClInclude Include="headers\sysx\xenus_sysx.h" />
