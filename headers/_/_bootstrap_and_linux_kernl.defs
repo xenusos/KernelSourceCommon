@@ -1,0 +1,12 @@
+#ifndef __LINUX_KERNL_DEFS
+#define __LINUX_KERNL_DEFS
+
+	#define XENUS_MS_ABI __attribute__((ms_abi))
+	#define XENUS_SYSV_ABI __attribute__((sysv_abi))
+
+	#define XENUS_IMPORT XENUS_MS_ABI
+	#define XENUS_EXPORT XENUS_MS_ABI
+	
+	#define XENUS_IMPORT_VAR   extern
+	#define XENUS_EXPORT_VAR   extern
+#endif

@@ -119,58 +119,82 @@ typedef struct
 typedef cpumask *			cpumask_k;
 
 
-typedef long long			__kernel_long_t;
-typedef unsigned long long	__kernel_ulong_t;
-#define __kernel_long_t		__kernel_long_t
 
-typedef __kernel_long_t		__kernel_off_t;
-typedef long long			__kernel_loff_t;
-typedef __kernel_long_t		__kernel_time_t;
-typedef __kernel_long_t		__kernel_clock_t;
-typedef int					__kernel_timer_t;
-typedef int					__kernel_clockid_t;
-typedef char *				__kernel_caddr_t;
-typedef unsigned short		__kernel_uid16_t;
-typedef unsigned short		__kernel_gid16_t;
-typedef __kernel_long_t		__kernel_suseconds_t;
-typedef int					__kernel_daddr_t;
-typedef unsigned int		__kernel_uid32_t;
-typedef unsigned int		__kernel_gid32_t;
-typedef unsigned int		__kernel_uid_t;
-typedef int					__kernel_pid_t;
-typedef unsigned int		__kernel_mode_t;
-typedef unsigned int		__kernel_gid_t;
+typedef size_t						__kernel_size_t;
+typedef ssize_t						__kernel_ssize_t;
+typedef ptrdiff_t					__kernel_ptrdiff_t;
 
+typedef l_long						__kernel_long_t;
+typedef l_u_long					__kernel_ulong_t;
 
-typedef __kernel_loff_t				loff_t;
+typedef __kernel_long_t				__kernel_off_t;
+typedef l_longlong					__kernel_loff_t;
+typedef __kernel_long_t				__kernel_time_t;
+typedef __kernel_long_t				__kernel_clock_t;
+typedef l_int						__kernel_timer_t;
+typedef l_int						__kernel_clockid_t;
+typedef char *						__kernel_caddr_t;
+typedef l_short						__kernel_uid16_t;
+typedef l_short						__kernel_gid16_t;
+typedef __kernel_long_t				__kernel_suseconds_t;
+typedef l_int						__kernel_daddr_t;
+typedef l_uint						__kernel_uid32_t;
+typedef l_uint						__kernel_gid32_t;
+typedef l_uint						__kernel_uid_t;
+typedef l_int						__kernel_pid_t;
+typedef l_uint						__kernel_mode_t;
+typedef l_uint						__kernel_gid_t;
+
+typedef l_int						__kernel_ipc_pid_t;
+typedef l_int						__kernel_key_t;
+typedef l_int						__kernel_mqd_t;
+typedef __kernel_ulong_t			__kernel_ino_t;
+typedef u32							__kernel_dev_t;
+
+#define __FD_SETSIZE	1024
+typedef struct {
+	unsigned long fds_bits[__FD_SETSIZE / (8 * sizeof(l_long))];
+} __kernel_fd_set;
+
 typedef __kernel_off_t				off_t;
 typedef __kernel_loff_t				loff_t;
-typedef __kernel_time_t				time_t;
-#ifndef __clock_t
-typedef __kernel_clock_t			clock_t;
-#endif
-typedef __kernel_timer_t			timer_t;
-typedef __kernel_clockid_t			clockid_t;
-typedef __kernel_caddr_t			caddr_t;
-typedef __kernel_uid16_t			uid16_t;
-typedef __kernel_gid16_t			gid16_t;
+
 typedef __kernel_suseconds_t		suseconds_t;
+typedef __kernel_time_t				time_t;
+typedef __kernel_timer_t			timer_t;
+typedef __kernel_clock_t			clock_t;
+typedef __kernel_clockid_t			clockid_t;
+
+typedef __kernel_caddr_t			caddr_t;
 typedef __kernel_daddr_t			daddr_t;
+
 typedef __kernel_uid32_t			uid32_t;
 typedef __kernel_gid32_t			gid32_t;
-typedef __kernel_uid_t				uid_t;
-typedef __kernel_pid_t				pid_t;
+
 typedef __kernel_mode_t				mode_t;
-typedef __kernel_gid_t				gid_t;
-typedef size_t						dev_t;
+typedef l_ushort					umode_t;
+
+typedef u32							nlink_t;
+
+typedef __kernel_fd_set				fd_set;
+typedef __kernel_dev_t				dev_t;
+typedef __kernel_ino_t				ino_t;
+typedef __kernel_key_t				key_t;
+typedef __kernel_mqd_t				mqd_t;
 
 
-typedef unsigned long pteval_t;
-typedef unsigned long pmdval_t;
-typedef unsigned long pudval_t;
-typedef unsigned long p4dval_t;
-typedef unsigned long pgdval_t;
-typedef unsigned long pgprotval_t;
+typedef __kernel_uid32_t			uid_t;
+typedef __kernel_gid32_t			gid_t;
+typedef __kernel_uid16_t			uid16_t;
+typedef __kernel_gid16_t			gid16_t;
+
+
+typedef l_u_long					pteval_t;
+typedef l_u_long					pmdval_t;
+typedef l_u_long					pudval_t;
+typedef l_u_long					p4dval_t;
+typedef l_u_long					pgdval_t;
+typedef l_u_long					pgprotval_t;
 
 typedef struct
 { 
@@ -196,9 +220,6 @@ typedef struct { pgdval_t pgd; } pgd_t;
 #define PFN_DOWN(x)			((x) >> PAGE_SHIFT)
 #define PFN_PHYS(x)			((phys_addr_t)(x) << PAGE_SHIFT)
 #define PHYS_PFN(x)			((unsigned long)((x) >> PAGE_SHIFT))
-
-
-typedef unsigned short umode_t;
 
 typedef struct {
 	uid_t val;

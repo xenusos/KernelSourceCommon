@@ -1,0 +1,1 @@
+#include "xenus_lazy.h" // CommonHeaders aren't language aware & always use C mangling when possible.

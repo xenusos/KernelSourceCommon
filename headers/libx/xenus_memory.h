@@ -1,9 +1,7 @@
 #pragma once
 
-#ifndef MALLOC_PREDEFINED
+
 XENUS_SYM void * malloc(size_t length);
-#define MALLOC_PREDEFINED
-#endif
 XENUS_SYM void free(void * s);
 XENUS_SYM void * calloc(size_t num, size_t size);
 XENUS_SYM void * realloc(void * buf, size_t length);

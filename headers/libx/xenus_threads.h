@@ -41,7 +41,6 @@ XENUS_SYM error_t     _thread_tls_deallocate(uint64_t type, uint64_t hash);
 error_t inline thread_tls_allocate(uint64_t hash, size_t length, void **out)	{	return _thread_tls_allocate(TLS_TYPE_GENERIC, hash, length, out);}
 error_t inline thread_tls_get(uint64_t hash, void ** out)						{	return _thread_tls_get(TLS_TYPE_GENERIC, hash, out);}
 error_t inline thread_tls_deallocate(uint64_t hash) { return _thread_tls_deallocate(TLS_TYPE_GENERIC, hash); }
-//TODO: we need a way to clean up task structs!!!
 
 //fast				  
 XENUS_SYM error_t     thread_indexing_create(uint32_t max_threads, thread_index_counter_p * tic);
@@ -51,8 +50,8 @@ XENUS_SYM error_t     thread_indexing_get(thread_index_counter_p tic, uint32_t *
 
 
 // utils
-XENUS_SYM void thread_tls_lock();	// preemption stuff
-XENUS_SYM void thread_tls_unlock(); // preemption stuff
+XENUS_SYM void thread_preempt_lock();	// preemption stuff
+XENUS_SYM void thread_preempt_unlock(); // preemption stuff
 
 // thread creation (fpu will be enabled by default)
 XENUS_SYM error_t     thread_create(task_k *, thread_callback_t callback, void * data, char * name);
@@ -61,5 +60,5 @@ XENUS_SYM error_t     thread_fpu_lock();
 XENUS_SYM error_t     thread_fpu_unlock();
 
 // 
-XENUS_SYM error_t     thread_pre_context_switch_hook(pre_context_switch_callback_t);
-XENUS_SYM error_t     thread_post_context_switch_hook(post_context_switch_callback_t);
+XENUS_SYM error_t     thread_pre_context_switch_hook(pre_context_switch_cb_t);
+XENUS_SYM error_t     thread_post_context_switch_hook(post_context_switch_cb_t);

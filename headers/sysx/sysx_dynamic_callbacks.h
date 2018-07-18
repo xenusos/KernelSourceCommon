@@ -19,5 +19,6 @@
 
 
 XENUS_SYM size_t  dyncb_calc_size		(uint8_t parameters);
-XENUS_SYM error_t dyncb_allocate_stub	(void * msft, uint8_t parameters, void * data, sysv_fptr_t * sysv); // i hate allocating memory in functions. free sysv w/ execfree 
+XENUS_SYM error_t dyncb_allocate_stub	(void * msft, uint8_t parameters, void * data, sysv_fptr_t * sysv, void ** handle); 
+XENUS_SYM error_t dyncb_free_stub		(void * handle);
 

@@ -32,5 +32,3 @@ XENUS_IMPORT l_int	__cond_resched_softirq(void);
 XENUS_IMPORT long	io_schedule_timeout(long timeout);
 XENUS_IMPORT void	io_schedule(void);
 
-
-//TODO: add preempt counter?

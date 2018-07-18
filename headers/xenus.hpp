@@ -1,0 +1,1 @@
+#include "xenus.h" // CommonHeaders aren't language aware & always use C mangling when possible.

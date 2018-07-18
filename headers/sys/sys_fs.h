@@ -71,6 +71,5 @@ XENUS_IMPORT void page_put_link(void *arg);
 XENUS_IMPORT l_int page_readlink(dentry_k dentry, char __user *buffer, l_int buflen);
 
 
-//TODO: finish this
 XENUS_IMPORT int_t kernel_write(file_k file, const void *buf, size_t count, loff_t *pos);
 XENUS_IMPORT int_t kernel_read(file_k file, void *buf, size_t count, loff_t *pos);

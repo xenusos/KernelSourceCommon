@@ -34,3 +34,6 @@
 // [X] [X] [X] [X] [X] [X] [X] [X] [X] [X] []  []  []  []  []  []  []  []  []  [] 
 // [X] [X] [X] [X] [X] [X] [X] [X] [X] [X] [X] []  []  []  []  []  []  []  []  [] 
 #endif
+
+#define STDOUT_BUFFER_LENGTH 2048
+#define STDOUT_BUFFER_LENGTH_W_NULL 2049

@@ -14,5 +14,5 @@
 #ifndef KERNEL
 #include <libx\xenus_dbg.h> 
 #else
-// use access_sys.h
+// use stage2_sys.h
 #endif

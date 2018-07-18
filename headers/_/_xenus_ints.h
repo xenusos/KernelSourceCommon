@@ -142,3 +142,7 @@ typedef void *		sysv_fptr_t;
 #ifndef UINT64_MIN
 #define UINT64_MIN 0x0000000000000000U
 #endif
+
+
+#define MIN(a,b) (((a)<(b))?(a):(b))
+#define MAX(a,b) (((a)>(b))?(a):(b))

@@ -13,6 +13,9 @@ typedef struct
 
 typedef struct
 {
+	void * pe_handle;
+	void * plugin_handle;
+
 	const char * name;			// IN : name of dependency  
 	const char * module;        // IN : name in IAT 
 	const char * path;          // IN : path of executable
@@ -31,6 +34,9 @@ typedef struct
 	bool has_started;                                                      // OUT: KERN -> MOD, KERN -> KERN
 	bool has_init;                                                         // OUT: KERN -> MOD, KERN -> KERN
 	int status_code;													   // OUT: KERN -> MOD, KERN -> KERN, = xenus_entrypoint_ctx_t##init()
+
+	void * pe_handle;
+	void * plugin_handle;
 } *mod_global_data_p, mod_global_data_t;
 
 typedef struct

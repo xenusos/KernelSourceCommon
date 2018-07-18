@@ -1,31 +1,36 @@
 #pragma once
 
-static int printf(const char *fmt, ...)
+static inline l_int puts(const char * str)
 {
-	char msg[2049];
-	va_list ap;
-
-	msg[0] = 0;
-
-	va_start(ap, fmt);
-	vsnprintf(msg, 2048, fmt, ap); //TODO check response
-	va_end(ap);
-
+	char msg[STDOUT_BUFFER_LENGTH_W_NULL + 2];
+	size_t copy_len;
+	copy_len = MIN(strlen(str), STDOUT_BUFFER_LENGTH + 2);
+	memcpy(msg, str, copy_len);
+	(*(uint16_t*)(((uint64_t)msg) + copy_len)) = *(uint16_t*)("\n\00");
 	return print(msg);
 }
 
-static void panicf(const char *fmt, ...)
+static inline l_int printf(const char *fmt, ...)
 {
-	char msg[2049];
+	char msg[STDOUT_BUFFER_LENGTH_W_NULL];
 	va_list ap;
-
 	msg[0] = 0;
-
 	va_start(ap, fmt);
-	vsnprintf(msg, 2048, fmt, ap); //TODO check response
+	vsnprintf(msg, STDOUT_BUFFER_LENGTH, fmt, ap); //TODO check response
 	va_end(ap);
+	return print(msg);
+}
 
+static inline size_t panicf(const char *fmt, ...)
+{
+	char msg[STDOUT_BUFFER_LENGTH_W_NULL];
+	va_list ap;
+	msg[0] = 0;
+	va_start(ap, fmt);
+	vsnprintf(msg, STDOUT_BUFFER_LENGTH, fmt, ap); //TODO check response
+	va_end(ap);
 	panic(msg);
+	return *(size_t*)("GetFucked");
 }
 
 //int atexit(void(*func)(void));
