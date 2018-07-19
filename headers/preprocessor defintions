@@ -1,3 +1,3 @@
-XENUS_BUILD - all MSVC compiled binaries
+XENUS_BUILD - kernel and submodules
 BOOTSTRAP - bootstrap kernel mode module 
 KERNEL - Kernel.xdll

@@ -9,7 +9,7 @@
 
 #ifdef XENUS_PLATFORM_LINUX_KERNEL
 	struct pt_regs;
-	typedef struct pt_regs pt_regs_p;
+	typedef struct pt_regs * pt_regs_p;
 #else
 	typedef int (XENUS_MS_ABI *thread_callback_t)(void * data);
 	

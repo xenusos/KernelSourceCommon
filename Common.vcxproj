@@ -70,7 +70,9 @@
     <ClInclude Include="headers\sys\xenus_sys.h" />
     <ClInclude Include="headers\sys\xenus_sys.hpp" />
     <ClInclude Include="headers\xenus.h" />
+    <ClInclude Include="headers\xenus.hpp" />
     <ClInclude Include="headers\xenus_lazy.h" />
+    <ClInclude Include="headers\xenus_lazy.hpp" />
     <ClInclude Include="headers\x_linux.h" />
     <ClInclude Include="headers\_linux\linux_cpu.h" />
     <ClInclude Include="headers\_linux\linux_fcntl.h" />
@@ -105,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="headers\preprocessor defintions" />
     <None Include="headers\_linux\_unknown_types.macros" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

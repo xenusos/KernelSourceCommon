@@ -1,25 +1,51 @@
 #pragma once
 
-typedef void(*_pre_chain_dealloc)(void * buffer);
+typedef void(*chains_deallocation_notifier_t)(uint64_t hash, void * buffer);
+typedef void(*chains_iterator)(uint64_t hash, void * buffer);
 
-/*
-    Double linked list with 64 bit hash | NULL <= x <=> y <=> z <=> a => NULL
-    Usage:
+#ifdef KERNEL
+struct chain_s;
+typedef struct link_s
+{
+	uint64_t hash;
+	struct link_s * next;
+	struct link_s * before;
+	chains_deallocation_notifier_t cb;
+	struct chain_s * chain;
+	void * _buf;
+} *link_p, *link_ref, link_t;
 
-    void * basekey;
-    void * buffer_hax;
-    void * buffer_hax_2;
+typedef struct chain_s
+{
+	link_p bottom;
+} *chain_p, *chain_ref, chain_t;
+#else
+typedef void * chain_p;
+typedef void * link_p;
+#endif
 
-    chain_allocate(NULL,    0x1337133713371337, 2, &basekey, &buffer_hax);
-    chain_allocate(basekey, 0x7331733173317331, 2, NULL, &buffer_hax_2);
 
-    chain_get(basekey, 0x1337133713371337, NULL, &buffer_hax);  //Note: bnext is the entry of the requested hash. use this as the basekey for next chain_get, if searching for duplicates, or if performance tweaking.
-    chain_get(basekey, 0x7331733173317331, NULL, &buffer_hax_2);
+XENUS_SYM error_t chain_allocate(chain_p * chain);
 
-    etc etc 
-*/
+XENUS_SYM error_t chain_allocate_link(
+	chain_p  chain,
+	uint64_t hash,						// REQUIRED: arbitrary hash
+	size_t length,						// REQUIRED: length of the required buffer to allocate 
+	chains_deallocation_notifier_t cb,	// OPTIONAL: deallocation notifier 
+	link_p * out_link_handle, 			// OPTIONAL / OUT: link handle
+	void **  out_buffer);				// OPTIONAL / OUT: requested buffer (REQUIRED / out)
 
-XENUS_SYM error_t chain_allocate(void * bk, uint64_t hash, size_t length, void ** bkout, void ** out);
-XENUS_SYM error_t chain_deallocate_ex(void * bk, uint64_t hash, _pre_chain_dealloc cb);
-XENUS_SYM error_t chain_deallocate(void * bk, uint64_t hash);
-XENUS_SYM error_t chain_get(void * bk, uint64_t hash, void ** bnext, void ** out);
+XENUS_EXPORT error_t chain_get(
+	chain_p   chain,					// REQUIRED: link handle to begin searching from
+	uint64_t  hash,						// REQUIRED: hash to search for
+	link_p *  out_link_handle, 			// OPTIONAL: 
+	void **   out_buffer);				// OPTIONAL: 
+
+XENUS_EXPORT error_t chain_iterator(
+	chain_p chain,
+	chains_iterator iterator
+);
+
+XENUS_SYM error_t chain_deallocate_handle(link_p handle);
+XENUS_SYM error_t chain_deallocate_search(chain_p chain, uint64_t hash);
+XENUS_SYM error_t chain_destory(chain_p chain);

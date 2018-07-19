@@ -146,3 +146,4 @@ typedef void *		sysv_fptr_t;
 
 #define MIN(a,b) (((a)<(b))?(a):(b))
 #define MAX(a,b) (((a)>(b))?(a):(b))
+#define NOT_NULL(a, b) ((a) ? (a) : (b))
