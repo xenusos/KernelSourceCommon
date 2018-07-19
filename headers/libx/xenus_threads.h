@@ -66,15 +66,13 @@ XENUS_SYM error_t     thread_fpu_lock();
 XENUS_SYM error_t     thread_fpu_unlock();
 
 // 
-XENUS_SYM error_t     thread_pre_context_switch_hook(pre_context_switch_cb_t);
-XENUS_SYM error_t     thread_post_context_switch_hook(post_context_switch_cb_t);
+XENUS_SYM void thread_pre_context_switch_hook(pre_context_switch_cb_t);
+XENUS_SYM void thread_post_context_switch_hook(post_context_switch_cb_t);
 
+XENUS_SYM void threading_set_current_trap_handler(xenus_trap_cb_t handler);
+XENUS_SYM void threading_set_process_trap_handler(xenus_trap_cb_t handler);
 
-
-XENUS_EXPORT threading_set_current_trap_handler(xenus_trap_cb_t handler);
-XENUS_EXPORT threading_set_process_trap_handler(xenus_trap_cb_t handler);
-
-XENUS_EXPORT threading_get_exit_callbacks(thread_exit_cb_t * list, int * cnt);
+XENUS_SYM error_t threading_get_exit_callbacks(thread_exit_cb_t * list, int * cnt);
 
 #ifdef KERNEL
 void thread_enable_cleanup();
