@@ -7,6 +7,8 @@
 #ifndef _H_GENERIC_TYPES_THREADS
 #define _H_GENERIC_TYPES_THREADS
 
+#define XENUS_PUB_THREAD_EXIT_CBS 5
+
 #ifdef XENUS_PLATFORM_LINUX_KERNEL
 	struct pt_regs;
 	typedef struct pt_regs * pt_regs_p;
@@ -87,12 +89,12 @@ typedef void (XENUS_MS_ABI *thread_exit_cb_t)(void);							// PER TASK STRUCT
 		xenus_attention_krn_cb_t trap_kt_thread_attention_callback;		// TRAP PT -> LINUX KERNEL -> XENUS KERNEL -> fpu enable, pub_ variant, fpu disable
 		xenus_attention_krn_cb_t trap_kp_thread_attention_callback;		// TRAP PT -> LINUX KERNEL -> XENUS KERNEL -> fpu enable, pub_ variant, fpu disable
 
-		xenus_attention_trap_t pub_process_thread_attention_callback;   // XENUS KERNEL -> MODULE
-		xenus_attention_trap_t pub_task_thread_attention_callback;      // XENUS KERNEL -> MODULE
+		xenus_trap_cb_t pub_process_thread_attention_callback;			// XENUS KERNEL -> MODULE
+		xenus_trap_cb_t pub_task_thread_attention_callback;				// XENUS KERNEL -> MODULE
 	
 		thread_exit_cb_t kern_thread_exit;								// LINUX KERNEL -> XENUS KERNEL
 	
-		thread_exit_cb_t pub_thread_exit[5];							// XENUS KERNEL -> MODULE 
+		thread_exit_cb_t pub_thread_exit[XENUS_PUB_THREAD_EXIT_CBS];	// XENUS KERNEL -> MODULE 
 	
 		uint32_t fpu_enabled_via_hook;									// XENUS KERNEL <-> XENUS KERNEL
 		uint32_t fpu_enabled_internal;									// LINUX KERNEL <-> LINUX KERNEL |  are push or pops non-complementory/nested? this isn't that important
