@@ -13,8 +13,6 @@
 	struct pt_regs;
 	typedef struct pt_regs * pt_regs_p;
 #else
-	typedef int (XENUS_MS_ABI *thread_callback_t)(void * data);
-	
 	typedef struct pt_regs 
 	{
 		uint64_t r15;			   //unsigned long r15;
@@ -57,12 +55,15 @@ typedef struct xenus_attention_sys
 	size_t reponse;    
 } * xenus_attention_sys_p, xenus_attention_sys_t;
 
-typedef size_t(XENUS_MS_ABI *xenus_sys_cb_t)(xenus_attention_sys_p cbuf);		// GLOBAL
-typedef size_t(XENUS_MS_ABI *xenus_trap_cb_t)(xenus_attention_trap_p cbuf);		// PER TASK STRUCT
-typedef void (XENUS_MS_ABI *pre_context_switch_cb_t)(void);					    // PER TASK STRUCT
-typedef void (XENUS_MS_ABI *post_context_switch_cb_t)(void);					// PER TASK STRUCT
-typedef void (XENUS_MS_ABI *thread_exit_cb_t)(void);							// PER TASK STRUCT
-	
+typedef size_t	(XENUS_MS_ABI *xenus_sys_cb_t)				(xenus_attention_sys_p cbuf);	// GLOBAL
+typedef size_t	(XENUS_MS_ABI *xenus_trap_cb_t)				(xenus_attention_trap_p cbuf);	// PER TASK STRUCT
+
+typedef void	(XENUS_MS_ABI *pre_context_switch_cb_t)		(void);							// PER TASK STRUCT
+typedef void	(XENUS_MS_ABI *post_context_switch_cb_t)	(void);							// PER TASK STRUCT
+
+typedef void	(XENUS_MS_ABI *thread_exit_cb_t)			(void);							// PER TASK STRUCT
+typedef int		(XENUS_MS_ABI *thread_callback_t)			(void * data);
+
 #if defined(KERNEL) || defined(XENUS_PLATFORM_LINUX_KERNEL)
 	typedef void   (XENUS_MS_ABI *xenus_attention_krn_cb_t)(uint8_t, pt_regs_p registers);
 	typedef size_t (XENUS_MS_ABI *xenus_attention_usr_cb_t)(uint8_t, size_t arg_alpha, size_t arg_bravo, size_t arg_charlie, size_t arg_delta);

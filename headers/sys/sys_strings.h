@@ -6,7 +6,7 @@
 */
 #pragma once
 
-XENUX_BEGIN_C
+XENUS_BEGIN_C
 
 
 // String utils:

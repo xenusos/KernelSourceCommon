@@ -1768,47 +1768,47 @@ PS_SRC_FUNC_ADD_TYPE(struct qstr, qstr)
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct qstr, qstr, hash_len, hash_len);
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct qstr, qstr, name, name);
 
-PS_SRC_FUNC_ADD_TYPE(struct dentry, d_entry)
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_flags, d_flags);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_seq, d_seq);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_hash, d_hash);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_parent, d_parent);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_name, d_name);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_inode, d_inode);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_iname, d_iname);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_lockref, d_lockref);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_op, d_op);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_sb, d_sb);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_time, d_time);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_fsdata, d_fsdata);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_lru, d_lru);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_wait, d_wait);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_child, d_child);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_subdirs, d_subdirs);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_u.d_alias, d_u_d_alias);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, d_entry, d_u.d_alias, d_u_generic);
+PS_SRC_FUNC_ADD_TYPE(struct dentry, dentry)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_flags, d_flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_seq, d_seq);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_hash, d_hash);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_parent, d_parent);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_name, d_name);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_inode, d_inode);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_iname, d_iname);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_lockref, d_lockref);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_op, d_op);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_sb, d_sb);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_time, d_time);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_fsdata, d_fsdata);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_lru, d_lru);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_wait, d_wait);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_child, d_child);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_subdirs, d_subdirs);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_u.d_alias, d_u_d_alias);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry, dentry, d_u.d_alias, d_u_generic);
 
-PS_SRC_FUNC_ADD_TYPE(struct dentry_operations, d_entry_operations)
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, d_entry_operations, d_revalidate, d_revalidate);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, d_entry_operations, d_weak_revalidate, d_weak_revalidate);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, d_entry_operations, d_hash, d_hash);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, d_entry_operations, d_compare, d_compare);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, d_entry_operations, d_delete, d_delete);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, d_entry_operations, d_init, d_init);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, d_entry_operations, d_release, d_release);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, d_entry_operations, d_prune, d_prune);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, d_entry_operations, d_iput, d_iput);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, d_entry_operations, d_dname, d_dname);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, d_entry_operations, d_automount, d_automount);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, d_entry_operations, d_manage, d_manage);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, d_entry_operations, d_real, d_real);
+PS_SRC_FUNC_ADD_TYPE(struct dentry_operations, dentry_operations)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_revalidate, d_revalidate);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_weak_revalidate, d_weak_revalidate);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_hash, d_hash);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_compare, d_compare);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_delete, d_delete);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_init, d_init);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_release, d_release);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_prune, d_prune);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_iput, d_iput);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_dname, d_dname);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_automount, d_automount);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_manage, d_manage);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_operations, dentry_operations, d_real, d_real);
 
-PS_SRC_FUNC_ADD_TYPE(struct dentry_stat_t, d_entry_stat)
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_stat_t, d_entry_stat, nr_dentry, nr_dentry);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_stat_t, d_entry_stat, nr_unused, nr_unused);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_stat_t, d_entry_stat, age_limit, age_limit);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_stat_t, d_entry_stat, want_pages, want_pages);
-PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_stat_t, d_entry_stat, dummy, dummy);
+PS_SRC_FUNC_ADD_TYPE(struct dentry_stat_t, dentry_stat)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_stat_t, dentry_stat, nr_dentry, nr_dentry);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_stat_t, dentry_stat, nr_unused, nr_unused);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_stat_t, dentry_stat, age_limit, age_limit);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_stat_t, dentry_stat, want_pages, want_pages);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct dentry_stat_t, dentry_stat, dummy, dummy);
 
 PS_SRC_FUNC_ADD_TYPE(struct wait_queue_entry, wait_queue_entry)
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct wait_queue_entry, wait_queue_entry, flags, flags);

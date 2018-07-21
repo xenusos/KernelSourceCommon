@@ -11,8 +11,12 @@
 // You are responsible for the life span of the array and subsequent handles
 // You must acknowledge that when you free the array, you will not free any of the modules (if possible, the pe loader api will do that)
 
+
+XENUS_SYM linked_list_head_p plugins_global();
+
 // recommended load function
 XENUS_SYM error_t plugins_load(char * name, char * mod, char * path, linked_list_head_p plugins, void ** root_pe_handle, void ** root_plugin_handle); // load plugin, patch iat, etc
+
 
 // internal load functions - in order
 XENUS_SYM error_t plugins_iterative_load(linked_list_head_p list, char * mod, char * name, char * path, bool soft_dep, void ** pe_handle_out, void ** plugin_handle_out);

@@ -1,6 +1,13 @@
+/*
+    Purpose:
+    Author: Reece W.
+    License: All Rights Reserved J. Reece Wilson
+	Depends: xenus.h
+	Optional depends: xenus_threading.h
+*/
 #pragma once
 
-XENUX_BEGIN_C
+XENUS_BEGIN_C
 
 // bootstrap
 #include "sysx_linux_caller.h"

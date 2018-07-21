@@ -9,27 +9,6 @@
 #ifndef __H_LIB_PORT_STRUCTS__
 #define __H_LIB_PORT_STRUCTS__
 
-
-#ifndef XENUS_BUILD
-	// Fill out compiler specific stuff here. this is just xenuses config for x64 msvc
-	#ifdef __cplusplus
-		#define XENUX_BEGIN_C extern "C" {
-		#define XENUS_END_C  }
-	#else
-		#define XENUX_BEGIN_C
-		#define XENUS_END_C
-	#endif 
-	#if 0
-		#define XENUS_SYM      __declspec(dllimport) 
-		#define XENUS_SYM_VAR  __declspec(dllimport) extern 
-	#else
-		#define XENUS_SYM      __declspec(dllexport) 
-		#define XENUS_SYM_VAR  __declspec(dllexport) extern 
-	#endif
-	#define TS_MAX_STRUCT_NAME_LENGTH 20
-	#define TS_MAX_MEMBER_LENGTH 20
-#endif 
-
 #if defined(_MSC_VER) && _MSC_VER && !defined(_INC_MALLOC) && defined(XENUS_BUILD)
 	//Xenus MSVC hack: _alloca is just an intrinsic function for sub rsp, x (plus clean up) - NOT APART OF MSCRT!
 	void * _alloca(size_t len);
@@ -37,22 +16,11 @@
 	#define _INC_MALLOC 1
  #endif
 
-
-
-#ifdef PS_EXPORTING
-	int ps_buffer_dump(void * buffer, uint64_t size);
-#elif defined(PS_IMPORTING)
-	int ps_buffer_configure(void * buffer, uint64_t length);
-#endif
-
-void ps_initialize(void);
-int ps_buffer_length(void);
-
 #define __PS_OFFSET_OF(type, name)		            	    (size_t) ((((((&((type *)(NULL))->name))))))
 #define __PS_SIZEOF_MEM_OF(type, name)		        	    (size_t) sizeof(((type *)(NULL))->name)
 
 #define PS_HEADER_GLOBAL_START typedef struct {
-#define PS_HEADER_GLOBAL_END } ps_global_t; XENUX_BEGIN_C XENUS_SYM_VAR ps_global_t ps_global; XENUS_END_C
+#define PS_HEADER_GLOBAL_END } ps_global_t; XENUS_BEGIN_C XENUS_SYM_VAR ps_global_t ps_global; XENUS_END_C
 
 #define PS_HEADER_TYPE_START struct { uint16_t length; char name[TS_MAX_STRUCT_NAME_LENGTH];
 #define PS_HEADER_TYPE_END(type, type_name) } ps_type_ ## type_name;
@@ -69,10 +37,10 @@ int ps_buffer_length(void);
                                                                                      ps_global.ps_type_ ## type_name.ps_member_ ## member_name.length = __PS_SIZEOF_MEM_OF(type, member); \
                                                                                      ps_global.ps_type_ ## type_name.ps_member_ ## member_name.offset = __PS_OFFSET_OF(type, member);
 
-#ifdef PS_EXPORTING
+#if defined PS_EXPORTING
 	#define PS_SRC_FUNC_ADD_TYPE               __PS_SRC_FUNC_ADD_TYPE     
 	#define PS_SRC_FUNC_ADD_TYPE_MEMBER        __PS_SRC_FUNC_ADD_TYPE_MEMBER       
-#elif defined PS_IMPORTING
+#elif defined(PS_IMPORTING)
 	#define PS_SRC_FUNC_ADD_TYPE(x, y)
 	#define PS_SRC_FUNC_ADD_TYPE_MEMBER(x, y, z, a)
 #endif
@@ -169,11 +137,22 @@ static inline uint8_t type_name ## _get_ ## member ## _uint8(void * ptr)\
     return *(uint8_t *)(type_name ## _get_ ## member(ptr));\
 }
 
-#define __PS_HEADER_MAGIC *(uint64_t*)("PORTTYPE")
-#define __PS_LENGTH sizeof(uint64_t) + sizeof(uint64_t) + sizeof(ps_global);
+// Why do we do this?
+// I think there was some issue with predecleration and/or i wanted this to be in a source file but wanted it all in a header. 
+
 
 #ifdef PS_EXPORTING
+	int ps_buffer_dump		(void * buffer, uint64_t size);
+#elif defined(PS_IMPORTING)
+	int ps_buffer_configure	(void * buffer, uint64_t length);
+#endif
+void	ps_initialize	(void);
+int		ps_buffer_length(void);
 
+#define __PS_HEADER_MAGIC	*(uint64_t*)("PORTTYPE")
+#define __PS_LENGTH			sizeof(uint64_t) + sizeof(uint64_t) + sizeof(ps_global);
+
+#ifdef PS_EXPORTING
 	#define PS_SRC_DEFINE_STUBS														 \
 		int ps_buffer_length()                                                       \
 		{                                                                            \

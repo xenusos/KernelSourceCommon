@@ -13,7 +13,7 @@ typedef struct thread_index_counter_s
 	uint32_t max_threads;
 	uint32_t counter;
 	mutex_k mutex;
-} *thread_index_counter_p, thread_index_counter_t;
+} * thread_index_counter_p, * thread_index_counter_ref, thread_index_counter_t;
 #else
 typedef void * thread_index_counter_p;
 #endif
@@ -50,20 +50,22 @@ error_t inline thread_tls_get(uint64_t type, uint64_t hash, void ** out_handle, 
 error_t inline thread_tls_deallocate_hash(uint64_t hash)												{	return _thread_tls_deallocate_hash(TLS_TYPE_GENERIC, hash); }
 error_t inline thread_tls_deallocate_handle(void * handle)												{	return _thread_tls_deallocate_handle(handle); }
 
-XENUS_SYM error_t     thread_indexing_create(size_t max_threads, thread_index_counter_p * tic);
-XENUS_SYM error_t     thread_indexing_destory(thread_index_counter_p tic);
-XENUS_SYM error_t     thread_indexing_register(thread_index_counter_p tic);
-XENUS_SYM error_t     thread_indexing_get(thread_index_counter_p tic, size_t * index);
+XENUS_SYM error_t	thread_indexing_create(size_t max_threads, thread_index_counter_p * tic);
+XENUS_SYM error_t	thread_indexing_destory(thread_index_counter_p tic);
+XENUS_SYM error_t	thread_indexing_register(thread_index_counter_p tic);
+XENUS_SYM error_t	thread_indexing_get(thread_index_counter_p tic, size_t * index);
 
 // utils
-XENUS_SYM void thread_preempt_lock();	// preemption stuff
-XENUS_SYM void thread_preempt_unlock(); // preemption stuff
+XENUS_SYM void		thread_preempt_lock();	// preemption stuff
+XENUS_SYM void		thread_preempt_unlock(); // preemption stuff
 
 // thread creation (fpu will be enabled by default)
-XENUS_SYM error_t     thread_create(task_k *, thread_callback_t callback, void * data, char * name);
+XENUS_SYM error_t	thread_create(task_k *, thread_callback_t callback, void * data, char * name);
 
-XENUS_SYM error_t     thread_fpu_lock();
-XENUS_SYM error_t     thread_fpu_unlock();
+
+// lock fpu down - to be used callbacks only - unless you know what you're doing.  
+XENUS_SYM error_t	thread_fpu_lock();
+XENUS_SYM error_t	thread_fpu_unlock();
 
 // 
 XENUS_SYM void thread_pre_context_switch_hook(pre_context_switch_cb_t);

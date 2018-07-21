@@ -1,5 +1,13 @@
+/*
+    Purpose:
+    Author: Reece W.
+    License: All Rights Reserved J. Reece Wilson
+	Depends: xenus.h
+*/
 #pragma once
 
+
+XENUS_BEGIN_C
 #include <libx\xenus_memory.h>
 #include <libx\xenus_strings.h>
 #include <libx\xenus_threads.h>
@@ -16,3 +24,5 @@
 #else
 // use stage2_sys.h
 #endif
+
+XENUS_END_C

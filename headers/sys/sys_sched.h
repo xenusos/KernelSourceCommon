@@ -9,7 +9,6 @@ XENUS_IMPORT void(*kernel_fpu_begin)							(void);	// UNSAFE!
 XENUS_IMPORT void(*kernel_fpu_end)								(void); // UNSAFE!
 
 XENUS_IMPORT task_k _current(void);
-#define current _current()
 
 //preemption
 XENUS_IMPORT void preempt_enable(void);

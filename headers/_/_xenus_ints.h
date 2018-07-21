@@ -60,6 +60,7 @@ typedef void *		sysv_fptr_t;
 	#define false 0
 #endif
 
+#define NULL 0
 
 // Word construction
 

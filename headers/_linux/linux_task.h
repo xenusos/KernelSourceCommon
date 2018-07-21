@@ -81,3 +81,5 @@ struct sched_param {
 #define HIDEPID_OFF 0
 #define HIDEPID_NO_ACCESS 1
 #define HIDEPID_INVISIBLE 2
+
+#define OSThread _current()

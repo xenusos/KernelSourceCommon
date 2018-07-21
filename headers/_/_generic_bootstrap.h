@@ -15,18 +15,18 @@ typedef struct
 
 typedef struct 
 {
-    void *	(* execalloc)	(size_t size);
-    void	(* execfree)	(void * ptr);
-    void *	(* kmalloc)	(size_t size, int flags);
-    void *	(* vmalloc)	(size_t size);
-    void	(* kfree)		(void * ptr);
-    void	(* vfree)		(void * ptr);
-	size_t  (* ksize)		(const void * ptr);
-    void *	(* memcpy)		(void * dest, const void * src, size_t length);
-    void *	(* memset)		(void * dest, int c, size_t length);
-    void *	(* memmove)	(void *dest, const void *src, size_t count);
-    int		(* memcmp)		(const void *cs, const void *ct, size_t count);
-    void *	(* memscan)	(void *addr, int c, size_t size);
+    void *	(* execalloc)		(size_t size);
+    void	(* execfree)		(void * ptr);
+    void *	(* kmalloc)			(size_t size, int flags);
+    void *	(* vmalloc)			(size_t size);
+    void	(* kfree)			(void * ptr);
+    void	(* vfree)			(void * ptr);
+	size_t  (* ksize)			(const void * ptr);
+    void *	(* memcpy)			(void * dest, const void * src, size_t length);
+    void *	(* memset)			(void * dest, int c, size_t length);
+    void *	(* memmove)			(void *dest, const void *src, size_t count);
+    int		(* memcmp)			(const void *cs, const void *ct, size_t count);
+    void *	(* memscan)			(void *addr, int c, size_t size);
 } bootstrap_memory_t;
 
 typedef struct {

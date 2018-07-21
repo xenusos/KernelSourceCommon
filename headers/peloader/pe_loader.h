@@ -75,7 +75,7 @@ XENUS_SYM error_t pe_loader_find_symbol_bymodhandle(void * module, uint16_t ord,
 // Lookup/generic
 ////////////////////////////////////////////////////////////////////////////////////////
 
-XENUS_SYM void* pe_loader_find_module(char * name);
+XENUS_SYM void* pe_loader_find_module(const char * name);
 XENUS_SYM error_t pe_loader_get_headers(void * handle, void ** dos, void ** nt, void ** opt, void ** segs);
 
 

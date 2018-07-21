@@ -58,8 +58,13 @@
 	#define XENUS_IMPORT		XENUS_MS_ABI __declspec(dllimport)
 	#define XENUS_EXPORT		XENUS_MS_ABI __declspec(dllexport)
 
-	#define XENUS_IMPORT_VAR	extern __declspec(dllimport) 
-	#define XENUS_EXPORT_VAR	extern __declspec(dllexport) 
+	#if defined(__cplusplus)
+		#define XENUS_IMPORT_VAR	extern "C" __declspec(dllimport) 
+		#define XENUS_EXPORT_VAR	extern "C" __declspec(dllexport) 
+	#else
+		#define XENUS_IMPORT_VAR	extern __declspec(dllimport) 
+		#define XENUS_EXPORT_VAR	extern __declspec(dllexport) 
+	#endif 
 #endif	
 
 #if defined(KERNEL)
@@ -71,19 +76,20 @@
 #endif 
 
 #if defined(__cplusplus)
-	#define XENUX_BEGIN_C extern "C" {
-	#define XENUS_END_C  }
+	#define XENUS_BEGIN_C extern "C" {
+	#define XENUS_END_C   }
 #else
-	#define XENUX_BEGIN_C
+	#define XENUS_BEGIN_C
 	#define XENUS_END_C
 #endif 
 
-XENUX_BEGIN_C
+XENUS_BEGIN_C
 
 #include "_/_generic_config.h"
 
 #ifdef XENUS_BUILD
-	#include "stdarg.h"							// i don't like doing this, but we have to. MSVC allows us to get away with this. we need _va structs
+	//#include "stdarg.h"
+	#include "_/_xenus_notsostd_arg.h"
 	#include "_/_xenus_ints.h"					// similar to inttypes.h
 	#include "_/_xenus_errors.h"				// error and status codes 
 	#include "_/_xenus_types_modules.h"			// entrypoint type, options, etc
