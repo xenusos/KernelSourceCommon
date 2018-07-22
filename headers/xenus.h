@@ -37,6 +37,9 @@
 #if !defined(XENUS_BUILD) && defined(COMPILER_MSVC)
 	#error "Not an MSVC module."
 #endif
+#if defined(XENUS_BUILD) && !defined(COMPILER_MSVC)
+	#error "Xenus **must** be compiled with MSVC."
+#endif
 
 #if defined(XENUS_PLATFORM_WIN_USER)
 	#error Header not for usermode components
@@ -87,7 +90,7 @@ XENUS_BEGIN_C
 
 #include "_/_generic_config.h"
 
-#ifdef XENUS_BUILD
+#if defined(XENUS_BUILD)
 	//#include "stdarg.h"
 	#include "_/_xenus_notsostd_arg.h"
 	#include "_/_xenus_ints.h"					// similar to inttypes.h
@@ -96,18 +99,18 @@ XENUS_BEGIN_C
 	#include "_/_xenus_hash_codes.h"
 #endif
 
-#ifdef XENUS_PLATFORM_LINUX_KERNEL
+#if defined(XENUS_PLATFORM_LINUX_KERNEL)
 	#include <linux/types.h>
 #endif
 
 #include "_/_generic_types_threads.h"			// thread callback, etc
 
-#ifdef BOOTSTRAP
+#if defined(BOOTSTRAP)
     #include "_/_linux_all_headers.h"
 	#include "_/_linux_linux_types_mapping.h"
 #endif
 
-#ifdef XENUS_BUILD
+#if defined(XENUS_BUILD)
 	#include "_linux/linux_inc.h"
 #endif
 
