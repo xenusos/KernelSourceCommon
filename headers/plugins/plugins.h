@@ -12,8 +12,6 @@
 // You must acknowledge that when you free the array, you will not free any of the modules (if possible, the pe loader api will do that)
 
 
-XENUS_SYM linked_list_head_p plugins_global();
-
 // recommended load function
 XENUS_SYM error_t plugins_load(char * name, char * mod, char * path, linked_list_head_p plugins, void ** root_pe_handle, void ** root_plugin_handle); // load plugin, patch iat, etc
 
