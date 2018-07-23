@@ -88,34 +88,34 @@
 
 XENUS_BEGIN_C
 
-#include "_/_generic_config.h"
+#include "all/_generic_config.h"
 
 #if defined(XENUS_BUILD)
 	//#include "stdarg.h"
-	#include "_/_xenus_notsostd_arg.h"
-	#include "_/_xenus_ints.h"					// similar to inttypes.h
-	#include "_/_xenus_errors.h"				// error and status codes 
-	#include "_/_xenus_types_modules.h"			// entrypoint type, options, etc
-	#include "_/_xenus_hash_codes.h"
+	#include "all/_xenus_notsostd_arg.h"
+	#include "all/_xenus_ints.h"					// similar to inttypes.h
+	#include "all/_xenus_errors.h"				// error and status codes 
+	#include "all/_xenus_types_modules.h"			// entrypoint type, options, etc
+	#include "all/_xenus_hash_codes.h"
 #endif
 
 #if defined(XENUS_PLATFORM_LINUX_KERNEL)
 	#include <linux/types.h>
 #endif
 
-#include "_/_generic_types_threads.h"			// thread callback, etc
+#include "all/_generic_types_threads.h"			// thread callback, etc
 
 #if defined(BOOTSTRAP)
-    #include "_/_linux_all_headers.h"
-	#include "_/_linux_linux_types_mapping.h"
+    #include "all/_linux_all_headers.h"
+	#include "all/_linux_linux_types_mapping.h"
 #endif
 
 #if defined(XENUS_BUILD)
-	#include "_linux/linux_inc.h"
+	#include "all/msvc_linux_types/linux_inc.h"
 #endif
 
 #if defined(BOOTSTRAP) || defined(KERNEL)
-	#include "_/_generic_bootstrap.h"
+	#include "all/_generic_bootstrap.h"
 #endif
 
 // is kernel && forced load
@@ -126,7 +126,7 @@ XENUS_BEGIN_C
 		// BAD - BAD - BAD
 		#pragma message("including portable structs header within Kernel.XDLL. This is required, but you shouldn't see this message often assuming nobody fucked up")
 		#include "stage2_sys.h" 
-		#include "LibX\xenus_memory.h" 
+		#include "kernel\libx\xenus_memory.h" 
 	#elif (defined(XENUS_BUILD) && !defined(KERNEL))
 		// BAD - BAD - BAD
 		XENUS_IMPORT void * malloc(size_t length);
@@ -142,7 +142,7 @@ XENUS_BEGIN_C
 		#endif 
 	#endif 
 	
-	#include "_/_generic_linux_structs.h"
+	#include "all/_generic_linux_structs.h"
 #endif
 
 XENUS_END_C

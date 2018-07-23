@@ -16,7 +16,7 @@ static inline l_int printf(const char *fmt, ...)
 	va_list ap;
 	msg[0] = 0;
 	va_start(ap, fmt);
-	vsnprintf(msg, STDOUT_BUFFER_LENGTH, fmt, ap); //TODO check response
+	vsnprintf(msg, STDOUT_BUFFER_LENGTH_W_NULL, fmt, ap); //TODO check response
 	va_end(ap);
 	return print(msg);
 }
@@ -27,7 +27,7 @@ static inline size_t panicf(const char *fmt, ...)
 	va_list ap;
 	msg[0] = 0;
 	va_start(ap, fmt);
-	vsnprintf(msg, STDOUT_BUFFER_LENGTH, fmt, ap); //TODO check response
+	vsnprintf(msg, STDOUT_BUFFER_LENGTH_W_NULL, fmt, ap); //TODO check response
 	va_end(ap);
 	panic(msg);
 	return *(size_t*)("GetFucked");

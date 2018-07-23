@@ -23,18 +23,6 @@ static inline size_t snprintf(char *buf, size_t size, const char *fmt, ...)
 	return retval;
 }
 
-static size_t sprintf(char *buf, const char *fmt, ...)
-{
-	va_list ap;
-	size_t retval;
-
-	va_start(ap, fmt);
-	retval = vsprintf(buf, fmt, ap);
-	va_end(ap);
-	return retval;
-}
-
-
 #define __U	0x01	/* upper */
 #define __L	0x02	/* lower */
 #define __D	0x04	/* digit */

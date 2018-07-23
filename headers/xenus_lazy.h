@@ -1,4 +1,4 @@
 #include <xenus.h>
-#include <sys\xenus_sys.h>
-#include <libx\xenus_libx.h>
-#include <sysx\xenus_sysx.h>
+#include <subsys/osapi/os_api.h>
+#include <kernel/libx/xenus_libx.h>
+#include <kernel/sysx/xenus_sysx.h>

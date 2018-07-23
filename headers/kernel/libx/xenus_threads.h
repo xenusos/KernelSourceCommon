@@ -10,7 +10,7 @@
 typedef struct thread_index_counter_s
 {
 	void * list;
-	uint32_t max_threads;
+	uint_t max_threads;
 	uint32_t counter;
 	mutex_k mutex;
 } * thread_index_counter_p, * thread_index_counter_ref, thread_index_counter_t;
@@ -50,7 +50,7 @@ error_t inline thread_tls_get(uint64_t type, uint64_t hash, void ** out_handle, 
 error_t inline thread_tls_deallocate_hash(uint64_t hash)												{	return _thread_tls_deallocate_hash(TLS_TYPE_GENERIC, hash); }
 error_t inline thread_tls_deallocate_handle(void * handle)												{	return _thread_tls_deallocate_handle(handle); }
 
-XENUS_SYM error_t	thread_indexing_create(size_t max_threads, thread_index_counter_p * tic);
+XENUS_SYM error_t	thread_indexing_create(uint_t max_threads, thread_index_counter_p * tic);
 XENUS_SYM error_t	thread_indexing_destory(thread_index_counter_p tic);
 XENUS_SYM error_t	thread_indexing_register(thread_index_counter_p tic);
 XENUS_SYM error_t	thread_indexing_get(thread_index_counter_p tic, size_t * index);
@@ -74,7 +74,7 @@ XENUS_SYM void thread_post_context_switch_hook(post_context_switch_cb_t);
 XENUS_SYM void threading_set_current_trap_handler(xenus_trap_cb_t handler);
 XENUS_SYM void threading_set_process_trap_handler(xenus_trap_cb_t handler);
 
-XENUS_SYM error_t threading_get_exit_callbacks(thread_exit_cb_t * list, int * cnt);
+XENUS_SYM error_t threading_get_exit_callbacks(thread_exit_cb_t ** list, int * cnt);
 
 #ifdef KERNEL
 void thread_enable_cleanup();

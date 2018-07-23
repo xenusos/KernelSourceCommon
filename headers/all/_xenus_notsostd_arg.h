@@ -48,6 +48,6 @@ void __cdecl __va_start(va_list*, ...);
 								((sizeof(t) > sizeof(__int64) || (sizeof(t) & (sizeof(t) - 1) ) != 0)	\
 							    ? **(t **)((ap += sizeof(__int64)) - sizeof(__int64))					\
 							    :  *(t  *)((ap += sizeof(__int64)) - sizeof(__int64)))
-#define va_end(ap)      ( ap = (va_list)0 )
+#define va_end(ap)				(ap = (va_list) 0)
 
 #pragma pack(pop)
