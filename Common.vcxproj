@@ -40,6 +40,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions);XENUS_BUILD</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>fuckyou.bat</AdditionalDependencies>
+      <AdditionalOptions>/ERROROUTKTHXBAI %(AdditionalOptions)</AdditionalOptions>
+    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="headers\all\msvc_linux_types\linux_cpu.h" />
@@ -60,6 +64,7 @@
     <ClInclude Include="headers\all\msvc_linux_types\linux_usb.h" />
     <ClInclude Include="headers\all\_generic_bootstrap.h" />
     <ClInclude Include="headers\all\_generic_config.h" />
+    <ClInclude Include="headers\all\_generic_linux_info.h" />
     <ClInclude Include="headers\all\_generic_linux_structs.h" />
     <ClInclude Include="headers\all\_generic_types_threads.h" />
     <ClInclude Include="headers\all\_linux_all_headers.h" />
@@ -101,6 +106,12 @@
     <ClInclude Include="headers\subsys\osapi\os_bootstrap_str.h" />
     <ClInclude Include="headers\subsys\osapi\os_bootstrap_syms.h" />
     <ClInclude Include="headers\subsys\osapi\os_generated.h" />
+    <ClInclude Include="headers\subsys\osapi\os_namei.h" />
+    <ClInclude Include="headers\subsys\osapi\os_open.h" />
+    <ClInclude Include="headers\subsys\osapi\os_read_write.h" />
+    <ClInclude Include="headers\subsys\osapi\os_stat.h" />
+    <ClInclude Include="headers\subsys\osapi\os_timekeeping.h" />
+    <ClInclude Include="headers\subsys\osapi\os_timer.h" />
     <ClInclude Include="headers\sysx\xenus_sysx.h" />
     <ClInclude Include="headers\sysx\sysx_dynamic_callbacks.h" />
     <ClInclude Include="headers\sysx\sysx_linux_caller.h" />
@@ -108,7 +119,7 @@
     <ClInclude Include="headers\xenus.hpp" />
     <ClInclude Include="headers\xenus_lazy.h" />
     <ClInclude Include="headers\xenus_lazy.hpp" />
-    <ClInclude Include="headers\xenus_subsystem.h" />
+    <ClInclude Include="headers\xenus_subsystem.hpp" />
     <ClInclude Include="headers\x_linux.h" />
   </ItemGroup>
   <ItemGroup>

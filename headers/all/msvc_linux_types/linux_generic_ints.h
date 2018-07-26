@@ -75,7 +75,12 @@ typedef uint64_t	l_unsigned_long_long;
 typedef int32_t		l_int;
 typedef uint32_t	l_uint;
 
+
 typedef int32_t		l_signed;
 typedef int32_t		l_s;
 typedef uint32_t	l_unsigned;
 typedef uint32_t	l_u;
+
+typedef int32_t		l_signed_int;
+typedef uint32_t	l_unsigned_int;
+

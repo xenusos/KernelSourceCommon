@@ -10,6 +10,16 @@ struct _resource {
 	void * linux[3];
 };
 
+struct iov_iter {
+	l_int type;
+	size_t iov_offset;
+	size_t count;
+	void * a;
+	void * b;
+};
+
+typedef struct iov_iter * iov_iter_k; //TODO:
+
 /*
 * IO resources have these defined flags.
 *

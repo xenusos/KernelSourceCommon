@@ -8,6 +8,7 @@ XENUS_BEGIN_C
 #include "os_bootstrap_str.h"
 #include "os_bootstrap_mutex.h"
 #include "os_bootstrap_syms.h"
+#include "os_bootstrap_sched.h"
 
 // generated functions
 #include "os_generated.h"

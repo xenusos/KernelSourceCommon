@@ -118,18 +118,18 @@ enum pci_bus_speed {
 #define PCI_SUBTRACTIVE_DECODE	0x1
 
 
-struct pci_bus_resource {
+typedef struct pci_bus_resource {
 	struct list_head	list;
 	union {
 		struct _resource *res;
 		resource_k		 res_ptr;
 	};
 	l_uint		flags;
-};
+} pci_bus_resource_k;
 
 typedef struct pm_message {
 	l_int event;
-} pm_message_t;
+} pm_message_t, *pm_message_k;
 
 
 typedef l_int	pci_power_t;

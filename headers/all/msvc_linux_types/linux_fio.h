@@ -1,5 +1,8 @@
 #pragma once
 
+
+typedef l_int rwf_t;
+
 #define O_ACCMODE	00000003
 #define O_RDONLY	00000000
 #define O_WRONLY	00000001
@@ -192,3 +195,5 @@ blocking */
 #define LOOKUP_DOWN		0x8000
 
 #define _INC_FCNTL //winsdk
+
+typedef void * fl_owner_t;

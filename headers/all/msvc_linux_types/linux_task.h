@@ -67,15 +67,15 @@
 #define task_is_stopped_or_traced(task_state)	((task_state & (__TASK_STOPPED | __TASK_TRACED)) != 0)
 #define task_contributes_to_load(task_state, task_flag)	((task_state & TASK_UNINTERRUPTIBLE) != 0 && (task_flag & PF_FROZEN) == 0 && (task_state & TASK_NOLOAD) == 0)
 
-struct task_cputime {
+typedef struct task_cputime {
 	uint64_t				utime;
 	uint64_t				stime;
 	unsigned long long		sum_exec_runtime;
-};
+} *task_cputime_k;
 
-struct sched_param {
+typedef struct sched_param {
 	int sched_priority;
-};
+} *sched_param_k;
 
 
 #define HIDEPID_OFF 0

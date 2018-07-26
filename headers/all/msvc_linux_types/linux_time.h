@@ -1,19 +1,34 @@
 #pragma once 
 
-struct timespec {
+typedef struct timespec {
 	__kernel_time_t	tv_sec;			/* seconds */
 	l_long			tv_nsec;		/* nanoseconds */
-};
+} *timespec_k;
 
-struct timeval {
+typedef struct timeval {
 	__kernel_time_t		tv_sec;			/* seconds */
 	__kernel_suseconds_t	tv_usec;	/* microseconds */
-};
+} *timeval_k;
 
-struct timezone {
+typedef struct timezone {
 	l_int	tz_minuteswest;	/* minutes west of Greenwich */
 	l_int	tz_dsttime;  	/* type of dst correction */
-};
+} *timezone_k;
+
+
+typedef s64 time64_t;
+typedef u64 timeu64_t;
+
+typedef struct timespec64 {
+	time64_t	tv_sec;			/* seconds */
+	long		tv_nsec;		/* nanoseconds */
+} *timespec64_k;
+
+
+typedef struct itimerspec64 {
+	struct timespec64 it_interval;
+	struct timespec64 it_value;
+} *itimerspec64_k;
 
 
 /*
@@ -33,3 +48,12 @@ struct itimerval {
 	struct timeval it_interval;	/* timer interval */
 	struct timeval it_value;	/* current value */
 };
+
+enum tk_offsets {
+	TK_OFFS_REAL,
+	TK_OFFS_BOOT,
+	TK_OFFS_TAI,
+	TK_OFFS_MAX,
+};
+
+typedef int64_t	ktime_t;

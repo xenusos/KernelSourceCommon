@@ -1,5 +1,6 @@
-//TODO: generate from json file
-#include "old/sys_timekeeper.h"
-#include "old/sys_timer.h"
-#include "old/sys_sched.h"
-#include "old/sys_fs.h"
+#include "os_open.h"
+#include "os_namei.h"
+#include "os_stat.h"
+#include "os_read_write.h"
+#include "os_timekeeping.h"
+#include "os_timer.h"

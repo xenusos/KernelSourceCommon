@@ -1,15 +1,15 @@
 #pragma once
 
-
-struct rb_node {
+typedef struct rb_node {
 	unsigned long  __rb_parent_color;
 	struct rb_node *rb_right;
 	struct rb_node *rb_left;
-};
+} *rb_node_k;
 
-struct rb_root {
+
+typedef struct rb_root {
 	struct rb_node *rb_node;
-};
+} *rb_root_k;
 
 /*
 * Leftmost-cached rbtrees.
@@ -21,7 +21,7 @@ struct rb_root {
 * Furthermore, users that want to cache both pointers may
 * find it a bit asymmetric, but that's ok.
 */
-struct rb_root_cached {
+typedef struct rb_root_cached {
 	struct rb_root rb_root;
 	struct rb_node *rb_leftmost;
-};
+} *rb_root_cached_k;
