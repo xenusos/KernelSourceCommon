@@ -103,13 +103,13 @@ XENUS_BEGIN_C
 	#include <linux/types.h>
 #endif
 
-#if defined(BOOTSTRAP)
-    #include "all/_linux_all_headers.h"
-	#include "all/_linux_linux_types_mapping.h"
-#endif
-
 #include "all/_generic_types_threads.h"			// thread callback, etc
 #include "all/_generic_linux_info.h"
+
+#if defined(BOOTSTRAP)
+	#include "all/_linux_all_headers.h"
+	#include "all/_linux_linux_types_mapping.h"
+#endif
 
 #if defined(XENUS_BUILD)
 	#include "all/msvc_linux_types/linux_inc.h"
