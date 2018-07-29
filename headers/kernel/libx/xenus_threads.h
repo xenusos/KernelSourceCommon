@@ -64,8 +64,8 @@ XENUS_SYM error_t	thread_create(task_k *, thread_callback_t callback, void * dat
 
 
 // lock fpu down - to be used callbacks only - unless you know what you're doing.  
-XENUS_SYM error_t	thread_fpu_lock();
-XENUS_SYM error_t	thread_fpu_unlock();
+XENUS_SYM bool thread_fpu_lock();
+XENUS_SYM bool thread_fpu_unlock();
 
 // 
 XENUS_SYM void thread_pre_context_switch_hook(pre_context_switch_cb_t);
