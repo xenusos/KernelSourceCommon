@@ -103,9 +103,13 @@
     <ClInclude Include="headers\subsys\osapi\os_bootstrap_dbg.h" />
     <ClInclude Include="headers\subsys\osapi\os_bootstrap_mem.h" />
     <ClInclude Include="headers\subsys\osapi\os_bootstrap_mutex.h" />
+    <ClInclude Include="headers\subsys\osapi\os_bootstrap_sched.h" />
     <ClInclude Include="headers\subsys\osapi\os_bootstrap_str.h" />
     <ClInclude Include="headers\subsys\osapi\os_bootstrap_syms.h" />
+    <ClInclude Include="headers\subsys\osapi\os_dcache.h" />
     <ClInclude Include="headers\subsys\osapi\os_generated.h" />
+    <ClInclude Include="headers\subsys\osapi\os_lockref.h" />
+    <ClInclude Include="headers\subsys\osapi\os_mountspacenamespace.h" />
     <ClInclude Include="headers\subsys\osapi\os_namei.h" />
     <ClInclude Include="headers\subsys\osapi\os_open.h" />
     <ClInclude Include="headers\subsys\osapi\os_read_write.h" />

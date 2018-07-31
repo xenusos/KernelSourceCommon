@@ -14,15 +14,14 @@ typedef void *	unknown_k;
 #include <all/_unknown_types.macros>
 #undef DEFINE_TYPE
 
+// TODO: make into portable types:
+typedef void * lockref_k;
 typedef void * delayed_call_k;
-
 
 struct callback_head {
 	struct callback_head *next;
 	void(*func)(struct callback_head *head);
 }/*__attribute__((aligned(sizeof(void *))));*/;
-
-
 
 enum vtime_state {
 	/* Task is sleeping or running in a CPU with VTIME inactive: */

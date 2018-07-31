@@ -15,7 +15,7 @@
         const char * cpp_name;
         int64_t code;
     } debugging_status_map_t;
-#endif __LSTATUSES_DBG_MAP
+#endif 
 
 #if !defined(STATUSES_NAME) || !defined(STATUSES_HEADER)
 	#error Config for lib_statuses not defined!
@@ -26,12 +26,12 @@
 #define __LSTATUSES_C_HACK_C __ ## STATUSES_NAME ## _null_status
 
 #ifdef __cplusplus 
-    const uint64_t __LSTATUSES_C_HACK_B = __COUNTER__;
+    const int64_t __LSTATUSES_C_HACK_B = __COUNTER__;
 #else 
     enum __LSTATUSES_C_HACK_A { __LSTATUSES_C_HACK_B = __COUNTER__};
 #endif
 
-#define _LSTATUSES_NEW_INT          (const uint64_t) ((const uint64_t) __COUNTER__ - (const uint64_t) __LSTATUSES_C_HACK_B)
+#define _LSTATUSES_NEW_INT          (const int64_t) ((const int64_t) __COUNTER__ - (const int64_t) __LSTATUSES_C_HACK_B)
 #define _LSTATUSES_NEXT_INT_AS_POS  _LSTATUSES_NEW_INT
 #define _LSTATUSES_NEXT_INT_AS_NEG  0 - _LSTATUSES_NEW_INT
 

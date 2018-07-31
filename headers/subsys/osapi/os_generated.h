@@ -4,3 +4,6 @@
 #include "os_read_write.h"
 #include "os_timekeeping.h"
 #include "os_timer.h"
+#include "os_lockref.h"
+#include "os_dcache.h"
+#include "os_mountspacenamespace.h"
