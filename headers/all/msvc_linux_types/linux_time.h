@@ -1,16 +1,19 @@
 #pragma once 
 
-typedef struct timespec {
+typedef struct timespec 
+{
 	__kernel_time_t	tv_sec;			/* seconds */
 	l_long			tv_nsec;		/* nanoseconds */
 } *timespec_k;
 
-typedef struct timeval {
+typedef struct timeval
+{
 	__kernel_time_t		tv_sec;			/* seconds */
 	__kernel_suseconds_t	tv_usec;	/* microseconds */
 } *timeval_k;
 
-typedef struct timezone {
+typedef struct timezone
+{
 	l_int	tz_minuteswest;	/* minutes west of Greenwich */
 	l_int	tz_dsttime;  	/* type of dst correction */
 } *timezone_k;

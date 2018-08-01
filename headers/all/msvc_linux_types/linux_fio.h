@@ -1,6 +1,5 @@
 #pragma once
 
-
 typedef l_int rwf_t;
 
 #define O_ACCMODE	00000003
@@ -159,8 +158,7 @@ typedef l_int rwf_t;
 /* operations for bsd flock(), also used by the kernel implementation */
 #define LOCK_SH		1	/* shared lock */
 #define LOCK_EX		2	/* exclusive lock */
-#define LOCK_NB		4	/* or'd with one of the above to prevent
-blocking */
+#define LOCK_NB		4	/* or'd with one of the above to prevent blocking */
 #define LOCK_UN		8	/* remove lock */
 
 #define LOCK_MAND	32	/* This is a mandatory flock ... */
@@ -178,22 +176,58 @@ blocking */
 
 #define LOOKUP_PARENT		0x0010
 #define LOOKUP_REVAL		0x0020
-#define LOOKUP_RCU		0x0040
+#define LOOKUP_RCU			0x0040
 #define LOOKUP_NO_REVAL		0x0080
 
 /*
 * Intent data
 */
-#define LOOKUP_OPEN		0x0100
-#define LOOKUP_CREATE		0x0200
-#define LOOKUP_EXCL		0x0400
+#define LOOKUP_OPEN				0x0100
+#define LOOKUP_CREATE			0x0200
+#define LOOKUP_EXCL				0x0400
 #define LOOKUP_RENAME_TARGET	0x0800
 
 #define LOOKUP_JUMPED		0x1000
-#define LOOKUP_ROOT		0x2000
+#define LOOKUP_ROOT			0x2000
 #define LOOKUP_EMPTY		0x4000
-#define LOOKUP_DOWN		0x8000
+#define LOOKUP_DOWN			0x8000
 
 #define _INC_FCNTL //winsdk
+
+#define STATX_TYPE			0x00000001U	/* Want/got stx_mode & S_IFMT */
+#define STATX_MODE			0x00000002U	/* Want/got stx_mode & ~S_IFMT */
+#define STATX_NLINK			0x00000004U	/* Want/got stx_nlink */
+#define STATX_UID			0x00000008U	/* Want/got stx_uid */
+#define STATX_GID			0x00000010U	/* Want/got stx_gid */
+#define STATX_ATIME			0x00000020U	/* Want/got stx_atime */
+#define STATX_MTIME			0x00000040U	/* Want/got stx_mtime */
+#define STATX_CTIME			0x00000080U	/* Want/got stx_ctime */
+#define STATX_INO			0x00000100U	/* Want/got stx_ino */
+#define STATX_SIZE			0x00000200U	/* Want/got stx_size */
+#define STATX_BLOCKS		0x00000400U	/* Want/got stx_blocks */
+#define STATX_BASIC_STATS	0x000007ffU	/* The stuff in the normal stat struct */
+#define STATX_BTIME			0x00000800U	/* Want/got stx_btime */
+#define STATX_ALL			0x00000fffU	/* All currently supported flags */
+#define STATX__RESERVED		0x80000000U	/* Reserved for future struct statx expansion */
+
+/*
+* Attributes to be found in stx_attributes and masked in stx_attributes_mask.
+*
+* These give information about the features or the state of a file that might
+* be of use to ordinary userspace programs such as GUIs or ls rather than
+* specialised tools.
+*
+* Note that the flags marked [I] correspond to generic FS_IOC_FLAGS
+* semantically.  Where possible, the numerical value is picked to correspond
+* also.
+*/
+#define STATX_ATTR_COMPRESSED		0x00000004 /* [I] File is compressed by the fs */
+#define STATX_ATTR_IMMUTABLE		0x00000010 /* [I] File is marked immutable */
+#define STATX_ATTR_APPEND			0x00000020 /* [I] File is append-only */
+#define STATX_ATTR_NODUMP			0x00000040 /* [I] File is not to be dumped */
+#define STATX_ATTR_ENCRYPTED		0x00000800 /* [I] File requires key to decrypt in fs */
+
+#define STATX_ATTR_AUTOMOUNT		0x00001000 /* Dir: Automount trigger */
+
 
 typedef void * fl_owner_t;
