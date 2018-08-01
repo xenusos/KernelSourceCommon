@@ -60,7 +60,7 @@ XENUS_SYM void		thread_preempt_lock();	// preemption stuff
 XENUS_SYM void		thread_preempt_unlock(); // preemption stuff
 
 // thread creation (fpu will be enabled by default)
-XENUS_SYM error_t	thread_create(task_k *, thread_callback_t callback, void * data, char * name);
+XENUS_SYM error_t	thread_create(task_k *, thread_callback_t callback, void * data, char * name, bool run);
 
 
 // lock fpu down - to be used callbacks only - unless you know what you're doing.  

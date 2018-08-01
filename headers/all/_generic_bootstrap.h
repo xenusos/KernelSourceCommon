@@ -75,7 +75,7 @@ typedef struct
 	void	(* __kernel_fpu_begin)							(void); 
 	void	(* __kernel_fpu_end)							(void);
 
-	task_k	(* create_thread_unsafe)						(thread_callback_t callback, void * data, char * name);
+	task_k	(* create_thread_unsafe)						(thread_callback_t callback, void * data, char * name, bool run);
 
 
 	uint64_t	(*	get_current_pid)						(void);
