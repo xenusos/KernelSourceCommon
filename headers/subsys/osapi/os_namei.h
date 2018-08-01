@@ -12,7 +12,7 @@ XENUS_IMPORT l_int kern_path(const char * name, l_unsigned_int flags, path_k pat
 XENUS_IMPORT l_int vfs_path_lookup(dentry_k dentry, vfsmount_k mnt, const char * name, l_unsigned_int flags, path_k path);
 XENUS_IMPORT dentry_k lookup_one_len(const char * name, dentry_k base, l_int len);
 XENUS_IMPORT dentry_k lookup_one_len_unlocked(const char * name, dentry_k base, l_int len);
-XENUS_IMPORT l_int user_path_at_empty(l_int dfd, const char * name, l_unsigned flags, path_k path, l_int * empty);
+XENUS_IMPORT l_int user_path_at_empty(l_int dfd, user_addr_t name, l_unsigned flags, path_k path, l_int * empty);
 XENUS_IMPORT l_int kern_path_mountpoint(l_int dfd, const char * name, path_k path, l_unsigned_int flags);
 XENUS_IMPORT l_int __check_sticky(inode_k dir, inode_k inode);
 XENUS_IMPORT dentry_k lock_rename(dentry_k p1, dentry_k p2);
@@ -21,7 +21,7 @@ XENUS_IMPORT l_int vfs_create(inode_k dir, dentry_k dentry, umode_t mode, bool w
 XENUS_IMPORT dentry_k vfs_tmpfile(dentry_k dentry, umode_t mode, l_int open_flag);
 XENUS_IMPORT dentry_k kern_path_create(l_int dfd, const char * pathname, path_k path, l_unsigned_int lookup_flags);
 XENUS_IMPORT void done_path_create(path_k path, dentry_k dentry);
-XENUS_IMPORT dentry_k user_path_create(l_int dfd, const char * pathname, path_k path, l_unsigned_int lookup_flags);
+XENUS_IMPORT dentry_k user_path_create(l_int dfd, user_addr_t pathname, path_k path, l_unsigned_int lookup_flags);
 XENUS_IMPORT l_int vfs_mknod(inode_k dir, dentry_k dentry, umode_t mode, dev_t dev);
 XENUS_IMPORT l_int vfs_mkdir(inode_k dir, dentry_k dentry, umode_t mode);
 XENUS_IMPORT l_int vfs_rmdir(inode_k dir, dentry_k dentry);
@@ -30,9 +30,9 @@ XENUS_IMPORT l_int vfs_symlink(inode_k dir, dentry_k dentry, const char * oldnam
 XENUS_IMPORT l_int vfs_link(dentry_k old_dentry, inode_k dir, dentry_k new_dentry, inode_k * delegated_inode);
 XENUS_IMPORT l_int vfs_rename(inode_k old_dir, dentry_k old_dentry, inode_k new_dir, dentry_k new_dentry, inode_k * delegated_inode, l_unsigned_int flags);
 XENUS_IMPORT l_int vfs_whiteout(inode_k dir, dentry_k dentry);
-XENUS_IMPORT l_int vfs_readlink(dentry_k dentry, char * buffer, l_int buflen);
+XENUS_IMPORT l_int vfs_readlink(dentry_k dentry, user_addr_t buffer, l_int buflen);
 XENUS_IMPORT const char * vfs_get_link(dentry_k dentry, delayed_call_k done);
 XENUS_IMPORT void page_put_link(void * arg);
-XENUS_IMPORT l_int page_readlink(dentry_k dentry, char * buffer, l_int buflen);
+XENUS_IMPORT l_int page_readlink(dentry_k dentry, user_addr_t buffer, l_int buflen);
 XENUS_IMPORT l_int __page_symlink(inode_k inode, const char * symname, l_int len, l_int nofs);
 XENUS_IMPORT l_int page_symlink(inode_k inode, const char * symname, l_int len);
