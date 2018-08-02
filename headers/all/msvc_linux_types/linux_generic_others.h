@@ -17,6 +17,11 @@ typedef void *	unknown_k;
 // TODO: make into portable types:
 typedef void * lockref_k;
 typedef void * delayed_call_k;
+typedef void * pid_k;
+typedef task_k task_struct_k;
+//enum pid_type
+
+typedef l_unsigned gfp_t;
 
 struct callback_head {
 	struct callback_head *next;
@@ -157,6 +162,10 @@ typedef struct {
 
 typedef __kernel_off_t				off_t;
 typedef __kernel_loff_t				loff_t;
+
+
+typedef __kernel_pid_t		pid_t;
+typedef __kernel_gid_t		gid_t;
 
 typedef __kernel_suseconds_t		suseconds_t;
 typedef __kernel_time_t				time_t;

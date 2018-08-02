@@ -7,3 +7,8 @@
 #include "os_lockref.h"
 #include "os_dcache.h"
 #include "os_mountspacenamespace.h"
+#include "os_random.h"
+#include "os_pid.h"
+#include "os_fuckthisshitimout.h"
+#include "os_mmap.h"
+#include "os_mmutils.h"
