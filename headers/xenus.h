@@ -91,11 +91,11 @@ XENUS_BEGIN_C
 #include "all/_generic_config.h"
 
 #if defined(XENUS_BUILD)
-	//#include "stdarg.h"
 	#include "all/_xenus_notsostd_arg.h"
-	#include "all/_xenus_ints.h"					// similar to inttypes.h
-	#include "all/_xenus_errors.h"				// error and status codes 
-	#include "all/_xenus_types_modules.h"			// entrypoint type, options, etc
+	#include "all/_xenus_ints.h"
+	#include "all/_xenus_other.h"
+	#include "all/_xenus_errors.h"
+	#include "all/_xenus_types_modules.h"
 	#include "all/_xenus_hash_codes.h"
 #endif
 
@@ -113,6 +113,7 @@ XENUS_BEGIN_C
 
 #if defined(XENUS_BUILD)
 	#include "all/msvc_linux_types/linux_inc.h"
+	#include "kernel/os.h"
 #endif
 
 #if defined(BOOTSTRAP) || defined(KERNEL)
@@ -126,7 +127,7 @@ XENUS_BEGIN_C
 	#if defined(KERNEL)
 		// BAD - BAD - BAD
 		#pragma message("including portable structs header within Kernel.XDLL. This is required, but you shouldn't see this message often assuming nobody fucked up")
-		#include "stage2_sys.h" 
+		#include "access_system.h" 
 		#include "kernel\libx\xenus_memory.h" 
 	#elif (defined(XENUS_BUILD) && !defined(KERNEL))
 		// BAD - BAD - BAD

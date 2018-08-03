@@ -5,7 +5,6 @@ XENUS_IMPORT char * kstrndup(const char * s, size_t max, gfp_t gfp);
 XENUS_IMPORT void * kmemdup(const void * src, size_t len, gfp_t gfp);
 XENUS_IMPORT char * kmemdup_nul(const char * s, size_t len, gfp_t gfp);
 XENUS_IMPORT void * memdup_user(user_addr_t src, size_t len);
-XENUS_IMPORT void * vmemdup_user(user_addr_t src, size_t len);
 XENUS_IMPORT char * strndup_user(user_addr_t s, l_long n);
 XENUS_IMPORT void * memdup_user_nul(user_addr_t src, size_t len);
 XENUS_IMPORT l_int __get_user_pages_fast(l_unsigned_long start, l_int nr_pages, l_int write, page_k * pages);

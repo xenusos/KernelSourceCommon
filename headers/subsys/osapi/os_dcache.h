@@ -17,7 +17,6 @@ XENUS_IMPORT void d_instantiate(dentry_k entry, inode_k inode);
 XENUS_IMPORT void d_instantiate_new(dentry_k entry, inode_k inode);
 XENUS_IMPORT l_int d_instantiate_no_diralias(dentry_k entry, inode_k inode);
 XENUS_IMPORT dentry_k d_make_root(inode_k root_inode);
-XENUS_IMPORT dentry_k __d_find_any_alias(inode_k inode);
 XENUS_IMPORT dentry_k d_find_any_alias(inode_k inode);
 XENUS_IMPORT dentry_k d_obtain_alias(inode_k inode);
 XENUS_IMPORT dentry_k d_obtain_root(inode_k inode);

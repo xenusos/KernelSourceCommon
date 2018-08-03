@@ -6,15 +6,10 @@
 */
 #pragma once
 
-typedef __declspec(align(16)) struct chkstack_s
-{
-	uint64_t fuckmedotbat;
-} chkstack_t;
-
 #define SYS_V_MAGIC													*(uint64_t*)("URMOMGAY")
 
 #define DEFINE_SYSV_FUNCTON_START(name, rettype)					 rettype not_callable_##name(
-#define DEFINE_SYSV_FUNCTON_END_DEF(name, rettype)					uint64_t ___magic, void * ____disptr) { chkstack_t __n; bool __mgn_fpu = false; /* if (((size_t)(&__n) % 16) != 0) panic("Xenus: not aligned " __FUNCTION__);*/ //__mgn_fpu  = thread_fpu_lock();
+#define DEFINE_SYSV_FUNCTON_END_DEF(name, rettype)					uint64_t ___magic, void * ____disptr) { chkstack_t __n; bool __mgn_fpu = false;  if (((size_t)(&__n) % 16) != 0) panic("Xenus: not aligned " __FUNCTION__); __mgn_fpu  = thread_fpu_lock();
 #define DEFINE_SYSV_FUNCTON_END_DEF_NO_FPU(name, rettype)			uint64_t ___magic, void * ____disptr) { if (___magic != SYS_V_MAGIC) panicf("ILLEGAL SYSTEMV FUNCTION CALL - " #name " - CHECK FUNCTION DEFINTION AND PARAMETER COUNT"); 
 #define DEFINE_SYSV_FUNCTON_END										if (__mgn_fpu) thread_fpu_unlock(); }
 #define DEFINE_SYSV_FUNCTON_END_NO_FPU								}

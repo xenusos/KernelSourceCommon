@@ -1,4 +1,5 @@
-typedef struct {
+typedef struct 
+{
 	uint64_t	LINUX_THREAD_SIZE_ORDER;
 	uint64_t	LINUX_THREAD_SIZE;
 	uint64_t	LINUX_PAGE_SHIFT;
@@ -26,7 +27,6 @@ typedef struct {
  *linux_info_ref;
 
 #if !defined(XENUS_PLATFORM_LINUX_KERNEL)
-	XENUS_SYM linux_info_t linux_mem_types;
 	#define OS_THREAD_SIZE_ORDER       linux_mem_types.LINUX_THREAD_SIZE_ORDER       
 	#define OS_THREAD_SIZE             linux_mem_types.LINUX_THREAD_SIZE             
 	#define OS_PAGE_SHIFT              linux_mem_types.LINUX_PAGE_SHIFT              
