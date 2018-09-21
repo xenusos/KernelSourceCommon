@@ -61,7 +61,7 @@ typedef size_t	(XENUS_MS_ABI *xenus_trap_cb_t)				(xenus_attention_trap_p cbuf);
 typedef void	(XENUS_MS_ABI *pre_context_switch_cb_t)		(void);							// PER TASK STRUCT
 typedef void	(XENUS_MS_ABI *post_context_switch_cb_t)	(void);							// PER TASK STRUCT
 
-typedef void	(XENUS_MS_ABI *thread_exit_cb_t)			(void);							// PER TASK STRUCT
+typedef void	(XENUS_MS_ABI *thread_exit_cb_t)			(long);							// PER TASK STRUCT
 typedef int		(XENUS_MS_ABI *thread_callback_t)			(void * data);
 
 #if defined(KERNEL) || defined(XENUS_PLATFORM_LINUX_KERNEL)

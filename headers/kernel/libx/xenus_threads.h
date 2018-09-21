@@ -21,8 +21,9 @@ typedef void * thread_index_counter_p;
 #ifdef KERNEL
 thread_storage_data_p	thread_nopreempt_get_tls();
 void					thread_nopreempt_put_tls(thread_storage_data_p tls);
-uint32_t    thread_geti();
 #endif
+
+XENUS_SYM uint32_t    thread_geti();
 
 
 static uint64_t TLS_TYPE_GENERIC	= 0;
@@ -60,7 +61,7 @@ XENUS_SYM void		thread_preempt_lock();	// preemption stuff
 XENUS_SYM void		thread_preempt_unlock(); // preemption stuff
 
 // thread creation (fpu will be enabled by default)
-XENUS_SYM error_t	thread_create(task_k *, thread_callback_t callback, void * data, char * name, bool run);
+XENUS_SYM error_t	thread_create(task_k *, thread_callback_t callback, void * data, const  char * name, bool run);
 
 
 // lock fpu down - to be used callbacks only - unless you know what you're doing.  
