@@ -16,4 +16,4 @@
 #define LINUX_ERROR(x) ((l_ulong)(void *)(x) >= (l_ulong)-4095)
 
 
-#define ASSERT(n, msg) {if (!(n)) {panic(msg);}}
+#define ASSERT(n, msg, ...) {if (!(n)) {panicf(msg, __VA_ARGS__);}}

@@ -52,7 +52,7 @@ typedef struct xenus_attention_sys
 	size_t arg_bravo;
 	size_t arg_charlie;
 	size_t arg_delta;
-	size_t reponse;    
+	size_t response;    
 } * xenus_attention_sys_p, xenus_attention_sys_t;
 
 typedef size_t	(XENUS_MS_ABI *xenus_sys_cb_t)				(xenus_attention_sys_p cbuf);	// GLOBAL

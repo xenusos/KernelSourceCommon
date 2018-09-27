@@ -23,6 +23,9 @@ STATUSES_START
 
 	// LIB LINUX
 	STATUSES_ADD_INFO(XENUS_STATUS_BUFFER_NOT_FILLED, kStatusBufferNotFilled),
+
+
+	STATUSES_ADD_INFO(XENUS_STATUS_NOT_ACCURATE_ASSUME_OKAY, kFuckMe), // yes, this error code is dumb. TryMurder, for instance, can't give always give a definite STATUS_OKAY 
 	
 	/////////////// ERRORS ////////////////
 	

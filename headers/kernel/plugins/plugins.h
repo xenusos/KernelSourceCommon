@@ -13,11 +13,11 @@
 
 
 // recommended load function
-XENUS_SYM error_t plugins_load(char * name, char * mod, char * path, linked_list_head_p plugins, void ** root_pe_handle, void ** root_plugin_handle); // load plugin, patch iat, etc
+XENUS_SYM error_t plugins_load(const char * name, const char * mod, const char * path, linked_list_head_p plugins, void ** root_pe_handle, void ** root_plugin_handle); // load plugin, patch iat, etc
 
 
 // internal load functions - in order
-XENUS_SYM error_t plugins_iterative_load(linked_list_head_p list, char * mod, char * name, char * path, bool soft_dep, void ** pe_handle_out, void ** plugin_handle_out);
+XENUS_SYM error_t plugins_iterative_load(linked_list_head_p list, const char * mod, const char * name, const char * path, bool soft_dep, void ** pe_handle_out, void ** plugin_handle_out);
 XENUS_SYM void plugins_initialize(linked_list_head_p list);
 XENUS_SYM void plugins_start(linked_list_head_p list);
 
