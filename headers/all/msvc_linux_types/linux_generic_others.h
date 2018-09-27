@@ -18,6 +18,11 @@ typedef void *	unknown_k;
 typedef void * lockref_k;
 typedef void * delayed_call_k;
 typedef void * pid_k;
+typedef void * preempt_notifier_k;
+typedef void * sched_attr_k;
+typedef void * spinlock_t_k;
+
+typedef wait_queue_entry_k wait_queue_entry_t_p;
 typedef task_k task_struct_k;
 //enum pid_type
 
