@@ -4,7 +4,6 @@
     License: All Rights Reserved (2018)  J. Reece Wilson. Released under the MIT License.
 	Note: 
 			You may include this header several times
-			Define STATUSES_NAME and STATUSES_HEADER before doing so. 
 */
 
 #ifndef __LSTATUSES_DBG_MAP
@@ -17,7 +16,7 @@
     } debugging_status_map_t;
 #endif 
 
-#if !defined(STATUSES_NAME) || !defined(STATUSES_HEADER)
+#if !defined(STATUSES_NAME) 
 	#error Config for lib_statuses not defined!
 #endif 
 
@@ -47,15 +46,15 @@
             __LSTATUSES_C_HACK_C = 0,
 #endif
 
-#define STATUSES_END };
+#define STATUSES_END STATUSES_NAME ## _error_bound = _LSTATUSES_NEXT_INT_AS_NEG};
 
 #define STATUSES_ADD_INFO(convention_c, convention_cpp) \
                           convention_c, /* just let the compiler increment its own internal index counter */ \
-                          convention_cpp = convention_c
+                          convention_cpp = convention_c,
 
 #define STATUSES_ADD_ERROR(convention_c, convention_cpp)  \
                           convention_c = _LSTATUSES_NEXT_INT_AS_NEG,  \
-                          convention_cpp = convention_c
+                          convention_cpp = convention_c,
                   
 // Debugging
 #define STATUSES_DBG_START_EX(name) static const debugging_status_map_t debugging_status_ ## name ## _codes[] = {
@@ -63,7 +62,53 @@
 #define STATUSES_DBG_ADD(c, cpp)     { #c, #cpp, c },
 #define STATUSES_DBG_END            {0, 0, 0} };
 
-#include STATUSES_HEADER
+
+#if defined(STATUSES_ERRORS) || defined(STATUSES_STATUSES)
+    STATUSES_START
+
+    #if defined(STATUSES_STATUSES) 
+        #include STATUSES_STATUSES
+    #endif
+    
+    #if defined(STATUSES_ERRORS) 
+        #include STATUSES_ERRORS
+    #endif
+
+    STATUSES_END
+#endif
+
+#if defined(STATUSES_DEBUG_ENABLED)
+    #undef STATUSES_ADD_ERROR
+    #undef STATUSES_ADD_STATUS
+        
+    #define STATUSES_ADD_ERROR STATUSES_DBG_ADD
+    #define STATUSES_ADD_INFO  STATUSES_DBG_ADD
+    
+    STATUSES_DBG_START
+
+    #if defined(STATUSES_STATUSES) 
+        #include STATUSES_STATUSES
+    #endif
+    
+    #if defined(STATUSES_ERRORS) 
+        #include STATUSES_ERRORS
+    #endif
+
+    STATUSES_DBG_END
+#endif
+
+#ifdef STATUSES_ERRORS
+    #undef STATUSES_ERRORS
+#endif
+
+#ifdef STATUSES_STATUSES
+    #undef STATUSES_STATUSES
+#endif
+
+
+#ifdef STATUSES_DEBUG_ENABLED
+    #undef STATUSES_DEBUG_ENABLED
+#endif
 
 // Macros for defining statuses
 #undef STATUSES_ADD_ERROR
@@ -87,7 +132,8 @@
 #undef  __LSTATUSES_C_HACK_B
 #undef  __LSTATUSES_C_HACK_C
 
-// Should we do this?
-// fuck it, they're present, they're going!
 #undef STATUSES_NAME
-#undef STATUSES_HEADER
+
+#ifdef STATUSES_HEADER // deprecated - might be defined - needs to be undefined, if present 
+    #undef STATUSES_HEADER
+#endif
