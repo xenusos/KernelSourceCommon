@@ -64,12 +64,9 @@ XENUS_SYM void		thread_preempt_unlock(); // preemption stuff
 XENUS_SYM error_t	thread_create(task_k *, thread_callback_t callback, void * data, const  char * name, bool run);
 
 
-// lock fpu down - to be used callbacks only - unless you know what you're doing.  
-
-#if defined(KERNEL) || defined(EXPOSE_FPU_STUBS)
+// lock fpu down - to be used in callbacks only - unless you know what you're doing.  
 XENUS_SYM bool thread_fpu_lock();
 XENUS_SYM bool thread_fpu_unlock();
-#endif
 
 // 
 XENUS_SYM void thread_pre_context_switch_hook(pre_context_switch_cb_t);      //
