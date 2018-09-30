@@ -224,7 +224,7 @@ typedef struct { pgdval_t pgd; } pgd_t;
 #define _AC(X,Y)			__AC(X,Y)
 #define _AT(T,X)			((T)(X))
 
-#define PAGE_SHIFT			12
+#define PAGE_SHIFT			(kernel_information.LINUX_PAGE_SHIFT)
 #define PAGE_SIZE			(_AC(1,UL) << PAGE_SHIFT)
 #define PAGE_MASK			(~(PAGE_SIZE-1))
 
@@ -246,3 +246,27 @@ typedef struct {
 //typedef int(*filldir_t)(struct dir_context *, const char *, int, loff_t, u64,
 //	unsigned);
 typedef void * filldir_t;
+
+
+#define MAX_NICE	19
+#define MIN_NICE	-20
+#define NICE_WIDTH	(MAX_NICE - MIN_NICE + 1)
+#define MAX_USER_RT_PRIO	100
+#define MAX_RT_PRIO		MAX_USER_RT_PRIO
+#define MAX_PRIO		(MAX_RT_PRIO + NICE_WIDTH)
+#define DEFAULT_PRIO		(MAX_RT_PRIO + NICE_WIDTH / 2)
+#define NICE_TO_PRIO(nice)	((nice) + DEFAULT_PRIO)
+#define PRIO_TO_NICE(prio)	((prio) - DEFAULT_PRIO)
+#define USER_PRIO(p)		((p)-MAX_RT_PRIO)
+#define TASK_USER_PRIO(p)	USER_PRIO((p)->static_prio)
+#define MAX_USER_PRIO		(USER_PRIO(MAX_PRIO))
+
+static inline long nice_to_rlimit(long nice)
+{
+    return (MAX_NICE - nice + 1);
+}
+
+static inline long rlimit_to_nice(long prio)
+{
+    return (MAX_NICE - prio + 1);
+}
