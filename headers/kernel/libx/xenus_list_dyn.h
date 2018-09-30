@@ -32,11 +32,12 @@ typedef struct dyn_list_head_s
 
 XENUS_SYM dyn_list_head_p _dyn_list_create(size_t length);
 XENUS_SYM error_t dyn_list_entries(dyn_list_head_p head, size_t * out_size);
-XENUS_SYM error_t dyn_list_append(dyn_list_head_p head, void ** out);
-XENUS_SYM error_t dyn_list_get_by_index(dyn_list_head_p head, size_t index, void ** entry);
-XENUS_SYM error_t dyn_list_get_by_buffer(dyn_list_head_p head, void * entry, size_t * index);
-XENUS_SYM error_t dyn_list_slice(dyn_list_head_p head, size_t index, size_t cnt);
-XENUS_SYM error_t dyn_list_splice(dyn_list_head_p head, size_t index, void ** new_entity);
-XENUS_SYM error_t dyn_list_preappend(dyn_list_head_p head, void ** entry);
-XENUS_SYM error_t dyn_list_remove(dyn_list_head_p head, size_t index);
+XENUS_SYM error_t dyn_list_append(dyn_list_head_p head, void ** out);                            // O(1)
+XENUS_SYM error_t dyn_list_get_by_index(dyn_list_head_p head, size_t index, void ** entry);      // O(1) *
+XENUS_SYM error_t dyn_list_get_by_buffer(dyn_list_head_p head, void * entry, size_t * index);    // O(n)   | returns XENUS_STATUS_LISTS_FOUND, or XENUS_STATUS_LISTS_NOT_FOUND. XENUS_STATUS_LISTS_NOT_FOUND IS NOT AN ERROR! use STRICTLY_OKAY(code = dyn_list_get_by_buffer(...))
+XENUS_SYM error_t dyn_list_slice(dyn_list_head_p head, size_t index, size_t cnt);                // O(1)
+XENUS_SYM error_t dyn_list_splice(dyn_list_head_p head, size_t index, void ** new_entity);       // O(1) *
+XENUS_SYM error_t dyn_list_preappend(dyn_list_head_p head, void ** entry);                       // O(1) 
+XENUS_SYM error_t dyn_list_remove(dyn_list_head_p head, size_t index);                           // O(1)  
 XENUS_SYM error_t dyn_list_destory(dyn_list_head_p head);
+// * assuming relocation time is constant and/or other memory operations aren't required (ie: resize)

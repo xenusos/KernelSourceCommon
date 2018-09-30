@@ -10,8 +10,8 @@ struct linked_list_entry_s;
 
 typedef struct linked_list_head_s
 {
-    struct linked_list_entry_s * bottom;
-    struct linked_list_entry_s * top;
+    struct linked_list_entry_s * bottom; // head, idx = 0
+    struct linked_list_entry_s * top;    // tail, idx = count - 1
     struct
     {
         /*
@@ -37,6 +37,6 @@ typedef struct linked_list_entry_s
 } *linked_list_entry_p, linked_list_entry_t;
 
 XENUS_SYM linked_list_head_p linked_list_create();
-XENUS_SYM linked_list_entry_p linked_list_append(linked_list_head_p head, size_t buf_len);
-XENUS_SYM error_t linked_list_remove(linked_list_entry_p entry);
+XENUS_SYM linked_list_entry_p linked_list_append(linked_list_head_p head, size_t buf_len);    // O(1)
+XENUS_SYM error_t linked_list_remove(linked_list_entry_p entry);                              // O(1)
 XENUS_SYM error_t linked_list_destory(linked_list_head_p head);

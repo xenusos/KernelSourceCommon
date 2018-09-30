@@ -65,15 +65,21 @@ XENUS_SYM error_t	thread_create(task_k *, thread_callback_t callback, void * dat
 
 
 // lock fpu down - to be used callbacks only - unless you know what you're doing.  
+
+#if defined(KERNEL) || defined(EXPOSE_FPU_STUBS)
 XENUS_SYM bool thread_fpu_lock();
 XENUS_SYM bool thread_fpu_unlock();
+#endif
 
 // 
-XENUS_SYM void thread_pre_context_switch_hook(pre_context_switch_cb_t);
+XENUS_SYM void thread_pre_context_switch_hook(pre_context_switch_cb_t);      //
 XENUS_SYM void thread_post_context_switch_hook(post_context_switch_cb_t);
 
-XENUS_SYM void threading_set_current_trap_handler(xenus_trap_cb_t handler);
-XENUS_SYM void threading_set_process_trap_handler(xenus_trap_cb_t handler);
+XENUS_SYM void threading_set_current_trap_handler(xenus_trap_cb_t handler);  // int 15, 0xID
+XENUS_SYM void threading_set_process_trap_handler(xenus_trap_cb_t handler);  // 
+
+XENUS_SYM void threading_set_current_syscall_handler(xenus_sys_cb_t handler);
+XENUS_SYM void threading_set_process_syscall_handler(xenus_sys_cb_t handler);
 
 XENUS_SYM error_t threading_get_exit_callbacks(thread_exit_cb_t ** list, int * cnt);
 
