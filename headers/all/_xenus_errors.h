@@ -6,7 +6,9 @@
 #pragma once
 
 #define STATUSES_NAME   xenus_errors
-#define STATUSES_HEADER <all\_xenus_error_codes.h>
+#define STATUSES_DEBUG_ENABLED 1
+#define STATUSES_ERRORS   <all\errors\errors.macros>
+#define STATUSES_STATUSES <all\errors\statuses.macros>
 #include <deps/lib_statuses.h>
 
 #define STRICTLY_OKAY(x)		((x) == XENUS_OKAY)
