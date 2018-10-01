@@ -21,12 +21,26 @@ typedef void * pid_k;
 typedef void * preempt_notifier_k;
 typedef void * sched_attr_k;
 typedef void * spinlock_t_k;
+typedef void * class_compat_k;
 
 typedef wait_queue_entry_k wait_queue_entry_t_p;
 typedef task_k task_struct_k;
 //enum pid_type
 
 typedef l_unsigned gfp_t;
+
+
+#define MAX_LOCKDEP_SUBCLASSES		8UL
+
+#pragma pack(push, 1)
+struct lockdep_subclass_key {
+    char __one_byte;
+};
+#pragma pack(pop)
+
+typedef struct lock_class_key {
+    struct lockdep_subclass_key	subkeys[MAX_LOCKDEP_SUBCLASSES];
+} *lock_class_key_k;
 
 struct callback_head {
 	struct callback_head *next;
