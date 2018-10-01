@@ -10,7 +10,7 @@
 // Loading
 ////////////////////////////////////////////////////////////////////////////////////////
 
-XENUS_SYM error_t pe_loader_preload_init(void * buffer, size_t length, char * module_name, void ** handle);				// alloc buffers
+XENUS_SYM error_t pe_loader_preload_init(void * buffer, size_t length, const char * module_name, void ** handle);		// alloc buffers
 XENUS_SYM error_t pe_loader_preload_analyse(void * handle);																// check pe FILE (not in memory image)
 XENUS_SYM error_t pe_loader_preload_load(void * handle);																// 
  
