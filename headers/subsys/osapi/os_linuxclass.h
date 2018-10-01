@@ -1,0 +1,16 @@
+XENUS_IMPORT l_int __class_register(class_k cls, lock_class_key_k key);
+XENUS_IMPORT void class_destroy(class_k cls);
+XENUS_IMPORT void class_unregister(class_k cls);
+XENUS_IMPORT class_k __class_create(module_k owner, const char * name, lock_class_key_k key);
+XENUS_IMPORT void class_dev_iter_init(class_dev_iter_k iter, class_k clzz, device_k start, const device_type_k type);
+XENUS_IMPORT device_k class_dev_iter_next(class_dev_iter_k iter);
+XENUS_IMPORT void class_dev_iter_exit(class_dev_iter_k iter);
+XENUS_IMPORT l_int class_for_each_device(class_k clzz, device_k start, void * data, sysv_fptr_t fn);
+XENUS_IMPORT device_k class_find_device(class_k clzz, device_k start, const void * data, sysv_fptr_t matchfn);
+XENUS_IMPORT l_int class_interface_register(class_interface_k class_intf);
+XENUS_IMPORT void class_interface_unregister(class_interface_k class_intf);
+XENUS_IMPORT ssize_t show_class_attr_string(class_k clzz, class_attribute_k attr, char * buf);
+XENUS_IMPORT class_compat_k class_compat_register(const char * name);
+XENUS_IMPORT void class_compat_unregister(class_compat_k cls);
+XENUS_IMPORT l_int class_compat_create_link(class_compat_k cls, device_k dev, device_k device_link);
+XENUS_IMPORT void class_compat_remove_link(class_compat_k cls, device_k dev, device_k device_link);

@@ -1,0 +1,12 @@
+XENUS_IMPORT l_int register_chrdev_region(dev_t from, l_unsigned count, const char * name);
+XENUS_IMPORT void unregister_chrdev_region(dev_t from, l_unsigned count);
+XENUS_IMPORT l_int alloc_chrdev_region(dev_t * dev, l_unsigned baseminor, l_unsigned count, const char * name);
+XENUS_IMPORT void cdev_init(cdev_k cdev, const file_operations_k fops);
+XENUS_IMPORT cdev_k cdev_alloc();
+XENUS_IMPORT void cdev_del(cdev_k p);
+XENUS_IMPORT l_int cdev_add(cdev_k p, dev_t dev, l_unsigned count);
+XENUS_IMPORT void cdev_set_parent(cdev_k p, kobject_k kobj);
+XENUS_IMPORT l_int cdev_device_add(cdev_k cdev, device_k dev);
+XENUS_IMPORT void cdev_device_del(cdev_k cdev, device_k dev);
+XENUS_IMPORT l_int __register_chrdev(l_unsigned_int major, l_unsigned_int baseminor, l_unsigned_int count, const char * name, const file_operations_k fops);
+XENUS_IMPORT void __unregister_chrdev(l_unsigned_int major, l_unsigned_int baseminor, l_unsigned_int count, const char * name);

@@ -13,3 +13,5 @@
 #include "os_mmap.h"
 #include "os_mmutils.h"
 #include "os_sched_core.h"
+#include "os_chardev.h"
+#include "os_linuxclass.h"
