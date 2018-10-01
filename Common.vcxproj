@@ -71,7 +71,6 @@
     <ClInclude Include="headers\all\_linux_all_headers.h" />
     <ClInclude Include="headers\all\_linux_linux_types_mapping.h" />
     <ClInclude Include="headers\all\_xenus_errors.h" />
-    <ClInclude Include="headers\all\_xenus_error_codes.h" />
     <ClInclude Include="headers\all\_xenus_hash_codes.h" />
     <ClInclude Include="headers\all\_xenus_ints.h" />
     <ClInclude Include="headers\all\_xenus_notsostd_arg.h" />
@@ -121,6 +120,7 @@
     <ClInclude Include="headers\subsys\osapi\os_pid.h" />
     <ClInclude Include="headers\subsys\osapi\os_random.h" />
     <ClInclude Include="headers\subsys\osapi\os_read_write.h" />
+    <ClInclude Include="headers\subsys\osapi\os_sched_core.h" />
     <ClInclude Include="headers\subsys\osapi\os_stat.h" />
     <ClInclude Include="headers\subsys\osapi\os_timekeeping.h" />
     <ClInclude Include="headers\subsys\osapi\os_timer.h" />
@@ -136,6 +136,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="headers\all\errors\errors.macros" />
+    <None Include="headers\all\errors\statuses.macros" />
     <None Include="headers\all\_bootstrap_and_linux_kernl.defs" />
     <None Include="headers\all\_portable_structs.macros" />
     <None Include="headers\all\_unknown_types.macros" />
