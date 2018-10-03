@@ -15,3 +15,7 @@
 #include "os_sched_core.h"
 #include "os_chardev.h"
 #include "os_linuxclass.h"
+#include "os_modcore.h"
+#include "os_driversbasecore.h"
+#include "os_usermem.h"
+#include "os_readdir.h"

@@ -1,7 +1,7 @@
 #pragma once
 
 typedef void(*chains_deallocation_notifier_t)(uint64_t hash, void * buffer);
-typedef void(*chains_iterator)(uint64_t hash, void * buffer);
+typedef void(*chains_iterator_t)(uint64_t hash, void * buffer, void * ctx);
 
 #ifdef KERNEL
 struct chain_s;
@@ -17,7 +17,9 @@ typedef struct link_s
 
 typedef struct chain_s
 {
-	link_p bottom;
+	link_p bottom; // start - bottom
+
+    link_p tail;   // end   - top
 } *chain_p, *chain_ref, chain_t;
 #else
 typedef void * chain_p;
@@ -43,7 +45,8 @@ XENUS_EXPORT error_t chain_get(
 
 XENUS_EXPORT error_t chain_iterator(
 	chain_p chain,
-	chains_iterator iterator
+    chains_iterator_t iterator,
+    void * ctx
 );
 
 XENUS_SYM error_t chain_deallocate_handle(link_p handle);

@@ -11,9 +11,11 @@
 #define DEFINE_SYSV_FUNCTON_START(name, rettype)					 rettype not_callable_##name(
 #define DEFINE_SYSV_FUNCTON_END_DEF(name, rettype)					uint64_t ___magic, void * ____disptr) { chkstack_t __n; bool __mgn_fpu = false;  if (((size_t)(&__n) % 16) != 0) panic("Xenus: not aligned " __FUNCTION__); if (___magic != SYS_V_MAGIC) panicf("ILLEGAL SYSTEMV FUNCTION CALL - " #name " - CHECK FUNCTION DEFINTION AND PARAMETER COUNT"); __mgn_fpu  = thread_fpu_lock();
 #define DEFINE_SYSV_FUNCTON_END_DEF_NO_FPU(name, rettype)			uint64_t ___magic, void * ____disptr) { chkstack_t __n; if (((size_t)(&__n) % 16) != 0) panic("Xenus: not aligned " __FUNCTION__); if (___magic != SYS_V_MAGIC) panicf("ILLEGAL SYSTEMV FUNCTION CALL - " #name " - CHECK FUNCTION DEFINTION AND PARAMETER COUNT"); 
-#define DEFINE_SYSV_FUNCTON_END										if (__mgn_fpu) thread_fpu_unlock(); }
+#define DEFINE_SYSV_FUNCTON_END(r)									{if (__mgn_fpu) thread_fpu_unlock(); return r;}
 #define DEFINE_SYSV_FUNCTON_END_NO_FPU								}
 #define SYS_V_GET_DATA												((uint64_t)____disptr)
+
+#define SYSV_FN(name) not_callable_##name
 
 //
 // DEFINE_SYSV_FUNCTON_START(fileio, void *)

@@ -22,6 +22,7 @@ typedef struct linked_list_head_s
         bool dead;
         void(*cb_died)(struct linked_list_head_s * ctx);
     };
+    size_t length;
 } *linked_list_head_p, linked_list_head_t;
 
 typedef struct linked_list_entry_s

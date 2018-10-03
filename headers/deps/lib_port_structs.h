@@ -46,9 +46,9 @@
 #endif
 
 #define PS_HEADER_INIT_TYPE(type_name)\
-static inline void * type_name ## _allocate()\
+static inline type_name ## _k  type_name ## _allocate()\
 {\
-    return malloc(ps_global.ps_type_ ## type_name .length);\
+    return calloc(1, ps_global.ps_type_ ## type_name .length);\
 }\
 static inline void type_name ## _free(void * ptr)\
 {\

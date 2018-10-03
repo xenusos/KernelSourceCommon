@@ -1,6 +1,6 @@
 XENUS_IMPORT l_long vfs_truncate(const path_k path, loff_t length);
 XENUS_IMPORT l_int vfs_fallocate(file_k file, l_int mode, loff_t offset, loff_t len);
-XENUS_IMPORT l_int finish_open(file_k file, dentry_k dentry, void * sysvcb, l_int * opened);
+XENUS_IMPORT l_int finish_open(file_k file, dentry_k dentry, sysv_fptr_t sysvcb, l_int * opened);
 XENUS_IMPORT l_int finish_no_open(file_k file, dentry_k dentry);
 XENUS_IMPORT char * file_path(file_k filp, char * buf, l_int buflen);
 XENUS_IMPORT file_k dentry_open(const path_k path, l_int flags, const cred_k cred);

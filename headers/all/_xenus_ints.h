@@ -145,6 +145,9 @@ typedef void *		sysv_fptr_t;
 #endif
 
 
+#define SIZE_T_MAX UINT64_MAX
+#define SIZE_T_MIN UINT64_MIN
+
 #define MIN(a,b) (((a)<(b))?(a):(b))
 #define MAX(a,b) (((a)>(b))?(a):(b))
 #define NOT_NULL(a, b) ((a) ? (a) : (b))

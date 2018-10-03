@@ -1,0 +1,15 @@
+XENUS_IMPORT l_int register_module_notifier(notifier_block_k nb);
+XENUS_IMPORT l_int unregister_module_notifier(notifier_block_k nb);
+XENUS_IMPORT void __module_put_and_exit(module_k mod, l_long code);
+XENUS_IMPORT bool each_symbol_section(sysv_fptr_t stub, void * data);
+XENUS_IMPORT const kernel_symbol_k find_symbol(const char * name, module_k * owner, const s32 ** crc, bool gplok, bool warn);
+XENUS_IMPORT module_k find_module(const char * name);
+XENUS_IMPORT l_int ref_module(module_k a, module_k b);
+XENUS_IMPORT l_int module_refcount(module_k mod);
+XENUS_IMPORT void symbol_put_addr(void * addr);
+XENUS_IMPORT void __module_get(module_k module);
+XENUS_IMPORT bool try_module_get(module_k module);
+XENUS_IMPORT void module_put(module_k module);
+XENUS_IMPORT void * INCLUDEDINBOOTSTRAP____symbol_get(const char * symbol);
+XENUS_IMPORT module_k __module_address(l_unsigned_long addr);
+XENUS_IMPORT module_k __module_text_address(l_unsigned_long addr);

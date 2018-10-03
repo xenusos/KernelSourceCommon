@@ -22,6 +22,9 @@ typedef void * preempt_notifier_k;
 typedef void * sched_attr_k;
 typedef void * spinlock_t_k;
 typedef void * class_compat_k;
+typedef void * kernel_symbol_k;
+
+//kernel_symbol
 
 typedef wait_queue_entry_k wait_queue_entry_t_p;
 typedef task_k task_struct_k;
@@ -29,8 +32,8 @@ typedef task_k task_struct_k;
 
 typedef l_unsigned gfp_t;
 
-
-#define MAX_LOCKDEP_SUBCLASSES		8UL
+#define XENUS_SUBCLASSES_SAFETYBUFFER (10UL)
+#define MAX_LOCKDEP_SUBCLASSES		  (8UL + XENUS_SUBCLASSES_SAFETYBUFFER)
 
 #pragma pack(push, 1)
 struct lockdep_subclass_key {
@@ -232,6 +235,13 @@ typedef struct pgprot
 	pgprotval_t pgprot_; 
 } pgprot_t;
 typedef struct { pgdval_t pgd; } pgd_t;
+
+#define MINORBITS       20
+#define MINORMASK       ((1U << MINORBITS) - 1)
+
+#define MAJOR(dev)      ((unsigned int) ((dev) >> MINORBITS))
+#define MINOR(dev)      ((unsigned int) ((dev) & MINORMASK))
+#define MKDEV(ma,mi)    (((ma) << MINORBITS) | (mi))
 
 
 #define __AC(X,Y)			(X##Y)
