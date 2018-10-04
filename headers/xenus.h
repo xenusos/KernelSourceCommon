@@ -132,7 +132,7 @@ XENUS_BEGIN_C
 	#elif (defined(XENUS_BUILD) && !defined(KERNEL))
 		// BAD - BAD - BAD
 		XENUS_IMPORT void * malloc(size_t length);
-		XENUS_IMPORT void * calloc(size_t cnt, size_t length);
+		XENUS_IMPORT void * zalloc(size_t length);
 		XENUS_IMPORT void free(void * s);
 		XENUS_IMPORT void *	memcpy(void * dest, const void * src, size_t length);
 	#endif
