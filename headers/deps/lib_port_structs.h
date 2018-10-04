@@ -72,6 +72,14 @@ static inline void type_name ## _set_ ## member(void * ptr, void * src)\
 {\
     memcpy(type_name ## _get_ ## member(ptr), src, ps_global.ps_type_ ## type_name .ps_member_ ## member .offset);\
 }\
+static inline void type_name ## _set_ ## member ## _size_t(void * ptr, size_t set)\
+{\
+    *(size_t *)(type_name ## _get_ ## member(ptr)) = set;\
+}\
+static inline void type_name ## _set_ ## member ## _ssize_t(void * ptr, ssize_t set)\
+{\
+    *(ssize_t *)(type_name ## _get_ ## member(ptr)) = set;\
+}\
 static inline void type_name ## _set_ ## member ## _int64(void * ptr, int64_t set)\
 {\
     *(int64_t *)(type_name ## _get_ ## member(ptr)) = set;\
@@ -135,6 +143,14 @@ static inline int8_t type_name ## _get_ ## member ## _int8(void * ptr)\
 static inline uint8_t type_name ## _get_ ## member ## _uint8(void * ptr)\
 {\
     return *(uint8_t *)(type_name ## _get_ ## member(ptr));\
+}\
+static inline size_t type_name ## _get_ ## member ## _size_t(void * ptr)\
+{\
+    return *(size_t *)(type_name ## _get_ ## member(ptr));\
+}\
+static inline ssize_t type_name ## _get_ ## member ## _ssize_t(void * ptr)\
+{\
+    return *(ssize_t *)(type_name ## _get_ ## member(ptr));\
 }
 
 // Why do we do this?
