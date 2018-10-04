@@ -6,11 +6,12 @@
 */
 #pragma once
 
-XENUS_SYM size_t kernel_memusage;
 
 XENUS_SYM void alloc_increment_atomicity();
 XENUS_SYM void alloc_decrement_atomicity();
 XENUS_SYM uint32_t alloc_get_atomicity();
+
+XENUS_SYM size_t alloc_get_kernel_usage();
 
 XENUS_SYM void * malloc_atomic(size_t length);
 
