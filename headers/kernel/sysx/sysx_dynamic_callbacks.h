@@ -9,11 +9,11 @@
 #define SYSV_MAGIC													*(uint64_t*)("URMOMGAY")
 
 
-#define SYSV_GET_DATA												((uint64_t)____disptr)
+#define SYSV_GET_DATA												((uint64_t)____thisptr)
 #define SYSV_FN(name)                                               not_callable_##name
 
 #define DEFINE_SYSV_FUNCTON_START(name, rettype)					rettype SYSV_FN(name)(
-#define DEFINE_SYSV_FUNCTON_END_DEF(name, rettype)				    uint64_t ___magic, void * ____disptr) {                                                                         \
+#define DEFINE_SYSV_FUNCTON_END_DEF(name, rettype)				    uint64_t ___magic, void * ____thisptr) {                                                                        \
                                                                         chkstack_t __n;                                                                                             \
                                                                         bool __mgn_fpu = false;                                                                                     \
                                                                                                                                                                                     \
@@ -21,7 +21,7 @@
                                                                             panic("Xenus: not aligned " __FUNCTION__);                                                              \
                                                                                                                                                                                     \
                                                                         if (___magic != SYSV_MAGIC)                                                                                 \
-                                                                            panicf("ILLEGAL SYSTEMV FUNCTION CALL - " #name " - CHECK FUNCTION DEFINTION AND PARAMETER COUNT");     \
+                                                                            panic("ILLEGAL SYSTEMV FUNCTION CALL - " #name " - CHECK FUNCTION DEFINTION AND PARAMETER COUNT");      \
                                                                                                                                                                                     \
                                                                         __mgn_fpu  = thread_fpu_lock();
 
