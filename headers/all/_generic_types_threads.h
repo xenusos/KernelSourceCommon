@@ -55,8 +55,8 @@ typedef struct xenus_attention_sys
 	size_t response;    
 } * xenus_attention_sys_p, xenus_attention_sys_t;
 
-typedef size_t	(XENUS_MS_ABI *xenus_sys_cb_t)				(xenus_attention_sys_p cbuf);	// GLOBAL
-typedef size_t	(XENUS_MS_ABI *xenus_trap_cb_t)				(xenus_attention_trap_p cbuf);	// PER TASK STRUCT
+typedef void	(XENUS_MS_ABI *xenus_sys_cb_t)				(xenus_attention_sys_p cbuf);	// GLOBAL
+typedef void	(XENUS_MS_ABI *xenus_trap_cb_t)				(xenus_attention_trap_p cbuf);	// PER TASK STRUCT
 
 typedef void	(XENUS_MS_ABI *pre_context_switch_cb_t)		(void);							// PER TASK STRUCT
 typedef void	(XENUS_MS_ABI *post_context_switch_cb_t)	(void);							// PER TASK STRUCT

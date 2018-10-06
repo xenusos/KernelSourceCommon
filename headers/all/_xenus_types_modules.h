@@ -13,14 +13,14 @@ typedef struct
 
 typedef struct
 {
-	void * pe_handle;
-	void * plugin_handle;
+	void * pe_handle;           // FROM KRN
+	void * plugin_handle;       // FROM KRN
 
-	const char * name;			// IN : name of dependency  
-	const char * module;        // IN : name in IAT 
-	const char * path;          // IN : path of executable
-	bool soft_dependency;		// IN : is dependency soft or hard? 
-	bool present;				// OUT: in the "init" callback, use this member to check the state of your soft dependency. if you happen to depend on DIR_IMPORT & IAT for resolving and calling symbols, you'll find yourself panicing unless you check me :)
+	const char * name;			// TO KRNL : name of dependency  
+	const char * module;        // TO KRNL : name in IAT 
+	const char * path;          // TO KRNL : path of executable
+	bool soft_dependency;		// TO KRNL : is dependency soft or hard? 
+	bool present;				// FROM KRN: in the "init" callback, use this member to check the state of your soft dependency. if you happen to depend on DIR_IMPORT & IAT for resolving and calling symbols, you'll find yourself panicing unless you check me :)
 } *mod_dependency_opt_p, mod_dependency_opt_t;
 
 typedef struct
