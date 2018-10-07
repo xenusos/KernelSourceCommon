@@ -2,6 +2,12 @@
 
 typedef l_int rwf_t;
 
+//#define PATH_MAX        4096	
+#define PATH_MAX 256 
+// this is a nasty hack - we shouldn't be using a FS that uses names greater than 256
+// prevent stack overflows and large memory foot prints etc etc
+// TODO:
+
 #define O_ACCMODE	00000003
 #define O_RDONLY	00000000
 #define O_WRONLY	00000001

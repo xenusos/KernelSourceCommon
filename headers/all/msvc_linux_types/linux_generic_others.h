@@ -23,6 +23,38 @@ typedef void * sched_attr_k;
 typedef void * spinlock_t_k;
 typedef void * class_compat_k;
 typedef void * kernel_symbol_k;
+typedef void * lockdep_map_k;
+
+typedef void  sigset_t;
+
+
+#define __ARCH_SI_PREAMBLE_SIZE	(3 * sizeof(l_int))
+#define SI_MAX_SIZE	128
+#define SI_PAD_SIZE	((SI_MAX_SIZE - __ARCH_SI_PREAMBLE_SIZE) / sizeof(l_int))
+typedef struct siginfo { //TODO: portable type - padding and changes could be an issue
+    l_int si_signo;
+#ifndef __ARCH_HAS_SWAPPED_SIGINFO
+    l_int si_errno;
+    l_int si_code;
+#else
+    l_int si_code;
+    l_int si_errno;
+#endif
+
+    union {
+        l_int _pad[SI_PAD_SIZE];
+
+        /* kill() */
+        struct {
+            l_int _pid;	/* sender's pid */
+            l_uint _uid;	/* sender's uid */
+        } _kill;
+    };
+} siginfo_t;
+
+typedef void * siginfo_k;
+typedef void * __sighandler_t;
+
 
 //kernel_symbol
 

@@ -19,3 +19,6 @@
 #include "os_driversbasecore.h"
 #include "os_usermem.h"
 #include "os_readdir.h"
+#include "os_rwsem.h"
+#include "os_signal.h"
+#include "os_kmap.h"

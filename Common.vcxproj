@@ -59,6 +59,7 @@
     <ClInclude Include="headers\all\msvc_linux_types\linux_memory.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_pci.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_pids.h" />
+    <ClInclude Include="headers\all\msvc_linux_types\linux_signal.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_task.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_time.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_tree.h" />
