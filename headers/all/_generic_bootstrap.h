@@ -27,6 +27,7 @@ typedef struct
     void *	(* memmove)					(void *dest, const void *src, size_t count);
     int		(* memcmp)					(const void *cs, const void *ct, size_t count);
     void *	(* memscan)					(void *addr, int c, size_t size);
+    uint64_t (*linux_page_to_pfn)       (void * page_k_struct); // linux only nibbas
 } bootstrap_memory_t;
 
 typedef struct {

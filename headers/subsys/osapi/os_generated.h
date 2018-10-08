@@ -22,3 +22,5 @@
 #include "os_rwsem.h"
 #include "os_signal.h"
 #include "os_kmap.h"
+#include "os_gup.h"
+#include "os_iomap.h"
