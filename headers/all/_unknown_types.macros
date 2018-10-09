@@ -157,3 +157,6 @@ DEFINE_TYPE(struct dentry, dentry);
 DEFINE_TYPE(struct dentry_operations, dentry_operations);
 DEFINE_TYPE(struct dentry_stat_t, dentry_stat);
 DEFINE_TYPE(struct wait_queue_entry, wait_queue_entry);
+DEFINE_TYPE(struct sched_attr, sched_attr);
+DEFINE_TYPE(struct preempt_notifier, preempt_notifier);
+DEFINE_TYPE(struct delayed_call, delayed_call);

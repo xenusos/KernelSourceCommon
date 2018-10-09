@@ -6,4 +6,3 @@ typedef void *										unknown_k;
 #undef DEFINE_TYPE
 
 //TODO: types 
-typedef struct delayed_call * delayed_call_k;

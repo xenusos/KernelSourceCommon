@@ -26,6 +26,7 @@
 #include <linux/stat.h>
 #include <linux/fs_struct.h>
 #include <uapi/linux/sched.h>
+#include <uapi/linux/sched/types.h>
 #include <linux/sched/topology.h>
 #include <linux/delayacct.h>
 #include <linux/usb.h>

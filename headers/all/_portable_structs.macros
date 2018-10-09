@@ -377,6 +377,7 @@ PS_SRC_FUNC_ADD_TYPE_MEMBER(struct keyring_index_key, keyring_index_key, descrip
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct keyring_index_key, keyring_index_key, desc_len, desc_len);
 
 PS_SRC_FUNC_ADD_TYPE(struct task_struct, task)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, xenus, xenus);
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, thread_info, thread_info);
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, state, state);
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, stack, stack);
@@ -1815,4 +1816,22 @@ PS_SRC_FUNC_ADD_TYPE_MEMBER(struct wait_queue_entry, wait_queue_entry, flags, fl
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct wait_queue_entry, wait_queue_entry, private, private);
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct wait_queue_entry, wait_queue_entry, entry, entry);
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct wait_queue_entry, wait_queue_entry, func, func);
+
+PS_SRC_FUNC_ADD_TYPE(struct sched_attr, sched_attr)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_attr, sched_attr, size, size);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_attr, sched_attr, sched_policy, sched_policy);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_attr, sched_attr, sched_flags, sched_flags);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_attr, sched_attr, sched_nice, sched_nice);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_attr, sched_attr, sched_priority, sched_priority);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_attr, sched_attr, sched_runtime, sched_runtime);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_attr, sched_attr, sched_deadline, sched_deadline);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct sched_attr, sched_attr, sched_period, sched_period);
+
+PS_SRC_FUNC_ADD_TYPE(struct preempt_notifier, preempt_notifier)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct preempt_notifier, preempt_notifier, link, link);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct preempt_notifier, preempt_notifier, ops, ops);
+
+PS_SRC_FUNC_ADD_TYPE(struct delayed_call, delayed_call)
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct delayed_call, delayed_call, fn, fn);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct delayed_call, delayed_call, arg, arg);
 

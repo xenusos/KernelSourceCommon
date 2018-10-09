@@ -16,14 +16,10 @@ typedef void *	unknown_k;
 
 // TODO: make into portable types:
 typedef void * lockref_k;
-typedef void * delayed_call_k;
-typedef void * pid_k;
-typedef void * preempt_notifier_k;
-typedef void * sched_attr_k;
-typedef void * spinlock_t_k;
-typedef void * class_compat_k;
+typedef void * spinlock_t_k;   // #ifdef nightmare
+typedef void * lockdep_map_k;  // no lock maps
+typedef void * class_compat_k; // no public defintion. AHHHAH fuck linux
 typedef void * kernel_symbol_k;
-typedef void * lockdep_map_k;
 
 typedef void  sigset_t;
 

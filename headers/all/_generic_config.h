@@ -47,3 +47,6 @@
 #define BOOTSTRAP_DLL "/Xenus/Kernel/Kernel.xdll"
 
 #define TGT_KRN_LINUX 1
+
+#define DELEGATED_CALLS_WORKER_SLEEP 2
+#define DELEGATED_CALLS_WORKER_CNT 4
