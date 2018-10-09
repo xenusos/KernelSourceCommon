@@ -64,7 +64,7 @@ typedef void	(XENUS_MS_ABI *post_context_switch_cb_t)	(void);							// PER TASK 
 typedef void	(XENUS_MS_ABI *thread_exit_cb_t)			(long);							// PER TASK STRUCT
 typedef int		(XENUS_MS_ABI *thread_callback_t)			(void * data);
 
-#if defined(KERNEL) || defined(XENUS_PLATFORM_LINUX_KERNEL) || defined(LIBLINUX_EXPORTS)
+#if defined(KERNEL) || defined(XENUS_PLATFORM_LINUX_KERNEL) 
 	typedef void   (XENUS_MS_ABI *xenus_attention_krn_cb_t)(uint8_t, pt_regs_p registers);
 	typedef size_t (XENUS_MS_ABI *xenus_attention_usr_cb_t)(uint8_t, size_t arg_alpha, size_t arg_bravo, size_t arg_charlie, size_t arg_delta);
 
@@ -99,8 +99,8 @@ typedef int		(XENUS_MS_ABI *thread_callback_t)			(void * data);
         xenus_sys_cb_t pub_process_syscall_callback;			        // XENUS KERNEL -> MODULE
         xenus_sys_cb_t pub_task_syscall_callback;				        // XENUS KERNEL -> MODULE
 
-		thread_exit_cb_t kern_thread_exit;								// LINUX KERNEL -> XENUS KERNEL
-		thread_exit_cb_t pub_thread_exit[XENUS_PUB_THREAD_EXIT_CBS];	// XENUS KERNEL -> MODULE 
+        thread_exit_cb_t kern_thread_exit;								// LINUX KERNEL -> XENUS KERNEL
+        thread_exit_cb_t pub_thread_exit[XENUS_PUB_THREAD_EXIT_CBS];	// XENUS KERNEL -> MODULE 
 	
 		uint32_t fpu_enabled_via_hook;									// XENUS KERNEL <-> XENUS KERNEL
 		uint32_t fpu_enabled_internal;									// LINUX KERNEL <-> LINUX KERNEL |  are push or pops non-complementory/nested? this isn't that important

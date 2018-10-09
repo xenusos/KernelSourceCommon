@@ -378,6 +378,7 @@ PS_SRC_FUNC_ADD_TYPE_MEMBER(struct keyring_index_key, keyring_index_key, desc_le
 
 PS_SRC_FUNC_ADD_TYPE(struct task_struct, task)
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, xenus, xenus);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, rcu, rcu);
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, thread_info, thread_info);
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, state, state);
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, stack, stack);
