@@ -473,6 +473,7 @@ PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, sas_ss_sp, sas_ss_sp);
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, sas_ss_size, sas_ss_size);
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, sas_ss_flags, sas_ss_flags);
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, thread, thread);
+PS_SRC_FUNC_ADD_TYPE_MEMBER(struct task_struct, task, alloc_lock, alloc_lock);
 
 PS_SRC_FUNC_ADD_TYPE(struct fwnode_operations, fwnode_operations)
 PS_SRC_FUNC_ADD_TYPE_MEMBER(struct fwnode_operations, fwnode_operations, get, get);

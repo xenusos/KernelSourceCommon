@@ -57,6 +57,8 @@
     <ClInclude Include="headers\all\msvc_linux_types\linux_io.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_lists.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_memory.h" />
+    <ClInclude Include="headers\all\msvc_linux_types\linux_mmap.h" />
+    <ClInclude Include="headers\all\msvc_linux_types\linux_pages.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_pci.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_pids.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_signal.h" />
@@ -114,8 +116,12 @@
     <ClInclude Include="headers\subsys\osapi\os_driversbasecore.h" />
     <ClInclude Include="headers\subsys\osapi\os_fuckthisshitimout.h" />
     <ClInclude Include="headers\subsys\osapi\os_generated.h" />
+    <ClInclude Include="headers\subsys\osapi\os_gup.h" />
+    <ClInclude Include="headers\subsys\osapi\os_iomap.h" />
+    <ClInclude Include="headers\subsys\osapi\os_kmap.h" />
     <ClInclude Include="headers\subsys\osapi\os_linuxclass.h" />
     <ClInclude Include="headers\subsys\osapi\os_lockref.h" />
+    <ClInclude Include="headers\subsys\osapi\os_mempolicy.h" />
     <ClInclude Include="headers\subsys\osapi\os_mmap.h" />
     <ClInclude Include="headers\subsys\osapi\os_mmutils.h" />
     <ClInclude Include="headers\subsys\osapi\os_modcore.h" />
@@ -126,11 +132,15 @@
     <ClInclude Include="headers\subsys\osapi\os_random.h" />
     <ClInclude Include="headers\subsys\osapi\os_readdir.h" />
     <ClInclude Include="headers\subsys\osapi\os_read_write.h" />
+    <ClInclude Include="headers\subsys\osapi\os_rwsem.h" />
     <ClInclude Include="headers\subsys\osapi\os_sched_core.h" />
+    <ClInclude Include="headers\subsys\osapi\os_signal.h" />
     <ClInclude Include="headers\subsys\osapi\os_stat.h" />
     <ClInclude Include="headers\subsys\osapi\os_timekeeping.h" />
     <ClInclude Include="headers\subsys\osapi\os_timer.h" />
     <ClInclude Include="headers\subsys\osapi\os_usermem.h" />
+    <ClInclude Include="headers\subsys\osapi\os_vmalloc.h" />
+    <ClInclude Include="headers\subsys\osapi\os_xenus_memex.h" />
     <ClInclude Include="headers\sysx\xenus_sysx.h" />
     <ClInclude Include="headers\sysx\sysx_dynamic_callbacks.h" />
     <ClInclude Include="headers\sysx\sysx_linux_caller.h" />

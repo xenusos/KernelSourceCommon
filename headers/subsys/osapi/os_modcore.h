@@ -10,6 +10,5 @@ XENUS_IMPORT void symbol_put_addr(void * addr);
 XENUS_IMPORT void __module_get(module_k module);
 XENUS_IMPORT bool try_module_get(module_k module);
 XENUS_IMPORT void module_put(module_k module);
-XENUS_IMPORT void * INCLUDEDINBOOTSTRAP____symbol_get(const char * symbol);
 XENUS_IMPORT module_k __module_address(l_unsigned_long addr);
 XENUS_IMPORT module_k __module_text_address(l_unsigned_long addr);

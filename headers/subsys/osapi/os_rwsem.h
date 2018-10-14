@@ -1,9 +1,3 @@
-XENUS_IMPORT void up_read_non_owner(rw_semaphore_k sem);
-XENUS_IMPORT l_int down_write_killable_nested(rw_semaphore_k sem, l_int subclass);
-XENUS_IMPORT void down_write_nested(rw_semaphore_k sem, l_int subclass);
-XENUS_IMPORT void down_read_non_owner(rw_semaphore_k sem);
-XENUS_IMPORT void _down_write_nest_lock(rw_semaphore_k sem, lockdep_map_k nest);
-XENUS_IMPORT void down_read_nested(rw_semaphore_k sem, l_int subclass);
 XENUS_IMPORT void downgrade_write(rw_semaphore_k sem);
 XENUS_IMPORT void up_write(rw_semaphore_k sem);
 XENUS_IMPORT void up_read(rw_semaphore_k sem);

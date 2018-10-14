@@ -1,0 +1,18 @@
+XENUS_IMPORT page_k vmalloc_to_page(const void * vmalloc_addr);
+XENUS_IMPORT l_unsigned_long vmalloc_to_pfn(const void * vmalloc_addr);
+XENUS_IMPORT l_int register_vmap_purge_notifier(notifier_block_k nb);
+XENUS_IMPORT l_int unregister_vmap_purge_notifier(notifier_block_k nb);
+XENUS_IMPORT void vm_unmap_aliases();
+XENUS_IMPORT void vm_unmap_ram(const void * mem, l_unsigned_int count);
+XENUS_IMPORT void * vm_map_ram(page_k * pages, l_unsigned_int count, l_int node, pgprot_t prot);
+XENUS_IMPORT void unmap_kernel_range_noflush(l_unsigned_long addr, l_unsigned_long size);
+XENUS_IMPORT void unmap_kernel_range(l_unsigned_long addr, l_unsigned_long size);
+XENUS_IMPORT l_int map_vm_area(vm_struct_k area, pgprot_t prot, page_k * pages);
+XENUS_IMPORT vm_struct_k __get_vm_area(l_unsigned_long size, l_unsigned_long flags, l_unsigned_long start, l_unsigned_long end);
+XENUS_IMPORT void vunmap(const void * addr);
+XENUS_IMPORT void * vmap(page_k * pages, l_unsigned_int count, l_unsigned_long flags, pgprot_t prot);
+XENUS_IMPORT void * __vmalloc(l_unsigned_long size, gfp_t gfp_mask, pgprot_t prot);
+XENUS_IMPORT l_int remap_vmalloc_range_partial(vm_area_struct_k vma, l_unsigned_long uaddr, void * kaddr, l_unsigned_long size);
+XENUS_IMPORT l_int remap_vmalloc_range(vm_area_struct_k vma, void * addr, l_unsigned_long pgoff);
+XENUS_IMPORT vm_struct_k alloc_vm_area(size_t size, pte_t ** ptes);
+XENUS_IMPORT void free_vm_area(vm_struct_k area);

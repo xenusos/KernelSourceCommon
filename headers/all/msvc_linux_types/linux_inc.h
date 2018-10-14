@@ -15,3 +15,5 @@
 #include "linux_usb.h"	
 #include "linux_fcntl.h"
 #include "linux_signal.h"
+#include "linux_pages.h"
+#include "linux_mmap.h"

@@ -8,5 +8,4 @@ XENUS_IMPORT l_int send_sig_info(l_int sig, siginfo_k info, task_k p);
 XENUS_IMPORT l_int sigprocmask(l_int how, sigset_t * set, sigset_t * oldset);
 XENUS_IMPORT l_int kill_pgrp(pid_k pid, l_int sig, l_int priv);
 XENUS_IMPORT l_int kill_pid(pid_k pid, l_int sig, l_int priv);
-XENUS_IMPORT l_int send_sig_mceerr(l_int code, user_addr_t addr, l_short lsb, task_k t);
 XENUS_IMPORT l_int kill_pid_info_as_cred(l_int sig, siginfo_k info, pid_k pid, const cred_k cred);

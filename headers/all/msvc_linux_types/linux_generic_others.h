@@ -20,6 +20,12 @@ typedef void * spinlock_t_k;   // #ifdef nightmare
 typedef void * lockdep_map_k;  // no lock maps
 typedef void * class_compat_k; // no public defintion. AHHHAH fuck linux
 typedef void * kernel_symbol_k;
+typedef void nodemask_t;
+typedef void * page_frag_cache_k;
+typedef void * sysinfo_k;
+typedef void * vm_struct_k;
+
+typedef sysv_fptr_t pte_fn_t;
 
 typedef void  sigset_t;
 
@@ -174,6 +180,7 @@ typedef cpumask *			cpumask_k;
 
 
 
+
 typedef size_t						__kernel_size_t;
 typedef ssize_t						__kernel_ssize_t;
 typedef ptrdiff_t					__kernel_ptrdiff_t;
@@ -253,16 +260,6 @@ typedef l_u_long					pudval_t;
 typedef l_u_long					p4dval_t;
 typedef l_u_long					pgdval_t;
 typedef l_u_long					pgprotval_t;
-
-typedef struct
-{ 
-	pteval_t pte; 
-} pte_t;
-typedef struct pgprot 
-{
-	pgprotval_t pgprot_; 
-} pgprot_t;
-typedef struct { pgdval_t pgd; } pgd_t;
 
 #define MINORBITS       20
 #define MINORMASK       ((1U << MINORBITS) - 1)
