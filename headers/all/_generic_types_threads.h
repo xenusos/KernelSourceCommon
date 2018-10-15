@@ -39,24 +39,52 @@
 	} *pt_regs_p, pt_regs_t;
 #endif
 	
-typedef struct xenus_attention_trap
+typedef struct xenus_attention_trap_s
 {
 	uint8_t attention_id;
 	pt_regs_p registers; //https://i.kym-cdn.com/entries/icons/original/000/021/311/free.jpg
-} * xenus_attention_trap_p, xenus_attention_trap_t;
+} *xenus_attention_trap_p, xenus_attention_trap_t;
 
-typedef struct xenus_attention_sys
+typedef struct xenus_attention_short_sys_s
 {
-	uint8_t attention_id;
-	size_t arg_alpha;
-	size_t arg_bravo;
-	size_t arg_charlie;
-	size_t arg_delta;
-	size_t response;    
-} * xenus_attention_sys_p, xenus_attention_sys_t;
+	uint32_t attention_id;
+	uint64_t arg_alpha;
+	uint64_t arg_bravo;
+	uint64_t arg_charlie;
+	uint64_t arg_delta;
+	uint64_t response;    
+} * xenus_attention_short_sys_p,
+  * xenus_attention_short_sys_ref,
+    xenus_attention_short_sys_t;
 
-typedef void	(XENUS_MS_ABI *xenus_sys_cb_t)				(xenus_attention_sys_p cbuf);	// GLOBAL
-typedef void	(XENUS_MS_ABI *xenus_trap_cb_t)				(xenus_attention_trap_p cbuf);	// PER TASK STRUCT
+
+typedef struct xenus_user_syscall_s //shitty struct name / matches xenus_attention_sys in XenusDelegatedCalls.h in LibIRC
+{
+	uint32_t attention_id;
+	uint64_t arg_alpha;
+	uint64_t arg_bravo;
+	uint64_t arg_charlie;
+	uint64_t arg_delta;
+    uint64_t arg_echo;
+    uint64_t arg_foxy;
+    uint64_t arg_golf;
+    uint64_t arg_hotel;
+    uint64_t arg_injina;
+    uint64_t arg_juliet;
+	uint64_t response;
+} xenus_user_syscall_t;
+
+#ifdef __cplusplus
+typedef struct xenus_attention_extended_sys_s : xenus_user_syscall_s
+{
+    void * task;
+} * xenus_attention_extended_sys_p,
+  * xenus_attention_extended_sys_ref, 
+    xenus_attention_extended_sys_t;
+#endif
+
+typedef void	(XENUS_MS_ABI *xenus_sys_cb_t)				(xenus_attention_short_sys_ref cbuf);	// GLOBAL
+typedef void	(XENUS_MS_ABI *xenus_trap_cb_t)				(xenus_attention_trap_p cbuf);	            // PER TASK STRUCT
 
 typedef void	(XENUS_MS_ABI *pre_context_switch_cb_t)		(void);							// PER TASK STRUCT
 typedef void	(XENUS_MS_ABI *post_context_switch_cb_t)	(void);							// PER TASK STRUCT

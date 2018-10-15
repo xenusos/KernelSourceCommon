@@ -274,7 +274,7 @@ typedef l_u_long					pgprotval_t;
 #define _AT(T,X)			((T)(X))
 
 #define PAGE_SHIFT			(kernel_information.LINUX_PAGE_SHIFT)
-#define PAGE_SIZE			(_AC(1,UL) << PAGE_SHIFT)
+#define PAGE_SIZE			(_AC(1,ULL) << PAGE_SHIFT)
 #define PAGE_MASK			(~(PAGE_SIZE-1))
 
 #define PFN_ALIGN(x)		(((unsigned long)(x) + (PAGE_SIZE - 1)) & PAGE_MASK)

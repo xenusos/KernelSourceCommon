@@ -29,3 +29,4 @@
 #include "os_vmalloc.h"
 #include "os_memory.h"
 #include "os_unsafespinnies.h"
+#include "os_map_hack.h"
