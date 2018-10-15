@@ -1,4 +1,22 @@
 #pragma once
+enum vtime_state {
+    /* Task is sleeping or running in a CPU with VTIME inactive: */
+    VTIME_INACTIVE = 0,
+    /* Task runs in userspace in a CPU with VTIME active: */
+    VTIME_USER,
+    /* Task runs in kernelspace in a CPU with VTIME active: */
+    VTIME_SYS,
+};
+
+typedef struct task_cputime {
+    uint64_t				utime;
+    uint64_t				stime;
+    unsigned long long		sum_exec_runtime;
+} *task_cputime_k;
+
+typedef struct sched_param {
+    int sched_priority;
+} *sched_param_k;
 
 #define PF_IDLE				0x00000002  /* I am an IDLE thread */
 #define PF_EXITING			0x00000004  /* Getting shut down */
@@ -67,19 +85,38 @@
 #define task_is_stopped_or_traced(task_state)	((task_state & (__TASK_STOPPED | __TASK_TRACED)) != 0)
 #define task_contributes_to_load(task_state, task_flag)	((task_state & TASK_UNINTERRUPTIBLE) != 0 && (task_flag & PF_FROZEN) == 0 && (task_state & TASK_NOLOAD) == 0)
 
-typedef struct task_cputime {
-	uint64_t				utime;
-	uint64_t				stime;
-	unsigned long long		sum_exec_runtime;
-} *task_cputime_k;
-
-typedef struct sched_param {
-	int sched_priority;
-} *sched_param_k;
-
-
 #define HIDEPID_OFF 0
 #define HIDEPID_NO_ACCESS 1
 #define HIDEPID_INVISIBLE 2
+
+#define MAX_NICE	19
+#define MIN_NICE	-20
+#define NICE_WIDTH	(MAX_NICE - MIN_NICE + 1)
+#define MAX_USER_RT_PRIO	100
+#define MAX_RT_PRIO		MAX_USER_RT_PRIO
+#define MAX_PRIO		(MAX_RT_PRIO + NICE_WIDTH)
+#define DEFAULT_PRIO		(MAX_RT_PRIO + NICE_WIDTH / 2)
+#define NICE_TO_PRIO(nice)	((nice) + DEFAULT_PRIO)
+#define PRIO_TO_NICE(prio)	((prio) - DEFAULT_PRIO)
+#define USER_PRIO(p)		((p)-MAX_RT_PRIO)
+#define TASK_USER_PRIO(p)	USER_PRIO((p)->static_prio)
+#define MAX_USER_PRIO		(USER_PRIO(MAX_PRIO))
+
+static inline long nice_to_rlimit(long nice)
+{
+    return (MAX_NICE - nice + 1);
+}
+
+static inline long rlimit_to_nice(long prio)
+{
+    return (MAX_NICE - prio + 1);
+}
+
+typedef struct
+{
+    uint64_t cpu_mask;
+    uint64_t fuckyourserver_mask;
+} cpumask;
+typedef cpumask *			cpumask_k;
 
 #define OSThread _current()

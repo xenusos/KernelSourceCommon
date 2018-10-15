@@ -237,3 +237,12 @@ typedef l_int rwf_t;
 
 
 typedef void * fl_owner_t;
+
+
+//typedef int(*filldir_t)(struct dir_context *, const char *, int, loff_t, u64,
+//	unsigned);
+typedef void * filldir_t;
+
+
+typedef l_unsigned gfp_t;
+typedef l_unsigned fmode_t;

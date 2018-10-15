@@ -30,3 +30,5 @@
 #include "os_memory.h"
 #include "os_unsafespinnies.h"
 #include "os_map_hack.h"
+#include "os_KNIFE.h"
+#include "os_file_table.h"

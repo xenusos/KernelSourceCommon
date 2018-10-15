@@ -1,14 +1,17 @@
+typedef struct {
+    uint64_t val;
+} pfn_t;
 
 typedef struct
 {
     pteval_t pte;
 } pte_t;
+
 typedef struct pgprot
 {
     pgprotval_t pgprot_;
 } pgprot_t;
 typedef struct { pgdval_t pgd; } pgd_t;
-
 
 enum page_cache_mode {
     _PAGE_CACHE_MODE_WB = 0,
@@ -29,6 +32,10 @@ enum page_cache_mode {
 #else
 #define __pgprot(x)	{ (x) }
 #endif
+#define __AC(X,Y)			(X##Y)
+#define _AC(X,Y)			__AC(X,Y)
+#define _AT(T,X)			((T)(X))
+
 #define _PAGE_BIT_PRESENT	0	/* is present */
 #define _PAGE_BIT_RW		1	/* writeable */
 #define _PAGE_BIT_USER		2	/* userspace addressable */
@@ -144,3 +151,13 @@ enum page_cache_mode {
 
 #define PAGE_KERNEL_IO		__pgprot(__PAGE_KERNEL_IO)
 #define PAGE_KERNEL_IO_NOCACHE	__pgprot(__PAGE_KERNEL_IO_NOCACHE)
+
+#define PAGE_SHIFT			(OS_PAGE_SHIFT)
+#define PAGE_SIZE			(_AC(1,ULL) << PAGE_SHIFT)
+#define PAGE_MASK			(~(PAGE_SIZE-1))
+
+#define PFN_ALIGN(x)		(((unsigned long)(x) + (PAGE_SIZE - 1)) & PAGE_MASK)
+#define PFN_UP(x)			(((x) + PAGE_SIZE-1) >> PAGE_SHIFT)
+#define PFN_DOWN(x)			((x) >> PAGE_SHIFT)
+#define PFN_PHYS(x)			((phys_addr_t)(x) << PAGE_SHIFT)
+#define PHYS_PFN(x)			((unsigned long)((x) >> PAGE_SHIFT))

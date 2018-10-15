@@ -48,6 +48,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="headers\all\msvc_linux_types\linux_cpu.h" />
+    <ClInclude Include="headers\all\msvc_linux_types\linux_device.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_fcntl.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_fio.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_generic_ints.h" />
@@ -103,6 +104,7 @@
     <ClInclude Include="headers\subsys\osapi\old\sys_sched.h" />
     <ClInclude Include="headers\subsys\osapi\old\sys_timekeeper.h" />
     <ClInclude Include="headers\subsys\osapi\old\sys_timer.h" />
+    <ClInclude Include="headers\subsys\osapi\os_alloc_pages.h" />
     <ClInclude Include="headers\subsys\osapi\os_api.h" />
     <ClInclude Include="headers\subsys\osapi\os_api.hpp" />
     <ClInclude Include="headers\subsys\osapi\os_bootstrap_dbg.h" />
@@ -114,13 +116,18 @@
     <ClInclude Include="headers\subsys\osapi\os_chardev.h" />
     <ClInclude Include="headers\subsys\osapi\os_dcache.h" />
     <ClInclude Include="headers\subsys\osapi\os_driversbasecore.h" />
+    <ClInclude Include="headers\subsys\osapi\os_file_table.h" />
     <ClInclude Include="headers\subsys\osapi\os_fuckthisshitimout.h" />
     <ClInclude Include="headers\subsys\osapi\os_generated.h" />
     <ClInclude Include="headers\subsys\osapi\os_gup.h" />
     <ClInclude Include="headers\subsys\osapi\os_iomap.h" />
     <ClInclude Include="headers\subsys\osapi\os_kmap.h" />
+    <ClInclude Include="headers\subsys\osapi\os_KNIFE.h" />
     <ClInclude Include="headers\subsys\osapi\os_linuxclass.h" />
     <ClInclude Include="headers\subsys\osapi\os_lockref.h" />
+    <ClInclude Include="headers\subsys\osapi\os_map_hack.h" />
+    <ClInclude Include="headers\subsys\osapi\os_memory.h" />
+    <ClInclude Include="headers\subsys\osapi\os_memory_map.h" />
     <ClInclude Include="headers\subsys\osapi\os_mempolicy.h" />
     <ClInclude Include="headers\subsys\osapi\os_mmap.h" />
     <ClInclude Include="headers\subsys\osapi\os_mmutils.h" />
@@ -138,8 +145,10 @@
     <ClInclude Include="headers\subsys\osapi\os_stat.h" />
     <ClInclude Include="headers\subsys\osapi\os_timekeeping.h" />
     <ClInclude Include="headers\subsys\osapi\os_timer.h" />
+    <ClInclude Include="headers\subsys\osapi\os_unsafespinnies.h" />
     <ClInclude Include="headers\subsys\osapi\os_usermem.h" />
     <ClInclude Include="headers\subsys\osapi\os_vmalloc.h" />
+    <ClInclude Include="headers\subsys\osapi\os_vmap.h" />
     <ClInclude Include="headers\subsys\osapi\os_xenus_memex.h" />
     <ClInclude Include="headers\sysx\xenus_sysx.h" />
     <ClInclude Include="headers\sysx\sysx_dynamic_callbacks.h" />
