@@ -45,8 +45,8 @@ typedef struct
 	bool (*init)(mod_dependency_list_p deps);								// IN: KERN <- MOD	| return false on error
 	int (*start)(void);												    	// IN: KERN <- MOD	| return status code
 	void (*shutdown)(void);													// IN: KERN <- MOD
-	const char * description;														// IN: KERN <- MOD
-	const char * copyright;														// IN: KERN <- MOD
+	const char * description;												// IN: KERN <- MOD
+	const char * copyright;													// IN: KERN <- MOD
 	mod_dependency_list_t dependencies;										// IN: KERN <- MOD
 	mod_global_data_p static_data;                                          // IN: KERN <- MOD (this is just a pointer to a struct within some section of your modules pe)
 } *xenus_entrypoint_ctx_p, xenus_entrypoint_ctx_t;
