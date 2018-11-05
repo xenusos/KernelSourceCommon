@@ -19,7 +19,7 @@ XENUS_SYM error_t pe_loader_preload_init(pe_handle_h buffer, size_t length, cons
 XENUS_SYM error_t pe_loader_preload_analyse(pe_handle_h handle);																// check pe FILE (not in memory image)
 XENUS_SYM error_t pe_loader_preload_load(pe_handle_h handle);																// 
  
-XENUS_SYM error_t pe_loader_load(void * buffer, size_t length, const char * module_name, pe_handle_h* handle);
+XENUS_SYM error_t pe_loader_load(const void * buffer, size_t length, const char * module_name, pe_handle_h* handle);
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // Relocation
