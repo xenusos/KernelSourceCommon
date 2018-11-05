@@ -129,16 +129,16 @@ typedef struct
 	bootstrap_fio_helper_t	fio;
 } bootstrap_t;
 
-#define StartPointDeclare(name) ssize_t name(void *xenos_start, bootstrap_t * bootstrap, void *  security, uint32_t sec_len, void * port_structs, uint32_t port_structs_length, linux_info_ref info)
+#define START_POINT(name) ssize_t name(void *xenos_start, bootstrap_t * bootstrap, void *  security, uint32_t sec_len, void * port_structs, uint32_t port_structs_length, linux_info_ref info)
 #if defined(COMMUNISM_COMPILER)
 	typedef ssize_t(__attribute__((ms_abi)) *kernel_startpoint_t)(void *xenos_start, bootstrap_t * bootstrap, void *  security, uint32_t sec_len, void * port_structs, uint32_t port_structs_length, linux_info_ref info);
 #else
 	typedef ssize_t(* kernel_startpoint_t)(void *xenos_start, bootstrap_t * bootstrap, void *  security, uint32_t sec_len, void * port_structs, uint32_t port_structs_length, linux_info_ref info);
 #endif
 
-#define STAGE_ZERO_RET_ERR	(0 + 1)
-#define STAGE_ONE_RET_ERR	(1 + 1)
-#define STAGE_TWO_RET_ERR	(2 + 1)
-#define STAGE_THREE_RET_ERR	(3 + 1)
-#define STAGE_FOUR_RET_ERR	(4 + 1)
-#define STAGE_FIVE_RET_ERR	(5 + 1)
+#define STAGE_ZERO_ERR	(0 + 1)
+#define STAGE_ONE_ERR	(1 + 1)
+#define STAGE_TWO_ERR	(2 + 1)
+#define STAGE_THREE_ERR	(3 + 1)
+#define STAGE_FOUR_ERR	(4 + 1)
+#define STAGE_FIVE_ERR	(5 + 1)
