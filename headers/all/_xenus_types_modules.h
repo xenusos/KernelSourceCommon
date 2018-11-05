@@ -5,6 +5,12 @@
 */
 #pragma once
 
+#ifndef HAS_PE_HANDLE
+#define HAS_PE_HANDLE
+typedef void * pe_handle_h;
+#endif
+typedef int c_bool;
+
 typedef struct
 {
 	char * key;
@@ -13,14 +19,14 @@ typedef struct
 
 typedef struct
 {
-	void * pe_handle;           // FROM KRN
+    pe_handle_h pe_handle;           // FROM KRN
 	void * plugin_handle;       // FROM KRN
 
 	const char * name;			// TO KRNL : name of dependency  
 	const char * module;        // TO KRNL : name in IAT 
 	const char * path;          // TO KRNL : path of executable
-	bool soft_dependency;		// TO KRNL : is dependency soft or hard? 
-	bool present;				// FROM KRN: in the "init" callback, use this member to check the state of your soft dependency. if you happen to depend on DIR_IMPORT & IAT for resolving and calling symbols, you'll find yourself panicing unless you check me :)
+    c_bool soft_dependency;		// TO KRNL : is dependency soft or hard? 
+    c_bool present;				// FROM KRN: in the "init" callback, use this member to check the state of your soft dependency. if you happen to depend on DIR_IMPORT & IAT for resolving and calling symbols, you'll find yourself panicing unless you check me :)
 } *mod_dependency_opt_p, mod_dependency_opt_t;
 
 typedef struct
@@ -31,20 +37,21 @@ typedef struct
 
 typedef struct
 {
-	bool has_started;                                                      // OUT: KERN -> MOD, KERN -> KERN
-	bool has_init;                                                         // OUT: KERN -> MOD, KERN -> KERN
+    c_bool has_started;                                                      // OUT: KERN -> MOD, KERN -> KERN
+    c_bool has_init;                                                         // OUT: KERN -> MOD, KERN -> KERN
 	int status_code;													   // OUT: KERN -> MOD, KERN -> KERN, = xenus_entrypoint_ctx_t##init()
 
-	void * pe_handle;
+	pe_handle_h pe_handle; 
 	void * plugin_handle;
 } *mod_global_data_p, mod_global_data_t;
 
 typedef struct
 {
 	size_t size;	
-	bool (*init)(mod_dependency_list_p deps);								// IN: KERN <- MOD	| return false on error
+    c_bool(*init)(mod_dependency_list_p deps);								// IN: KERN <- MOD	| return false on error
 	int (*start)(void);												    	// IN: KERN <- MOD	| return status code
-	void (*shutdown)(void);													// IN: KERN <- MOD
+    void(*shutdown)(void);													// IN: KERN <- MOD
+    void(*iat_hook)(void);													// IN: KERN <- MOD
 	const char * description;												// IN: KERN <- MOD
 	const char * copyright;													// IN: KERN <- MOD
 	mod_dependency_list_t dependencies;										// IN: KERN <- MOD

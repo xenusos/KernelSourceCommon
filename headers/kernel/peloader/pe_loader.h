@@ -6,9 +6,10 @@
 
 #pragma once
 
-typedef void *pe_handle_h;
-
-
+#ifndef HAS_PE_HANDLE
+#define HAS_PE_HANDLE
+typedef void * pe_handle_h;
+#endif
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // Loading
