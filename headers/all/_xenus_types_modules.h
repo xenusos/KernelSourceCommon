@@ -43,7 +43,7 @@ typedef struct
 typedef struct
 {
     c_bool has_started;                                                      // OUT: KERN -> MOD, KERN -> KERN
-    c_bool has_init;                                                         // OUT: KERN -> MOD, KERN -> KERN
+    c_bool ep_called;                                                         // OUT: KERN -> MOD, KERN -> KERN
 	int status_code;													   // OUT: KERN -> MOD, KERN -> KERN, = xenus_entrypoint_ctx_t##init()
 
 	pe_handle_h pe_handle; 

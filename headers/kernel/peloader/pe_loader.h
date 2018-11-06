@@ -34,14 +34,15 @@ XENUS_SYM error_t pe_loader_postload_config_reloc(pe_handle_h handle);
 
 typedef struct
 {
-	const char * module; //TODO: ptr to iat section; potentially unsafe
+	const char * module; 
 	bool is_str;
 	union
 	{
-		char * symbol;    //TODO: ptr to iat section; potentially unsafe
+        const char * symbol;
 		int idx;
 	};
 	bool found;
+    error_t error;
 } *iat_patch_entry_p, *iat_patch_entry_ref, iat_patch_entry_t;
 
 typedef struct
