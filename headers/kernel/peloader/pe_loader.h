@@ -11,13 +11,18 @@
 typedef void * pe_handle_h;
 #endif
 
+#ifndef HAS_PLE_HANDLE
+#define HAS_PL_HANDLE
+typedef void * plugin_handle_h;
+#endif
+
 ////////////////////////////////////////////////////////////////////////////////////////
 // Loading
 ////////////////////////////////////////////////////////////////////////////////////////
 
-XENUS_SYM error_t pe_loader_preload_init(pe_handle_h buffer, size_t length, const char * module_name, pe_handle_h* handle);		// alloc buffers
-XENUS_SYM error_t pe_loader_preload_analyse(pe_handle_h handle);																// check pe FILE (not in memory image)
-XENUS_SYM error_t pe_loader_preload_load(pe_handle_h handle);																// 
+XENUS_SYM error_t pe_loader_preload_init(const void * buffer, size_t length, const char * module_name, plugin_handle_h* handle);		// alloc buffers
+XENUS_SYM error_t pe_loader_preload_analyse(plugin_handle_h handle);																// check pe FILE (not in memory image)
+XENUS_SYM error_t pe_loader_preload_load(plugin_handle_h handle);																// 
  
 XENUS_SYM error_t pe_loader_load(const void * buffer, size_t length, const char * module_name, pe_handle_h* handle);
 
@@ -53,16 +58,16 @@ typedef struct
 } *iat_patch_result_p, *iat_patch_result_ref,  iat_patch_result_t;
 
 
-XENUS_SYM error_t pe_loader_postload_iat_add_symbol_byname(pe_handle_h handle, const char * symbol, void * replacement);
+XENUS_SYM error_t pe_loader_postload_iat_add_symbol_byname(plugin_handle_h handle, const char * symbol, void * replacement);
 //XENUS_SYM error_t pe_loader_postload_iat_swap_module			(pe_handle_h handle, const char * original, const char * replacement); // use this to fix, for instance, windows drivers that depend on HAL when such functions are implemented else where (ntoskrnl)
 //XENUS_SYM error_t pe_loader_postload_iat_swap_symbol_byname		(pe_handle_h handle, const char * module,	const char * original, void *replacement); // or use this to redirect symbols
 //XENUS_SYM error_t pe_loader_postload_iat_swap_symbol_byordinal	(pe_handle_h handle, const char * module,   int ordinal,           void *replacement); // or use this to redirect symbols
 
 //implemented:
-XENUS_SYM error_t pe_loader_postload_get_iat_length(pe_handle_h handle, uint64_t * length);
+XENUS_SYM error_t pe_loader_postload_get_iat_length(plugin_handle_h handle, uint64_t * length);
 
-XENUS_SYM error_t pe_loader_postload_config_iat_legacy(pe_handle_h handle, size_t * unresolved_symbols, size_t * resolved_symbols); //this is slow and only really exists to not break legacy code.
-XENUS_SYM error_t pe_loader_postload_config_iat_new(pe_handle_h handle, iat_patch_result_ref reference); 
+XENUS_SYM error_t pe_loader_postload_config_iat_legacy(plugin_handle_h handle, size_t * unresolved_symbols, size_t * resolved_symbols); //this is slow and only really exists to not break legacy code.
+XENUS_SYM error_t pe_loader_postload_config_iat_new(plugin_handle_h handle, iat_patch_result_ref reference);
 
 #define pe_loader_postload_config_iat pe_loader_postload_config_iat_legacy
 
@@ -72,14 +77,14 @@ XENUS_SYM error_t pe_loader_postload_config_iat_new(pe_handle_h handle, iat_patc
 ////////////////////////////////////////////////////////////////////////////////////////
 
 XENUS_SYM error_t pe_loader_find_symbol_bymodname  (const char * module, uint16_t ord, const char * name, bool byordinal, void ** data);
-XENUS_SYM error_t pe_loader_find_symbol_bymodhandle(pe_handle_h module, uint16_t ord, const char * name, bool byordinal, void ** data);
+XENUS_SYM error_t pe_loader_find_symbol_bymodhandle(plugin_handle_h handle, uint16_t ord, const char * name, bool byordinal, void ** data);
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // Lookup/generic
 ////////////////////////////////////////////////////////////////////////////////////////
 
 XENUS_SYM void* pe_loader_find_module(const char * name);
-XENUS_SYM error_t pe_loader_get_headers(pe_handle_h handle, void ** dos, void ** nt, void ** opt, void ** segs);
+XENUS_SYM error_t pe_loader_get_headers(plugin_handle_h handle, void ** dos, void ** nt, void ** opt, void ** segs);
 
 
 // APIs i was considering adding in feb-ish before anything was implemented
@@ -91,7 +96,7 @@ XENUS_SYM error_t pe_loader_get_headers(pe_handle_h handle, void ** dos, void **
 ////////////////////////////////////////////////////////////////////////////////////////
 // Lists
 ////////////////////////////////////////////////////////////////////////////////////////
-XENUS_SYM error_t pe_loader_iterate(void(*)(pe_handle_h, void *), void *);
+XENUS_SYM error_t pe_loader_iterate(void(*)(plugin_handle_h, void *), void *);
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // Thread safety
