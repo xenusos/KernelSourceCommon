@@ -9,6 +9,11 @@
 #define HAS_PE_HANDLE
 typedef void * pe_handle_h;
 #endif
+#ifndef HAS_PL_HANDLE
+#define HAS_PL_HANDLE
+typedef void * plugin_handle_h;
+#endif
+
 typedef int c_bool;
 
 typedef struct
@@ -42,7 +47,7 @@ typedef struct
 	int status_code;													   // OUT: KERN -> MOD, KERN -> KERN, = xenus_entrypoint_ctx_t##init()
 
 	pe_handle_h pe_handle; 
-	void * plugin_handle;
+    plugin_handle_h plugin_handle;
 } *mod_global_data_p, mod_global_data_t;
 
 typedef struct
