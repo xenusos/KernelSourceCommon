@@ -20,6 +20,7 @@ typedef void * plugin_handle_h;
 // recommended load function
 XENUS_SYM error_t xenus_load_module(const char * friendly_name, const char * mod, const  char * path, pe_handle_h * pe_handle);
 XENUS_SYM error_t plugins_load(const char * name, const char * mod, const char * path, linked_list_head_p plugins, pe_handle_h * root_pe_handle, plugin_handle_h* root_plugin_handle); // load plugin, patch iat, etc
+                                                                                                                                                                                       // thread safe
 
 
 // internal load functions - in order
@@ -28,6 +29,7 @@ XENUS_SYM void plugins_initialize(linked_list_head_p list);
 XENUS_SYM void plugins_start(linked_list_head_p list);
 
 XENUS_SYM error_t plugins_get_state				(plugin_handle_h handle);
+XENUS_SYM error_t plugins_get_hard   			(plugin_handle_h handle);
 XENUS_SYM error_t plugins_get_status			(plugin_handle_h handle, size_t * status);
 XENUS_SYM error_t plugins_has_init				(plugin_handle_h handle, bool * init);
 XENUS_SYM error_t plugins_get_iat_module_name	(plugin_handle_h handle, const char ** name);
