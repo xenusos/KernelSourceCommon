@@ -17,10 +17,11 @@ typedef void * pe_handle_h;
 ////////////////////////////////////////////////////////////////////////////////////////
 
 XENUS_SYM error_t pe_loader_preload_init(const void * buffer, size_t length, const char * module_name, pe_handle_h* handle);		// alloc buffers
-XENUS_SYM error_t pe_loader_preload_analyse(pe_handle_h handle);																// check pe FILE (not in memory image)
-XENUS_SYM error_t pe_loader_preload_load(pe_handle_h handle);																// 
+XENUS_SYM error_t pe_loader_preload_analyse(pe_handle_h handle);															     	// check pe FILE (not in memory image)
+XENUS_SYM error_t pe_loader_preload_load(pe_handle_h handle);															        	// 
  
 XENUS_SYM error_t pe_loader_load(const void * buffer, size_t length, const char * module_name, pe_handle_h* handle);
+XENUS_SYM error_t pe_loader_alias(const char * target, const char * dest);
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // Relocation
@@ -80,7 +81,7 @@ XENUS_SYM error_t pe_loader_find_symbol_bymodhandle(pe_handle_h handle, uint16_t
 // Lookup/generic
 ////////////////////////////////////////////////////////////////////////////////////////
 
-XENUS_SYM void* pe_loader_find_module(const char * name);
+XENUS_SYM pe_handle_h pe_loader_find_module(const char * name);
 XENUS_SYM error_t pe_loader_get_headers(pe_handle_h handle, void ** dos, void ** nt, void ** opt, void ** segs);
 
 
@@ -101,3 +102,16 @@ XENUS_SYM error_t pe_loader_iterate(void(*)(pe_handle_h, void *), void *);
 XENUS_SYM void pe_loader_enter_critical();
 XENUS_SYM void pe_loader_leave_critical();
 
+
+#define THREAD_SAFE_LOADER_ADD_STUB(name, ...) {pe_loader_enter_critical(); name(__VA_ARGS__); pe_loader_leave_critical();}
+#define pe_loader_ts_iterate(...)                        THREAD_SAFE_LOADER_ADD_STUB(pe_loader_iterate, __VA_ARGS__)
+#define pe_loader_ts_get_headers(...)                    THREAD_SAFE_LOADER_ADD_STUB(pe_loader_get_headers, __VA_ARGS__)
+#define pe_loader_ts_find_module(...)                    THREAD_SAFE_LOADER_ADD_STUB(pe_loader_find_module, __VA_ARGS__)
+#define pe_loader_ts_postload_iat_add_symbol_byname(...) THREAD_SAFE_LOADER_ADD_STUB(pe_loader_postload_iat_add_symbol_byname, __VA_ARGS__)
+#define pe_loader_ts_find_symbol_bymodname(...)          THREAD_SAFE_LOADER_ADD_STUB(pe_loader_find_symbol_bymodname, __VA_ARGS__)
+#define pe_loader_ts_find_symbol_bymodhandle(...)        THREAD_SAFE_LOADER_ADD_STUB(pe_loader_find_symbol_bymodhandle, __VA_ARGS__)
+#define pe_loader_ts_postload_config_iat_new(...)        THREAD_SAFE_LOADER_ADD_STUB(pe_loader_postload_config_iat_new, __VA_ARGS__)
+#define pe_loader_ts_postload_get_iat_length(...)        THREAD_SAFE_LOADER_ADD_STUB(pe_loader_postload_get_iat_length, __VA_ARGS__)
+#define pe_loader_ts_load(...)                           THREAD_SAFE_LOADER_ADD_STUB(pe_loader_load, __VA_ARGS__)
+#define pe_loader_ts_alias(...)                          THREAD_SAFE_LOADER_ADD_STUB(pe_loader_alias, __VA_ARGS__)
+// other functions are either deprecated or should be used with pe_loader_enter_critical for performance reasons
