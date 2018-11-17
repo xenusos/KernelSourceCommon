@@ -43,6 +43,7 @@ XENUS_SYM error_t dyn_list_remove(dyn_list_head_p head, size_t index);          
 XENUS_SYM error_t dyn_list_destory(dyn_list_head_p head);
 XENUS_SYM error_t dyn_list_iterate(dyn_list_head_p head, void(*iterator)(void * buffer, void * ctx), void * ctx);
 XENUS_SYM error_t dyn_list_reset(dyn_list_head_p head);
+XENUS_SYM error_t dyn_list_rebuffer(dyn_list_head_p head);
 
 
 // * assuming relocation time is constant and/or other memory operations aren't required (ie: resize)

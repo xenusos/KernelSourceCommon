@@ -59,6 +59,7 @@
     <ClInclude Include="headers\all\msvc_linux_types\linux_lists.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_memory.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_mmap.h" />
+    <ClInclude Include="headers\all\msvc_linux_types\linux_net.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_pages.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_pci.h" />
     <ClInclude Include="headers\all\msvc_linux_types\linux_pids.h" />
