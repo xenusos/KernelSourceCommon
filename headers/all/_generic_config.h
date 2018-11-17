@@ -50,6 +50,3 @@
 #define TGT_KRN_LINUX 1
 
 // enable the following is stack size becomes an issue
-#define DELEGATED_CALLS_USE_WORKERS 0
-#define DELEGATED_CALLS_WORKER_SLEEP 2
-#define DELEGATED_CALLS_WORKER_CNT 4
