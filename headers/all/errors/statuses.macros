@@ -25,3 +25,6 @@ STATUSES_ADD_INFO(XENUS_STATUS_SEMAPHORE_ALREADY_UNLOCKED, kStatusSemaphoreAlrea
 
 STATUSES_ADD_INFO(XENUS_STATUS_NOT_ACCURATE_ASSUME_OKAY, kFuckMe) // yes, this error code is dumb. TryMurder, for instance, can't give always give a definite STATUS_OKAY 
 	
+	
+STATUSES_ADD_INFO(XENUS_STATUS_ARLREADY_EXITING, kStatusAlreadyExiting)
+STATUSES_ADD_INFO(XENUS_STATUS_TIMEOUT, kStatusTimeout)

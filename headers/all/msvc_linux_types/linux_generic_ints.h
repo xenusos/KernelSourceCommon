@@ -65,6 +65,9 @@ typedef uint64_t	l_u_long;
 typedef uint64_t	l_unsignedlong;
 typedef uint64_t	l_unsigned_long;
 
+typedef int64_t	    l_signedlong;
+typedef int64_t	    l_signed_long;
+
 typedef int64_t		l_longlong;
 typedef int64_t		l_long_long;
 typedef uint64_t	l_ulonglong;

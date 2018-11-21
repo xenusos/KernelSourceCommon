@@ -6,3 +6,7 @@ XENUS_IMPORT l_unsigned_long round_jiffies_up_relative(l_unsigned_long j);
 XENUS_IMPORT void msleep(l_unsigned_int msecs);
 XENUS_IMPORT l_unsigned_long msleep_interruptible(l_unsigned_int msecs);
 XENUS_IMPORT void  usleep_range(l_unsigned_long min, l_unsigned_long max);
+XENUS_IMPORT l_signed_long  schedule_timeout(l_signed_long timeout);
+XENUS_IMPORT l_signed_long  schedule_timeout_interruptible(l_signed_long timeout);
+XENUS_IMPORT l_signed_long  schedule_timeout_killable(l_signed_long timeout);
+XENUS_IMPORT l_signed_long  schedule_timeout_uninterruptible(l_signed_long timeout);

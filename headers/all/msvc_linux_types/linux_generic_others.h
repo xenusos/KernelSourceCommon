@@ -23,7 +23,13 @@ typedef void * kernel_symbol_k;
 typedef void nodemask_t;
 typedef void * page_frag_cache_k;
 typedef void * sysinfo_k;
-typedef void * vm_struct_k;
+
+//typedef void * vm_struct_k;
+typedef struct vm_struct_unsafe {
+    struct vm_struct_unsafe	* next;
+    void			        * addr;
+    l_unsigned_long	          size;
+} *vm_struct_k;
 
 typedef sysv_fptr_t pte_fn_t;
 
@@ -80,8 +86,8 @@ typedef struct lock_class_key {
 } *lock_class_key_k;
 
 struct callback_head {
-	struct callback_head *next;
-	void(*func)(struct callback_head *head);
+    struct callback_head *next;
+    void(*func)(struct callback_head *head);
 }/*__attribute__((aligned(sizeof(void *))));*/;
 
 
@@ -118,7 +124,7 @@ typedef u32							__kernel_dev_t;
 
 #define __FD_SETSIZE	1024
 typedef struct {
-	unsigned long fds_bits[__FD_SETSIZE / (8 * sizeof(l_long))];
+    unsigned long fds_bits[__FD_SETSIZE / (8 * sizeof(l_long))];
 } __kernel_fd_set;
 
 typedef __kernel_off_t				off_t;
@@ -163,9 +169,9 @@ typedef l_u_long					pgdval_t;
 typedef l_u_long					pgprotval_t;
 
 typedef struct {
-	uid_t val;
+    uid_t val;
 } kuid_t;
 
 typedef struct {
-	gid_t val;
+    gid_t val;
 } kgid_t;
