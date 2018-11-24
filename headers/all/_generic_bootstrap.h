@@ -11,6 +11,7 @@ typedef struct
 	void (*test_function)				(size_t a_1, size_t a_2, size_t a_3, size_t a_4, size_t a_5, size_t a_6, size_t a_7, size_t a_8, size_t a_9, size_t a_10, size_t a_11, size_t a_12);
     int  (*print)						(const char *fmt);
 	void (*panic)						(const char *fmt);
+    void (* reload)                     (void(XENUS_MS_ABI * callback)(void));
 } bootstrap_dbg_t;
 
 typedef struct 
@@ -130,11 +131,13 @@ typedef struct
 } bootstrap_t;
 
 #define START_POINT(name) ssize_t name(void *xenos_start, bootstrap_t * bootstrap, void *  security, uint32_t sec_len, void * port_structs, uint32_t port_structs_length, linux_info_ref info)
-#if defined(COMMUNISM_COMPILER)
-	typedef ssize_t(__attribute__((ms_abi)) *kernel_startpoint_t)(void *xenos_start, bootstrap_t * bootstrap, void *  security, uint32_t sec_len, void * port_structs, uint32_t port_structs_length, linux_info_ref info);
-#else
-	typedef ssize_t(* kernel_startpoint_t)(void *xenos_start, bootstrap_t * bootstrap, void *  security, uint32_t sec_len, void * port_structs, uint32_t port_structs_length, linux_info_ref info);
-#endif
+//#if defined(COMMUNISM_COMPILER)
+//	typedef ssize_t(__attribute__((ms_abi)) *kernel_startpoint_t)(void *xenos_start, bootstrap_t * bootstrap, void *  security, uint32_t sec_len, void * port_structs, uint32_t port_structs_length, linux_info_ref info);
+//#else
+	typedef ssize_t(XENUS_MS_ABI * kernel_startpoint_t)(void *xenos_start, bootstrap_t * bootstrap, void *  security, uint32_t sec_len, void * port_structs, uint32_t port_structs_length, linux_info_ref info);
+//#endif
+
+    
 
 #define STAGE_ZERO_ERR	(0 + 1)
 #define STAGE_ONE_ERR	(1 + 1)

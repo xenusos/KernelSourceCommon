@@ -1,3 +1,9 @@
+/*
+    Purpose:
+    Author: Reece W.
+    License: All Rights Reserved J. Reece Wilson
+    Depends: xenus.h
+*/
 #pragma once
 
 typedef void(*chains_deallocation_notifier_t)(uint64_t hash, void * buffer);

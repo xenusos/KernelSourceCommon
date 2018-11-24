@@ -98,6 +98,7 @@
     <ClInclude Include="headers\kernel\peloader\pe_fmt.h" />
     <ClInclude Include="headers\kernel\peloader\pe_loader.h" />
     <ClInclude Include="headers\kernel\plugins\plugins.h" />
+    <ClInclude Include="headers\kernel\shutdown\shutdown.h" />
     <ClInclude Include="headers\kernel\sysx\sysx_dynamic_callbacks.h" />
     <ClInclude Include="headers\kernel\sysx\sysx_linux_caller.h" />
     <ClInclude Include="headers\kernel\sysx\xenus_sysx.h" />

@@ -30,6 +30,8 @@ typedef struct
     uint64_t    LINUX_LDT_PGD_ENTRY_L5;
     uint64_t    LINUX_LDT_PGD_ENTRY;
     uint64_t    LINUX_LDT_BASE_ADDR;
+
+    int64_t     KERNEL_FREQUENCY;
 } linux_info_t,
  *linux_info_p,
  *linux_info_ref;

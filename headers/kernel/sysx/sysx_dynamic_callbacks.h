@@ -2,7 +2,7 @@
     Purpose:
     Author: Reece W.
     License: All Rights Reserved J. Reece Wilson
-	Depends: xenus.h, xenus_threading.h
+    Depends: xenus.h, xenus_threading.h
 */
 #pragma once
 

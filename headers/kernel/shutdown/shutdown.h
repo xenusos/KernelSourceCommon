@@ -6,5 +6,6 @@
 */
 #pragma once
 
-XENUS_SYM_VAR void *	kernel_base;
-XENUS_SYM linux_info_t	kernel_information;
+typedef void(*shutdown_handler_p)();
+
+XENUS_SYM void shutdown_add_hook(shutdown_handler_p hook);
