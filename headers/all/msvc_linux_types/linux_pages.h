@@ -13,15 +13,6 @@ typedef struct pgprot
 } pgprot_t;
 typedef struct { pgdval_t pgd; } pgd_t;
 
-enum page_cache_mode {
-    _PAGE_CACHE_MODE_WB = 0,
-    _PAGE_CACHE_MODE_WC = 1,
-    _PAGE_CACHE_MODE_UC_MINUS = 2,
-    _PAGE_CACHE_MODE_UC = 3,
-    _PAGE_CACHE_MODE_WT = 4,
-    _PAGE_CACHE_MODE_WP = 5,
-    _PAGE_CACHE_MODE_NUM = 8
-};
 
 #define pgprot_val(x)	((x).pgprot)
 
@@ -36,7 +27,17 @@ enum page_cache_mode {
 #define _AC(X,Y)			__AC(X,Y)
 #define _AT(T,X)			((T)(X))
 
-
+#if defined(AMD64)
+#if defined(DANGEROUS_PAGE_LOGIC)
+enum page_cache_mode {
+    _PAGE_CACHE_MODE_WB = 0,
+    _PAGE_CACHE_MODE_WC = 1,
+    _PAGE_CACHE_MODE_UC_MINUS = 2,
+    _PAGE_CACHE_MODE_UC = 3,
+    _PAGE_CACHE_MODE_WT = 4,
+    _PAGE_CACHE_MODE_WP = 5,
+    _PAGE_CACHE_MODE_NUM = 8
+};
 
 #define _PAGE_BIT_PRESENT	0	/* is present */
 #define _PAGE_BIT_RW		1	/* writeable */
@@ -164,6 +165,8 @@ enum page_cache_mode {
 #define PAGE_KERNEL_IO		__pgprot(__PAGE_KERNEL_IO)
 #define PAGE_KERNEL_IO_NOCACHE	__pgprot(__PAGE_KERNEL_IO_NOCACHE)
 
+#endif
+
 #define PAGE_SHIFT			(OS_PAGE_SHIFT)
 #define PAGE_SIZE			(_AC(1,ULL) << PAGE_SHIFT)
 #define PAGE_MASK			(~(PAGE_SIZE-1))
@@ -173,3 +176,5 @@ enum page_cache_mode {
 #define PFN_DOWN(x)			((x) >> PAGE_SHIFT)
 #define PFN_PHYS(x)			((phys_addr_t)(x) << PAGE_SHIFT)
 #define PHYS_PFN(x)			((unsigned long)((x) >> PAGE_SHIFT))
+
+#endif
