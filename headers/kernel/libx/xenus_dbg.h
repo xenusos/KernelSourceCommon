@@ -27,7 +27,7 @@ static inline l_int printf(const char *fmt, ...)
 	return print(msg);
 }
 
-static inline size_t panicf(const char *fmt, ...)
+static inline __declspec(noreturn) void  panicf(const char *fmt, ...)
 {
 	char msg[STDOUT_BUFFER_LENGTH_W_NULL];
 	va_list ap;
@@ -36,7 +36,6 @@ static inline size_t panicf(const char *fmt, ...)
 	vsnprintf(msg, STDOUT_BUFFER_LENGTH_W_NULL, fmt, ap); //TODO check response
 	va_end(ap);
 	panic(msg);
-	return *(size_t*)("GetFucked");
 }
 
 //int atexit(void(*func)(void));
