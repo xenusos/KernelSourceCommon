@@ -18,4 +18,4 @@
 #define LINUX_ERROR(x) ((l_ulong)(void *)(x) >= (l_ulong)-4095)
 
 
-#define ASSERT(n, msg, ...) {if (!(n)) {panicf(msg, __VA_ARGS__);}}
+#define ASSERT(n, msg, ...) {if (!(n)) {panicf("ASSERTION FAILED at " __FUNCTION__ ", %s (%i) \r\n " msg " \r\n", __FILE__, __LINE__, __VA_ARGS__);}}
