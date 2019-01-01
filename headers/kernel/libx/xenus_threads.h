@@ -83,6 +83,6 @@ XENUS_SYM error_t threading_get_exit_callbacks(thread_exit_cb_t ** list, int * c
 typedef void(*thread_exit_hack_t)(long code);
 XENUS_SYM error_t threading_ntfy_singleshot_exit(uint32_t pid, thread_exit_hack_t cb);
 
-#ifdef KERNEL
-void thread_enable_cleanup();
+#if defined(KERNEL) || defined(THREAD_ENABLE_CLEANUP_ACCESS)
+XENUS_SYM void thread_enable_cleanup();
 #endif
