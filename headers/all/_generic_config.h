@@ -50,3 +50,5 @@
 #define TGT_KRN_LINUX 1
 
 // enable the following is stack size becomes an issue
+
+#define CONFIG_APC_STACK_PAGES 6
