@@ -1,7 +1,7 @@
 /*
-    Purpose: Bootstrapped functions of the Linux Kernel for IO and general operations within the Xenos Kernel
-    Author: Reece W.
-    License: All Rights Reserved J. Reece Wilson
+	Purpose: Bootstrapped functions of the Linux Kernel for IO and general operations within the Xenos Kernel
+	Author: Reece W.
+	License: All Rights Reserved J. Reece Wilson
 	Depends on: xenus.h, xenus_types_kernel_(.*).h
 */
 #pragma once
@@ -9,54 +9,54 @@
 typedef struct 
 {
 	void (*test_function)				(size_t a_1, size_t a_2, size_t a_3, size_t a_4, size_t a_5, size_t a_6, size_t a_7, size_t a_8, size_t a_9, size_t a_10, size_t a_11, size_t a_12);
-    int  (*print)						(const char *fmt);
+	int  (*print)						(const char *fmt);
 	void (*panic)						(const char *fmt);
-    void (* reload)                     (void(XENUS_MS_ABI * callback)(void));
+	void (* reload)                     (void(XENUS_MS_ABI * callback)(void));
 } bootstrap_dbg_t;
 
 typedef struct 
 {
-    void *	(* execalloc)				(size_t size);
-    void	(* execfree)				(void * ptr);
-    void *	(* kmalloc)					(size_t size, int flags);
-    void *	(* vmalloc)					(size_t size);
-    void	(* kfree)					(void * ptr);
-    void	(* vfree)					(void * ptr);
+	void *	(* execalloc)				(size_t size);
+	void	(* execfree)				(void * ptr);
+	void *	(* kmalloc)					(size_t size, int flags);
+	void *	(* vmalloc)					(size_t size);
+	void	(* kfree)					(void * ptr);
+	void	(* vfree)					(void * ptr);
 	size_t  (* ksize)					(const void * ptr);
-    void *	(* memcpy)					(void * dest, const void * src, size_t length);
-    void *	(* memset)					(void * dest, int c, size_t length);
-    void *	(* memmove)					(void *dest, const void *src, size_t count);
-    int		(* memcmp)					(const void *cs, const void *ct, size_t count);
-    void *	(* memscan)					(void *addr, int c, size_t size);
-    uint64_t (*linux_page_to_pfn)       (void * page_k_struct); // linux only nibbas
+	void *	(* memcpy)					(void * dest, const void * src, size_t length);
+	void *	(* memset)					(void * dest, int c, size_t length);
+	void *	(* memmove)					(void *dest, const void *src, size_t count);
+	int		(* memcmp)					(const void *cs, const void *ct, size_t count);
+	void *	(* memscan)					(void *addr, int c, size_t size);
+	uint64_t (*linux_page_to_pfn)       (void * page_k_struct); // linux only nibbas
 } bootstrap_memory_t;
 
 typedef struct {
-    int 	(* strcasecmp)				(const char *s1, const char *s2);
-    int 	(* strncasecmp)				(const char *s1, const char *s2, size_t n);
-    char *	(* strncpy)					(char *dest, const char *src, size_t count);
-    size_t  (* strlcpy)					(char *dest, const char *src, size_t size);
-    char * 	(* strcat)					(char *dest, const char *src);
-    char *	(* strncat)					(char *dest, const char *src, size_t count);
-    size_t  (* strlcat)					(char *dest, const char *src, size_t count);
-    int 	(* strcmp)					(const char * x, const char * y);
-    int 	(* strncmp)					(const char *cs, const char *ct, size_t count);
-    char *	(* strchr)					(const char *s, int c);
-    char * 	(* strrchr)					(const char *s, int c);
-    char *	(* strnchr)					(const char *s, size_t count, int c);
-    char *	(* skip_spaces)				(const char *str);
-    char *	(* strim)					(char *s);
-    int		(* strlen)					(const char * source);
-    size_t	(* strnlen)					(const char *s, size_t count);
-    size_t	(* strspn)					(const char *s, const char *accept);
-    size_t  (* strcspn)					(const char *s, const char *reject);
-    char *	(* strpbrk)					(const char *cs, const char *ct);
-    char *	(* strsep)					(char **s, const char *ct);
-    bool 	(* sysfs_streq)				(const char *s1, const char *s2);
-    int 	(* strtobool)				(const char *s, bool *res);
-    char *	(* strstr)					(const char *s1, const char *s2);
-    char *	(* strnstr)					(const char *s1, const char *s2, size_t len);
-    char * 	(* strcpy)					(char * destination, const char * source);
+	int 	(* strcasecmp)				(const char *s1, const char *s2);
+	int 	(* strncasecmp)				(const char *s1, const char *s2, size_t n);
+	char *	(* strncpy)					(char *dest, const char *src, size_t count);
+	size_t  (* strlcpy)					(char *dest, const char *src, size_t size);
+	char * 	(* strcat)					(char *dest, const char *src);
+	char *	(* strncat)					(char *dest, const char *src, size_t count);
+	size_t  (* strlcat)					(char *dest, const char *src, size_t count);
+	int 	(* strcmp)					(const char * x, const char * y);
+	int 	(* strncmp)					(const char *cs, const char *ct, size_t count);
+	char *	(* strchr)					(const char *s, int c);
+	char * 	(* strrchr)					(const char *s, int c);
+	char *	(* strnchr)					(const char *s, size_t count, int c);
+	char *	(* skip_spaces)				(const char *str);
+	char *	(* strim)					(char *s);
+	int		(* strlen)					(const char * source);
+	size_t	(* strnlen)					(const char *s, size_t count);
+	size_t	(* strspn)					(const char *s, const char *accept);
+	size_t  (* strcspn)					(const char *s, const char *reject);
+	char *	(* strpbrk)					(const char *cs, const char *ct);
+	char *	(* strsep)					(char **s, const char *ct);
+	bool 	(* sysfs_streq)				(const char *s1, const char *s2);
+	int 	(* strtobool)				(const char *s, bool *res);
+	char *	(* strstr)					(const char *s1, const char *s2);
+	char *	(* strnstr)					(const char *s1, const char *s2, size_t len);
+	char * 	(* strcpy)					(char * destination, const char * source);
 } bootstrap_string_t;
 
 
@@ -137,7 +137,7 @@ typedef struct
 	typedef ssize_t(XENUS_MS_ABI * kernel_startpoint_t)(void *xenos_start, bootstrap_t * bootstrap, void *  security, uint32_t sec_len, void * port_structs, uint32_t port_structs_length, linux_info_ref info);
 //#endif
 
-    
+	
 
 #define STAGE_ZERO_ERR	(0 + 1)
 #define STAGE_ONE_ERR	(1 + 1)

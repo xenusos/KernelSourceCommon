@@ -18,21 +18,15 @@ typedef struct thread_index_counter_s
 typedef void * thread_index_counter_p;
 #endif
 
-#ifdef KERNEL
-thread_storage_data_p	thread_nopreempt_get_tls();
-void					thread_nopreempt_put_tls(thread_storage_data_p tls);
-#endif
-
 XENUS_SYM uint32_t    thread_geti();
 
-
-static uint64_t TLS_TYPE_GENERIC	= 0;
-static uint64_t TLS_TYPE_GENERIC_1	= 0;
-static uint64_t TLS_TYPE_GENERIC_2	= 1;
-static uint64_t TLS_TYPE_GENERIC_3	= 2;
-static uint64_t TLS_TYPE_XIP		= 3;        // INTERNAL LIB LINUX THING - DO NOT USE THIS!
-static uint64_t TLS_TYPE_XGLOBAL	= 4;        // INTERNAL LIB LINUX THING - DO NOT USE THIS!
-#define TLS_MAX_TYPE TLS_TYPE_XGLOBAL
+static const uint64_t TLS_TYPE_GENERIC	   = 0;
+static const uint64_t TLS_TYPE_GENERIC_1   = 0;
+static const uint64_t TLS_TYPE_GENERIC_2   = 1;
+static const uint64_t TLS_TYPE_GENERIC_3   = 2;
+static const uint64_t TLS_TYPE_XIP		   = 3;        // INTERNAL LIB LINUX THING - DO NOT USE THIS!
+static const uint64_t TLS_TYPE_XGLOBAL	   = 4;        // INTERNAL LIB LINUX THING - DO NOT USE THIS!
+#define TLS_MAX_TYPE  TLS_TYPE_XGLOBAL
 
 XENUS_SYM void        thread_pause();
 
@@ -42,8 +36,8 @@ XENUS_SYM error_t     _thread_tls_deallocate_handle(void * handle);
 XENUS_SYM error_t     _thread_tls_get(uint64_t type, uint64_t hash, void ** out_handle, void ** out_buffer);
 
 #ifdef KERNEL
-error_t     _thread_tls_cleanup(uint64_t type);
-error_t     _thread_tls_cleanup_all();
+extern error_t        _thread_tls_cleanup(uint64_t type);
+extern error_t        _thread_tls_cleanup_all();
 #endif
 
 error_t inline thread_tls_allocate(uint64_t hash, size_t length, void ** out_handle, void ** out_buffer){	return _thread_tls_allocate(TLS_TYPE_GENERIC, hash, length, out_handle, out_buffer);}
