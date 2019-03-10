@@ -24,7 +24,7 @@ typedef struct
 
 typedef struct
 {
-    pe_handle_h pe_handle;           // FROM KRN
+    pe_handle_h pe_handle;      // FROM KRN
 	void * plugin_handle;       // FROM KRN
 
 	const char * name;			// TO KRNL : name of dependency  
@@ -43,8 +43,8 @@ typedef struct
 typedef struct
 {
     c_bool has_started;                                                      // OUT: KERN -> MOD, KERN -> KERN
-    c_bool ep_called;                                                         // OUT: KERN -> MOD, KERN -> KERN
-	int status_code;													   // OUT: KERN -> MOD, KERN -> KERN, = xenus_entrypoint_ctx_t##init()
+    c_bool ep_called;                                                        // OUT: KERN -> MOD, KERN -> KERN
+	int status_code;													     // OUT: KERN -> MOD, KERN -> KERN, = xenus_entrypoint_ctx_t##init()
 
 	pe_handle_h pe_handle; 
     plugin_handle_h plugin_handle;

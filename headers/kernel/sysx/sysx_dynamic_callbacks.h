@@ -6,22 +6,24 @@
 */
 #pragma once
 
-#define SYSV_MAGIC													*(uint64_t*)("URMOMGAY")
+#define SYSV_MAGIC_ALIGNED                                          *(uint64_t*)("URMOMGAY")
+#define SYSV_MAGIC_UNALIGNED                                        *(uint64_t*)("URBIGGAY")
+#define SYSV_MAGIC SYSV_MAGIC_ALIGNED
 
 
 #define SYSV_GET_DATA												((uint64_t)____thisptr)
 #define SYSV_FN(name)                                               not_callable_##name
 
 #define DEFINE_SYSV_FUNCTON_START(name, rettype)					rettype SYSV_FN(name)(
-#define DEFINE_SYSV_FUNCTON_END_DEF(name, rettype)				    uint64_t ___magic, void * ____thisptr) {                                                                        \
+#define DEFINE_SYSV_FUNCTON_END_DEF(name, rettype)				    void * ____thisptr, uint64_t ___magic) {                                                                        \
                                                                         chkstack_t __n;                                                                                             \
                                                                         bool __mgn_fpu = false;                                                                                     \
                                                                                                                                                                                     \
                                                                         if (((size_t)(&__n) % 16) != 0)                                                                             \
                                                                             panic("Xenus: not aligned " __FUNCTION__);                                                              \
                                                                                                                                                                                     \
-                                                                        if (___magic != SYSV_MAGIC)                                                                                 \
-                                                                            panic("ILLEGAL SYSTEMV FUNCTION CALL - " #name " - CHECK FUNCTION DEFINTION AND PARAMETER COUNT");      \
+                                                                        if ((___magic != SYSV_MAGIC_ALIGNED) && (___magic != SYSV_MAGIC_UNALIGNED))                                 \
+                                                                            panicf("ILLEGAL SYSTEMV FUNCTION CALL - " #name " - CHECK FUNCTION DEFINTION AND PARAMETER COUNT. MAGIC: %zx", ___magic);      \
                                                                                                                                                                                     \
                                                                         __mgn_fpu  = thread_fpu_lock();
 
