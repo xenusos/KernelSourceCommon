@@ -6,30 +6,30 @@
 #pragma once
 #pragma pack(push, 1)
 
-#define MACHINE_X86_64 0x8664
-#define MACHINE_X86 0x14c
+#define MACHINE_X86_64          0x8664
+#define MACHINE_X86             0x14c
 
 #define OPT_HEADER_MAGIC_X86_64 0x20b
 #define OPT_HEADER_MAGIC_X86    0x10b
 
-#define IMAGE_DLLCHARACTERISTICS_WDM_DRIVER 0x2000
+#define IMAGE_DLLCHARACTERISTICS_WDM_DRIVER   0x2000
 #define IMAGE_DLLCHARACTERISTICS_DYNAMIC_BASE 0x0040
 
-#define IMAGE_DIRECTORY_ENTRY_EXPORT	0
-#define IMAGE_DIRECTORY_ENTRY_IMPORT	1
-#define IMAGE_DIRECTORY_ENTRY_RESOURCE	2
-#define IMAGE_DIRECTORY_ENTRY_EXCEPTION	3
-#define IMAGE_DIRECTORY_ENTRY_SECURITY	4
-#define IMAGE_DIRECTORY_ENTRY_BASERELOC	5
-#define IMAGE_DIRECTORY_ENTRY_DEBUG		6
-#define IMAGE_DIRECTORY_ENTRY_ARCHITECTURE	7
-#define IMAGE_DIRECTORY_ENTRY_GLOBALPTR	8	
-#define IMAGE_DIRECTORY_ENTRY_TLS		9
-#define IMAGE_DIRECTORY_ENTRY_LOAD_CONFIG	10	
-#define IMAGE_DIRECTORY_ENTRY_BOUND_IMPORT	11	
-#define IMAGE_DIRECTORY_ENTRY_IAT			12	
-#define IMAGE_DIRECTORY_ENTRY_DELAY_IMPORT	13	
-#define IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR	14
+#define IMAGE_DIRECTORY_ENTRY_EXPORT         0
+#define IMAGE_DIRECTORY_ENTRY_IMPORT         1
+#define IMAGE_DIRECTORY_ENTRY_RESOURCE       2
+#define IMAGE_DIRECTORY_ENTRY_EXCEPTION      3
+#define IMAGE_DIRECTORY_ENTRY_SECURITY       4
+#define IMAGE_DIRECTORY_ENTRY_BASERELOC      5
+#define IMAGE_DIRECTORY_ENTRY_DEBUG          6
+#define IMAGE_DIRECTORY_ENTRY_ARCHITECTURE   7
+#define IMAGE_DIRECTORY_ENTRY_GLOBALPTR      8    
+#define IMAGE_DIRECTORY_ENTRY_TLS            9
+#define IMAGE_DIRECTORY_ENTRY_LOAD_CONFIG    10    
+#define IMAGE_DIRECTORY_ENTRY_BOUND_IMPORT   11    
+#define IMAGE_DIRECTORY_ENTRY_IAT            12    
+#define IMAGE_DIRECTORY_ENTRY_DELAY_IMPORT   13    
+#define IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR 14
 
 #define IMAGE_DIRECTORY_ENTRY_MIN IMAGE_DIRECTORY_ENTRY_EXPORT
 #define IMAGE_DIRECTORY_ENTRY_MAX IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR
@@ -166,15 +166,15 @@ typedef struct _IMAGE_IMPORT_BY_NAME
 
 typedef _declspec(align(4)) struct _IMAGE_IMPORT_DESCRIPTOR 
 {
-	union
-	{
-		uint32_t Characteristics;
-		uint32_t OriginalFirstThunk;
-	};
-    uint32_t TimeDateStamp;		  //TimeDateStamp
-    uint32_t ForwarderChain;	  //
-    uint32_t Name;				  //Name
-    uint32_t FirstThunk;		  //FirstThunk
+    union
+    {
+        uint32_t Characteristics;
+        uint32_t OriginalFirstThunk;
+    };
+    uint32_t TimeDateStamp;       //TimeDateStamp
+    uint32_t ForwarderChain;      //
+    uint32_t Name;                //Name
+    uint32_t FirstThunk;          //FirstThunk
 } *PIMAGE_IMPORT_DESCRIPTOR, IMAGE_IMPORT_DESCRIPTOR;
 
 
@@ -187,7 +187,7 @@ typedef struct _IMAGE_BASE_RELOCATION
 
 typedef struct _IMAGE_NT_HEADERS 
 {
-    //uint32_t Signature;  //PE
+    //uint32_t Signature;    //PE
     uint8_t Signature[2][2]; //P E | 00 00 
     IMAGE_FILE_HEADER FileHeader;
     union
@@ -199,8 +199,8 @@ typedef struct _IMAGE_NT_HEADERS
 
 typedef struct
 {
-    uint16_t	offset : 12;
-    uint16_t	type : 4;
+    uint16_t    offset : 12;
+    uint16_t    type : 4;
 } IMAGE_RELOC, *PIMAGE_RELOC;
 
 

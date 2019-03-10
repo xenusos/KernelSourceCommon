@@ -9,10 +9,10 @@
 #ifdef KERNEL
 typedef struct thread_index_counter_s
 {
-	void * list;
-	uint_t max_threads;
-	uint32_t counter;
-	mutex_k mutex;
+    void * list;
+    uint_t max_threads;
+    uint32_t counter;
+    mutex_k mutex;
 } * thread_index_counter_p, * thread_index_counter_ref, thread_index_counter_t;
 #else
 typedef void * thread_index_counter_p;
@@ -20,12 +20,12 @@ typedef void * thread_index_counter_p;
 
 XENUS_SYM uint32_t    thread_geti();
 
-static const uint64_t TLS_TYPE_GENERIC	   = 0;
+static const uint64_t TLS_TYPE_GENERIC       = 0;
 static const uint64_t TLS_TYPE_GENERIC_1   = 0;
 static const uint64_t TLS_TYPE_GENERIC_2   = 1;
 static const uint64_t TLS_TYPE_GENERIC_3   = 2;
-static const uint64_t TLS_TYPE_XIP		   = 3;        // INTERNAL LIB LINUX THING - DO NOT USE THIS!
-static const uint64_t TLS_TYPE_XGLOBAL	   = 4;        // INTERNAL LIB LINUX THING - DO NOT USE THIS!
+static const uint64_t TLS_TYPE_XIP           = 3;        // INTERNAL LIB LINUX THING - DO NOT USE THIS!
+static const uint64_t TLS_TYPE_XGLOBAL       = 4;        // INTERNAL LIB LINUX THING - DO NOT USE THIS!
 #define TLS_MAX_TYPE  TLS_TYPE_XGLOBAL
 
 XENUS_SYM void        thread_pause();
@@ -40,22 +40,22 @@ extern error_t        _thread_tls_cleanup(uint64_t type);
 extern error_t        _thread_tls_cleanup_all();
 #endif
 
-error_t inline thread_tls_allocate(uint64_t hash, size_t length, void ** out_handle, void ** out_buffer){	return _thread_tls_allocate(TLS_TYPE_GENERIC, hash, length, out_handle, out_buffer);}
-error_t inline thread_tls_get(uint64_t type, uint64_t hash, void ** out_handle, void ** out_buffer)		{	return _thread_tls_get(TLS_TYPE_GENERIC, hash, out_handle, out_buffer);}
-error_t inline thread_tls_deallocate_hash(uint64_t hash)												{	return _thread_tls_deallocate_hash(TLS_TYPE_GENERIC, hash); }
-error_t inline thread_tls_deallocate_handle(void * handle)												{	return _thread_tls_deallocate_handle(handle); }
+error_t inline        thread_tls_allocate(uint64_t hash, size_t length, void ** out_handle, void ** out_buffer)   {    return _thread_tls_allocate(TLS_TYPE_GENERIC, hash, length, out_handle, out_buffer);}
+error_t inline        thread_tls_get(uint64_t type, uint64_t hash, void ** out_handle, void ** out_buffer)        {    return _thread_tls_get(TLS_TYPE_GENERIC, hash, out_handle, out_buffer);}
+error_t inline        thread_tls_deallocate_hash(uint64_t hash)                                                   {    return _thread_tls_deallocate_hash(TLS_TYPE_GENERIC, hash); }
+error_t inline        thread_tls_deallocate_handle(void * handle)                                                 {    return _thread_tls_deallocate_handle(handle); }
 
-XENUS_SYM error_t	thread_indexing_create(uint_t max_threads, thread_index_counter_p * tic);
-XENUS_SYM error_t	thread_indexing_destory(thread_index_counter_p tic);
-XENUS_SYM error_t	thread_indexing_register(thread_index_counter_p tic);
-XENUS_SYM error_t	thread_indexing_get(thread_index_counter_p tic, size_t * index);
+XENUS_SYM error_t     thread_indexing_create(uint_t max_threads, thread_index_counter_p * tic);
+XENUS_SYM error_t     thread_indexing_destory(thread_index_counter_p tic);
+XENUS_SYM error_t     thread_indexing_register(thread_index_counter_p tic);
+XENUS_SYM error_t     thread_indexing_get(thread_index_counter_p tic, size_t * index);
 
 // utils
-XENUS_SYM void		thread_preempt_lock();	// preemption stuff
-XENUS_SYM void		thread_preempt_unlock(); // preemption stuff
+XENUS_SYM void        thread_preempt_lock();    // preemption stuff
+XENUS_SYM void        thread_preempt_unlock();  // preemption stuff
 
 // thread creation (fpu will be enabled by default)
-XENUS_SYM error_t	thread_create(task_k *, thread_callback_t callback, void * data, const  char * name, bool run);
+XENUS_SYM error_t     thread_create(task_k *, thread_callback_t callback, void * data, const  char * name, bool run);
 
 
 // lock fpu down - to be used in callbacks only - unless you know what you're doing.  

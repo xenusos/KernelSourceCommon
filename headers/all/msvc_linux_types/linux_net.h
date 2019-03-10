@@ -1,13 +1,13 @@
 #pragma once
 
 /* Don't change this without changing skb_csum_unnecessary! */
-#define CHECKSUM_NONE		0
-#define CHECKSUM_UNNECESSARY	1
-#define CHECKSUM_COMPLETE	2
-#define CHECKSUM_PARTIAL	3
+#define CHECKSUM_NONE        0
+#define CHECKSUM_UNNECESSARY    1
+#define CHECKSUM_COMPLETE    2
+#define CHECKSUM_PARTIAL    3
 
 /* Maximum value in skb->csum_level */
-#define SKB_MAX_CSUM_LEVEL	3
+#define SKB_MAX_CSUM_LEVEL    3
 
 
 /* Definitions for tx_flags in struct skb_shared_info */
@@ -38,10 +38,10 @@ enum {
     SKBTX_SCHED_TSTAMP = 1 << 6,
 };
 
-#define SKBTX_ZEROCOPY_FRAG	(SKBTX_DEV_ZEROCOPY | SKBTX_SHARED_FRAG)
-#define SKBTX_ANY_SW_TSTAMP	(SKBTX_SW_TSTAMP    | \
-				 SKBTX_SCHED_TSTAMP)
-#define SKBTX_ANY_TSTAMP	(SKBTX_HW_TSTAMP | SKBTX_ANY_SW_TSTAMP)
+#define SKBTX_ZEROCOPY_FRAG    (SKBTX_DEV_ZEROCOPY | SKBTX_SHARED_FRAG)
+#define SKBTX_ANY_SW_TSTAMP    (SKBTX_SW_TSTAMP    | \
+                 SKBTX_SCHED_TSTAMP)
+#define SKBTX_ANY_TSTAMP    (SKBTX_HW_TSTAMP | SKBTX_ANY_SW_TSTAMP)
 
 
 #define SKB_DATAREF_SHIFT 16
@@ -49,9 +49,9 @@ enum {
 
 
 enum {
-    SKB_FCLONE_UNAVAILABLE,	/* skb has no fclone (from head_cache) */
-    SKB_FCLONE_ORIG,	/* orig skb (from fclone_cache) */
-    SKB_FCLONE_CLONE,	/* companion fclone skb (from fclone_cache) */
+    SKB_FCLONE_UNAVAILABLE,    /* skb has no fclone (from head_cache) */
+    SKB_FCLONE_ORIG,    /* orig skb (from fclone_cache) */
+    SKB_FCLONE_CLONE,    /* companion fclone skb (from fclone_cache) */
 };
 
 enum {

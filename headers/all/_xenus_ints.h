@@ -8,56 +8,56 @@
 
 // MSVC types to specific standard type names
 
-typedef signed char				int8_t;
-typedef unsigned char			uint8_t;
+typedef signed char              int8_t;
+typedef unsigned char            uint8_t;
 
-typedef signed  short  int		int16_t;
-typedef unsigned short  int		uint16_t;
+typedef signed  short  int       int16_t;
+typedef unsigned short  int      uint16_t;
 
-typedef signed long int 		int32_t;
-typedef unsigned long int 		uint32_t;
+typedef signed long int          int32_t;
+typedef unsigned long int        uint32_t;
 
-typedef signed long long int	int64_t;
-typedef unsigned long long int  uint64_t;
+typedef signed long long int     int64_t;
+typedef unsigned long long int   uint64_t;
 
 
 // More standard int types based around the native machine word size
 
-typedef int64_t 	intptr_t;
-typedef uint64_t 	uintptr_t;
-typedef int64_t     ptrdiff_t;
+typedef int64_t      intptr_t;
+typedef uint64_t     uintptr_t;
+typedef int64_t      ptrdiff_t;
 
-typedef int64_t		int_t;
-typedef uint64_t 	uint_t;
-typedef uint64_t	size_t;
-typedef int64_t		ssize_t;
+typedef int64_t      int_t;
+typedef uint64_t     uint_t;
+typedef uint64_t     size_t;
+typedef int64_t      ssize_t;
 
 
 // Errors
 
-typedef int64_t		error_t;
+typedef int64_t      error_t;
 
 
 // Address mapping (Move to _xenus_linux_types_xxx?)
 
-typedef void *		phys_addr_t;
-typedef void *		dma_addr_t;
-typedef void *		user_addr_t;
-typedef phys_addr_t	resource_size_t;
-typedef phys_addr_t	pci_bus_addr_t;
+typedef void *       phys_addr_t;
+typedef void *       dma_addr_t;
+typedef void *       user_addr_t;
+typedef phys_addr_t  resource_size_t;
+typedef phys_addr_t  pci_bus_addr_t;
 #define __user /* this is this linux attribute that is used interchangeably with the xenus user_addr_t type*/
 
 // Function pointers to another calling convention (often defined by a differing calling convention)
 
-typedef void *		sysv_fptr_t;
+typedef void *        sysv_fptr_t;
 
 
 // C boolean logic
 
 #ifndef __cplusplus
-	#define bool int
-	#define true 1
-	#define false 0
+    #define bool int
+    #define true 1
+    #define false 0
 #endif
 
 #define NULL 0

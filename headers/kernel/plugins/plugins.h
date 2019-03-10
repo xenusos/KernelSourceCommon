@@ -28,10 +28,10 @@ XENUS_SYM error_t plugins_iterative_load(linked_list_head_p list, const char * m
 XENUS_SYM void plugins_initialize(linked_list_head_p list);
 XENUS_SYM void plugins_start(linked_list_head_p list);
 
-XENUS_SYM error_t plugins_get_state				(plugin_handle_h handle);
-XENUS_SYM error_t plugins_get_hard   			(plugin_handle_h handle);
-XENUS_SYM error_t plugins_get_status			(plugin_handle_h handle, size_t * status);
-XENUS_SYM error_t plugins_has_init				(plugin_handle_h handle, bool * init);
-XENUS_SYM error_t plugins_get_iat_module_name	(plugin_handle_h handle, const char ** name);
-XENUS_SYM error_t plugins_get_friendly_name		(plugin_handle_h handle, const char ** name);
-XENUS_SYM error_t plugins_get_path				(plugin_handle_h handle, const char ** path);
+XENUS_SYM error_t plugins_get_state                (plugin_handle_h handle);
+XENUS_SYM error_t plugins_get_hard               (plugin_handle_h handle);
+XENUS_SYM error_t plugins_get_status            (plugin_handle_h handle, size_t * status);
+XENUS_SYM error_t plugins_has_init                (plugin_handle_h handle, bool * init);
+XENUS_SYM error_t plugins_get_iat_module_name    (plugin_handle_h handle, const char ** name);
+XENUS_SYM error_t plugins_get_friendly_name        (plugin_handle_h handle, const char ** name);
+XENUS_SYM error_t plugins_get_path                (plugin_handle_h handle, const char ** path);

@@ -13,17 +13,17 @@ typedef void(*chains_iterator_t)(uint64_t hash, void * buffer, void * ctx);
 struct chain_s;
 typedef struct link_s
 {
-	uint64_t hash;
-	struct link_s * next;
-	struct link_s * before;
-	chains_deallocation_notifier_t cb;
-	struct chain_s * chain;
-	void * _buf;
+    uint64_t hash;
+    struct link_s * next;
+    struct link_s * before;
+    chains_deallocation_notifier_t cb;
+    struct chain_s * chain;
+    void * _buf;
 } *link_p, *link_ref, link_t;
 
 typedef struct chain_s
 {
-	link_p bottom; // start - bottom
+    link_p bottom; // start - bottom
 
     link_p tail;   // end   - top
 } *chain_p, *chain_ref, chain_t;
@@ -36,21 +36,21 @@ typedef void * link_p;
 XENUS_SYM error_t chain_allocate(chain_p * chain);
 
 XENUS_SYM error_t chain_allocate_link(
-	chain_p  chain,
-	uint64_t hash,						// REQUIRED: arbitrary hash
-	size_t length,						// REQUIRED: length of the required buffer to allocate 
-	chains_deallocation_notifier_t cb,	// OPTIONAL: deallocation notifier 
-	link_p * out_link_handle, 			// OPTIONAL / OUT: link handle
-	void **  out_buffer);				// OPTIONAL / OUT: requested buffer (REQUIRED / out)
+    chain_p  chain,
+    uint64_t hash,                        // REQUIRED: arbitrary hash
+    size_t length,                        // REQUIRED: length of the required buffer to allocate 
+    chains_deallocation_notifier_t cb,    // OPTIONAL: deallocation notifier 
+    link_p * out_link_handle,             // OPTIONAL / OUT: link handle
+    void **  out_buffer);                 // OPTIONAL / OUT: requested buffer (REQUIRED / out)
 
 XENUS_EXPORT error_t chain_get(
-	chain_p   chain,					// REQUIRED: link handle to begin searching from
-	uint64_t  hash,						// REQUIRED: hash to search for
-	link_p *  out_link_handle, 			// OPTIONAL: 
-	void **   out_buffer);				// OPTIONAL: 
+    chain_p   chain,                    // REQUIRED: link handle to begin searching from
+    uint64_t  hash,                     // REQUIRED: hash to search for
+    link_p *  out_link_handle,          // OPTIONAL: 
+    void **   out_buffer);              // OPTIONAL: 
 
 XENUS_EXPORT error_t chain_iterator(
-	chain_p chain,
+    chain_p chain,
     chains_iterator_t iterator,
     void * ctx
 );

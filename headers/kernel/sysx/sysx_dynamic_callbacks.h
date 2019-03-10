@@ -11,11 +11,11 @@
 #define SYSV_MAGIC SYSV_MAGIC_ALIGNED
 
 
-#define SYSV_GET_DATA												((uint64_t)____thisptr)
+#define SYSV_GET_DATA                                                ((uint64_t)____thisptr)
 #define SYSV_FN(name)                                               not_callable_##name
 
-#define DEFINE_SYSV_FUNCTON_START(name, rettype)					rettype SYSV_FN(name)(
-#define DEFINE_SYSV_FUNCTON_END_DEF(name, rettype)				    void * ____thisptr, uint64_t ___magic) {                                                                        \
+#define DEFINE_SYSV_FUNCTON_START(name, rettype)                    rettype SYSV_FN(name)(
+#define DEFINE_SYSV_FUNCTON_END_DEF(name, rettype)                    void * ____thisptr, uint64_t ___magic) {                                                                        \
                                                                         chkstack_t __n;                                                                                             \
                                                                         bool __mgn_fpu = false;                                                                                     \
                                                                                                                                                                                     \
@@ -28,7 +28,7 @@
                                                                         __mgn_fpu  = thread_fpu_lock();
 
 #define DEFINE_SYSV_END                                               if (__mgn_fpu) thread_fpu_unlock(); }
-#define SYSV_FUNCTON_RETURN(r)									    { if (__mgn_fpu) thread_fpu_unlock(); return (r); }
+#define SYSV_FUNCTON_RETURN(r)                                        { if (__mgn_fpu) thread_fpu_unlock(); return (r); }
 
 
 // DEFINE_SYSV_FUNCTON_START(fileio, void *)
@@ -41,6 +41,6 @@
 // DEFINE_SYSV_END
 
 
-XENUS_SYM error_t dyncb_allocate_stub	(void * msft, uint8_t parameters, void * data, sysv_fptr_t * sysv, void ** handle); 
-XENUS_SYM error_t dyncb_free_stub		(void * handle);
+XENUS_SYM error_t dyncb_allocate_stub    (void * msft, uint8_t parameters, void * data, sysv_fptr_t * sysv, void ** handle); 
+XENUS_SYM error_t dyncb_free_stub        (void * handle);
 

@@ -12,7 +12,7 @@
 #include "linux_pci.h"
 #include "linux_task.h"
 #include "linux_time.h"
-#include "linux_usb.h"	
+#include "linux_usb.h"    
 #include "linux_fcntl.h"
 #include "linux_signal.h"
 #include "linux_pages.h"

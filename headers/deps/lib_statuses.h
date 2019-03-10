@@ -2,8 +2,8 @@
     Purpose: Dual incremental and decremental enums for defining status codes of positive and negative values (errors being negative, status/info being positive)
     Author: Reece W.
     License: All Rights Reserved (2018)  J. Reece Wilson. Released under the MIT License.
-	Note: 
-			You may include this header several times
+    Note: 
+            You may include this header several times
 */
 
 #ifndef __LSTATUSES_DBG_MAP
@@ -17,7 +17,7 @@
 #endif 
 
 #if !defined(STATUSES_NAME) 
-	#error Config for lib_statuses not defined!
+    #error Config for lib_statuses not defined!
 #endif 
 
 #define __LSTATUSES_C_HACK_A __ ## STATUSES_NAME ## _c_hack_a

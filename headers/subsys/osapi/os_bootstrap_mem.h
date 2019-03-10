@@ -17,11 +17,11 @@ XENUS_IMPORT void   kfree(void * ptr);
 XENUS_IMPORT void   vfree(void * ptr);
 
 //generic functions
-XENUS_IMPORT void *	memcpy(void * dest, const void * src, size_t length);
-XENUS_IMPORT void *	memset(void * dest, int c, size_t length);
-XENUS_IMPORT void *	memmove(void *dest, const void *src, size_t count);
-XENUS_IMPORT int	memcmp(const void *cs, const void *ct, size_t count);
-XENUS_IMPORT void *	memscan(void *addr, l_int c, size_t size);
+XENUS_IMPORT void *    memcpy(void * dest, const void * src, size_t length);
+XENUS_IMPORT void *    memset(void * dest, int c, size_t length);
+XENUS_IMPORT void *    memmove(void *dest, const void *src, size_t count);
+XENUS_IMPORT int    memcmp(const void *cs, const void *ct, size_t count);
+XENUS_IMPORT void *    memscan(void *addr, l_int c, size_t size);
 
 XENUS_IMPORT uint64_t linux_page_to_pfn(page_k page);
 

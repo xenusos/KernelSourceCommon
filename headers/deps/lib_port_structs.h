@@ -1,8 +1,8 @@
 /*
-	Purpose: During compile time, this aids reading/writing to undefined structs with structural information that can only be provided at runtime.
-	unsupported arbitrary modifiers, types, and other characteristics across compilers, networks, and/or processes are often a pain to deal with.
-	Author: Reece W. (reece.sx)
-	License: All Rights Reserved (2018)  J. Reece Wilson. Released under the MIT License.
+    Purpose: During compile time, this aids reading/writing to undefined structs with structural information that can only be provided at runtime.
+    unsupported arbitrary modifiers, types, and other characteristics across compilers, networks, and/or processes are often a pain to deal with.
+    Author: Reece W. (reece.sx)
+    License: All Rights Reserved (2018)  J. Reece Wilson. Released under the MIT License.
 */
 #pragma once
 
@@ -10,14 +10,14 @@
 #define __H_LIB_PORT_STRUCTS__
 
 #if defined(_MSC_VER) && _MSC_VER && !defined(_INC_MALLOC) && defined(XENUS_BUILD)
-	//Xenus MSVC hack: _alloca is just an intrinsic function for sub rsp, x (plus clean up) - NOT APART OF MSCRT!
-	void * _alloca(size_t len);
-	#define alloca _alloca 
-	#define _INC_MALLOC 1
+    //Xenus MSVC hack: _alloca is just an intrinsic function for sub rsp, x (plus clean up) - NOT APART OF MSCRT!
+    void * _alloca(size_t len);
+    #define alloca _alloca 
+    #define _INC_MALLOC 1
  #endif
 
-#define __PS_OFFSET_OF(type, name)		            	    (size_t) ((((((&((type *)(NULL))->name))))))
-#define __PS_SIZEOF_MEM_OF(type, name)		        	    (size_t) sizeof(((type *)(NULL))->name)
+#define __PS_OFFSET_OF(type, name)                            (size_t) ((((((&((type *)(NULL))->name))))))
+#define __PS_SIZEOF_MEM_OF(type, name)                        (size_t) sizeof(((type *)(NULL))->name)
 
 #define PS_HEADER_GLOBAL_START typedef struct {
 #define PS_HEADER_GLOBAL_END } ps_global_t; XENUS_BEGIN_C XENUS_SYM_VAR ps_global_t ps_global; XENUS_END_C
@@ -38,11 +38,11 @@
                                                                                      ps_global.ps_type_ ## type_name.ps_member_ ## member_name.offset = __PS_OFFSET_OF(type, member);
 
 #if defined PS_EXPORTING
-	#define PS_SRC_FUNC_ADD_TYPE               __PS_SRC_FUNC_ADD_TYPE     
-	#define PS_SRC_FUNC_ADD_TYPE_MEMBER        __PS_SRC_FUNC_ADD_TYPE_MEMBER       
+    #define PS_SRC_FUNC_ADD_TYPE               __PS_SRC_FUNC_ADD_TYPE     
+    #define PS_SRC_FUNC_ADD_TYPE_MEMBER        __PS_SRC_FUNC_ADD_TYPE_MEMBER       
 #elif defined(PS_IMPORTING)
-	#define PS_SRC_FUNC_ADD_TYPE(x, y)
-	#define PS_SRC_FUNC_ADD_TYPE_MEMBER(x, y, z, a)
+    #define PS_SRC_FUNC_ADD_TYPE(x, y)
+    #define PS_SRC_FUNC_ADD_TYPE_MEMBER(x, y, z, a)
 #endif
 
 #define PS_HEADER_INIT_TYPE(type_name)\
@@ -158,73 +158,73 @@ static inline ssize_t type_name ## _get_ ## member ## _ssize_t(void * ptr)\
 
 
 #ifdef PS_EXPORTING
-	int ps_buffer_dump		(void * buffer, uint64_t size);
+    int ps_buffer_dump        (void * buffer, uint64_t size);
 #elif defined(PS_IMPORTING)
-	int ps_buffer_configure	(void * buffer, uint64_t length);
+    int ps_buffer_configure    (void * buffer, uint64_t length);
 #endif
-void	ps_initialize	(void);
-int		ps_buffer_length(void);
+void    ps_initialize    (void);
+int        ps_buffer_length(void);
 
-#define __PS_HEADER_MAGIC	*(uint64_t*)("PORTTYPE")
-#define __PS_LENGTH			sizeof(uint64_t) + sizeof(uint64_t) + sizeof(ps_global);
+#define __PS_HEADER_MAGIC    *(uint64_t*)("PORTTYPE")
+#define __PS_LENGTH            sizeof(uint64_t) + sizeof(uint64_t) + sizeof(ps_global);
 
 #ifdef PS_EXPORTING
-	#define PS_SRC_DEFINE_STUBS														 \
-		int ps_buffer_length()                                                       \
-		{                                                                            \
-		    return __PS_LENGTH;                                                      \
-		}                                                                            \
-		                                                                             \
-		int ps_buffer_dump(void * buffer, uint64_t size)                             \
-		{                                                                            \
-		    size_t min_size;                                                         \
-		                                                                             \
-		    min_size = __PS_LENGTH;                                                  \
-		                                                                             \
-		    if (min_size > size)                                                     \
-		        return 0;                                                            \
-		                                                                             \
-		    *((uint64_t*)buffer + 0) = __PS_HEADER_MAGIC;                            \
-		    *((uint64_t*)buffer + 1) = sizeof(ps_global);                            \
-		                                                                             \
-		    memcpy((void *)((uint64_t*)buffer + 2),                                  \
-		        (void *)&ps_global,                                                  \
-		        sizeof(ps_global));                                                  \
-		                                                                             \
-		    return 1;                                                                \
-		}
+    #define PS_SRC_DEFINE_STUBS                                                      \
+        int ps_buffer_length()                                                       \
+        {                                                                            \
+            return __PS_LENGTH;                                                      \
+        }                                                                            \
+                                                                                     \
+        int ps_buffer_dump(void * buffer, uint64_t size)                             \
+        {                                                                            \
+            size_t min_size;                                                         \
+                                                                                     \
+            min_size = __PS_LENGTH;                                                  \
+                                                                                     \
+            if (min_size > size)                                                     \
+                return 0;                                                            \
+                                                                                     \
+            *((uint64_t*)buffer + 0) = __PS_HEADER_MAGIC;                            \
+            *((uint64_t*)buffer + 1) = sizeof(ps_global);                            \
+                                                                                     \
+            memcpy((void *)((uint64_t*)buffer + 2),                                  \
+                (void *)&ps_global,                                                  \
+                sizeof(ps_global));                                                  \
+                                                                                     \
+            return 1;                                                                \
+        }
 
 #elif defined(PS_IMPORTING)
 
-	#define PS_SRC_DEFINE_STUBS														 \
-		int ps_buffer_length()                                                       \
-		{                                                                            \
-		    return __PS_LENGTH;                                                      \
-		}                                                                            \
-															                         \
-		int ps_buffer_configure(void * buffer, uint64_t length)	                     \
-		{                                                                            \
-		    size_t size;                                                             \
-		                                                                             \
-		    if (length == 0) return 1;                                               \
-		                                                                             \
-		    size = __PS_LENGTH;                                                      \
-		                                                                             \
-		    if (size > length)                                                       \
-		        return 0;                                                            \
-		                                                                             \
-		    if (*((uint64_t*)buffer + 0) != __PS_HEADER_MAGIC)                       \
-		        return 0;                                                            \
-		                                                                             \
-		    if (*((uint64_t*)buffer + 1) != sizeof(ps_global))                       \
-		        return 0;                                                            \
-		                                                                             \
-		    memcpy((void *)&ps_global,                                               \
-		        (void *)((uint64_t*)buffer + 2),                                     \
-		        sizeof(ps_global));                                                  \
-		                                                                             \
-		    return 1;                                                                \
-		}
+    #define PS_SRC_DEFINE_STUBS                                                      \
+        int ps_buffer_length()                                                       \
+        {                                                                            \
+            return __PS_LENGTH;                                                      \
+        }                                                                            \
+                                                                                     \
+        int ps_buffer_configure(void * buffer, uint64_t length)                      \
+        {                                                                            \
+            size_t size;                                                             \
+                                                                                     \
+            if (length == 0) return 1;                                               \
+                                                                                     \
+            size = __PS_LENGTH;                                                      \
+                                                                                     \
+            if (size > length)                                                       \
+                return 0;                                                            \
+                                                                                     \
+            if (*((uint64_t*)buffer + 0) != __PS_HEADER_MAGIC)                       \
+                return 0;                                                            \
+                                                                                     \
+            if (*((uint64_t*)buffer + 1) != sizeof(ps_global))                       \
+                return 0;                                                            \
+                                                                                     \
+            memcpy((void *)&ps_global,                                               \
+                (void *)((uint64_t*)buffer + 2),                                     \
+                sizeof(ps_global));                                                  \
+                                                                                     \
+            return 1;                                                                \
+        }
 #endif
 
 #endif //!__H_LIB_PORT_STRUCTS__

@@ -2,7 +2,7 @@
     Purpose: Dynamic buffers (this probably wont be used anymore)
     Author: Reece W.
     License: All Rights Reserved J. Reece Wilson
-	Depends: xenus.h
+    Depends: xenus.h
 */
 #pragma once
 

@@ -25,12 +25,12 @@ typedef void * dyn_list_ts_head_p;
 #else
 typedef struct dyn_list_ts_head_s
 {
-	uint32_t hash;
+    uint32_t hash;
     size_t item_sizeof;/* size of the data type*/
     size_t entries;    /* entries in list. items[entries - 1] = last entry */
     size_t item_slots; /* size of buffer = item_slots * item_sizeof        */
-	mutex_k mutex;
-	bool lock_cache;
+    mutex_k mutex;
+    bool lock_cache;
     void * buffer;
 } *dyn_list_ts_head_p, dyn_list_ts_head_t;
 #endif

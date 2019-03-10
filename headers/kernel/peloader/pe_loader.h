@@ -16,9 +16,9 @@ typedef void * pe_handle_h;
 // Loading
 ////////////////////////////////////////////////////////////////////////////////////////
 
-XENUS_SYM error_t pe_loader_preload_init(const void * buffer, size_t length, const char * module_name, pe_handle_h* handle);		// alloc buffers
-XENUS_SYM error_t pe_loader_preload_analyse(pe_handle_h handle);															     	// check pe FILE (not in memory image)
-XENUS_SYM error_t pe_loader_preload_load(pe_handle_h handle);															        	// 
+XENUS_SYM error_t pe_loader_preload_init(const void * buffer, size_t length, const char * module_name, pe_handle_h* handle);        // alloc buffers
+XENUS_SYM error_t pe_loader_preload_analyse(pe_handle_h handle);                                                                     // check pe FILE (not in memory image)
+XENUS_SYM error_t pe_loader_preload_load(pe_handle_h handle);                                                                        // 
  
 XENUS_SYM error_t pe_loader_load(const void * buffer, size_t length, const char * module_name, pe_handle_h* handle);
 XENUS_SYM error_t pe_loader_alias(const char * target, const char * dest);
@@ -35,31 +35,31 @@ XENUS_SYM error_t pe_loader_postload_config_reloc(pe_handle_h handle);
 
 typedef struct
 {
-	const char * module; 
-	bool is_str;
-	union
-	{
+    const char * module; 
+    bool is_str;
+    union
+    {
         const char * symbol;
-		int idx;
-	};
-	bool found;
+        int idx;
+    };
+    bool found;
     error_t error;
 } *iat_patch_entry_p, *iat_patch_entry_ref, iat_patch_entry_t;
 
 typedef struct
 {
-	size_t list_size;		    // to be populated by caller
-	iat_patch_entry_ref list;   // to be populated by caller
+    size_t list_size;           // to be populated by caller
+    iat_patch_entry_ref list;   // to be populated by caller
 
-	size_t entries_appended;    // to be populated by callee
-	size_t entries_total;	    // to be populated by callee
+    size_t entries_appended;    // to be populated by callee
+    size_t entries_total;       // to be populated by callee
 } *iat_patch_result_p, *iat_patch_result_ref,  iat_patch_result_t;
 
 
 XENUS_SYM error_t pe_loader_postload_iat_add_symbol_byname(pe_handle_h handle, const char * symbol, void * replacement);
-//XENUS_SYM error_t pe_loader_postload_iat_swap_module			(pe_handle_h handle, const char * original, const char * replacement); // use this to fix, for instance, windows drivers that depend on HAL when such functions are implemented else where (ntoskrnl)
-//XENUS_SYM error_t pe_loader_postload_iat_swap_symbol_byname		(pe_handle_h handle, const char * module,	const char * original, void *replacement); // or use this to redirect symbols
-//XENUS_SYM error_t pe_loader_postload_iat_swap_symbol_byordinal	(pe_handle_h handle, const char * module,   int ordinal,           void *replacement); // or use this to redirect symbols
+//XENUS_SYM error_t pe_loader_postload_iat_swap_module            (pe_handle_h handle, const char * original, const char * replacement); // use this to fix, for instance, windows drivers that depend on HAL when such functions are implemented else where (ntoskrnl)
+//XENUS_SYM error_t pe_loader_postload_iat_swap_symbol_byname     (pe_handle_h handle, const char * module,    const char * original, void *replacement); // or use this to redirect symbols
+//XENUS_SYM error_t pe_loader_postload_iat_swap_symbol_byordinal  (pe_handle_h handle, const char * module,   int ordinal,           void *replacement); // or use this to redirect symbols
 
 //implemented:
 XENUS_SYM error_t pe_loader_postload_get_iat_length(pe_handle_h handle, uint64_t * length);

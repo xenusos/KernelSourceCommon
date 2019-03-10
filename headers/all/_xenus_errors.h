@@ -11,9 +11,9 @@
 #define STATUSES_STATUSES <all\errors\statuses.macros>
 #include <deps/lib_statuses.h>
 
-#define STRICTLY_OKAY(x)		((x) == XENUS_OKAY)
-#define NO_ERROR(x)				((x) > 0)
-#define ERROR(x)				((x) < 0)
+#define STRICTLY_OKAY(x)        ((x) == XENUS_OKAY)
+#define NO_ERROR(x)             ((x) > 0)
+#define ERROR(x)                ((x) < 0)
 
 #define LINUX_ERROR(x) ((l_ulong)(void *)(x) >= (l_ulong)-4095)
 

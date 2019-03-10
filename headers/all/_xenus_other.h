@@ -7,5 +7,5 @@
 
 typedef __declspec(align(16)) struct chkstack_s
 {
-	uint64_t fuckmedotbat;
+    uint64_t fuckmedotbat;
 } chkstack_t;

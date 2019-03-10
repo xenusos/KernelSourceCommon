@@ -1,20 +1,20 @@
 /*
-	Purpose: Dynamic list
-	Author: Reece W.
-	License: All Rights Reserved J. Reece Wilson
-	Depends on: xenus.h
+    Purpose: Dynamic list
+    Author: Reece W.
+    License: All Rights Reserved J. Reece Wilson
+    Depends on: xenus.h
 */
 #pragma once
 
 
 #ifndef DYN_LIST_CONVERT
 #define DYN_LIST_CONVERT(type, name)\
-	(type *)(name->buffer)
+    (type *)(name->buffer)
 #endif 
 
 #ifndef DYN_LIST_CREATE
 #define DYN_LIST_CREATE(type)\
-	_dyn_list_create(sizeof(type))
+    _dyn_list_create(sizeof(type))
 #endif
 
 #ifndef KERNEL
@@ -22,11 +22,11 @@ typedef void * dyn_list_head_p;
 #else
 typedef struct dyn_list_head_s
 {
-	uint32_t hash;
-	size_t item_sizeof;/* size of the data type*/
-	size_t entries;    /* entries in list. items[entries - 1] = last entry */
-	size_t item_slots; /* size of buffer = item_slots * item_sizeof        */
-	void * buffer;
+    uint32_t hash;
+    size_t item_sizeof;/* size of the data type*/
+    size_t entries;    /* entries in list. items[entries - 1] = last entry */
+    size_t item_slots; /* size of buffer = item_slots * item_sizeof        */
+    void * buffer;
 } *dyn_list_head_p, dyn_list_head_t;
 #endif
 
