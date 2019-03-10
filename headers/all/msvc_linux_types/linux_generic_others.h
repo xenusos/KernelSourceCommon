@@ -26,9 +26,9 @@ typedef void * sysinfo_k;
 
 //typedef void * vm_struct_k;
 typedef struct vm_struct_unsafe {
-    struct vm_struct_unsafe    * next;
-    void                    * addr;
-    l_unsigned_long              size;
+    struct vm_struct_unsafe  * next;
+    void                     * addr;
+    l_unsigned_long            size;
 } *vm_struct_k;
 
 typedef sysv_fptr_t pte_fn_t;
@@ -91,53 +91,53 @@ struct callback_head {
 }/*__attribute__((aligned(sizeof(void *))));*/;
 
 
-typedef size_t                        __kernel_size_t;
-typedef ssize_t                        __kernel_ssize_t;
+typedef size_t                       __kernel_size_t;
+typedef ssize_t                      __kernel_ssize_t;
 typedef ptrdiff_t                    __kernel_ptrdiff_t;
 
-typedef l_long                        __kernel_long_t;
-typedef l_u_long                    __kernel_ulong_t;
+typedef l_long                       __kernel_long_t;
+typedef l_u_long                     __kernel_ulong_t;
 
-typedef __kernel_long_t                __kernel_off_t;
-typedef l_longlong                    __kernel_loff_t;
-typedef __kernel_long_t                __kernel_time_t;
-typedef __kernel_long_t                __kernel_clock_t;
+typedef __kernel_long_t              __kernel_off_t;
+typedef l_longlong                   __kernel_loff_t;
+typedef __kernel_long_t              __kernel_time_t;
+typedef __kernel_long_t              __kernel_clock_t;
 typedef l_int                        __kernel_timer_t;
 typedef l_int                        __kernel_clockid_t;
-typedef char *                        __kernel_caddr_t;
-typedef l_short                        __kernel_uid16_t;
-typedef l_short                        __kernel_gid16_t;
-typedef __kernel_long_t                __kernel_suseconds_t;
+typedef char *                       __kernel_caddr_t;
+typedef l_short                      __kernel_uid16_t;
+typedef l_short                      __kernel_gid16_t;
+typedef __kernel_long_t              __kernel_suseconds_t;
 typedef l_int                        __kernel_daddr_t;
-typedef l_uint                        __kernel_uid32_t;
-typedef l_uint                        __kernel_gid32_t;
-typedef l_uint                        __kernel_uid_t;
+typedef l_uint                       __kernel_uid32_t;
+typedef l_uint                       __kernel_gid32_t;
+typedef l_uint                       __kernel_uid_t;
 typedef l_int                        __kernel_pid_t;
-typedef l_uint                        __kernel_mode_t;
-typedef l_uint                        __kernel_gid_t;
+typedef l_uint                       __kernel_mode_t;
+typedef l_uint                       __kernel_gid_t;
 
 typedef l_int                        __kernel_ipc_pid_t;
 typedef l_int                        __kernel_key_t;
 typedef l_int                        __kernel_mqd_t;
-typedef __kernel_ulong_t            __kernel_ino_t;
-typedef u32                            __kernel_dev_t;
+typedef __kernel_ulong_t             __kernel_ino_t;
+typedef u32                          __kernel_dev_t;
 
 #define __FD_SETSIZE    1024
 typedef struct {
     unsigned long fds_bits[__FD_SETSIZE / (8 * sizeof(l_long))];
 } __kernel_fd_set;
 
-typedef __kernel_off_t                off_t;
-typedef __kernel_loff_t                loff_t;
+typedef __kernel_off_t              off_t;
+typedef __kernel_loff_t             loff_t;
 
-typedef __kernel_pid_t        pid_t;
-typedef __kernel_gid_t        gid_t;
+typedef __kernel_pid_t              pid_t;
+typedef __kernel_gid_t              gid_t;
 
 typedef __kernel_suseconds_t        suseconds_t;
-typedef __kernel_time_t                time_t;
+typedef __kernel_time_t             time_t;
 typedef __kernel_timer_t            timer_t;
 typedef __kernel_clock_t            clock_t;
-typedef __kernel_clockid_t            clockid_t;
+typedef __kernel_clockid_t          clockid_t;
 
 typedef __kernel_caddr_t            caddr_t;
 typedef __kernel_daddr_t            daddr_t;
@@ -145,16 +145,16 @@ typedef __kernel_daddr_t            daddr_t;
 typedef __kernel_uid32_t            uid32_t;
 typedef __kernel_gid32_t            gid32_t;
 
-typedef __kernel_mode_t                mode_t;
+typedef __kernel_mode_t             mode_t;
 typedef l_ushort                    umode_t;
 
-typedef u32                            nlink_t;
+typedef u32                         nlink_t;
 
-typedef __kernel_fd_set                fd_set;
-typedef __kernel_dev_t                dev_t;
-typedef __kernel_ino_t                ino_t;
-typedef __kernel_key_t                key_t;
-typedef __kernel_mqd_t                mqd_t;
+typedef __kernel_fd_set             fd_set;
+typedef __kernel_dev_t              dev_t;
+typedef __kernel_ino_t              ino_t;
+typedef __kernel_key_t              key_t;
+typedef __kernel_mqd_t              mqd_t;
 
 typedef __kernel_uid32_t            uid_t;
 typedef __kernel_gid32_t            gid_t;

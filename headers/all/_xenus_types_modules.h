@@ -5,12 +5,12 @@
 */
 #pragma once
 
-#if defined(HAS_PE_HANDLE)
+#if !defined(HAS_PE_HANDLE)
     #define HAS_PE_HANDLE
     typedef void * pe_handle_h;
 #endif
 
-#if defined(HAS_PL_HANDLE)
+#if !defined(HAS_PL_HANDLE)
     #define HAS_PL_HANDLE
     typedef void * plugin_handle_h;
 #endif

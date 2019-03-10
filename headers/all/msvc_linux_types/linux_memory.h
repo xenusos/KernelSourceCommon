@@ -14,29 +14,29 @@
 //#define GFP_ATOMIC    (__GFP_HIGH|__GFP_ATOMIC|__GFP_KSWAPD_RECLAIM)
 
 
-#define __GFP_DMA            0x01u
-#define __GFP_HIGHMEM        0x02u
-#define __GFP_DMA32            0x04u
-#define __GFP_MOVABLE        0x08u
-#define __GFP_RECLAIMABLE    0x10u
+#define __GFP_DMA             0x01u
+#define __GFP_HIGHMEM         0x02u
+#define __GFP_DMA32           0x04u
+#define __GFP_MOVABLE         0x08u
+#define __GFP_RECLAIMABLE     0x10u
 #define __GFP_HIGH            0x20u
-#define __GFP_IO            0x40u
-#define __GFP_FS            0x80u
-#define __GFP_NOWARN        0x200u
-#define __GFP_RETRY_MAYFAIL    0x400u
-#define __GFP_NOFAIL        0x800u
-#define __GFP_NORETRY        0x1000u
+#define __GFP_IO              0x40u
+#define __GFP_FS              0x80u
+#define __GFP_NOWARN          0x200u
+#define __GFP_RETRY_MAYFAIL   0x400u
+#define __GFP_NOFAIL          0x800u
+#define __GFP_NORETRY         0x1000u
 #define __GFP_MEMALLOC        0x2000u
 #define __GFP_COMP            0x4000u
 #define __GFP_ZERO            0x8000u
-#define __GFP_NOMEMALLOC    0x10000u
+#define __GFP_NOMEMALLOC      0x10000u
 #define __GFP_HARDWALL        0x20000u
 #define __GFP_THISNODE        0x40000u
-#define __GFP_ATOMIC        0x80000u
-#define __GFP_ACCOUNT        0x100000u
-#define __GFP_DIRECT_RECLAIM    0x400000u
-#define __GFP_WRITE            0x800000u
-#define __GFP_KSWAPD_RECLAIM    0x1000000u
+#define __GFP_ATOMIC          0x80000u
+#define __GFP_ACCOUNT         0x100000u
+#define __GFP_DIRECT_RECLAIM  0x400000u
+#define __GFP_WRITE           0x800000u
+#define __GFP_KSWAPD_RECLAIM  0x1000000u
 #ifdef CONFIG_LOCKDEP
 #define __GFP_NOLOCKDEP    0x2000000u
 #else
@@ -256,59 +256,59 @@
  */
 
 
-#define FOLL_WRITE    0x01    /* check pte is writable */
-#define FOLL_TOUCH    0x02    /* mark page accessed */
-#define FOLL_GET    0x04    /* do get_page on page */
-#define FOLL_DUMP    0x08    /* give error on hole if it would be zero */
-#define FOLL_FORCE    0x10    /* get_user_pages read/write w/o permission */
-#define FOLL_NOWAIT    0x20    /* if a disk transfer is needed, start the IO
+#define FOLL_WRITE     0x01       /* check pte is writable */
+#define FOLL_TOUCH     0x02       /* mark page accessed */
+#define FOLL_GET       0x04       /* do get_page on page */
+#define FOLL_DUMP      0x08       /* give error on hole if it would be zero */
+#define FOLL_FORCE     0x10       /* get_user_pages read/write w/o permission */
+#define FOLL_NOWAIT    0x20       /* if a disk transfer is needed, start the IO
  * and return without waiting upon it */
-#define FOLL_POPULATE    0x40    /* fault in page */
-#define FOLL_SPLIT    0x80    /* don't return transhuge pages, split them */
-#define FOLL_HWPOISON    0x100    /* check page is hwpoisoned */
-#define FOLL_NUMA    0x200    /* force NUMA hinting page fault */
-#define FOLL_MIGRATION    0x400    /* wait for page to replace migration entry */
-#define FOLL_TRIED    0x800    /* a retry, previous pass started an IO */
-#define FOLL_MLOCK    0x1000    /* lock present pages */
-#define FOLL_REMOTE    0x2000    /* we are working on non-current tsk/mm */
-#define FOLL_COW    0x4000    /* internal GUP flag */
+#define FOLL_POPULATE   0x40      /* fault in page */
+#define FOLL_SPLIT      0x80      /* don't return transhuge pages, split them */
+#define FOLL_HWPOISON   0x100     /* check page is hwpoisoned */
+#define FOLL_NUMA       0x200     /* force NUMA hinting page fault */
+#define FOLL_MIGRATION  0x400     /* wait for page to replace migration entry */
+#define FOLL_TRIED      0x800     /* a retry, previous pass started an IO */
+#define FOLL_MLOCK      0x1000    /* lock present pages */
+#define FOLL_REMOTE     0x2000    /* we are working on non-current tsk/mm */
+#define FOLL_COW        0x4000    /* internal GUP flag */
 
-#define VM_NONE        0x00000000
-
-#define VM_READ        0x00000001    /* currently active flags */
-#define VM_WRITE    0x00000002
-#define VM_EXEC        0x00000004
-#define VM_SHARED    0x00000008
+#define VM_NONE         0x00000000
+                        
+#define VM_READ         0x00000001    /* currently active flags */
+#define VM_WRITE        0x00000002
+#define VM_EXEC         0x00000004
+#define VM_SHARED       0x00000008
 
  /* mprotect() hardcodes VM_MAYREAD >> 4 == VM_READ, and so for r/w/x bits. */
-#define VM_MAYREAD    0x00000010    /* limits for mprotect() etc */
-#define VM_MAYWRITE    0x00000020
-#define VM_MAYEXEC    0x00000040
-#define VM_MAYSHARE    0x00000080
+#define VM_MAYREAD      0x00000010    /* limits for mprotect() etc */
+#define VM_MAYWRITE     0x00000020
+#define VM_MAYEXEC      0x00000040
+#define VM_MAYSHARE     0x00000080
 
 #define VM_GROWSDOWN    0x00000100    /* general info on the segment */
-#define VM_UFFD_MISSING    0x00000200    /* missing pages tracking */
-#define VM_PFNMAP    0x00000400    /* Page-ranges managed without "struct page", just pure PFN */
+#define VM_UFFD_MISSING 0x00000200    /* missing pages tracking */
+#define VM_PFNMAP       0x00000400    /* Page-ranges managed without "struct page", just pure PFN */
 #define VM_DENYWRITE    0x00000800    /* ETXTBSY on write attempts.. */
-#define VM_UFFD_WP    0x00001000    /* wrprotect pages tracking */
+#define VM_UFFD_WP      0x00001000    /* wrprotect pages tracking */
 
-#define VM_LOCKED    0x00002000
+#define VM_LOCKED       0x00002000
 #define VM_IO           0x00004000    /* Memory mapped I/O or similar */
 
  /* Used by sys_madvise() */
-#define VM_SEQ_READ    0x00008000    /* App will access data sequentially */
+#define VM_SEQ_READ     0x00008000    /* App will access data sequentially */
 #define VM_RAND_READ    0x00010000    /* App will not benefit from clustered reads */
 
-#define VM_DONTCOPY    0x00020000      /* Do not copy this vma on fork */
-#define VM_DONTEXPAND    0x00040000    /* Cannot expand with mremap() */
-#define VM_LOCKONFAULT    0x00080000    /* Lock the pages covered when they are faulted in */
-#define VM_ACCOUNT    0x00100000    /* Is a VM accounted object */
+#define VM_DONTCOPY     0x00020000    /* Do not copy this vma on fork */
+#define VM_DONTEXPAND   0x00040000    /* Cannot expand with mremap() */
+#define VM_LOCKONFAULT  0x00080000    /* Lock the pages covered when they are faulted in */
+#define VM_ACCOUNT      0x00100000    /* Is a VM accounted object */
 #define VM_NORESERVE    0x00200000    /* should the VM suppress accounting */
-#define VM_HUGETLB    0x00400000    /* Huge TLB Page VM */
-#define VM_SYNC        0x00800000    /* Synchronous page faults */
-#define VM_ARCH_1    0x01000000    /* Architecture-specific flag */
-#define VM_WIPEONFORK    0x02000000    /* Wipe VMA contents in child. */
-#define VM_DONTDUMP    0x04000000    /* Do not include in the core dump */
+#define VM_HUGETLB      0x00400000    /* Huge TLB Page VM */
+#define VM_SYNC         0x00800000    /* Synchronous page faults */
+#define VM_ARCH_1       0x01000000    /* Architecture-specific flag */
+#define VM_WIPEONFORK   0x02000000    /* Wipe VMA contents in child. */
+#define VM_DONTDUMP     0x04000000    /* Do not include in the core dump */
 
 #ifdef CONFIG_MEM_SOFT_DIRTY
 # define VM_SOFTDIRTY    0x08000000    /* Not soft dirty clean area */
@@ -318,8 +318,8 @@
 
 #define VM_MIXEDMAP    0x10000000    /* Can contain "struct page" and pure PFN pages */
 #define VM_HUGEPAGE    0x20000000    /* MADV_HUGEPAGE marked this vma */
-#define VM_NOHUGEPAGE    0x40000000    /* MADV_NOHUGEPAGE marked this vma */
-#define VM_MERGEABLE    0x80000000    /* KSM may merge identical pages */
+#define VM_NOHUGEPAGE  0x40000000    /* MADV_NOHUGEPAGE marked this vma */
+#define VM_MERGEABLE   0x80000000    /* KSM may merge identical pages */
 
 # define VM_GROWSUP    VM_NONE
 
@@ -351,26 +351,26 @@
  * low four bits) to a page protection mask..
  */
 
-#define FAULT_FLAG_WRITE    0x01    /* Fault was a write access */
-#define FAULT_FLAG_MKWRITE    0x02    /* Fault was mkwrite of existing pte */
-#define FAULT_FLAG_ALLOW_RETRY    0x04    /* Retry fault if blocking */
-#define FAULT_FLAG_RETRY_NOWAIT    0x08    /* Don't drop mmap_sem and wait when retrying */
-#define FAULT_FLAG_KILLABLE    0x10    /* The fault task is in SIGKILL killable region */
-#define FAULT_FLAG_TRIED    0x20    /* Second try */
-#define FAULT_FLAG_USER        0x40    /* The fault originated in userspace */
-#define FAULT_FLAG_REMOTE    0x80    /* faulting for non current tsk/mm */
-#define FAULT_FLAG_INSTRUCTION  0x100    /* The fault was during an instruction fetch */
+#define FAULT_FLAG_WRITE         0x01    /* Fault was a write access */
+#define FAULT_FLAG_MKWRITE       0x02    /* Fault was mkwrite of existing pte */
+#define FAULT_FLAG_ALLOW_RETRY   0x04    /* Retry fault if blocking */
+#define FAULT_FLAG_RETRY_NOWAIT  0x08    /* Don't drop mmap_sem and wait when retrying */
+#define FAULT_FLAG_KILLABLE      0x10    /* The fault task is in SIGKILL killable region */
+#define FAULT_FLAG_TRIED         0x20    /* Second try */
+#define FAULT_FLAG_USER          0x40    /* The fault originated in userspace */
+#define FAULT_FLAG_REMOTE        0x80    /* faulting for non current tsk/mm */
+#define FAULT_FLAG_INSTRUCTION   0x100   /* The fault was during an instruction fetch */
 
 #define FAULT_FLAG_TRACE \
-    { FAULT_FLAG_WRITE,            "WRITE" }, \
-    { FAULT_FLAG_MKWRITE,        "MKWRITE" }, \
-    { FAULT_FLAG_ALLOW_RETRY,    "ALLOW_RETRY" }, \
+    { FAULT_FLAG_WRITE,           "WRITE" }, \
+    { FAULT_FLAG_MKWRITE,         "MKWRITE" }, \
+    { FAULT_FLAG_ALLOW_RETRY,     "ALLOW_RETRY" }, \
     { FAULT_FLAG_RETRY_NOWAIT,    "RETRY_NOWAIT" }, \
     { FAULT_FLAG_KILLABLE,        "KILLABLE" }, \
-    { FAULT_FLAG_TRIED,            "TRIED" }, \
+    { FAULT_FLAG_TRIED,           "TRIED" }, \
     { FAULT_FLAG_USER,            "USER" }, \
-    { FAULT_FLAG_REMOTE,        "REMOTE" }, \
-    { FAULT_FLAG_INSTRUCTION,    "INSTRUCTION" }
+    { FAULT_FLAG_REMOTE,          "REMOTE" }, \
+    { FAULT_FLAG_INSTRUCTION,     "INSTRUCTION" }
 
 
 enum dma_data_direction {
@@ -390,18 +390,18 @@ enum tlb_flush_reason {
     NR_TLB_FLUSH_REASONS,
 };
 
-#define MNT_NOSUID    0x01
-#define MNT_NODEV    0x02
-#define MNT_NOEXEC    0x04
-#define MNT_NOATIME    0x08
+#define MNT_NOSUID        0x01
+#define MNT_NODEV         0x02
+#define MNT_NOEXEC        0x04
+#define MNT_NOATIME       0x08
 #define MNT_NODIRATIME    0x10
-#define MNT_RELATIME    0x20
-#define MNT_READONLY    0x40    /* does the user want this to be r/o? */
+#define MNT_RELATIME      0x20
+#define MNT_READONLY      0x40    /* does the user want this to be r/o? */
 
 #define MNT_SHRINKABLE    0x100
 #define MNT_WRITE_HOLD    0x200
 
-#define MNT_SHARED    0x1000    /* if the vfsmount is a shared mount */
+#define MNT_SHARED        0x1000    /* if the vfsmount is a shared mount */
 #define MNT_UNBINDABLE    0x2000    /* if the vfsmount is a unbindable mount */
 /*
 * MNT_SHARED_MASK is the set of flags that should be cleared when a
@@ -419,16 +419,16 @@ enum tlb_flush_reason {
 #define MNT_INTERNAL_FLAGS (MNT_SHARED | MNT_WRITE_HOLD | MNT_INTERNAL | \
                 MNT_DOOMED | MNT_SYNC_UMOUNT | MNT_MARKED)
 
-#define MNT_INTERNAL    0x4000
+#define MNT_INTERNAL      0x4000
 
-#define MNT_LOCK_ATIME        0x040000
-#define MNT_LOCK_NOEXEC        0x080000
-#define MNT_LOCK_NOSUID        0x100000
-#define MNT_LOCK_NODEV        0x200000
-#define MNT_LOCK_READONLY    0x400000
+#define MNT_LOCK_ATIME    0x040000
+#define MNT_LOCK_NOEXEC   0x080000
+#define MNT_LOCK_NOSUID   0x100000
+#define MNT_LOCK_NODEV    0x200000
+#define MNT_LOCK_READONLY 0x400000
 #define MNT_LOCKED        0x800000
 #define MNT_DOOMED        0x1000000
-#define MNT_SYNC_UMOUNT        0x2000000
+#define MNT_SYNC_UMOUNT   0x2000000
 #define MNT_MARKED        0x4000000
 #define MNT_UMOUNT        0x8000000
 

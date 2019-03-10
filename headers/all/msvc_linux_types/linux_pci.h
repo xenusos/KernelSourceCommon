@@ -1,58 +1,58 @@
 #pragma once
 
-#define PCI_REGION_FLAG_MASK    0x0fU    /* These bits of resource flags tell us the PCI region flags */
+#define PCI_REGION_FLAG_MASK         0x0fU    /* These bits of resource flags tell us the PCI region flags */
 
 
-#define PCIBIOS_SUCCESSFUL        0x00
-#define PCIBIOS_FUNC_NOT_SUPPORTED    0x81
+#define PCIBIOS_SUCCESSFUL           0x00
+#define PCIBIOS_FUNC_NOT_SUPPORTED   0x81
 #define PCIBIOS_BAD_VENDOR_ID        0x83
-#define PCIBIOS_DEVICE_NOT_FOUND    0x86
-#define PCIBIOS_BAD_REGISTER_NUMBER    0x87
-#define PCIBIOS_SET_FAILED        0x88
-#define PCIBIOS_BUFFER_TOO_SMALL    0x89
+#define PCIBIOS_DEVICE_NOT_FOUND     0x86
+#define PCIBIOS_BAD_REGISTER_NUMBER  0x87
+#define PCIBIOS_SET_FAILED           0x88
+#define PCIBIOS_BUFFER_TOO_SMALL     0x89
 
 #define BUS_NOTIFY_ADD_DEVICE        0x00000001 /* device added */
 #define BUS_NOTIFY_DEL_DEVICE        0x00000002 /* device removed */
-#define BUS_NOTIFY_BOUND_DRIVER        0x00000003 /* driver bound to device */
-#define BUS_NOTIFY_UNBIND_DRIVER    0x00000004 /* driver about to be
+#define BUS_NOTIFY_BOUND_DRIVER      0x00000003 /* driver bound to device */
+#define BUS_NOTIFY_UNBIND_DRIVER     0x00000004 /* driver about to be
                               unbound */
 #define BUS_NOTIFY_UNBOUND_DRIVER    0x00000005 /* driver is unbound
                               from the device */
 
-#define PCI_VGA_STATE_CHANGE_BRIDGE (1 << 0)
+#define PCI_VGA_STATE_CHANGE_BRIDGE  (1 << 0)
 #define PCI_VGA_STATE_CHANGE_DECODES (1 << 1)
 
 #define PCI_PM_D2_DELAY        200
-#define PCI_PM_D3_WAIT        10
-#define PCI_PM_D3COLD_WAIT    100
+#define PCI_PM_D3_WAIT         10
+#define PCI_PM_D3COLD_WAIT     100
 #define PCI_PM_BUS_WAIT        50
 
 
-#define PCI_IRQ_LEGACY        (1 << 0) /* Allow legacy interrupts */
-#define PCI_IRQ_MSI        (1 << 1) /* Allow MSI interrupts */
+#define PCI_IRQ_LEGACY      (1 << 0) /* Allow legacy interrupts */
+#define PCI_IRQ_MSI         (1 << 1) /* Allow MSI interrupts */
 #define PCI_IRQ_MSIX        (1 << 2) /* Allow MSI-X interrupts */
 #define PCI_IRQ_AFFINITY    (1 << 3) /* Auto-assign affinity */
 #define PCI_IRQ_ALL_TYPES \
     (PCI_IRQ_LEGACY | PCI_IRQ_MSI | PCI_IRQ_MSIX)
 
-//#define PCI_D0        0
-//#define PCI_D1        1
-//#define PCI_D2        2
+//#define PCI_D0           0
+//#define PCI_D1           1
+//#define PCI_D2           2
 //#define PCI_D3hot        3
-//#define PCI_D3cold    4
-//#define PCI_UNKNOWN    5
-//#define PCI_POWER_ERROR    -1
+//#define PCI_D3cold       4
+//#define PCI_UNKNOWN      5
+//#define PCI_POWER_ERROR  -1
 
 struct msix_entry {
     uint32_t    vector;    /* Kernel uses to write allocated vector */
-    uint16_t    entry;    /* Driver uses to specify entry, OS writes */ //TODO (Reece): check padding
+    uint16_t    entry;     /* Driver uses to specify entry, OS writes */ //TODO (Reece): check padding
 };
 
 enum pcie_bus_config_types {
-    PCIE_BUS_TUNE_OFF,    /* Don't touch MPS at all */
-    PCIE_BUS_DEFAULT,    /* Ensure MPS matches upstream bridge */
-    PCIE_BUS_SAFE,        /* Use largest MPS boot-time devices support */
-    PCIE_BUS_PERFORMANCE,    /* Use MPS and MRRS for best performance */
+    PCIE_BUS_TUNE_OFF,     /* Don't touch MPS at all */
+    PCIE_BUS_DEFAULT,      /* Ensure MPS matches upstream bridge */
+    PCIE_BUS_SAFE,         /* Use largest MPS boot-time devices support */
+    PCIE_BUS_PERFORMANCE,  /* Use MPS and MRRS for best performance */
     PCIE_BUS_PEER2PEER,    /* Set MPS = 128 for all devices */
 };
 
