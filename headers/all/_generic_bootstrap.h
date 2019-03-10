@@ -140,8 +140,8 @@ typedef struct
     
 
 #define STAGE_ZERO_ERR    (0 + 1)
-#define STAGE_ONE_ERR    (1 + 1)
-#define STAGE_TWO_ERR    (2 + 1)
-#define STAGE_THREE_ERR    (3 + 1)
+#define STAGE_ONE_ERR     (1 + 1)
+#define STAGE_TWO_ERR     (2 + 1)
+#define STAGE_THREE_ERR   (3 + 1)
 #define STAGE_FOUR_ERR    (4 + 1)
 #define STAGE_FIVE_ERR    (5 + 1)

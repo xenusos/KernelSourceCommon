@@ -6,15 +6,14 @@
 */
 #pragma once
 
-
 #ifndef DYN_LIST_CONVERT
-#define DYN_LIST_CONVERT(type, name)\
-    (type *)(name->buffer)
+    #define DYN_LIST_CONVERT(type, name)   \
+        (type *)(name->buffer)
 #endif 
 
 #ifndef DYN_LIST_CREATE
-#define DYN_LIST_CREATE(type)\
-    _dyn_list_create(sizeof(type))
+    #define DYN_LIST_CREATE(type)          \
+        _dyn_list_create(sizeof(type))
 #endif
 
 #ifndef KERNEL

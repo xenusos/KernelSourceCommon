@@ -1,7 +1,11 @@
+/*
+    Purpose:
+    Author: Reece W.
+    License: All Rights Reserved J. Reece Wilson
+*/
 #pragma once
 
-
-#define XENUS_HASHCODE_ALLOCATOR     0x33221155
+#define XENUS_HASHCODE_ALLOCATOR      0x33221155
 
 #define XENUS_HASHCODE_DYNBUF         0x1DEAD101    // !DEAD1[n]
 #define XENUS_HASHCODE_LIST_DYN       0x1DEAD102    // !DEAD1[n]

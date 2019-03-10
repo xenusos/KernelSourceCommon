@@ -1,3 +1,8 @@
+/*
+    Purpose:
+    Author: Reece W.
+    License: All Rights Reserved J. Reece Wilson
+*/
 #include <xenus.h>
 
 #include <subsys/osapi/os_api.h>

@@ -1,3 +1,8 @@
+/*
+    Purpose: 
+    Author: Reece W.
+    License: All Rights Reserved J. Reece Wilson
+*/
 #if !(defined(XENUS_BUILD))
     #error XENUS_BUILD must be defined
 #endif

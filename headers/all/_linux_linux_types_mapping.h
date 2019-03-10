@@ -1,3 +1,9 @@
+/*
+    Purpose:
+    Author: Reece W.
+    License: All Rights Reserved J. Reece Wilson
+*/
+
 typedef struct cpumask *  cpumask_k;
 typedef void *            unknown_k;
 
