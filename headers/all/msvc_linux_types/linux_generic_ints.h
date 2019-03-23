@@ -8,12 +8,12 @@
 
 // Atomic words
 
-typedef __declspec(align(8)) struct // force struct alignment, if retardly placed into a packed struct
+typedef __declspec(align(8)) struct // force struct alignment, if dumbly placed into a packed struct
 {
     uint64_t  counter;
 } atomic64_t;
 
-typedef __declspec(align(4)) struct // force struct alignment, if retardly placed into a packed struct
+typedef __declspec(align(4)) struct // force struct alignment, if dumbly placed into a packed struct
 {
     uint32_t  counter;
 } atomic32_t, atomic_t;

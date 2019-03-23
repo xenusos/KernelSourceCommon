@@ -443,3 +443,49 @@ enum tlb_flush_reason {
 //    return ((void *)((unsigned long)(address) + page_offset_base));
 //}
 //
+
+
+
+#define VM_FAULT_OKAY 0
+
+#define VM_FAULT_OOM	        0x0001
+#define VM_FAULT_SIGBUS	        0x0002
+#define VM_FAULT_MAJOR	        0x0004
+#define VM_FAULT_WRITE	        0x0008	/* Special case for get_user_pages */
+#define VM_FAULT_HWPOISON       0x0010	/* Hit poisoned small page */
+#define VM_FAULT_HWPOISON_LARGE 0x0020  /* Hit poisoned large page. Index encoded in upper bits */
+#define VM_FAULT_SIGSEGV        0x0040
+
+#define VM_FAULT_NOPAGE	        0x0100	/* ->fault installed the pte, not return page */
+#define VM_FAULT_LOCKED	        0x0200	/* ->fault locked the returned page */
+#define VM_FAULT_RETRY	        0x0400	/* ->fault blocked, must retry */
+#define VM_FAULT_FALLBACK       0x0800	/* huge page fault failed, fall back to small */
+#define VM_FAULT_DONE_COW       0x1000	/* ->fault has fully handled COW */
+
+#define VM_FAULT_HWPOISON_LARGE_MASK 0xf000 /* encodes hpage index for large hwpoison */
+
+#define VM_FAULT_ERROR	(VM_FAULT_OOM | VM_FAULT_SIGBUS | VM_FAULT_SIGSEGV | \
+			 VM_FAULT_HWPOISON | VM_FAULT_HWPOISON_LARGE | \
+			 VM_FAULT_FALLBACK)
+
+
+#define FAULT_FLAG_WRITE	0x01	/* Fault was a write access */
+#define FAULT_FLAG_MKWRITE	0x02	/* Fault was mkwrite of existing pte */
+#define FAULT_FLAG_ALLOW_RETRY	0x04	/* Retry fault if blocking */
+#define FAULT_FLAG_RETRY_NOWAIT	0x08	/* Don't drop mmap_sem and wait when retrying */
+#define FAULT_FLAG_KILLABLE	0x10	/* The fault task is in SIGKILL killable region */
+#define FAULT_FLAG_TRIED	0x20	/* Second try */
+#define FAULT_FLAG_USER		0x40	/* The fault originated in userspace */
+#define FAULT_FLAG_REMOTE	0x80	/* faulting for non current tsk/mm */
+#define FAULT_FLAG_INSTRUCTION  0x100	/* The fault was during an instruction fetch */
+
+#define FAULT_FLAG_TRACE \
+	{ FAULT_FLAG_WRITE,		"WRITE" }, \
+	{ FAULT_FLAG_MKWRITE,		"MKWRITE" }, \
+	{ FAULT_FLAG_ALLOW_RETRY,	"ALLOW_RETRY" }, \
+	{ FAULT_FLAG_RETRY_NOWAIT,	"RETRY_NOWAIT" }, \
+	{ FAULT_FLAG_KILLABLE,		"KILLABLE" }, \
+	{ FAULT_FLAG_TRIED,		"TRIED" }, \
+	{ FAULT_FLAG_USER,		"USER" }, \
+	{ FAULT_FLAG_REMOTE,		"REMOTE" }, \
+	{ FAULT_FLAG_INSTRUCTION,	"INSTRUCTION" }

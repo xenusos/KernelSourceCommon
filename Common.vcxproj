@@ -123,6 +123,7 @@
     <ClInclude Include="headers\subsys\osapi\os_generated.h" />
     <ClInclude Include="headers\subsys\osapi\os_gup.h" />
     <ClInclude Include="headers\subsys\osapi\os_iomap.h" />
+    <ClInclude Include="headers\subsys\osapi\os_ioremap.h" />
     <ClInclude Include="headers\subsys\osapi\os_kmap.h" />
     <ClInclude Include="headers\subsys\osapi\os_KNIFE.h" />
     <ClInclude Include="headers\subsys\osapi\os_linuxclass.h" />
@@ -135,6 +136,7 @@
     <ClInclude Include="headers\subsys\osapi\os_mmutils.h" />
     <ClInclude Include="headers\subsys\osapi\os_modcore.h" />
     <ClInclude Include="headers\subsys\osapi\os_mountspacenamespace.h" />
+    <ClInclude Include="headers\subsys\osapi\os_mprotect.h" />
     <ClInclude Include="headers\subsys\osapi\os_namei.h" />
     <ClInclude Include="headers\subsys\osapi\os_open.h" />
     <ClInclude Include="headers\subsys\osapi\os_pid.h" />

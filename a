@@ -1,0 +1,115 @@
+Reece W (68):
+      Add exitcode support on thread exit, add assert macro
+      updates
+      Add sched core functions
+      Start working on syscall support
+      dont assume page shift - query kernel information
+      Rework how statuses and errors are defined
+      * should have been included in the last commit
+      Syscall and xlib type stuffs
+      fix compliation warnings
+      linux devfs and class headers
+      const warning
+      Types related to devfs
+      const stuff
+      update vcxproj
+      i dont even care anymore just fucking push all the work at once
+      Add sizet to portable types
+      Rework dynamic callback macros
+      Add additional kernel symbols related to memory management
+      read only kernel_usage - implement getter
+      use zalloc over calloc
+      fwd declare zalloc
+      be nice
+      syscall shit
+      Moar stubs, signal header, etc
+      Add IOMAP stubs, add hacky linux_page_to_pfn util function
+      update config for delegated calls options portable types update more errors
+      Add singleshot external thread exit callbacks + portable types update
+      Update error names
+      More stubs, update kernel information
+      More stubs, change attention logic
+      iponujgrdsgfxnmjikop[jkmnplo;fvdsx\njikgdfzn klfdsg\kjnjkgxs\df nkjl
+      ?
+      Add object dead error
+      convention update: boot stage macros
+      1: begin updating pe loader
+      2: \/
+      3: \/
+      4 \/
+      Typo
+      5 \// AHH i fucked up badly
+      6 \/
+      7 \/
+      8
+      missing linux page defs
+      semaphores
+      Add iteration helper for dynamic lists
+      update dyn list api
+      add out of range error
+      Add another semaphore error
+      Update memory api, add linux networking, and dynamic lists api
+      Add not mapped error
+      Remove delegated calls
+      include libcompiler within subsystem.hpp
+      add timeout stubs
+      Add shutdown handlers, begin fixup OS info
+      1.
+      Begin to hide potentially dangerous defintions
+      f
+      Panic noreturn
+      Export thread clean up [as an unsafe api]
+      Extend assertation macro / prefix message with function, file, and line
+      Update config: APC stack page count = 6
+      Committing random stuff (no real work / changes)
+      .
+      Update common headers
+      Begin the great untabification
+      More untabification
+      More untabification
+
+Reece Wilson (43):
+      Initial Commit
+      Updated SDK
+      Update.
+      Add support for the WinSDK to be used
+      add size checking to entrypoint struct
+      Kernel d520953121dd58ba1579b4cfdb723ac8a740fe77
+      KERNEL 2dd5b90bf0ea58764aed12abe8f20e107a8a30f7
+      72e7e2cc3de4c94be62f6122fa79bb49e090cb1b
+      Begin work on LibLinux
+      Add liblinux errors
+      Begin work on FIO
+      Kernel 438100c554107314a8c5f5e894fd9aba86c1bf2f, LibLinux 5cf0c4be0d0e6b5fc34b74eb998077f5e72482d4
+      kernel - 253cbafe40f2670e372a622c9f635f12805d7dc7, lib linux - bbe622625372df1aaec8fd180a68677fe74c49f6
+      k 086237778a06219c18d648f1246e4abc24adb3f5
+      idk
+      Kernel - 95178dae7e60733ed3848d66ad813c97f09995c9, Bootstrap - 123e82051c4ebe81ee4ef234f0d9d91e1b14e77e, PortableStructsGen - 162a2dbd00def4f2b1a63281f7699fd398f9edda, LibLinux - update in progress
+      update portable structs
+      I guess, can I call this, 0.0.1? Everything we need to start implementing NTOS is pretty much already here!
+      Begin to rework this fuckfest that was designed and was originally implemented before i knew what the fuck i was doing
+      fix atomic int
+      Restructure
+      Kernel - 800038f8018430c49e4f20926cf0513fc1478cc2 Linux - 578a225132f9213da7efecc03f9d50694f8e86dd
+      Update project
+      Kernel - c42526a477a23ba1ecb406f634525eb876df1eff
+      Kernel - e4a39eb16a1899cca12999af2bcbe0f6da9e35cb
+      unfuck.bat
+      Bootstrap - 876a78df95b18fac95929259490f933687975993 Kernel - 7e2a28afa9543fb5ca1ec42125344652ec6e89ce LibCompiler - e48de7e04be7d3562769592bceae434026d262e4 LibOS - 50caf3ae64b1d8037b12ff9928d062c5b3522272 LibOSType - 16dab717e9e769c9c1ebcdbb47a4bcf145945210
+      Update notsostdarg
+      Remove ifdefs in favour of if defined()
+      Nuke deprecated symbol
+      Restructure
+      Kernel - 373b306bb370fa2a80d29a6678cf5efcee9a8ac1
+      Shit.... Some linux header is included before thread types, attempts to load xenus.h, fails, and can't load any xenus thread datatypes
+      6d4ca6e3e00e21c849568777dc75b9a2bfbdfed3
+      Update
+      add kstat types
+      prevent user pointers being confused with kernel pointers
+      Add additional thread parameter
+      moar os apis
+      ????
+      ???
+      invalid machine error
+      Readd systemx magic checking
+

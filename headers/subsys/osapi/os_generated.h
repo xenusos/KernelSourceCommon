@@ -23,7 +23,6 @@
 #include "os_signal.h"
 #include "os_gup.h"
 #include "os_iomap.h"
-#include "os_xenus_memex.h"
 #include "os_mempolicy.h"
 #include "os_alloc_pages.h"
 #include "os_vmalloc.h"
@@ -32,3 +31,5 @@
 #include "os_map_hack.h"
 #include "os_KNIFE.h"
 #include "os_file_table.h"
+#include "os_mprotect.h"
+#include "os_ioremap.h"

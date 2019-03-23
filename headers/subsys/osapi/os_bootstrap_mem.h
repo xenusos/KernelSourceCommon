@@ -20,8 +20,9 @@ XENUS_IMPORT void   vfree(void * ptr);
 XENUS_IMPORT void *    memcpy(void * dest, const void * src, size_t length);
 XENUS_IMPORT void *    memset(void * dest, int c, size_t length);
 XENUS_IMPORT void *    memmove(void *dest, const void *src, size_t count);
-XENUS_IMPORT int    memcmp(const void *cs, const void *ct, size_t count);
+XENUS_IMPORT int       memcmp(const void *cs, const void *ct, size_t count);
 XENUS_IMPORT void *    memscan(void *addr, l_int c, size_t size);
 
 XENUS_IMPORT uint64_t linux_page_to_pfn(page_k page);
+XENUS_IMPORT page_k   linux_pfn_to_page(uint64_t pfn);
 

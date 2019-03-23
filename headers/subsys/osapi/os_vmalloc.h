@@ -16,3 +16,4 @@ XENUS_IMPORT l_int remap_vmalloc_range_partial(vm_area_struct_k vma, l_unsigned_
 XENUS_IMPORT l_int remap_vmalloc_range(vm_area_struct_k vma, void * addr, l_unsigned_long pgoff);
 XENUS_IMPORT vm_struct_k alloc_vm_area(size_t size, pte_t ** ptes);
 XENUS_IMPORT void free_vm_area(vm_struct_k area);
+XENUS_IMPORT l_int map_kernel_range_noflush(l_unsigned_long addr, l_unsigned_long size, pgprot_t prot, page_k * pages);

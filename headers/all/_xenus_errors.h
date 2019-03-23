@@ -15,7 +15,7 @@
 #define NO_ERROR(x)             ((x) > 0)
 #define ERROR(x)                ((x) < 0)
 
-#define LINUX_ERROR(x) ((l_ulong)(void *)(x) >= (l_ulong)-4095)
-
+#define LINUX_PTR_ERROR(x) ((l_ulong)(void *)(x) >= (l_ulong)-4095)
+#define LINUX_INT_ERROR(x) (x < 0)
 
 #define ASSERT(n, msg, ...) {if (!(n)) {panicf("ASSERTION FAILED at " __FUNCTION__ ", %s (%i) \r\n " msg " \r\n", __FILE__, __LINE__, __VA_ARGS__);}}
