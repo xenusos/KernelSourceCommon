@@ -18,6 +18,8 @@ typedef struct thread_index_counter_s
 typedef void * thread_index_counter_p;
 #endif
 
+typedef void(* thread_enter_cpu_p)(void);
+
 XENUS_SYM uint32_t    thread_geti();
 
 static const uint64_t TLS_TYPE_GENERIC       = 0;
@@ -58,9 +60,12 @@ XENUS_SYM void        thread_preempt_unlock();  // preemption stuff
 XENUS_SYM error_t     thread_create(task_k *, thread_callback_t callback, void * data, const  char * name, bool run);
 
 
+XENUS_SYM void thread_set_on_cpu_cb(thread_enter_cpu_p callback);
+
 // lock fpu down - to be used in callbacks only - unless you know what you're doing.  
 XENUS_SYM bool thread_fpu_lock();
 XENUS_SYM bool thread_fpu_unlock();
+XENUS_SYM void thread_on_cpu();
 
 // 
 XENUS_SYM void thread_pre_context_switch_hook(pre_context_switch_cb_t);      //

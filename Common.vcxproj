@@ -83,7 +83,9 @@
     <ClInclude Include="headers\all\_xenus_types_modules.h" />
     <ClInclude Include="headers\deps\lib_port_structs.h" />
     <ClInclude Include="headers\deps\lib_statuses.h" />
+    <ClInclude Include="headers\kernel\libx\xenus_bst.h" />
     <ClInclude Include="headers\kernel\libx\xenus_chain.h" />
+    <ClInclude Include="headers\kernel\libx\xenus_csv.h" />
     <ClInclude Include="headers\kernel\libx\xenus_dbg.h" />
     <ClInclude Include="headers\kernel\libx\xenus_dynbuffer.h" />
     <ClInclude Include="headers\kernel\libx\xenus_dynbuffer_ts.h" />

@@ -52,6 +52,7 @@ typedef struct xenus_syscall_s
     uint64_t arg_bravo;
     uint64_t arg_charlie;
     uint64_t arg_delta;
+    uint64_t arg_echo;
     uint64_t response;    
 } * xenus_syscall_p,
   * xenus_syscall_ref,
@@ -97,7 +98,7 @@ typedef int     (XENUS_MS_ABI *thread_callback_t)              (void * data);
 
 #if defined(KERNEL) || defined(XENUS_PLATFORM_LINUX_KERNEL) 
     typedef void   (XENUS_MS_ABI *xenus_attention_krn_cb_t)(uint8_t, pt_regs_p registers);
-    typedef size_t (XENUS_MS_ABI *xenus_attention_usr_cb_t)(uint8_t, size_t arg_alpha, size_t arg_bravo, size_t arg_charlie, size_t arg_delta);
+    typedef size_t (XENUS_MS_ABI *xenus_attention_usr_cb_t)(uint8_t, size_t arg_alpha, size_t arg_bravo, size_t arg_charlie, size_t arg_delta, size_t arg_echo);
 
     typedef struct
     {

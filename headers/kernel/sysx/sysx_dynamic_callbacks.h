@@ -15,18 +15,19 @@
 #define SYSV_FN(name)                                               not_callable_##name
 
 #define DEFINE_SYSV_FUNCTON_START(name, rettype)                    rettype SYSV_FN(name)(
-#define DEFINE_SYSV_FUNCTON_END_DEF(name, rettype)                    void * ____thisptr, uint64_t ___magic) {                                                                        \
-                                                                        chkstack_t __n;                                                                                             \
-                                                                        bool __mgn_fpu = false;                                                                                     \
-                                                                                                                                                                                    \
-                                                                        if (((size_t)(&__n) % 16) != 0)                                                                             \
-                                                                            panic("Xenus: not aligned " __FUNCTION__);                                                              \
-                                                                                                                                                                                    \
-                                                                        if ((___magic != SYSV_MAGIC_ALIGNED) && (___magic != SYSV_MAGIC_UNALIGNED))                                 \
-                                                                            panicf("ILLEGAL SYSTEMV FUNCTION CALL - " #name " - CHECK FUNCTION DEFINTION AND PARAMETER COUNT. MAGIC: %zx", ___magic);      \
-                                                                                                                                                                                    \
-                                                                        __mgn_fpu  = thread_fpu_lock();
-
+#define DEFINE_SYSV_FUNCTON_END_DEF(name, rettype)                    void * ____thisptr, uint64_t ___magic) {                                                                                           \
+                                                                        chkstack_t __n;                                                                                                                  \
+                                                                        bool __mgn_fpu = false;                                                                                                          \
+                                                                                                                                                                                                         \
+                                                                        if (((size_t)(&__n) % 16) != 0)                                                                                                  \
+                                                                            panic("Xenus: not aligned " __FUNCTION__);                                                                                   \
+                                                                                                                                                                                                         \
+                                                                        if ((___magic != SYSV_MAGIC_ALIGNED) && (___magic != SYSV_MAGIC_UNALIGNED))                                                      \
+                                                                            panicf("ILLEGAL SYSTEMV FUNCTION CALL - " #name " - CHECK FUNCTION DEFINTION AND PARAMETER COUNT. MAGIC: %zx", ___magic);    \
+                                                                                                                                                                                                         \
+                                                                        __mgn_fpu  = thread_fpu_lock();                                                                                                  \
+                                                                        thread_on_cpu();
+                                                                                                                                                                                                         
 #define DEFINE_SYSV_END                                               if (__mgn_fpu) thread_fpu_unlock(); }
 #define SYSV_FUNCTON_RETURN(r)                                        { if (__mgn_fpu) thread_fpu_unlock(); return (r); }
 

@@ -18,4 +18,6 @@ XENUS_BEGIN_C
 #include <kernel/libx/xenus_list_dyn_ts.h>
 #include <kernel/libx/xenus_list_linked.h>
 #include <kernel/libx/xenus_dbg.h> 
+#include <kernel/libx/xenus_csv.h> 
+#include <kernel/libx/xenus_bst.h>
 XENUS_END_C
