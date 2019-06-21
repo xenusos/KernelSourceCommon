@@ -1,7 +1,7 @@
 #pragma once
 
 typedef struct rb_node {
-    unsigned long  __rb_parent_color;
+    unsigned long  __rb_parent_color; // not free of pointers. struct randomization safe
     struct rb_node *rb_right;
     struct rb_node *rb_left;
 } *rb_node_k;

@@ -34,3 +34,4 @@
 #include "os_mprotect.h"
 #include "os_ioremap.h"
 #include "os_pat.h"
+#include "os_cpu.h"

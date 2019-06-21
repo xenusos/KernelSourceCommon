@@ -46,6 +46,7 @@
 
 
 #define BOOTSTRAP_DLL "/Xenus/Kernel/Kernel.xdll"
+#define BOOTSTRAP_CSV "/Xenus/Kernel/BootModules.csv"
 
 #define TGT_KRN_LINUX 1
 

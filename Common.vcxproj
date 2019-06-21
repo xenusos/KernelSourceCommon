@@ -118,6 +118,7 @@
     <ClInclude Include="headers\subsys\osapi\os_bootstrap_str.h" />
     <ClInclude Include="headers\subsys\osapi\os_bootstrap_syms.h" />
     <ClInclude Include="headers\subsys\osapi\os_chardev.h" />
+    <ClInclude Include="headers\subsys\osapi\os_cpu.h" />
     <ClInclude Include="headers\subsys\osapi\os_dcache.h" />
     <ClInclude Include="headers\subsys\osapi\os_driversbasecore.h" />
     <ClInclude Include="headers\subsys\osapi\os_file_table.h" />
