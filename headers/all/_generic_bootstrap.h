@@ -87,6 +87,7 @@ typedef struct
     thread_storage_data_p(* tls)         (void);
 
     void(*preempt_enable)                (void);
+    void(*preempt_enable_reseched)       (void);
     void(*preempt_disable)               (void);
     
 } bootstrap_cpu_t;
