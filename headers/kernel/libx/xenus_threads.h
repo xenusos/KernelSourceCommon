@@ -23,9 +23,9 @@ typedef void(* thread_enter_cpu_p)(void);
 XENUS_SYM uint32_t    thread_geti();
 
 static const uint64_t TLS_TYPE_GENERIC       = 0;
-static const uint64_t TLS_TYPE_GENERIC_1   = 0;
-static const uint64_t TLS_TYPE_GENERIC_2   = 1;
-static const uint64_t TLS_TYPE_GENERIC_3   = 2;
+static const uint64_t TLS_TYPE_GENERIC_1     = 0;
+static const uint64_t TLS_TYPE_GENERIC_2     = 1;
+static const uint64_t TLS_TYPE_GENERIC_3     = 2;
 static const uint64_t TLS_TYPE_XIP           = 3;        // INTERNAL LIB LINUX THING - DO NOT USE THIS!
 static const uint64_t TLS_TYPE_XGLOBAL       = 4;        // INTERNAL LIB LINUX THING - DO NOT USE THIS!
 #define TLS_MAX_TYPE  TLS_TYPE_XGLOBAL
