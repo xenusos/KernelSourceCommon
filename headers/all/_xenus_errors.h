@@ -12,8 +12,8 @@
 #include <deps/lib_statuses.h>
 
 #define STRICTLY_OKAY(x)        ((x) == XENUS_OKAY)
-#define NO_ERROR(x)             ((x) > 0)
-#define ERROR(x)                ((x) < 0)
+#define NO_ERROR(x)             ((x) >= XENUS_OKAY)
+#define ERROR(x)                ((x) < XENUS_OKAY)
 
 #define LINUX_PTR_ERROR(x) ((l_ulong)(void *)(x) >= (l_ulong)-4095)
 #define LINUX_INT_ERROR(x) (x < 0)
