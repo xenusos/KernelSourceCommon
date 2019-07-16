@@ -127,7 +127,7 @@ XENUS_BEGIN_C
     #if defined(KERNEL)
         // BAD - BAD - BAD
         #pragma message("including portable structs header within Kernel.XDLL. This is required, but you shouldn't see this message often assuming nobody fucked up")
-        #include "access_system.h" 
+        #include <boot\access_system.h> 
         #include "kernel\libx\xenus_memory.h" 
     #elif (defined(XENUS_BUILD) && !defined(KERNEL))
         // BAD - BAD - BAD
