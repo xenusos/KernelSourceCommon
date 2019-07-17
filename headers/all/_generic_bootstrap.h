@@ -1,7 +1,7 @@
 /*
     Purpose: Bootstrapped functions of the Linux Kernel for IO and general operations within the Xenos Kernel
     Author: Reece W.
-    License: All Rights Reserved J. Reece Wilson
+    License: All Rights Reserved J. Reece Wilson (See License.txt)
     Depends on: xenus.h, xenus_types_kernel_(.*).h
 */
 #pragma once

@@ -1,7 +1,7 @@
 /*
     Purpose: 
     Author: Reece W.
-    License: All Rights Reserved J. Reece Wilson
+    License: All Rights Reserved J. Reece Wilson (See License.txt)
 */
 #if !(defined(XENUS_BUILD))
     #error XENUS_BUILD must be defined

@@ -1,7 +1,7 @@
 /*
     Purpose: general purpose xenus kernel header for the bootstrap, linux kernel, xenus kernel, and all subsequent plugins/subsystems
     Author: Reece W.
-    License: All Rights Reserved J. Reece Wilson
+    License: All Rights Reserved J. Reece Wilson (See License.txt)
 */
 #pragma once
 #ifndef _H_XENUS

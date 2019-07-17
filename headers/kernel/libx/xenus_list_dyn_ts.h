@@ -1,7 +1,7 @@
 /*
     Purpose: Thread safe dynamic list
     Author: Reece W.
-    License: All Rights Reserved J. Reece Wilson
+    License: All Rights Reserved J. Reece Wilson (See License.txt)
     Depends on: xenus.h
 */
 #pragma once

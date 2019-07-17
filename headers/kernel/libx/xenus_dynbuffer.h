@@ -1,7 +1,7 @@
 /*
     Purpose: Dynamic buffers (this probably wont be used anymore)
     Author: Reece W.
-    License: All Rights Reserved J. Reece Wilson
+    License: All Rights Reserved J. Reece Wilson (See License.txt)
     Depends: xenus.h
 */
 #pragma once
