@@ -40,4 +40,4 @@ typedef struct linked_list_entry_s
 XENUS_SYM linked_list_head_p linked_list_create();
 XENUS_SYM linked_list_entry_p linked_list_append(linked_list_head_p head, size_t buf_len);    // O(1)
 XENUS_SYM error_t linked_list_remove(linked_list_entry_p entry);                              // O(1)
-XENUS_SYM error_t linked_list_destory(linked_list_head_p head);
+XENUS_SYM error_t linked_list_destroy(linked_list_head_p head);

@@ -48,7 +48,7 @@ error_t inline        thread_tls_deallocate_hash(uint64_t hash)                 
 error_t inline        thread_tls_deallocate_handle(void * handle)                                                 {    return _thread_tls_deallocate_handle(handle); }
 
 XENUS_SYM error_t     thread_indexing_create(uint_t max_threads, thread_index_counter_p * tic);
-XENUS_SYM error_t     thread_indexing_destory(thread_index_counter_p tic);
+XENUS_SYM error_t     thread_indexing_destroy(thread_index_counter_p tic);
 XENUS_SYM error_t     thread_indexing_register(thread_index_counter_p tic);
 XENUS_SYM error_t     thread_indexing_get(thread_index_counter_p tic, size_t * index);
 

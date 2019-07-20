@@ -58,6 +58,6 @@ XENUS_SYM error_t dyn_list_ts_splice(dyn_list_ts_head_p head, size_t index, void
 XENUS_SYM error_t dyn_list_ts_remove(dyn_list_ts_head_p head, size_t index);
 
 // DESTRUCTION
-XENUS_SYM error_t dyn_list_ts_destory(dyn_list_ts_head_p head);
+XENUS_SYM error_t dyn_list_ts_destroy(dyn_list_ts_head_p head);
 // INTERNAL CONSTRUCTOR 
 XENUS_SYM dyn_list_ts_head_p _dyn_list_ts_create(size_t length);

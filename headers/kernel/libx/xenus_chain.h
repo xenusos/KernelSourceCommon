@@ -38,4 +38,4 @@ XENUS_EXPORT error_t chain_iterator(
 
 XENUS_SYM error_t chain_deallocate_handle(link_p handle);
 XENUS_SYM error_t chain_deallocate_search(chain_p chain, uint64_t hash);
-XENUS_SYM error_t chain_destory(chain_p chain);
+XENUS_SYM error_t chain_destroy(chain_p chain);

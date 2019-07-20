@@ -39,7 +39,7 @@ XENUS_SYM error_t dyn_list_slice(dyn_list_head_p head, size_t index, size_t cnt)
 XENUS_SYM error_t dyn_list_splice(dyn_list_head_p head, size_t index, void ** new_entity);      
 XENUS_SYM error_t dyn_list_preappend(dyn_list_head_p head, void ** entry);                      
 XENUS_SYM error_t dyn_list_remove(dyn_list_head_p head, size_t index);                          
-XENUS_SYM error_t dyn_list_destory(dyn_list_head_p head);
+XENUS_SYM error_t dyn_list_destroy(dyn_list_head_p head);
 XENUS_SYM error_t dyn_list_iterate(dyn_list_head_p head, void(*iterator)(void * buffer, void * ctx), void * ctx);
 XENUS_SYM error_t dyn_list_reset(dyn_list_head_p head);
 XENUS_SYM error_t dyn_list_rebuffer(dyn_list_head_p head);
