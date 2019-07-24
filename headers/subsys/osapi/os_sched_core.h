@@ -1,6 +1,7 @@
 XENUS_IMPORT l_int set_cpus_allowed_ptr(task_k p, const cpumask_k new_mask);
 XENUS_IMPORT void kick_process(task_k p);
 XENUS_IMPORT l_int wake_up_process(task_k p);
+XENUS_IMPORT l_int wake_up_state(task_k tsk, l_unsigned_int state);
 XENUS_IMPORT void preempt_notifier_inc();
 XENUS_IMPORT void preempt_notifier_dec();
 XENUS_IMPORT void preempt_notifier_register(preempt_notifier_k notifier);

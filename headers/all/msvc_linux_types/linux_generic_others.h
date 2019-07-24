@@ -23,6 +23,7 @@ typedef void * kernel_symbol_k;
 typedef void nodemask_t;
 typedef void * page_frag_cache_k;
 typedef void * sysinfo_k;
+typedef void * vm_unmapped_area_info_k;
 
 //typedef void * vm_struct_k;
 typedef struct vm_struct_unsafe {

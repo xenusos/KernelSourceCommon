@@ -145,6 +145,7 @@
     <ClInclude Include="headers\subsys\osapi\os_pat.h" />
     <ClInclude Include="headers\subsys\osapi\os_pid.h" />
     <ClInclude Include="headers\subsys\osapi\os_random.h" />
+    <ClInclude Include="headers\subsys\osapi\os_rcu.h" />
     <ClInclude Include="headers\subsys\osapi\os_readdir.h" />
     <ClInclude Include="headers\subsys\osapi\os_read_write.h" />
     <ClInclude Include="headers\subsys\osapi\os_rwsem.h" />

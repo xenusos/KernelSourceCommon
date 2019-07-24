@@ -35,3 +35,4 @@
 #include "os_ioremap.h"
 #include "os_pat.h"
 #include "os_cpu.h"
+#include "os_rcu.h"

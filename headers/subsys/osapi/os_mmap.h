@@ -5,3 +5,4 @@ XENUS_IMPORT vm_area_struct_k find_extend_vma(mm_struct_k mm, l_unsigned_long ad
 XENUS_IMPORT l_int vm_munmap(l_unsigned_long start, size_t len);
 XENUS_IMPORT l_int vm_brk_flags(l_unsigned_long addr, l_unsigned_long len, l_unsigned_long flags);
 XENUS_IMPORT l_int vm_brk(l_unsigned_long addr, l_unsigned_long len);
+XENUS_IMPORT l_unsigned_long unmapped_area(vm_unmapped_area_info_k info);
